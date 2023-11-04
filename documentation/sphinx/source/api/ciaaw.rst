@@ -39,7 +39,7 @@ C
 Standard Atomic Weights
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* `iapws_g704.h`: C header.
+* `ciaaw_saw.h`: C header.
 
 .. literalinclude:: ../../../../include/ciaaw_saw.h
     :language: C
