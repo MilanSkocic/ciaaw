@@ -1,7 +1,7 @@
 Introduction
 ================
 
-.. image:: ./media/logo-iapws.png
+.. image:: ./media/logo-ciaaw.png
     :width: 200
 
 .. readme_inclusion_start
