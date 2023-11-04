@@ -1,32 +1,40 @@
-# Prerequisites
-*.d
+#API: an (incompatible) API change
+#BENCH: changes to the benchmark suite
+#BLD: change related to building numpy
+#BUG: bug fix
+#DEP: deprecate something, or remove a deprecated object
+#DEV: development tool or utility
+#DOC: documentation
+#ENH: enhancement
+#MAINT: maintenance commit (refactoring, typos, etc.)
+#REV: revert an earlier commit
+#STY: style fix (whitespace, PEP8)
+#TST: addition or modification of tests
+#REL: related to releasing
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
+.idea/
+bin/
+build/
+docs/build/
+dist/
+.vscode/
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
+*.o
 *.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
 *.a
-*.lib
+*.dll
+*.so
 
-# Executables
-*.exe
-*.out
-*.app
+*.egg-info
+__pycache__
+*.so
+
+.DS_Store
+
+pywrapper/pyciaaw/*.h
+pywrapper/pyciaaw/*.a
+pywrapper/pyciaaw/*.dll
+pywrapper/pyciaaw/*.dll.a
+pywrapper/pyciaaw/*.so
+pywrapper/pyciaaw/*.dylib
+pywrapper/pyciaaw/*.pyd

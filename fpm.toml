@@ -1,0 +1,48 @@
+name = "ciaaw"
+version = "0.1.0"
+license = "GNU General Public License v3 (GPLv3)"
+author = "Milan Skocic"
+maintainer = "milan.skocic@icloud.com"
+copyright = "Copyright 2023, Milan Skocic"
+description = "Standard atomic weights according to CIAAW."
+categories = ["Science", "Chemistry"]
+keywords = ["atomic weights", "molar masses", "ciaaw"]
+homepage = "https://milanskocic.github.io/ciaaw/index.html"
+
+[fortran]
+implicit-typing = false
+implicit-external = false
+source-form = "free"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+module-naming = true
+
+[install]
+library = true
+
+# [[example]]
+# name = "example_in_f"
+# main = "example_in_f.f90"
+
+# [[example]]
+# name = "example_in_c"
+# main = "example_in_c.c"
+
+# [[test]]
+# name = "test_r283"
+# main = "test_r283.f90"
+
+# [[test]]
+# name = "test_g704"
+# main = "test_g704.f90"
+
+# [[test]]
+# name = "test_g704_capi"
+# main = "test_g704_capi.c"
+
+# [[test]]
+# name = "test_r797"
+# main = "test_r797.f90"

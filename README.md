@@ -1,2 +1,0 @@
-# ciaaw
-Standard atomic weights
