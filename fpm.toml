@@ -31,18 +31,6 @@ main = "example_in_f.f90"
 name = "example_in_c"
 main = "example_in_c.c"
 
-# [[test]]
-# name = "test_r283"
-# main = "test_r283.f90"
-
-# [[test]]
-# name = "test_g704"
-# main = "test_g704.f90"
-
-# [[test]]
-# name = "test_g704_capi"
-# main = "test_g704_capi.c"
-
-# [[test]]
-# name = "test_r797"
-# main = "test_r797.f90"
+[[test]]
+name = "test_saw"
+main = "test_saw.f90"
