@@ -1,3 +1,8 @@
+.. |cidev| image:: https://github.com/MilanSkocic/ciaaw/actions/workflows/ci.yml/badge.svg?branch=dev
+.. |cimain| image:: https://github.com/MilanSkocic/ciaaw/actions/workflows/ci.yml/badge.svg?branch=main
+   
+dev |cidev| / main |cimain|
+
 Introduction
 ================
 
