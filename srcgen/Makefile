@@ -9,7 +9,7 @@ all: srcgen
 srcgen: generator
 	./generator
 
-generator: main.o
+generator: utilities.o fortran_code.o main.o
 	$(FC) $^ -o generator
 
 %.o: %.f90

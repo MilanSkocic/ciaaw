@@ -3,4 +3,6 @@ module ciaaw__saw
 use iso_fortran_env
 implicit none
  
+integer(int32), parameter :: YEAR = 2021
+
 end module ciaaw__saw
