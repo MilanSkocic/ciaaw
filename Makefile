@@ -6,9 +6,12 @@ endif
 
 .PHONY: all clean install uninstall copy_h copy_a shared_linux shared_windows shared_darwin
 
-all: $(LIBNAME)
+all: generator $(LIBNAME)
 
 $(LIBNAME): build copy_h copy_a shared copy_shared
+
+generator:
+	make -C ./srcgen
 
 build: clean
 	fpm build --profile=release
