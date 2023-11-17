@@ -86,7 +86,7 @@ subroutine get_props(properties)
 
 end subroutine
 
-subroutine write_saw_data(fciaaw, ffortran, props)
+subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
     !! Generate the fortran code for ciaaw__saw.
     implicit none
     ! Arguments
@@ -94,6 +94,8 @@ subroutine write_saw_data(fciaaw, ffortran, props)
         !! File unit of the ciaaw data.
     integer(int32), intent(in) :: ffortran
         !! File unit of the Fortran module.
+    integer(int32), intent(in) :: ffortran_capi
+        !! File unit of the Fortran CAPI module.
     type(ciaaw_saw_file_props), intent(in) :: props
         !! props Properties of the codata file.
 
@@ -120,13 +122,18 @@ subroutine write_saw_data(fciaaw, ffortran, props)
     end do
 
     ! fortran
-    write(ffortran, "(A,/)") 'integer(int32), parameter :: YEAR = ' // props%year
+    write(ffortran, "(A,/)") 'integer(int32), parameter :: CIAAW_YEAR = ' // props%year
+    ! fortran C API
+    write(ffortran_capi, "(A,/)") &
+    'integer(c_int), protected, bind(C, name="CIAAW_CAPI_YEAR") :: CIAAW_CAPI_YEAR = CIAAW_YEAR'
+    
 
     do i=1, props%n
         call clean_line(line)
         read(fciaaw, "(A)") line
         if(len(trim(line))>0)then
             read(line(cix_compute(1): cix_compute(2)), "(L4)") compute
+            read(line(cix_element(1): cix_element(2)), "(A)") element
             read(line(cix_saw_min(1): cix_saw_min(2)), "(A)") saw_min
             read(line(cix_saw_max(1): cix_saw_max(2)), "(A)") saw_max
             read(line(cix_saw(1): cix_saw(2)), "(A)") saw_value

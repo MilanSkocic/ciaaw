@@ -6,8 +6,10 @@ program generator
 
     integer(int32) :: fciaaw
     integer(int32) :: ffortran
+    integer(int32) :: ffortran_capi
     integer(int32) :: unit
     logical :: exist
+    character(len=32) :: fpath
     type(ciaaw_saw_file_props) :: props
 
     props = ciaaw_saw_file_props(0, 0, "./ciaaw_2021.txt", "2021")
@@ -24,19 +26,33 @@ program generator
     open(file=props%fpath, newunit=fciaaw, status="old", action="read")
     
     ! FORTRAN
+    fpath = "../src/ciaaw_saw.f90"
     print *, "Opening ffortran file..."
-    inquire(file="../src/ciaaw_saw.f90", exist=exist)
+    inquire(file=fpath, exist=exist)
     if(exist)then
-        open(file="../src/ciaaw_saw.f90", newunit=unit, status="old")
+        open(file=fpath, newunit=unit, status="old")
         close(unit=unit, status="delete")
     endif
-    open(file="../src/ciaaw_saw.f90", newunit=ffortran, status="new", action="write")
+    open(file=fpath, newunit=ffortran, status="new", action="write")
+    
+    ! C API
+    fpath = "../src/ciaaw_saw_capi.f90"
+    print *, "Opening ffortran_capi file..."
+    inquire(file=fpath, exist=exist)
+    if(exist)then
+        open(file=fpath, newunit=unit, status="old")
+        close(unit=unit, status="delete")
+    endif
+    open(file=fpath, newunit=ffortran_capi, status="new", action="write")
 
     call write_fortran_module_declaration(ffortran)
-    call write_saw_data(fciaaw, ffortran, props)
+    call write_fortran_capi_module_declaration(ffortran_capi)
+    call write_saw_data(fciaaw, ffortran, ffortran_capi, props)
     call write_fortran_module_end(ffortran)
+    call write_fortran_capi_module_end(ffortran_capi)
 
     close(fciaaw)
     close(ffortran)
+    close(ffortran_capi)
 
 end program
