@@ -12,19 +12,35 @@ module utils
     end type
     
     integer(int32), parameter :: LINE_LENGTH = 256 !! Length of line.
-    integer(int32), parameter :: cix_element(2) = [1, 10]
-    integer(int32), parameter :: cix_symbol(2) = [11, 17]
-    integer(int32), parameter :: cix_z(2) = [18, 22]
-    integer(int32), parameter :: cix_saw_min(2) = [23, 42]
-    integer(int32), parameter :: cix_saw_max(2) = [43, 62]
-    integer(int32), parameter :: cix_saw(2) = [63, 82]
-    integer(int32), parameter :: cix_saw_u(2) = [83, 92]
-    integer(int32), parameter :: cix_footnote(2) = [93, 102]
-    integer(int32), parameter :: cix_asaw(2) = [103, 112]
-    integer(int32), parameter :: cix_asaw_u(2) = [113, 122]
-    integer(int32), parameter :: cix_compute(2) = [123, 132]
+    integer(int32), parameter :: cix_element(2) = [1, 20]
+    integer(int32), parameter :: cix_symbol(2) = [21, 27]
+    integer(int32), parameter :: cix_z(2) = [28, 32]
+    integer(int32), parameter :: cix_saw_min(2) = [33, 52]
+    integer(int32), parameter :: cix_saw_max(2) = [53, 72]
+    integer(int32), parameter :: cix_saw(2) = [73, 92]
+    integer(int32), parameter :: cix_saw_u(2) = [93, 112]
+    integer(int32), parameter :: cix_footnote(2) = [113, 122]
+    integer(int32), parameter :: cix_asaw(2) = [123, 132]
+    integer(int32), parameter :: cix_asaw_u(2) = [133, 142]
+    integer(int32), parameter :: cix_compute(2) = [143, 152]
 
 contains
+
+subroutine convert_value_to_fortran(value)
+    !! Convert power symbol d to e for C code
+    ! Arguments
+    character(len=*), intent(inout) :: value
+        ! Value to be converted.
+    
+    ! Local vars
+    integer(int32) :: i
+
+    do i=1, len(value), 1
+        if(value(i:i) == 'e' .or. value(i:i) == 'E')then
+            value(i:i) = achar(iachar("d"))
+        end if
+    end do
+end subroutine
 
 subroutine clean_line(line)
     !! Fill the buffer with white space.
@@ -99,22 +115,29 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
     type(ciaaw_saw_file_props), intent(in) :: props
         !! props Properties of the codata file.
 
+    character(len=32) :: out_format
 
     character(len=LINE_LENGTH) :: line
-    character(len=10) :: element
-    logical :: compute
-    real(real64) :: saw_max_db
-    character(len=20) :: saw_max
-    real(real64) :: saw_min_db
-    character(len=20) :: saw_min
-    real(real64) :: saw_value_db
-    character(len=20) :: saw_value
-    real(real64) :: saw_u_db
-    character(len=20) :: saw_u
-    character(len=20) :: asaw
-    character(len=20) :: asaw_u
     
-    integer(int32) :: i
+    character(len=64) :: name
+    character(len=64) :: name_capi
+    
+    character(len=10) :: element
+    character(len=2) :: symbol
+    character(len=4) :: z
+    character(len=64) :: saw_max
+    character(len=64) :: saw_min
+    character(len=64) :: saw
+    character(len=64) :: saw_u
+    character(len=64) :: asaw
+    character(len=64) :: asaw_u
+    logical :: compute
+    real(real64) :: saw_min_db
+    real(real64) :: saw_value_db
+    real(real64) :: saw_max_db
+    real(real64) :: saw_u_db
+    
+    integer(int32) :: i, n
     
     rewind(unit=fciaaw)
     do i=1, props%index_header_end
@@ -122,10 +145,10 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
     end do
 
     ! fortran
-    write(ffortran, "(A,/)") 'integer(int32), parameter :: CIAAW_YEAR = ' // props%year
+    write(ffortran, "(A,/)") 'integer(int32), parameter :: ciaaw_saw_YEAR = ' // props%year
     ! fortran C API
     write(ffortran_capi, "(A,/)") &
-    'integer(c_int), protected, bind(C, name="CIAAW_CAPI_YEAR") :: CIAAW_CAPI_YEAR = CIAAW_YEAR'
+    'integer(c_int), protected, bind(C, name="CIAAW_CAPI_YEAR") :: ciaaw_saw_capi_YEAR = ciaaw_saw_YEAR'
     
 
     do i=1, props%n
@@ -134,9 +157,11 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
         if(len(trim(line))>0)then
             read(line(cix_compute(1): cix_compute(2)), "(L4)") compute
             read(line(cix_element(1): cix_element(2)), "(A)") element
+            read(line(cix_symbol(1): cix_symbol(2)), "(A)") symbol
+            read(line(cix_z(1): cix_z(2)), "(A)") z
             read(line(cix_saw_min(1): cix_saw_min(2)), "(A)") saw_min
             read(line(cix_saw_max(1): cix_saw_max(2)), "(A)") saw_max
-            read(line(cix_saw(1): cix_saw(2)), "(A)") saw_value
+            read(line(cix_saw(1): cix_saw(2)), "(A)") saw
             read(line(cix_saw_u(1): cix_saw_u(2)), "(A)") saw_u
             read(line(cix_asaw(1): cix_asaw(2)), "(A)") asaw
             read(line(cix_asaw_u(1): cix_asaw_u(2)), "(A)") asaw_u
@@ -146,16 +171,37 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
             if(compute)then
                 read(saw_max, "(D20.10)") saw_max_db
                 read(saw_min, "(D20.10)") saw_min_db
+                
                 saw_value_db = (saw_max_db + saw_min_db)/2.0d0
                 saw_u_db = (saw_max_db - saw_min_db)/(2.0d0*sqrt(3.0d0))
-                write(saw_value, "(ES19.12E2)") saw_value_db
-                write(saw_u, "(ES19.12E2)") saw_u_db
+                
+                n = floor(log10(saw_u_db))
+                saw_u_db = ceiling(saw_u_db * 10**(-n*1.0d0))*10**(n*1.0d0)
+                
+                write(out_format, "(A, I1, A)") "(F19.", -n, ", A)"
+                write(saw, out_format) saw_value_db, "d0"
+                
+                write(out_format, "(A, I1, A)") "(F19.", -n, ", A)"
+                write(saw_u, out_format) saw_u_db, "d0"
             else
-                saw_value = ""
-                saw_u = ""
+                saw_max = "-1"
+                saw_min = "-1"
             end if
-            print *, saw_min, saw_max, saw_value, saw_u, asaw, asaw_u
-        else
+            
+            name = "ciaaw_saw_"//trim(symbol)
+            write(ffortran, "(A)") "type(ciaaw_saw_elmt_t), parameter :: "//trim(name)//" =&"
+            write(ffortran, "(A)") 'ciaaw_saw_elmt_t("'//trim(element)//'", '//'"'//trim(symbol)//'", '//trim(z)//", "//&
+                                    trim(saw_min)// ", "//trim(saw_max)//", "//&
+                                    trim(adjustl(saw))//", "//trim(adjustl(saw_u))//", "//&
+                                    trim(asaw)//", "//trim(asaw_u)//')'
+            write(ffortran, "(A)") ""
+            name_capi = "ciaaw_saw_capi_"//trim(symbol)
+write(ffortran_capi, "(A)", advance="NO") "type(ciaaw_saw_capi_elmt_t) :: "//trim(name_capi)//" =ciaaw_saw_capi_elmt_t("
+            write(ffortran_capi, "(A)") trim(name)//"%z, &"
+            write(ffortran_capi, "(A)", advance="NO") trim(name)//"%saw_max, "//trim(name)//"%saw_min, "
+            write(ffortran_capi, "(A)", advance="NO") trim(name)//"%saw, "//trim(name)//"%saw_u, "
+            write(ffortran_capi, "(A)") trim(name)//"%asaw, "//trim(name)//"%asaw_u)"
+            write(ffortran_capi, "(A)") ""
         endif
 
     end do
