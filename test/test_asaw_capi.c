@@ -29,20 +29,22 @@ static int assertEqual(double x1, double x2, int n){
 
 void test_asaw(void){
 
-    int N = 2;
+    const int N = 2;
     int i;
     double value;
     double expected[N];
     double diff;
+
     struct ciaaw_saw_capi_elmt_t elements[N];
     
     printf("%s", "ASAW...");
     
     expected[1] = 1.0080;
     expected[2] = 12.011;
+
+    elements[0] = ciaaw_saw_capi_H;
+    elements[1] = ciaaw_saw_capi_C;
     
-    elements[1] = ciaaw_saw_capi_H;
-    elements[2] = ciaaw_saw_capi_C;
 
     for(i=0; i<N; i++){
         value = elements[i].asaw;

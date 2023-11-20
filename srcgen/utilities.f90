@@ -148,7 +148,7 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
     write(ffortran, "(A,/)") 'integer(int32), parameter :: ciaaw_saw_YEAR = ' // props%year
     ! fortran C API
     write(ffortran_capi, "(A,/)") &
-    'integer(c_int), protected, bind(C, name="CIAAW_CAPI_YEAR") :: ciaaw_saw_capi_YEAR = ciaaw_saw_YEAR'
+    'integer(c_int), protected, bind(C, name="ciaaw_saw_capi_YEAR") :: ciaaw_saw_capi_YEAR = ciaaw_saw_YEAR'
     
 
     do i=1, props%n
@@ -196,7 +196,8 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
                                     trim(asaw)//", "//trim(asaw_u)//')'
             write(ffortran, "(A)") ""
             name_capi = "ciaaw_saw_capi_"//trim(symbol)
-            write(ffortran_capi, "(A)", advance="YES") 'type(ciaaw_saw_capi_elmt_t), bind(C, name="'//trim(name_capi)//'") :: '//&
+            write(ffortran_capi, "(A)", advance="NO") 'type(ciaaw_saw_capi_elmt_t), protected, '
+            write(ffortran_capi, "(A)", advance="YES") 'bind(C, name="'//trim(name_capi)//'") :: '//&
                                                        trim(name_capi)//" = ciaaw_saw_capi_elmt_t(&"
             write(ffortran_capi, "(A)", advance="NO") trim(name)//"%element//c_null_char, "//trim(name)//"%symbol//c_null_char, "
             write(ffortran_capi, "(A)", advance="YES") trim(name)//"%z, &"

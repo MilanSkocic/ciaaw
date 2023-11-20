@@ -2,8 +2,8 @@
 #define CIAAW_SAW_H
 
 struct ciaaw_saw_capi_elmt_t{
-    char *element;
-    char*symbol;
+    char element[33];
+    char symbol[3];
     int z; 
     double saw_min;
     double saw_max;
@@ -13,7 +13,9 @@ struct ciaaw_saw_capi_elmt_t{
     double asaw_u;
 };
 
-extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_H;
-extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_C;
+extern const int ciaaw_saw_capi_YEAR;
+
+extern struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_H;
+extern struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_C;
 
 #endif
