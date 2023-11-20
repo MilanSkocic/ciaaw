@@ -102,7 +102,7 @@ subroutine get_props(properties)
 
 end subroutine
 
-subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
+subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
     !! Generate the fortran code for ciaaw__saw.
     implicit none
     ! Arguments
@@ -112,6 +112,8 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
         !! File unit of the Fortran module.
     integer(int32), intent(in) :: ffortran_capi
         !! File unit of the Fortran CAPI module.
+    integer(int32), intent(in) :: fcheader
+        ! File unit of the C header.
     type(ciaaw_saw_file_props), intent(in) :: props
         !! props Properties of the codata file.
 
@@ -149,6 +151,9 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
     ! fortran C API
     write(ffortran_capi, "(A,/)") &
     'integer(c_int), protected, bind(C, name="ciaaw_saw_capi_YEAR") :: ciaaw_saw_capi_YEAR = ciaaw_saw_YEAR'
+    ! C HEADER
+    write(fcheader, "(A,/)") &
+    'extern const int ciaaw_saw_capi_YEAR;'
     
 
     do i=1, props%n
@@ -188,13 +193,15 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
                 saw_min = "-1"
             end if
             
+            ! Fortran
             name = "ciaaw_saw_"//trim(symbol)
             write(ffortran, "(A)") "type(ciaaw_saw_elmt_t), parameter :: "//trim(name)//" =&"
             write(ffortran, "(A)") 'ciaaw_saw_elmt_t("'//trim(element)//'", '//'"'//trim(symbol)//'", '//trim(z)//", "//&
                                     trim(saw_min)// ", "//trim(saw_max)//", "//&
                                     trim(adjustl(saw))//", "//trim(adjustl(saw_u))//", "//&
                                     trim(asaw)//", "//trim(asaw_u)//')'
-            write(ffortran, "(A)") ""
+
+            ! Fortran C API
             name_capi = "ciaaw_saw_capi_"//trim(symbol)
             write(ffortran_capi, "(A)", advance="NO") 'type(ciaaw_saw_capi_elmt_t), protected, '
             write(ffortran_capi, "(A)", advance="YES") 'bind(C, name="'//trim(name_capi)//'") :: '//&
@@ -204,10 +211,16 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
             write(ffortran_capi, "(A)", advance="NO") trim(name)//"%saw_max, "//trim(name)//"%saw_min, "
             write(ffortran_capi, "(A)", advance="NO") trim(name)//"%saw, "//trim(name)//"%saw_u, "
             write(ffortran_capi, "(A)") trim(name)//"%asaw, "//trim(name)//"%asaw_u)"
-            write(ffortran_capi, "(A)") ""
+
+            ! C Header
+            name = "ciaaw_saw_capi_"//trim(symbol)
+            write(fcheader, "(A)") 'extern const struct ciaaw_saw_capi_elmt_t '//trim(name)//';'
         endif
 
     end do
+    write(ffortran, '(A)') ''
+    write(ffortran_capi, '(A)') ''
+    write(fcheader, '(A)') ''
 
 end subroutine
 

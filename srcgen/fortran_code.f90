@@ -42,7 +42,7 @@ subroutine write_fortran_module_end(fcode)
 end subroutine
 
 subroutine write_fortran_capi_module_declaration(fcode)
-    !! brief Generate the Fortran CAPI module declaration.
+    !! Generate the Fortran CAPI module declaration.
     implicit none
     ! Arguments
     integer(int32), intent(in) :: fcode
@@ -76,4 +76,41 @@ subroutine write_fortran_capi_module_end(fcode)
         !! File unit of the Fortran module.
     write(fcode, "(A)") "end module ciaaw__saw_capi"
 end subroutine
+
+
+subroutine write_C_header_declaration(fcode)
+    !! Generate the C header declaration
+    implicit none
+    ! Arguments
+    integer(int32), intent(in) :: fcode
+        !! File unit of the C header.
+    write(fcode, "(A)") '#ifndef CIAAW_SAW_H'
+    write(fcode, "(A)") '#define CIAAW_SAW_H'
+
+    write(fcode, "(A)") 'struct ciaaw_saw_capi_elmt_t{'
+    write(fcode, "(4X, A)") 'char element[33];'
+    write(fcode, "(4X, A)") 'char symbol[3];'
+    write(fcode, "(4X, A)") 'int z;'
+    write(fcode, "(4X, A)") 'double saw_min;'
+    write(fcode, "(4X, A)") 'double saw_max;'
+    write(fcode, "(4X, A)") 'double saw;'
+    write(fcode, "(4X, A)") 'double saw_u;'
+    write(fcode, "(4X, A)") 'double asaw;'
+    write(fcode, "(4X, A)") 'double asaw_u;'
+     write(fcode, "(A)") '};'
+    
+end subroutine
+
+
+subroutine write_C_header_end(fcode)
+    !! Generate the C header declaration
+    implicit none
+    ! Arguments
+    integer(int32), intent(in) :: fcode
+        !! File unit of the C header.
+    write(fcode, "(A)") '#endif'
+    write(fcode, "(A)") ''
+    
+end subroutine
+
 end module

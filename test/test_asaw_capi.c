@@ -37,10 +37,10 @@ void test_asaw(void){
 
     struct ciaaw_saw_capi_elmt_t elements[N];
     
-    printf("%s", "ASAW...");
+    printf("    %s", "ASAW...");
     
-    expected[1] = 1.0080;
-    expected[2] = 12.011;
+    expected[0] = 1.0080;
+    expected[1] = 12.012;
 
     elements[0] = ciaaw_saw_capi_H;
     elements[1] = ciaaw_saw_capi_C;
@@ -50,20 +50,19 @@ void test_asaw(void){
         value = elements[i].asaw;
         diff = value -expected[i];
         diff = roundn(diff, 16);
-        if(assertEqual(diff, 0.0, 16)){
-            printf("%s\n", "OK");
-        }else{
+        if(!assertEqual(diff, 0.0, 16)){
             printf("%s\n", "Failed");
-            printf("    %s    %+23.16f/%+23.16f/%+23.16f\n", elements[i].element, value, expected[i], diff);
+            printf("    %s    %+23.16f/%+23.16f/%+23.16f\n", elements[i].symbol, value, expected[i], diff);
             exit(1);
         }
     }
+    printf("%s\n", "OK");
 
 }
 
 int main(){
 
-    printf("%s", "***** TESTING C API CODE FOR ASAW *****");
+    printf("%s\n", "***** TESTING C API CODE FOR ASAW *****");
 
     test_asaw();
     EXIT_SUCCESS;

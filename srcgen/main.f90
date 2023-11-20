@@ -4,9 +4,7 @@ program generator
     use fortran_code
     implicit none
 
-    integer(int32) :: fciaaw
-    integer(int32) :: ffortran
-    integer(int32) :: ffortran_capi
+    integer(int32) :: fciaaw, ffortran, ffortran_capi, fcheader
     integer(int32) :: unit
     logical :: exist
     character(len=32) :: fpath
@@ -45,14 +43,27 @@ program generator
     endif
     open(file=fpath, newunit=ffortran_capi, status="new", action="write")
 
+    ! C Header
+    fpath = "../include/ciaaw_saw.h"
+    print *, "Opening C header..."
+    inquire(file=fpath, exist=exist)
+    if(exist)then
+        open(file=fpath, newunit=unit, status="old")
+        close(unit=unit, status="delete")
+    endif
+    open(file=fpath, newunit=fcheader, status="new", action="write")
+
     call write_fortran_module_declaration(ffortran)
     call write_fortran_capi_module_declaration(ffortran_capi)
-    call write_saw_data(fciaaw, ffortran, ffortran_capi, props)
+    call write_C_header_declaration(fcheader)
+    call write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
     call write_fortran_module_end(ffortran)
     call write_fortran_capi_module_end(ffortran_capi)
+    call write_C_header_end(fcheader)
 
     close(fciaaw)
     close(ffortran)
     close(ffortran_capi)
+    close(fcheader)
 
 end program
