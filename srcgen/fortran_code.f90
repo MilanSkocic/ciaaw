@@ -54,6 +54,8 @@ subroutine write_fortran_capi_module_declaration(fcode)
     write(fcode, "(A)") "use ciaaw__saw"
     write(fcode, "(A, /)") "implicit none"
     write(fcode, "(A)") "type, bind(C) :: ciaaw_saw_capi_elmt_t"
+    write(fcode, "(A)") 'character(kind=c_char) :: element(33)'
+    write(fcode, "(A)") 'character(kind=c_char) :: symbol(3)'
     write(fcode, "(A)") "integer(c_int) :: z"
     write(fcode, "(A)") 'real(c_double) :: saw_min'
     write(fcode, "(A)") 'real(c_double) :: saw_max'

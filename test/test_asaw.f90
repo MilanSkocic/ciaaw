@@ -59,8 +59,8 @@ subroutine test_asaw()
     do i=1, size(elements)
         value  = elements(i)%asaw
         diff = value - expected(i)
-        diff = roundn(diff, 4)
-        if(.not. assertEqual(diff, 0.0d0, 4))then
+        diff = roundn(diff, 16)
+        if(.not. assertEqual(diff, 0.0d0, 16))then
             write(*, "(A)", advance="yes") "Failed"
             write(*, "(4X, A, 4X, SP, F23.16, A1, F23.16, A1, F23.16)", advance="yes") &
             elements(i)%symbol, value, "/", expected(i), "/", diff
@@ -68,7 +68,6 @@ subroutine test_asaw()
     endif
     
     end do
-
     
     write(*, "(A)", advance="yes") "OK"
     

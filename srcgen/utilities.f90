@@ -196,8 +196,10 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, props)
                                     trim(asaw)//", "//trim(asaw_u)//')'
             write(ffortran, "(A)") ""
             name_capi = "ciaaw_saw_capi_"//trim(symbol)
-write(ffortran_capi, "(A)", advance="NO") "type(ciaaw_saw_capi_elmt_t) :: "//trim(name_capi)//" =ciaaw_saw_capi_elmt_t("
-            write(ffortran_capi, "(A)") trim(name)//"%z, &"
+            write(ffortran_capi, "(A)", advance="YES") 'type(ciaaw_saw_capi_elmt_t), bind(C, name="'//trim(name_capi)//'") :: '//&
+                                                       trim(name_capi)//" = ciaaw_saw_capi_elmt_t(&"
+            write(ffortran_capi, "(A)", advance="NO") trim(name)//"%element//c_null_char, "//trim(name)//"%symbol//c_null_char, "
+            write(ffortran_capi, "(A)", advance="YES") trim(name)//"%z, &"
             write(ffortran_capi, "(A)", advance="NO") trim(name)//"%saw_max, "//trim(name)//"%saw_min, "
             write(ffortran_capi, "(A)", advance="NO") trim(name)//"%saw, "//trim(name)//"%saw_u, "
             write(ffortran_capi, "(A)") trim(name)//"%asaw, "//trim(name)//"%asaw_u)"

@@ -26,3 +26,7 @@ library = true
 [[test]]
 name = "test_asaw"
 main = "test_asaw.f90"
+
+[[test]]
+name = "test_asaw_capi"
+main = "test_asaw_capi.c"
