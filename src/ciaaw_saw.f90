@@ -30,5 +30,13 @@ type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_B =&
 ciaaw_saw_elmt_t("boron", "B", 5, 10.806d0, 10.821d0, 10.813d0, 0.005d0, 10.81d0, 0.02d0)
 type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_C =&
 ciaaw_saw_elmt_t("carbon", "C", 6, 12.0096d0, 12.0116d0, 12.0106d0, 0.0006d0, 12.011d0, 0.002d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_N =&
+ciaaw_saw_elmt_t("nitrogen", "N", 7, 14.00643d0, 14.00728d0, 14.0069d0, 0.0003d0, 14.007d0, 0.001d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_O =&
+ciaaw_saw_elmt_t("oxygen", "O", 8, 15.99903d0, 15.99977d0, 15.9994d0, 0.0003d0, 15.999d0, 0.001d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_F =&
+ciaaw_saw_elmt_t("fluorine", "F", 9, -1, -1, 18.998403162d0, 0.000000005d0, 18.998d0, 0.001d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Ne =&
+ciaaw_saw_elmt_t("neon", "Ne", 10, -1, -1, 20.1797d0, 0.0006d0, 20.180d0, 0.001d0)
 
 end module ciaaw__saw

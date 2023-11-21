@@ -19,6 +19,10 @@ extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_Li;
 extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_Be;
 extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_B;
 extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_C;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_N;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_O;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_F;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_Ne;
 
 #endif
 
