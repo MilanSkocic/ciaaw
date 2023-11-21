@@ -23,6 +23,14 @@ extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_N;
 extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_O;
 extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_F;
 extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_Ne;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_Na;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_Mg;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_Al;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_Si;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_P;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_S;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_Cl;
+extern const struct ciaaw_saw_capi_elmt_t ciaaw_saw_capi_Ar;
 
 #endif
 

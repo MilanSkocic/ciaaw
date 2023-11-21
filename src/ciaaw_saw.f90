@@ -38,5 +38,21 @@ type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_F =&
 ciaaw_saw_elmt_t("fluorine", "F", 9, -1, -1, 18.998403162d0, 0.000000005d0, 18.998d0, 0.001d0)
 type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Ne =&
 ciaaw_saw_elmt_t("neon", "Ne", 10, -1, -1, 20.1797d0, 0.0006d0, 20.180d0, 0.001d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Na =&
+ciaaw_saw_elmt_t("sodium", "Na", 11, -1, -1, 22.98976928d0, 0.00000002d0, 22.990d0, 0.001d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Mg =&
+ciaaw_saw_elmt_t("magnesium", "Mg", 12, 24.304d0, 24.307d0, 24.3055d0, 0.0009d0, 24.305d0, 0.002d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Al =&
+ciaaw_saw_elmt_t("aluminium", "Al", 13, -1, -1, 26.9815384d0, 0.0000003d0, 26.982d0, 0.001d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Si =&
+ciaaw_saw_elmt_t("silicon", "Si", 14, 28.084d0, 28.086d0, 28.0850d0, 0.0006d0, 28.085d0, 0.001d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_P =&
+ciaaw_saw_elmt_t("phosphorous", "P", 15, -1, -1, 30.973761998d0, 0.000000005d0, 30.974d0, 0.001d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_S =&
+ciaaw_saw_elmt_t("sulfur", "S", 16, 32.059d0, 32.076d0, 32.067d0, 0.005d0, 32.06d0, 0.02d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Cl =&
+ciaaw_saw_elmt_t("chlorine", "Cl", 17, 35.446d0, 35.457d0, 35.451d0, 0.004d0, 35.45d0, 0.01d0)
+type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Ar =&
+ciaaw_saw_elmt_t("argon", "Ar", 18, 39.792d0, 39.963d0, 39.88d0, 0.05d0, 39.95d0, 0.16d0)
 
 end module ciaaw__saw

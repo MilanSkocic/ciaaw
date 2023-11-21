@@ -68,5 +68,45 @@ type(ciaaw_saw_capi_elmt_t), protected, bind(C, name="ciaaw_saw_capi_Ne") :: cia
 ["N","e",c_null_char, " "," "," "," "," "," "], &
 ciaaw_saw_Ne%z, &
 ciaaw_saw_Ne%saw_max, ciaaw_saw_Ne%saw_min, ciaaw_saw_Ne%saw, ciaaw_saw_Ne%saw_u, ciaaw_saw_Ne%asaw, ciaaw_saw_Ne%asaw_u)
+type(ciaaw_saw_capi_elmt_t), protected, bind(C, name="ciaaw_saw_capi_Na") :: ciaaw_saw_capi_Na = ciaaw_saw_capi_elmt_t(&
+["s","o","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["N","a",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Na%z, &
+ciaaw_saw_Na%saw_max, ciaaw_saw_Na%saw_min, ciaaw_saw_Na%saw, ciaaw_saw_Na%saw_u, ciaaw_saw_Na%asaw, ciaaw_saw_Na%asaw_u)
+type(ciaaw_saw_capi_elmt_t), protected, bind(C, name="ciaaw_saw_capi_Mg") :: ciaaw_saw_capi_Mg = ciaaw_saw_capi_elmt_t(&
+["m","a","g","n","e","s","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["M","g",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Mg%z, &
+ciaaw_saw_Mg%saw_max, ciaaw_saw_Mg%saw_min, ciaaw_saw_Mg%saw, ciaaw_saw_Mg%saw_u, ciaaw_saw_Mg%asaw, ciaaw_saw_Mg%asaw_u)
+type(ciaaw_saw_capi_elmt_t), protected, bind(C, name="ciaaw_saw_capi_Al") :: ciaaw_saw_capi_Al = ciaaw_saw_capi_elmt_t(&
+["a","l","u","m","i","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["A","l",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Al%z, &
+ciaaw_saw_Al%saw_max, ciaaw_saw_Al%saw_min, ciaaw_saw_Al%saw, ciaaw_saw_Al%saw_u, ciaaw_saw_Al%asaw, ciaaw_saw_Al%asaw_u)
+type(ciaaw_saw_capi_elmt_t), protected, bind(C, name="ciaaw_saw_capi_Si") :: ciaaw_saw_capi_Si = ciaaw_saw_capi_elmt_t(&
+["s","i","l","i","c","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["S","i",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Si%z, &
+ciaaw_saw_Si%saw_max, ciaaw_saw_Si%saw_min, ciaaw_saw_Si%saw, ciaaw_saw_Si%saw_u, ciaaw_saw_Si%asaw, ciaaw_saw_Si%asaw_u)
+type(ciaaw_saw_capi_elmt_t), protected, bind(C, name="ciaaw_saw_capi_P") :: ciaaw_saw_capi_P = ciaaw_saw_capi_elmt_t(&
+["p","h","o","s","p","h","o","r","o","u","s",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["P",c_null_char, " "," "," "," "," "," "," "], &
+ciaaw_saw_P%z, &
+ciaaw_saw_P%saw_max, ciaaw_saw_P%saw_min, ciaaw_saw_P%saw, ciaaw_saw_P%saw_u, ciaaw_saw_P%asaw, ciaaw_saw_P%asaw_u)
+type(ciaaw_saw_capi_elmt_t), protected, bind(C, name="ciaaw_saw_capi_S") :: ciaaw_saw_capi_S = ciaaw_saw_capi_elmt_t(&
+["s","u","l","f","u","r",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["S",c_null_char, " "," "," "," "," "," "," "], &
+ciaaw_saw_S%z, &
+ciaaw_saw_S%saw_max, ciaaw_saw_S%saw_min, ciaaw_saw_S%saw, ciaaw_saw_S%saw_u, ciaaw_saw_S%asaw, ciaaw_saw_S%asaw_u)
+type(ciaaw_saw_capi_elmt_t), protected, bind(C, name="ciaaw_saw_capi_Cl") :: ciaaw_saw_capi_Cl = ciaaw_saw_capi_elmt_t(&
+["c","h","l","o","r","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","l",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Cl%z, &
+ciaaw_saw_Cl%saw_max, ciaaw_saw_Cl%saw_min, ciaaw_saw_Cl%saw, ciaaw_saw_Cl%saw_u, ciaaw_saw_Cl%asaw, ciaaw_saw_Cl%asaw_u)
+type(ciaaw_saw_capi_elmt_t), protected, bind(C, name="ciaaw_saw_capi_Ar") :: ciaaw_saw_capi_Ar = ciaaw_saw_capi_elmt_t(&
+["a","r","g","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["A","r",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Ar%z, &
+ciaaw_saw_Ar%saw_max, ciaaw_saw_Ar%saw_min, ciaaw_saw_Ar%saw, ciaaw_saw_Ar%saw_u, ciaaw_saw_Ar%asaw, ciaaw_saw_Ar%asaw_u)
 
 end module ciaaw__saw_capi
