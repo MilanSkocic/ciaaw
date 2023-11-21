@@ -1,6 +1,8 @@
 module utils
     !! Functions for parsing and manipulating ciaaw_saw.
     use iso_fortran_env
+    use fortran_code
+    use c_code
     implicit none
 
     !! Properties of the file for the codata raw data.
@@ -124,8 +126,8 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
     character(len=64) :: name
     character(len=64) :: name_capi
     
-    character(len=10) :: element
-    character(len=2) :: symbol
+    character(len=LENGTH_ELEMENT+1) :: element
+    character(len=LENGTH_SYMBOL+1) :: symbol
     character(len=4) :: z
     character(len=64) :: saw_max
     character(len=64) :: saw_min
@@ -139,7 +141,7 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
     real(real64) :: saw_max_db
     real(real64) :: saw_u_db
     
-    integer(int32) :: i, n
+    integer(int32) :: i, n, j, ix_trim
     
     rewind(unit=fciaaw)
     do i=1, props%index_header_end
@@ -171,8 +173,6 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
             read(line(cix_asaw(1): cix_asaw(2)), "(A)") asaw
             read(line(cix_asaw_u(1): cix_asaw_u(2)), "(A)") asaw_u
             
-            print *, compute
-
             if(compute)then
                 read(saw_max, "(D20.10)") saw_max_db
                 read(saw_min, "(D20.10)") saw_min_db
@@ -206,7 +206,28 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
             write(ffortran_capi, "(A)", advance="NO") 'type(ciaaw_saw_capi_elmt_t), protected, '
             write(ffortran_capi, "(A)", advance="YES") 'bind(C, name="'//trim(name_capi)//'") :: '//&
                                                        trim(name_capi)//" = ciaaw_saw_capi_elmt_t(&"
-            write(ffortran_capi, "(A)", advance="NO") trim(name)//"%element//c_null_char, "//trim(name)//"%symbol//c_null_char, "
+            ix_trim = len(trim(element))
+            write(ffortran_capi, "(A)", advance="NO") '['
+            do j=1, ix_trim
+                 write(ffortran_capi, "(A)", advance="NO") '"'//element(j:j)//'",'
+            end do
+            write(ffortran_capi, "(A)", advance='NO') 'c_null_char, '
+            do j=(ix_trim+2), len(element)-1
+                 write(ffortran_capi, "(A)", advance="NO") '"'//element(j:j)//'",'
+            end do
+            write(ffortran_capi, "(A)", advance="YES") '" "], &'
+            
+            ix_trim = len(trim(symbol))
+            write(ffortran_capi, "(A)", advance="NO") '['
+            do j=1, ix_trim
+                write(ffortran_capi, "(A)", advance="NO") '"'//symbol(j:j)//'",'
+            end do
+            write(ffortran_capi, "(A)", advance='NO') 'c_null_char, '
+            do j=(ix_trim+2), len(symbol)-1
+                 write(ffortran_capi, "(A)", advance="NO") '"'//symbol(j:j)//'",'
+            end do
+            write(ffortran_capi, "(A)", advance="YES") '" "], &'
+
             write(ffortran_capi, "(A)", advance="YES") trim(name)//"%z, &"
             write(ffortran_capi, "(A)", advance="NO") trim(name)//"%saw_max, "//trim(name)//"%saw_min, "
             write(ffortran_capi, "(A)", advance="NO") trim(name)//"%saw, "//trim(name)//"%saw_u, "

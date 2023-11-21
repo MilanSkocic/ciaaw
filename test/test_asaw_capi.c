@@ -40,7 +40,7 @@ void test_asaw(void){
     printf("    %s", "ASAW...");
     
     expected[0] = 1.0080;
-    expected[1] = 12.012;
+    expected[1] = 12.011;
 
     elements[0] = ciaaw_saw_capi_H;
     elements[1] = ciaaw_saw_capi_C;

@@ -1,8 +1,8 @@
 #ifndef CIAAW_SAW_H
 #define CIAAW_SAW_H
 struct ciaaw_saw_capi_elmt_t{
-    char element[33];
-    char symbol[3];
+    char element[25];
+    char symbol[9];
     int z;
     double saw_min;
     double saw_max;

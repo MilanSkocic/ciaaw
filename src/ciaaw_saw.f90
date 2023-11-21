@@ -5,8 +5,8 @@ use ieee_arithmetic
 implicit none
 
 type :: ciaaw_saw_elmt_t
-character(len=32) :: element
-character(len=2) :: symbol
+character(len=24) :: element
+character(len=8) :: symbol
 integer(int32) :: z
 real(real64) :: saw_min
 real(real64) :: saw_max

@@ -2,6 +2,7 @@ program generator
     use iso_fortran_env
     use utils
     use fortran_code
+    use c_code
     implicit none
 
     integer(int32) :: fciaaw, ffortran, ffortran_capi, fcheader
