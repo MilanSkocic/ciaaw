@@ -138,7 +138,7 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
     'integer(c_int), protected, bind(C, name="ciaaw_saw_capi_YEAR") :: ciaaw_saw_capi_YEAR = ciaaw_saw_YEAR'
     ! C HEADER
     write(fcheader, "(A,/)") &
-    'extern const int ciaaw_saw_capi_YEAR;'
+    'ADD_IMPORT extern const int ciaaw_saw_capi_YEAR;'
     ! cpython
     write(fcpython, "(4X, A)") "v = PyLong_FromLong(ciaaw_saw_capi_YEAR);"
     write(fcpython, "(4X, A)") 'PyDict_SetItemString(d, "YEAR", v);'
@@ -223,7 +223,7 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
 
             ! C Header
             name = "ciaaw_saw_capi_"//trim(symbol)
-            write(fcheader, "(A)") 'extern const struct ciaaw_saw_capi_elmt_t '//trim(name)//';'
+            write(fcheader, "(A)") 'ADD_IMPORT extern const struct ciaaw_saw_capi_elmt_t '//trim(name)//';'
 
             ! Cpython
             name_capi = "ciaaw_saw_capi_"//trim(symbol)
