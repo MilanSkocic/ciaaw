@@ -1,15 +1,14 @@
 module fortran_code
     !! Function for writing the Fortran code.
     use iso_fortran_env
+    use core
     implicit none
 
-    integer, parameter :: LENGTH_ELEMENT = 24
-    integer, parameter :: LENGTH_SYMBOL = 8
     
 contains
 
 subroutine write_fortran_module_declaration(fcode)
-    !! brief Generate the Fortran module declaration.
+    !! Generate the Fortran module declaration.
     implicit none
     ! Arguments
     integer(int32), intent(in) :: fcode

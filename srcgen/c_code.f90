@@ -1,6 +1,7 @@
 module c_code
     ! Module for generating C header
-    use fortran_code
+    use iso_fortran_env
+    use core
 
 contains
 

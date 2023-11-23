@@ -1,31 +1,12 @@
 module utils
     !! Functions for parsing and manipulating ciaaw_saw.
     use iso_fortran_env
+    use core
     use fortran_code
     use c_code
     implicit none
 
-    !! Properties of the file for the codata raw data.
-    type :: ciaaw_saw_file_props
-        integer(int32) :: n !! Number of lines.
-        integer(int32) :: index_header_end !! Number of lines for the header.
-        character(len=18) :: fpath !! Filepath to the raw codata constants.
-        character(len=4) :: year !! Year of release of the codata constants.
-    end type
     
-    integer(int32), parameter :: LINE_LENGTH = 256 !! Length of line.
-    integer(int32), parameter :: cix_element(2) = [1, 20]
-    integer(int32), parameter :: cix_symbol(2) = [21, 27]
-    integer(int32), parameter :: cix_z(2) = [28, 32]
-    integer(int32), parameter :: cix_saw_min(2) = [33, 52]
-    integer(int32), parameter :: cix_saw_max(2) = [53, 72]
-    integer(int32), parameter :: cix_saw(2) = [73, 92]
-    integer(int32), parameter :: cix_saw_u(2) = [93, 112]
-    integer(int32), parameter :: cix_footnote(2) = [113, 122]
-    integer(int32), parameter :: cix_asaw(2) = [123, 132]
-    integer(int32), parameter :: cix_asaw_u(2) = [133, 142]
-    integer(int32), parameter :: cix_compute(2) = [143, 152]
-
 contains
 
 subroutine convert_value_to_fortran(value)
@@ -104,7 +85,7 @@ subroutine get_props(properties)
 
 end subroutine
 
-subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
+subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, props)
     !! Generate the fortran code for ciaaw__saw.
     implicit none
     ! Arguments
@@ -115,7 +96,9 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
     integer(int32), intent(in) :: ffortran_capi
         !! File unit of the Fortran CAPI module.
     integer(int32), intent(in) :: fcheader
-        ! File unit of the C header.
+        !! File unit of the C header.
+    integer(int32), intent(in) :: fcpython
+        !! File unit for CPython. 
     type(ciaaw_saw_file_props), intent(in) :: props
         !! props Properties of the codata file.
 
@@ -156,6 +139,11 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
     ! C HEADER
     write(fcheader, "(A,/)") &
     'extern const int ciaaw_saw_capi_YEAR;'
+    ! cpython
+    write(fcpython, "(4X, A)") "v = PyLong_FromLong(ciaaw_saw_capi_YEAR);"
+    write(fcpython, "(4X, A)") 'PyDict_SetItemString(d, "YEAR", v);'
+    write(fcpython, "(4X, A)") "Py_INCREF(v);"
+    write(fcpython, "(A)") ""
     
 
     do i=1, props%n
@@ -189,8 +177,8 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
                 write(out_format, "(A, I1, A)") "(F19.", -n, ", A)"
                 write(saw_u, out_format) saw_u_db, "d0"
             else
-                saw_max = "-1"
-                saw_min = "-1"
+                saw_max = "-1.0d0"
+                saw_min = "-1.0d0"
             end if
             
             ! Fortran
@@ -236,6 +224,26 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
             ! C Header
             name = "ciaaw_saw_capi_"//trim(symbol)
             write(fcheader, "(A)") 'extern const struct ciaaw_saw_capi_elmt_t '//trim(name)//';'
+
+            ! Cpython
+            name_capi = "ciaaw_saw_capi_"//trim(symbol)
+            write(fcpython, "(4X, A)", advance="NO") 'element = Py_BuildValue("{'
+            write(fcpython, "(A)", advance='NO') 's:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d'
+            write(fcpython, "(A)", advance="YES") '}",'
+            write(fcpython, "(8X, A)", advance="YES") '"element",'//trim(name_capi)//'.element,'
+            write(fcpython, "(8X, A)", advance="YES") '"symbol",'//trim(name_capi)//'.symbol,'
+            write(fcpython, "(8X, A)", advance="YES") '"z",'//trim(name_capi)//'.z,'
+            write(fcpython, "(8X, A)", advance="YES") '"saw_max",'//trim(name_capi)//'.saw_max,'
+            write(fcpython, "(8X, A)", advance="YES") '"saw_min",'//trim(name_capi)//'.saw_min,'
+            write(fcpython, "(8X, A)", advance="YES") '"saw",'//trim(name_capi)//'.saw,'
+            write(fcpython, "(8X, A)", advance="YES") '"saw_u",'//trim(name_capi)//'.saw_u,'
+            write(fcpython, "(8X, A)", advance="YES") '"asaw",'//trim(name_capi)//'.asaw,'
+            write(fcpython, "(8X, A)", advance="YES") '"asaw_u",'//trim(name_capi)//'.asaw_u'
+            write(fcpython, "(4X, A)", advance="YES") ');'
+            write(fcpython, "(4X, A)") 'PyDict_SetItemString(d, "'//trim(symbol)//'", element);'
+            write(fcpython, "(4X, A)") "Py_INCREF(element);"
+            write(fcpython, "(A)") ""
+
         endif
 
     end do

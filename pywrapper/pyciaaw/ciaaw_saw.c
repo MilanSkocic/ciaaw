@@ -1,164 +1,276 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
-#include <stdio.h>
-#include <string.h>
-#include "ciaaw_saw.h"
+#include "ciaaw.h"
 
-PyDoc_STRVAR(module_docstring, "C extension wrapping the saw module of the Fortran ciaaw library.");
+PyDoc_STRVAR(module_docstring, "C extension for saw.");
 
-PyDoc_STRVAR(g704_kh_doc, 
-"kh(T: array, gas: str, heavywater :bool) --> mview \n\n"
-"Get the Henry constant for gas in H2O or D2O for T. If gas not found returns NaNs");
+static PyMethodDef myMethods[] = {{ NULL, NULL, 0, NULL }};
 
+static struct PyModuleDef saw = {PyModuleDef_HEAD_INIT, "saw", module_docstring, -1, myMethods};
 
-static Py_buffer newbuffer_like(Py_buffer *buffer){
-    Py_buffer newbuffer;
-    newbuffer.buf = PyMem_Malloc(buffer->len);
-    newbuffer.obj = NULL;
-    newbuffer.len = buffer->len;
-    newbuffer.readonly = buffer->readonly;
-    newbuffer.itemsize = buffer->itemsize;
-    newbuffer.format = buffer->format;
-    newbuffer.ndim = buffer->ndim;
-    newbuffer.shape = buffer->shape;
-    newbuffer.strides = buffer->strides;
-    newbuffer.suboffsets = NULL;
+PyMODINIT_FUNC PyInit_saw(void){
+    PyObject *m;
+    PyObject *d;
+    PyObject *v;
+    PyObject *element;
+    m = PyModule_Create(&saw);
+    d = PyModule_GetDict(m);
 
-    return newbuffer;
+    v = PyLong_FromLong(ciaaw_saw_capi_YEAR);
+    PyDict_SetItemString(d, "YEAR", v);
+    Py_INCREF(v);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_H.element,
+        "symbol",ciaaw_saw_capi_H.symbol,
+        "z",ciaaw_saw_capi_H.z,
+        "saw_max",ciaaw_saw_capi_H.saw_max,
+        "saw_min",ciaaw_saw_capi_H.saw_min,
+        "saw",ciaaw_saw_capi_H.saw,
+        "saw_u",ciaaw_saw_capi_H.saw_u,
+        "asaw",ciaaw_saw_capi_H.asaw,
+        "asaw_u",ciaaw_saw_capi_H.asaw_u
+    );
+    PyDict_SetItemString(d, "H", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_He.element,
+        "symbol",ciaaw_saw_capi_He.symbol,
+        "z",ciaaw_saw_capi_He.z,
+        "saw_max",ciaaw_saw_capi_He.saw_max,
+        "saw_min",ciaaw_saw_capi_He.saw_min,
+        "saw",ciaaw_saw_capi_He.saw,
+        "saw_u",ciaaw_saw_capi_He.saw_u,
+        "asaw",ciaaw_saw_capi_He.asaw,
+        "asaw_u",ciaaw_saw_capi_He.asaw_u
+    );
+    PyDict_SetItemString(d, "He", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_Li.element,
+        "symbol",ciaaw_saw_capi_Li.symbol,
+        "z",ciaaw_saw_capi_Li.z,
+        "saw_max",ciaaw_saw_capi_Li.saw_max,
+        "saw_min",ciaaw_saw_capi_Li.saw_min,
+        "saw",ciaaw_saw_capi_Li.saw,
+        "saw_u",ciaaw_saw_capi_Li.saw_u,
+        "asaw",ciaaw_saw_capi_Li.asaw,
+        "asaw_u",ciaaw_saw_capi_Li.asaw_u
+    );
+    PyDict_SetItemString(d, "Li", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_Be.element,
+        "symbol",ciaaw_saw_capi_Be.symbol,
+        "z",ciaaw_saw_capi_Be.z,
+        "saw_max",ciaaw_saw_capi_Be.saw_max,
+        "saw_min",ciaaw_saw_capi_Be.saw_min,
+        "saw",ciaaw_saw_capi_Be.saw,
+        "saw_u",ciaaw_saw_capi_Be.saw_u,
+        "asaw",ciaaw_saw_capi_Be.asaw,
+        "asaw_u",ciaaw_saw_capi_Be.asaw_u
+    );
+    PyDict_SetItemString(d, "Be", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_B.element,
+        "symbol",ciaaw_saw_capi_B.symbol,
+        "z",ciaaw_saw_capi_B.z,
+        "saw_max",ciaaw_saw_capi_B.saw_max,
+        "saw_min",ciaaw_saw_capi_B.saw_min,
+        "saw",ciaaw_saw_capi_B.saw,
+        "saw_u",ciaaw_saw_capi_B.saw_u,
+        "asaw",ciaaw_saw_capi_B.asaw,
+        "asaw_u",ciaaw_saw_capi_B.asaw_u
+    );
+    PyDict_SetItemString(d, "B", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_C.element,
+        "symbol",ciaaw_saw_capi_C.symbol,
+        "z",ciaaw_saw_capi_C.z,
+        "saw_max",ciaaw_saw_capi_C.saw_max,
+        "saw_min",ciaaw_saw_capi_C.saw_min,
+        "saw",ciaaw_saw_capi_C.saw,
+        "saw_u",ciaaw_saw_capi_C.saw_u,
+        "asaw",ciaaw_saw_capi_C.asaw,
+        "asaw_u",ciaaw_saw_capi_C.asaw_u
+    );
+    PyDict_SetItemString(d, "C", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_N.element,
+        "symbol",ciaaw_saw_capi_N.symbol,
+        "z",ciaaw_saw_capi_N.z,
+        "saw_max",ciaaw_saw_capi_N.saw_max,
+        "saw_min",ciaaw_saw_capi_N.saw_min,
+        "saw",ciaaw_saw_capi_N.saw,
+        "saw_u",ciaaw_saw_capi_N.saw_u,
+        "asaw",ciaaw_saw_capi_N.asaw,
+        "asaw_u",ciaaw_saw_capi_N.asaw_u
+    );
+    PyDict_SetItemString(d, "N", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_O.element,
+        "symbol",ciaaw_saw_capi_O.symbol,
+        "z",ciaaw_saw_capi_O.z,
+        "saw_max",ciaaw_saw_capi_O.saw_max,
+        "saw_min",ciaaw_saw_capi_O.saw_min,
+        "saw",ciaaw_saw_capi_O.saw,
+        "saw_u",ciaaw_saw_capi_O.saw_u,
+        "asaw",ciaaw_saw_capi_O.asaw,
+        "asaw_u",ciaaw_saw_capi_O.asaw_u
+    );
+    PyDict_SetItemString(d, "O", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_F.element,
+        "symbol",ciaaw_saw_capi_F.symbol,
+        "z",ciaaw_saw_capi_F.z,
+        "saw_max",ciaaw_saw_capi_F.saw_max,
+        "saw_min",ciaaw_saw_capi_F.saw_min,
+        "saw",ciaaw_saw_capi_F.saw,
+        "saw_u",ciaaw_saw_capi_F.saw_u,
+        "asaw",ciaaw_saw_capi_F.asaw,
+        "asaw_u",ciaaw_saw_capi_F.asaw_u
+    );
+    PyDict_SetItemString(d, "F", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_Ne.element,
+        "symbol",ciaaw_saw_capi_Ne.symbol,
+        "z",ciaaw_saw_capi_Ne.z,
+        "saw_max",ciaaw_saw_capi_Ne.saw_max,
+        "saw_min",ciaaw_saw_capi_Ne.saw_min,
+        "saw",ciaaw_saw_capi_Ne.saw,
+        "saw_u",ciaaw_saw_capi_Ne.saw_u,
+        "asaw",ciaaw_saw_capi_Ne.asaw,
+        "asaw_u",ciaaw_saw_capi_Ne.asaw_u
+    );
+    PyDict_SetItemString(d, "Ne", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_Na.element,
+        "symbol",ciaaw_saw_capi_Na.symbol,
+        "z",ciaaw_saw_capi_Na.z,
+        "saw_max",ciaaw_saw_capi_Na.saw_max,
+        "saw_min",ciaaw_saw_capi_Na.saw_min,
+        "saw",ciaaw_saw_capi_Na.saw,
+        "saw_u",ciaaw_saw_capi_Na.saw_u,
+        "asaw",ciaaw_saw_capi_Na.asaw,
+        "asaw_u",ciaaw_saw_capi_Na.asaw_u
+    );
+    PyDict_SetItemString(d, "Na", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_Mg.element,
+        "symbol",ciaaw_saw_capi_Mg.symbol,
+        "z",ciaaw_saw_capi_Mg.z,
+        "saw_max",ciaaw_saw_capi_Mg.saw_max,
+        "saw_min",ciaaw_saw_capi_Mg.saw_min,
+        "saw",ciaaw_saw_capi_Mg.saw,
+        "saw_u",ciaaw_saw_capi_Mg.saw_u,
+        "asaw",ciaaw_saw_capi_Mg.asaw,
+        "asaw_u",ciaaw_saw_capi_Mg.asaw_u
+    );
+    PyDict_SetItemString(d, "Mg", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_Al.element,
+        "symbol",ciaaw_saw_capi_Al.symbol,
+        "z",ciaaw_saw_capi_Al.z,
+        "saw_max",ciaaw_saw_capi_Al.saw_max,
+        "saw_min",ciaaw_saw_capi_Al.saw_min,
+        "saw",ciaaw_saw_capi_Al.saw,
+        "saw_u",ciaaw_saw_capi_Al.saw_u,
+        "asaw",ciaaw_saw_capi_Al.asaw,
+        "asaw_u",ciaaw_saw_capi_Al.asaw_u
+    );
+    PyDict_SetItemString(d, "Al", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_Si.element,
+        "symbol",ciaaw_saw_capi_Si.symbol,
+        "z",ciaaw_saw_capi_Si.z,
+        "saw_max",ciaaw_saw_capi_Si.saw_max,
+        "saw_min",ciaaw_saw_capi_Si.saw_min,
+        "saw",ciaaw_saw_capi_Si.saw,
+        "saw_u",ciaaw_saw_capi_Si.saw_u,
+        "asaw",ciaaw_saw_capi_Si.asaw,
+        "asaw_u",ciaaw_saw_capi_Si.asaw_u
+    );
+    PyDict_SetItemString(d, "Si", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_P.element,
+        "symbol",ciaaw_saw_capi_P.symbol,
+        "z",ciaaw_saw_capi_P.z,
+        "saw_max",ciaaw_saw_capi_P.saw_max,
+        "saw_min",ciaaw_saw_capi_P.saw_min,
+        "saw",ciaaw_saw_capi_P.saw,
+        "saw_u",ciaaw_saw_capi_P.saw_u,
+        "asaw",ciaaw_saw_capi_P.asaw,
+        "asaw_u",ciaaw_saw_capi_P.asaw_u
+    );
+    PyDict_SetItemString(d, "P", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_S.element,
+        "symbol",ciaaw_saw_capi_S.symbol,
+        "z",ciaaw_saw_capi_S.z,
+        "saw_max",ciaaw_saw_capi_S.saw_max,
+        "saw_min",ciaaw_saw_capi_S.saw_min,
+        "saw",ciaaw_saw_capi_S.saw,
+        "saw_u",ciaaw_saw_capi_S.saw_u,
+        "asaw",ciaaw_saw_capi_S.asaw,
+        "asaw_u",ciaaw_saw_capi_S.asaw_u
+    );
+    PyDict_SetItemString(d, "S", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_Cl.element,
+        "symbol",ciaaw_saw_capi_Cl.symbol,
+        "z",ciaaw_saw_capi_Cl.z,
+        "saw_max",ciaaw_saw_capi_Cl.saw_max,
+        "saw_min",ciaaw_saw_capi_Cl.saw_min,
+        "saw",ciaaw_saw_capi_Cl.saw,
+        "saw_u",ciaaw_saw_capi_Cl.saw_u,
+        "asaw",ciaaw_saw_capi_Cl.asaw,
+        "asaw_u",ciaaw_saw_capi_Cl.asaw_u
+    );
+    PyDict_SetItemString(d, "Cl", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_Ar.element,
+        "symbol",ciaaw_saw_capi_Ar.symbol,
+        "z",ciaaw_saw_capi_Ar.z,
+        "saw_max",ciaaw_saw_capi_Ar.saw_max,
+        "saw_min",ciaaw_saw_capi_Ar.saw_min,
+        "saw",ciaaw_saw_capi_Ar.saw,
+        "saw_u",ciaaw_saw_capi_Ar.saw_u,
+        "asaw",ciaaw_saw_capi_Ar.asaw,
+        "asaw_u",ciaaw_saw_capi_Ar.asaw_u
+    );
+    PyDict_SetItemString(d, "Ar", element);
+    Py_INCREF(element);
+
+    return m;
 }
-
-static PyObject *kx(char k, PyObject *args){
-    
-    PyObject *T_obj;
-    PyObject *mview;
-    Py_buffer *buffer;
-    PyObject *new_mview;
-    Py_buffer newbuffer;
-    char *gas;
-    int heavywater;
-
-    void (*fkx)(double *, char *, int, double *, int, size_t);
-
-    switch(k){
-        case 'h':
-            fkx = &iapws_g704_capi_kh;
-            break;
-        case 'd':
-            fkx = &iapws_g704_capi_kd;
-            break;
-        default:
-            fkx = NULL;
-    }
-    
-    if(!PyArg_ParseTuple(args, "Osp", &T_obj, &gas, &heavywater)){
-        PyErr_SetString(PyExc_TypeError, ERR_MSG_PARSING);
-        return NULL;
-    }
-
-    if(PyObject_CheckBuffer(T_obj)==1){
-        mview = PyMemoryView_FromObject(T_obj);
-        buffer = PyMemoryView_GET_BUFFER(mview);
-        
-        if(strcmp(buffer->format, "d")!=0){
-            PyErr_SetString(PyExc_TypeError, ERR_MSG_T_TYPE);
-            return NULL;
-        }else if(buffer->ndim>1){
-            PyErr_SetString(PyExc_TypeError, ERR_MSG_T_DIM);
-            return NULL;
-        }else if(buffer->ndim==0){
-            PyErr_SetString(PyExc_TypeError, ERR_MSG_T_DIM);
-            return NULL;
-        }else{
-            newbuffer = newbuffer_like(buffer);
-            fkx((double *)buffer->buf, gas, heavywater, (double *)newbuffer.buf, strlen(gas), newbuffer.shape[0]);
-            new_mview = PyMemoryView_FromBuffer(&newbuffer);
-            return new_mview;
-        }
-    }else{
-        PyErr_SetString(PyExc_TypeError, ERR_MSG_PARSING);
-        return NULL;
-    }
-}
-
-static PyObject *g704_kh(PyObject *self, PyObject *args){
-    return kx('h', args);
-}
-
-static PyObject *g704_kd(PyObject *self, PyObject *args){
-    return kx('d', args);
-}
-
-static PyObject *g704_ngases(PyObject *self, PyObject *args){
-    int heavywater;
-    int ngas;
-    
-    if(!PyArg_ParseTuple(args, "p", &heavywater)){
-        PyErr_SetString(PyExc_TypeError, "heavywater is a boolean.");
-        return NULL;
-    }
-    ngas = iapws_g704_capi_ngases(heavywater);
-    
-    return Py_BuildValue("i", ngas);
-}
-
-static PyObject *g704_gases(PyObject *self, PyObject *args){
-    
-    int heavywater;
-    char **gases;
-    int ngas;
-    Py_ssize_t i;
-    PyObject *tuple;
-
-    if(!PyArg_ParseTuple(args, "p", &heavywater)){
-        PyErr_SetString(PyExc_TypeError, "heavywater is a boolean.");
-        return NULL;
-    }
-    ngas = iapws_g704_capi_ngases(heavywater);
-    gases = iapws_g704_capi_gases(heavywater);
-    tuple = PyTuple_New((Py_ssize_t) ngas);
-    for(i=0; i<ngas; i++){
-        PyTuple_SET_ITEM(tuple, i, PyUnicode_FromFormat("%s", gases[i]));
-    }
-    return tuple;
-}
-
-static PyObject *g704_gases2(PyObject *self, PyObject *args){
-    
-    int heavywater;
-    char *gases;
-    PyObject *py_gases;
-
-    if(!PyArg_ParseTuple(args, "p", &heavywater)){
-        PyErr_SetString(PyExc_TypeError, "heavywater is a boolean.");
-        return NULL;
-    }
-    gases = iapws_g704_capi_gases2(heavywater);
-    py_gases = PyUnicode_FromFormat("%s", gases);
-    return py_gases;
-}
-
-static PyMethodDef myMethods[] = {
-    {"kh", (PyCFunction) g704_kh, METH_VARARGS, g704_kh_doc},
-    {"kd", (PyCFunction) g704_kd, METH_VARARGS, g704_kd_doc},
-    {"ngases", (PyCFunction) g704_ngases, METH_VARARGS, g704_ngases_doc},
-    {"gases", (PyCFunction) g704_gases, METH_VARARGS, g704_gases_doc},
-    {"gases2", (PyCFunction) g704_gases2, METH_VARARGS, g704_gases2_doc},
-    { NULL, NULL, 0, NULL }
-};
-
-// Our Module Definition struct
-static struct PyModuleDef g704 = {
-    PyModuleDef_HEAD_INIT,
-    "saw",
-    module_docstring,
-    -1,
-    myMethods
-};
-
-// Initializes our module using our above struct
-PyMODINIT_FUNC PyInit_saw(void)
-{
-    return PyModule_Create(&saw);
-}
-
-

@@ -3,9 +3,10 @@ program generator
     use utils
     use fortran_code
     use c_code
+    use cpy_code
     implicit none
 
-    integer(int32) :: fciaaw, ffortran, ffortran_capi, fcheader
+    integer(int32) :: fciaaw, ffortran, ffortran_capi, fcheader, fcpython
     integer(int32) :: unit
     logical :: exist
     character(len=32) :: fpath
@@ -20,13 +21,13 @@ program generator
     print "(4X, A, A)", "fpath: ", props%fpath
     print "(4X, A, A)", "Year: ", props%year
 
-    ! CODATA SOURCE
+    ! CIAAW SAW SOURCE
     print *, "Opening ciaaw file..."
     open(file=props%fpath, newunit=fciaaw, status="old", action="read")
     
     ! FORTRAN
     fpath = "../src/ciaaw_saw.f90"
-    print *, "Opening ffortran file..."
+    print *, "Opening fortran module..."
     inquire(file=fpath, exist=exist)
     if(exist)then
         open(file=fpath, newunit=unit, status="old")
@@ -36,7 +37,7 @@ program generator
     
     ! C API
     fpath = "../src/ciaaw_saw_capi.f90"
-    print *, "Opening ffortran_capi file..."
+    print *, "Opening C API file..."
     inquire(file=fpath, exist=exist)
     if(exist)then
         open(file=fpath, newunit=unit, status="old")
@@ -53,14 +54,26 @@ program generator
         close(unit=unit, status="delete")
     endif
     open(file=fpath, newunit=fcheader, status="new", action="write")
+    
+    ! CPython
+    fpath = "../pywrapper/pyciaaw/ciaaw_saw.c"
+    print *, "Opening CPython ..."
+    inquire(file=fpath, exist=exist)
+    if(exist)then
+        open(file=fpath, newunit=unit, status="old")
+        close(unit=unit, status="delete")
+    endif
+    open(file=fpath, newunit=fcpython, status="new", action="write")
 
     call write_fortran_module_declaration(ffortran)
     call write_fortran_capi_module_declaration(ffortran_capi)
     call write_C_header_declaration(fcheader)
-    call write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, props)
+    call write_cpython_extension_declaration(fcpython)
+    call write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, props)
     call write_fortran_module_end(ffortran)
     call write_fortran_capi_module_end(ffortran_capi)
     call write_C_header_end(fcheader)
+    call write_cpython_extension_end(fcpython)
 
     close(fciaaw)
     close(ffortran)
