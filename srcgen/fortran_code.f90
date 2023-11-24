@@ -16,7 +16,7 @@ subroutine write_fortran_module_declaration(fcode)
 
     character(len=32) :: S_LENGTH_ELEMENT
     character(len=32) :: S_LENGTH_SYMBOL
-    
+
     write(S_LENGTH_ELEMENT, "(I2)") LENGTH_ELEMENT
     write(S_LENGTH_SYMBOL, "(I1)") LENGTH_SYMBOL
     
@@ -26,15 +26,16 @@ subroutine write_fortran_module_declaration(fcode)
     write(fcode, "(A)") "use ieee_arithmetic"
     write(fcode, "(A, /)") "implicit none"
     write(fcode, "(A)") "type :: ciaaw_saw_elmt_t"
-    write(fcode, "(A)") 'character(len='//trim(S_LENGTH_ELEMENT)//') :: element'
-    write(fcode, "(A)") 'character(len='//trim(S_LENGTH_SYMBOL)//') :: symbol'
-    write(fcode, "(A)") 'integer(int32) :: z'
-    write(fcode, "(A)") 'real(real64) :: saw_min'
-    write(fcode, "(A)") 'real(real64) :: saw_max'
-    write(fcode, "(A)") 'real(real64) :: saw'
-    write(fcode, "(A)") 'real(real64) :: saw_u'
-    write(fcode, "(A)") 'real(real64) :: asaw'
-    write(fcode, "(A)") 'real(real64) :: asaw_u'
+    write(fcode, "(A)") "!! Object representing an element."
+    write(fcode, "(A)") 'character(len='//trim(S_LENGTH_ELEMENT)//') :: element !! Element name'
+    write(fcode, "(A)") 'character(len='//trim(S_LENGTH_SYMBOL)//') :: symbol !! Element symbol'
+    write(fcode, "(A)") 'integer(int32) :: z !! Element atomic number'
+    write(fcode, "(A)") 'real(real64) :: saw_min !! Min standard atomic weight'
+    write(fcode, "(A)") 'real(real64) :: saw_max !! Max standard atomic weight'
+    write(fcode, "(A)") 'real(real64) :: saw !! Value standard atomic weight'
+    write(fcode, "(A)") 'real(real64) :: saw_u !! Uncertainty standard atomic weight'
+    write(fcode, "(A)") 'real(real64) :: asaw !! Abridged value standard atomic weight'
+    write(fcode, "(A)") 'real(real64) :: asaw_u !! Abridged uncertainty standard atomic weight'
     write(fcode, "(A)") "end type"
     write(fcode, "(A)") ""
 end subroutine
@@ -68,15 +69,16 @@ subroutine write_fortran_capi_module_declaration(fcode)
     write(fcode, "(A)") "use ciaaw__saw"
     write(fcode, "(A, /)") "implicit none"
     write(fcode, "(A)") "type, bind(C) :: ciaaw_saw_capi_elmt_t"
-    write(fcode, "(A)") 'character(kind=c_char) :: element('//trim(S_LENGTH_ELEMENT)//')'
-    write(fcode, "(A)") 'character(kind=c_char) :: symbol('//trim(S_LENGTH_SYMBOL)//')'
-    write(fcode, "(A)") "integer(c_int) :: z"
-    write(fcode, "(A)") 'real(c_double) :: saw_min'
-    write(fcode, "(A)") 'real(c_double) :: saw_max'
-    write(fcode, "(A)") 'real(c_double) :: saw'
-    write(fcode, "(A)") 'real(c_double) :: saw_u'
-    write(fcode, "(A)") 'real(c_double) :: asaw'
-    write(fcode, "(A)") 'real(c_double) :: asaw_u'
+    write(fcode, "(A)") "!! Object representing an element."
+    write(fcode, "(A)") 'character(kind=c_char) :: element('//trim(S_LENGTH_ELEMENT)//') !! Element name'
+    write(fcode, "(A)") 'character(kind=c_char) :: symbol('//trim(S_LENGTH_SYMBOL)//') !! Element symbol'
+    write(fcode, "(A)") 'integer(c_int) :: z !! Element atomic number'
+    write(fcode, "(A)") 'real(c_double) :: saw_min !! Min standard atomic weight'
+    write(fcode, "(A)") 'real(c_double) :: saw_max !! Max standard atomic weight'
+    write(fcode, "(A)") 'real(c_double) :: saw !! Value standard atomic weight'
+    write(fcode, "(A)") 'real(c_double) :: saw_u !! Uncertainty standard atomic weight'
+    write(fcode, "(A)") 'real(c_double) :: asaw !! Abridged value standard atomic weight'
+    write(fcode, "(A)") 'real(c_double) :: asaw_u !! Abridged uncertainty standard atomic weight'
     write(fcode, "(A)") "end type"
     write(fcode, "(A)") ""
 end subroutine

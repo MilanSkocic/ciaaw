@@ -5,15 +5,16 @@ use ieee_arithmetic
 implicit none
 
 type :: ciaaw_saw_elmt_t
-character(len=24) :: element
-character(len=8) :: symbol
-integer(int32) :: z
-real(real64) :: saw_min
-real(real64) :: saw_max
-real(real64) :: saw
-real(real64) :: saw_u
-real(real64) :: asaw
-real(real64) :: asaw_u
+!! Object representing an element.
+character(len=24) :: element !! Element name
+character(len=8) :: symbol !! Element symbol
+integer(int32) :: z !! Element atomic number
+real(real64) :: saw_min !! Min standard atomic weight
+real(real64) :: saw_max !! Max standard atomic weight
+real(real64) :: saw !! Value standard atomic weight
+real(real64) :: saw_u !! Uncertainty standard atomic weight
+real(real64) :: asaw !! Abridged value standard atomic weight
+real(real64) :: asaw_u !! Abridged uncertainty standard atomic weight
 end type
 
 integer(int32), parameter :: ciaaw_saw_YEAR = 2021
