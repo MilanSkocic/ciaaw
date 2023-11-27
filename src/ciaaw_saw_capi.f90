@@ -5,15 +5,16 @@ use ciaaw__saw
 implicit none
 
 type, bind(C) :: ciaaw_saw_capi_elmt_t
-character(kind=c_char) :: element(25)
-character(kind=c_char) :: symbol(9)
-integer(c_int) :: z
-real(c_double) :: saw_min
-real(c_double) :: saw_max
-real(c_double) :: saw
-real(c_double) :: saw_u
-real(c_double) :: asaw
-real(c_double) :: asaw_u
+!! Object representing an element.
+character(kind=c_char) :: element(25) !! Element name
+character(kind=c_char) :: symbol(9) !! Element symbol
+integer(c_int) :: z !! Element atomic number
+real(c_double) :: saw_min !! Min standard atomic weight
+real(c_double) :: saw_max !! Max standard atomic weight
+real(c_double) :: saw !! Value standard atomic weight
+real(c_double) :: saw_u !! Uncertainty standard atomic weight
+real(c_double) :: asaw !! Abridged value standard atomic weight
+real(c_double) :: asaw_u !! Abridged uncertainty standard atomic weight
 end type
 
 integer(c_int), protected, bind(C, name="ciaaw_saw_capi_YEAR") :: ciaaw_saw_capi_YEAR = ciaaw_saw_YEAR
