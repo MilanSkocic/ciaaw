@@ -9,16 +9,13 @@ module core
 
     ! Indexes for the table columns
     integer(int32), parameter :: cix_element(2) = [1, 20]
-    integer(int32), parameter :: cix_symbol(2) = [21, 27]
-    integer(int32), parameter :: cix_z(2) = [28, 32]
-    integer(int32), parameter :: cix_saw_min(2) = [33, 52]
-    integer(int32), parameter :: cix_saw_max(2) = [53, 72]
-    integer(int32), parameter :: cix_saw(2) = [73, 92]
-    integer(int32), parameter :: cix_saw_u(2) = [93, 112]
-    integer(int32), parameter :: cix_footnote(2) = [113, 122]
-    integer(int32), parameter :: cix_asaw(2) = [123, 132]
-    integer(int32), parameter :: cix_asaw_u(2) = [133, 142]
-    integer(int32), parameter :: cix_compute(2) = [143, 152]
+    integer(int32), parameter :: cix_symbol(2) = [21, 30]
+    integer(int32), parameter :: cix_z(2) = [31, 40]
+    integer(int32), parameter :: cix_saw(2) = [41, 70]
+    integer(int32), parameter :: cix_saw_u(2) = [71, 90]
+    integer(int32), parameter :: cix_footnote(2) = [91, 100]
+    integer(int32), parameter :: cix_asaw(2) = [101, 110]
+    integer(int32), parameter :: cix_asaw_u(2) = [111, 120]
     
     ! Properties of the file for the ciaaw saw data.
     type :: ciaaw_saw_file_props

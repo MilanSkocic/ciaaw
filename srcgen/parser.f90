@@ -124,7 +124,7 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
     real(real64) :: saw_max_db
     real(real64) :: saw_u_db
     
-    integer(int32) :: i, n, j, ix_trim
+    integer(int32) :: i, n, j, ix_trim, ix_comma, ix_rbracket
     
     rewind(unit=fciaaw)
     do i=1, props%index_header_end
@@ -150,16 +150,24 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
         call clean_line(line)
         read(fciaaw, "(A)") line
         if(len(trim(line))>0)then
-            read(line(cix_compute(1): cix_compute(2)), "(L4)") compute
             read(line(cix_element(1): cix_element(2)), "(A)") element
             read(line(cix_symbol(1): cix_symbol(2)), "(A)") symbol
             read(line(cix_z(1): cix_z(2)), "(A)") z
-            read(line(cix_saw_min(1): cix_saw_min(2)), "(A)") saw_min
-            read(line(cix_saw_max(1): cix_saw_max(2)), "(A)") saw_max
+            ! read(line(cix_saw_min(1): cix_saw_min(2)), "(A)") saw_min
+            ! read(line(cix_saw_max(1): cix_saw_max(2)), "(A)") saw_max
             read(line(cix_saw(1): cix_saw(2)), "(A)") saw
             read(line(cix_saw_u(1): cix_saw_u(2)), "(A)") saw_u
             read(line(cix_asaw(1): cix_asaw(2)), "(A)") asaw
             read(line(cix_asaw_u(1): cix_asaw_u(2)), "(A)") asaw_u
+
+            compute = .false.
+            if(saw(1:1) == '[')then
+                compute = .true.
+                ix_comma = index(saw,',')
+                ix_rbracket = index(saw, "]")
+                saw_min = trim(saw(2:ix_comma-1))//'d0'
+                saw_max = trim(saw(ix_comma+1:ix_rbracket-1))//'d0'
+            endif
             
             if(compute)then
                 read(saw_max, "(D20.10)") saw_max_db
@@ -171,15 +179,18 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
                 n = floor(log10(saw_u_db))
                 saw_u_db = ceiling(saw_u_db * 10**(-n*1.0d0))*10**(n*1.0d0)
                 
-                write(out_format, "(A, I1, A)") "(F19.", -n, ", A)"
+                write(out_format, "(A, I1, A)") "(F29.", -n, ", A)"
                 write(saw, out_format) saw_value_db, "d0"
-                
-                write(out_format, "(A, I1, A)") "(F19.", -n, ", A)"
                 write(saw_u, out_format) saw_u_db, "d0"
             else
                 saw_max = "-1.0d0"
                 saw_min = "-1.0d0"
+                saw = trim(saw) //'d0'
+                saw_u = trim(saw_u) //'d0'
             end if
+
+            asaw = trim(asaw)//'d0'
+            asaw_u = trim(asaw_u)//'d0'
             
             ! Fortran
             name = "ciaaw_saw_"//trim(symbol)

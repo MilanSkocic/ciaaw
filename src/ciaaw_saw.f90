@@ -26,7 +26,7 @@ ciaaw_saw_elmt_t("helium", "He", 2, -1.0d0, -1.0d0, 4.002602d0, 0.000002d0, 4.00
 type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Li =&
 ciaaw_saw_elmt_t("lithium", "Li", 3, 6.938d0, 6.997d0, 6.97d0, 0.02d0, 6.94d0, 0.06d0)
 type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Be =&
-ciaaw_saw_elmt_t("beryllium", "Be", 4, -1.0d0, -1.0d0, 9.0121831d0, 0.0000005, 9.0122, 0.00001d0)
+ciaaw_saw_elmt_t("beryllium", "Be", 4, -1.0d0, -1.0d0, 9.0121831d0, 0.0000005d0, 9.0122d0, 0.00001d0)
 type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_B =&
 ciaaw_saw_elmt_t("boron", "B", 5, 10.806d0, 10.821d0, 10.813d0, 0.005d0, 10.81d0, 0.02d0)
 type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_C =&
