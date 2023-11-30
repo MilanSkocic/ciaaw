@@ -132,10 +132,10 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
     end do
 
     ! fortran
-    write(ffortran, "(A,/)") 'integer(int32), parameter :: ciaaw_saw_YEAR = ' // props%year
+    write(ffortran, "(A,/)") 'integer(int32), parameter, public :: ciaaw_saw_YEAR = ' // props%year
     ! fortran C API
     write(ffortran_capi, "(A,/)") &
-    'integer(c_int), protected, bind(C, name="ciaaw_saw_capi_YEAR") :: ciaaw_saw_capi_YEAR = ciaaw_saw_YEAR'
+    'integer(c_int), protected, public, bind(C, name="ciaaw_saw_capi_YEAR") :: ciaaw_saw_capi_YEAR = ciaaw_saw_YEAR'
     ! C HEADER
     write(fcheader, "(A,/)") &
     'ADD_IMPORT extern const int ciaaw_saw_capi_YEAR;'
@@ -194,17 +194,17 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
             
             ! Fortran
             name = "ciaaw_saw_"//trim(symbol)
-            write(ffortran, "(A)") "type(ciaaw_saw_elmt_t), parameter :: "//trim(name)//" =&"
-            write(ffortran, "(A)") 'ciaaw_saw_elmt_t("'//trim(element)//'", '//'"'//trim(symbol)//'", '//trim(z)//", "//&
+            write(ffortran, "(A)") "type(ciaaw_saw_element_t), parameter, public :: "//trim(name)//" =&"
+            write(ffortran, "(A)") 'ciaaw_saw_element_t("'//trim(element)//'", '//'"'//trim(symbol)//'", '//trim(z)//", "//&
                                     trim(saw_min)// ", "//trim(saw_max)//", "//&
                                     trim(adjustl(saw))//", "//trim(adjustl(saw_u))//", "//&
                                     trim(asaw)//", "//trim(asaw_u)//')'
 
             ! Fortran C API
             name_capi = "ciaaw_saw_capi_"//trim(symbol)
-            write(ffortran_capi, "(A)", advance="NO") 'type(ciaaw_saw_capi_elmt_t), protected, '
-            write(ffortran_capi, "(A)", advance="YES") 'bind(C, name="'//trim(name_capi)//'") :: '//&
-                                                       trim(name_capi)//" = ciaaw_saw_capi_elmt_t(&"
+            write(ffortran_capi, "(A)", advance="NO") 'type(ciaaw_saw_capi_element_t), protected, public, '
+            write(ffortran_capi, "(A)", advance="YES") 'bind(C, name="'//trim(name_capi)//'") :: '//trim(name_capi)//' =&'
+            write(ffortran_capi, "(A)", advance="YES")  "ciaaw_saw_capi_element_t(&"
             ix_trim = len(trim(element))
             write(ffortran_capi, "(A)", advance="NO") '['
             do j=1, ix_trim
@@ -234,7 +234,7 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
 
             ! C Header
             name = "ciaaw_saw_capi_"//trim(symbol)
-            write(fcheader, "(A)") 'ADD_IMPORT extern const struct ciaaw_saw_capi_elmt_t '//trim(name)//';'
+            write(fcheader, "(A)") 'ADD_IMPORT extern const struct ciaaw_saw_capi_element_t '//trim(name)//';'
 
             ! Cpython
             name_capi = "ciaaw_saw_capi_"//trim(symbol)

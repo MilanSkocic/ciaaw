@@ -3,8 +3,9 @@ module ciaaw__saw
 use iso_fortran_env
 use ieee_arithmetic
 implicit none
+private
 
-type :: ciaaw_saw_elmt_t
+type, public :: ciaaw_saw_element_t
 !! Object representing an element.
 character(len=24) :: element !! Element name
 character(len=8) :: symbol !! Element symbol
@@ -17,43 +18,43 @@ real(real64) :: asaw !! Abridged value standard atomic weight
 real(real64) :: asaw_u !! Abridged uncertainty standard atomic weight
 end type
 
-integer(int32), parameter :: ciaaw_saw_YEAR = 2021
+integer(int32), parameter, public :: ciaaw_saw_YEAR = 2021
 
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_H =&
-ciaaw_saw_elmt_t("hydrogen", "H", 1, 1.00784d0, 1.00811d0, 1.00798d0, 0.00008d0, 1.0080d0, 0.0002d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_He =&
-ciaaw_saw_elmt_t("helium", "He", 2, -1.0d0, -1.0d0, 4.002602d0, 0.000002d0, 4.0026d0, 0.0001d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Li =&
-ciaaw_saw_elmt_t("lithium", "Li", 3, 6.938d0, 6.997d0, 6.97d0, 0.02d0, 6.94d0, 0.06d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Be =&
-ciaaw_saw_elmt_t("beryllium", "Be", 4, -1.0d0, -1.0d0, 9.0121831d0, 0.0000005d0, 9.0122d0, 0.00001d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_B =&
-ciaaw_saw_elmt_t("boron", "B", 5, 10.806d0, 10.821d0, 10.813d0, 0.005d0, 10.81d0, 0.02d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_C =&
-ciaaw_saw_elmt_t("carbon", "C", 6, 12.0096d0, 12.0116d0, 12.0106d0, 0.0006d0, 12.011d0, 0.002d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_N =&
-ciaaw_saw_elmt_t("nitrogen", "N", 7, 14.00643d0, 14.00728d0, 14.0069d0, 0.0003d0, 14.007d0, 0.001d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_O =&
-ciaaw_saw_elmt_t("oxygen", "O", 8, 15.99903d0, 15.99977d0, 15.9994d0, 0.0003d0, 15.999d0, 0.001d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_F =&
-ciaaw_saw_elmt_t("fluorine", "F", 9, -1.0d0, -1.0d0, 18.998403162d0, 0.000000005d0, 18.998d0, 0.001d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Ne =&
-ciaaw_saw_elmt_t("neon", "Ne", 10, -1.0d0, -1.0d0, 20.1797d0, 0.0006d0, 20.180d0, 0.001d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Na =&
-ciaaw_saw_elmt_t("sodium", "Na", 11, -1.0d0, -1.0d0, 22.98976928d0, 0.00000002d0, 22.990d0, 0.001d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Mg =&
-ciaaw_saw_elmt_t("magnesium", "Mg", 12, 24.304d0, 24.307d0, 24.3055d0, 0.0009d0, 24.305d0, 0.002d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Al =&
-ciaaw_saw_elmt_t("aluminium", "Al", 13, -1.0d0, -1.0d0, 26.9815384d0, 0.0000003d0, 26.982d0, 0.001d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Si =&
-ciaaw_saw_elmt_t("silicon", "Si", 14, 28.084d0, 28.086d0, 28.0850d0, 0.0006d0, 28.085d0, 0.001d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_P =&
-ciaaw_saw_elmt_t("phosphorous", "P", 15, -1.0d0, -1.0d0, 30.973761998d0, 0.000000005d0, 30.974d0, 0.001d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_S =&
-ciaaw_saw_elmt_t("sulfur", "S", 16, 32.059d0, 32.076d0, 32.067d0, 0.005d0, 32.06d0, 0.02d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Cl =&
-ciaaw_saw_elmt_t("chlorine", "Cl", 17, 35.446d0, 35.457d0, 35.451d0, 0.004d0, 35.45d0, 0.01d0)
-type(ciaaw_saw_elmt_t), parameter :: ciaaw_saw_Ar =&
-ciaaw_saw_elmt_t("argon", "Ar", 18, 39.792d0, 39.963d0, 39.88d0, 0.05d0, 39.95d0, 0.16d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_H =&
+ciaaw_saw_element_t("hydrogen", "H", 1, 1.00784d0, 1.00811d0, 1.00798d0, 0.00008d0, 1.0080d0, 0.0002d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_He =&
+ciaaw_saw_element_t("helium", "He", 2, -1.0d0, -1.0d0, 4.002602d0, 0.000002d0, 4.0026d0, 0.0001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Li =&
+ciaaw_saw_element_t("lithium", "Li", 3, 6.938d0, 6.997d0, 6.97d0, 0.02d0, 6.94d0, 0.06d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Be =&
+ciaaw_saw_element_t("beryllium", "Be", 4, -1.0d0, -1.0d0, 9.0121831d0, 0.0000005d0, 9.0122d0, 0.00001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_B =&
+ciaaw_saw_element_t("boron", "B", 5, 10.806d0, 10.821d0, 10.813d0, 0.005d0, 10.81d0, 0.02d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_C =&
+ciaaw_saw_element_t("carbon", "C", 6, 12.0096d0, 12.0116d0, 12.0106d0, 0.0006d0, 12.011d0, 0.002d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_N =&
+ciaaw_saw_element_t("nitrogen", "N", 7, 14.00643d0, 14.00728d0, 14.0069d0, 0.0003d0, 14.007d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_O =&
+ciaaw_saw_element_t("oxygen", "O", 8, 15.99903d0, 15.99977d0, 15.9994d0, 0.0003d0, 15.999d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_F =&
+ciaaw_saw_element_t("fluorine", "F", 9, -1.0d0, -1.0d0, 18.998403162d0, 0.000000005d0, 18.998d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Ne =&
+ciaaw_saw_element_t("neon", "Ne", 10, -1.0d0, -1.0d0, 20.1797d0, 0.0006d0, 20.180d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Na =&
+ciaaw_saw_element_t("sodium", "Na", 11, -1.0d0, -1.0d0, 22.98976928d0, 0.00000002d0, 22.990d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Mg =&
+ciaaw_saw_element_t("magnesium", "Mg", 12, 24.304d0, 24.307d0, 24.3055d0, 0.0009d0, 24.305d0, 0.002d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Al =&
+ciaaw_saw_element_t("aluminium", "Al", 13, -1.0d0, -1.0d0, 26.9815384d0, 0.0000003d0, 26.982d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Si =&
+ciaaw_saw_element_t("silicon", "Si", 14, 28.084d0, 28.086d0, 28.0850d0, 0.0006d0, 28.085d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_P =&
+ciaaw_saw_element_t("phosphorous", "P", 15, -1.0d0, -1.0d0, 30.973761998d0, 0.000000005d0, 30.974d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_S =&
+ciaaw_saw_element_t("sulfur", "S", 16, 32.059d0, 32.076d0, 32.067d0, 0.005d0, 32.06d0, 0.02d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Cl =&
+ciaaw_saw_element_t("chlorine", "Cl", 17, 35.446d0, 35.457d0, 35.451d0, 0.004d0, 35.45d0, 0.01d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Ar =&
+ciaaw_saw_element_t("argon", "Ar", 18, 39.792d0, 39.963d0, 39.88d0, 0.05d0, 39.95d0, 0.16d0)
 
 end module ciaaw__saw
