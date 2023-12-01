@@ -53,6 +53,10 @@ copy_shared_windows:
 test: all
 	fpm test --profile=release
 
+test_debug: clean
+	fpm build --profile=debug
+	fpm test --profile=debug
+
 clean:
 	fpm clean --all
 	rm -f src/*.mod
