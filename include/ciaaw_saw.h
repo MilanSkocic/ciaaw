@@ -10,7 +10,7 @@
 #else
 #define ADD_IMPORT
 #endif
-struct ciaaw_saw_capi_elmt_t{
+struct ciaaw_saw_capi_element_t{
     char element[25];
     char symbol[9];
     int z;

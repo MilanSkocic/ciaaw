@@ -31,7 +31,7 @@ subroutine write_C_header_declaration(fcode)
     write(fcode, "(A)") "#endif"
     
 
-    write(fcode, "(A)") 'struct ciaaw_saw_capi_elmt_t{'
+    write(fcode, "(A)") 'struct ciaaw_saw_capi_element_t{'
     write(fcode, "(4X, A)") 'char element['//trim(S_LENGTH_ELEMENT)//'];'
     write(fcode, "(4X, A)") 'char symbol['//trim(S_LENGTH_SYMBOL)//'];'
     write(fcode, "(4X, A)") 'int z;'
