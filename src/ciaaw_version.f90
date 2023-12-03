@@ -4,6 +4,6 @@ use iso_fortran_env
 implicit none
 private
 
-character(len= 5), parameter, public :: ciaaw_version_version = "0.1.0"                                                         
+character(len= 5), parameter, public :: ciaaw_version_version = "0.1.0"
 
 end module ciaaw__version

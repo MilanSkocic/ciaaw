@@ -12,7 +12,7 @@ $(LIBNAME): build copy_a shared copy_h copy_shared
 
 generator:
 	make -C ./srcgen/ciaaw_saw
-	make -C ./srcgen/ciaaw_version
+	make -C ./srcgen/version
 
 build: clean generator
 	fpm build --profile=release
@@ -69,7 +69,7 @@ copy_shared_windows:
 clean:
 	fpm clean --all
 	rm -f src/*.mod
-	make -C srcgen/ciaaw_version clean
+	make -C srcgen/version clean
 	make -C srcgen/ciaaw_saw clean
 	make -C $(PYW_MOD_DIR) clean
 
