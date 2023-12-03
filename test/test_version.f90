@@ -11,15 +11,15 @@ subroutine test_version_number()
     implicit none
 
     character(len=len(ciaaw_version_version)) :: value = ciaaw_version_version
-    character(len=len(ciaaw_version_version)) :: reference
+    character(len=len(ciaaw_version_version)) :: expected
 
-    reference = "0.1.0"
+    expected = "0.1.0"
     
     write(*, "(4X, A)", advance="no") "VERSION..."
 
-    if(value /= reference)then
+    if(value /= expected)then
         write(*, "(A)", advance="yes") "Failed"
-        write(*, "(4X, A, A)", advance="yes") value, reference
+        write(*, "(4X, A, A, A)", advance="yes") value, '/', expected
         stop 1
     endif
     write(*, "(A)", advance="yes") "OK"

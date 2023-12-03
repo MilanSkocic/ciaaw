@@ -9,7 +9,7 @@ all: srcgen
 srcgen: generator
 	./generator
 
-generator: core.o ciaaw_version_f90.o main.o
+generator: core.o ciaaw_version_f90.o ciaaw_version_h.o main.o
 	$(FC) $^ -o generator
 
 %.o: %.f90
