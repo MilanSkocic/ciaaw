@@ -6,17 +6,18 @@ endif
 
 .PHONY: all clean install uninstall copy_h copy_a shared_linux shared_windows shared_darwin
 
-all: generator $(LIBNAME)
+all: $(LIBNAME)
 
 $(LIBNAME): build copy_h copy_a shared copy_shared
 
 generator:
-	make -C ./srcgen
+	make -C ./srcgen/ciaaw_saw
+	make -C ./srcgen/ciaaw_saw_version
 
-build: clean
+build: generator clean
 	fpm build --profile=release
 
-build_debug: clean
+build_debug: generator clean
 	fpm build --profile=debug
 
 shared: shared_$(PLATFORM)
@@ -57,10 +58,6 @@ test: all
 	fpm test --profile=release
 	
 test_debug: build_debug
-	fpm test --profile=debug
-
-test_debug: clean
-	fpm build --profile=debug
 	fpm test --profile=debug
 
 clean:
