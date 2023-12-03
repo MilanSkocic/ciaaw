@@ -55,7 +55,7 @@ program generator
     open(file=fpath, newunit=fcheader, status="new", action="write")
     
     ! CPython
-    fpath = root//"pywrapper/pyciaaw/ciaaw_saw.c"
+    fpath = root//"pywrapper/pyciaaw/cpy_ciaaw_saw.c"
     inquire(file=fpath, exist=exist)
     if(exist)then
         open(file=fpath, newunit=unit, status="old")

@@ -71,6 +71,7 @@ clean:
 	rm -f src/*.mod
 	make -C srcgen/ciaaw_version clean
 	make -C srcgen/ciaaw_saw clean
+	make -C $(PYW_MOD_DIR) clean
 
 install: install_dirs install_$(PLATFORM)
 
