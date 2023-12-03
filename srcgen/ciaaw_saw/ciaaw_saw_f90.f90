@@ -1,4 +1,4 @@
-module fortran_code
+module ciaaw_saw_f90
     !! Function for writing the Fortran code.
     use iso_fortran_env
     use core

@@ -1,4 +1,4 @@
-module cpy_code
+module ciaaw_saw_cpy
     !! Generate code for CPython.
     use core
     implicit none

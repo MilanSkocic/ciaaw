@@ -1,9 +1,7 @@
-module utils
+module ciaaw_saw_writer
     !! Functions for parsing and manipulating ciaaw_saw.
     use iso_fortran_env
     use core
-    use fortran_code
-    use c_code
     implicit none
 
     

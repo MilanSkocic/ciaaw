@@ -1,15 +1,17 @@
 program generator
     use iso_fortran_env
-    use utils
-    use fortran_code
-    use c_code
-    use cpy_code
+    use core
+    use ciaaw_saw_f90
+    use ciaaw_saw_h
+    use ciaaw_saw_cpy
+    use ciaaw_saw_writer
     implicit none
 
+    character(len=*), parameter :: root = "../../"
     integer(int32) :: fciaaw, ffortran, ffortran_capi, fcheader, fcpython
     integer(int32) :: unit
     logical :: exist
-    character(len=32) :: fpath
+    character(len=64) :: fpath
     type(ciaaw_saw_file_props) :: props
 
     props = ciaaw_saw_file_props(0, 0, "./ciaaw_2021.txt", "2021")
@@ -21,13 +23,12 @@ program generator
     print "(4X, A, A)", "fpath: ", props%fpath
     print "(4X, A, A)", "Year: ", props%year
 
+    write(output_unit, "(A)", advance="NO") "Opening files..."
     ! CIAAW SAW SOURCE
-    print *, "Opening ciaaw file..."
     open(file=props%fpath, newunit=fciaaw, status="old", action="read")
     
     ! FORTRAN
-    fpath = "../src/ciaaw_saw.f90"
-    print *, "Opening fortran module..."
+    fpath = root//"/src/ciaaw_saw.f90"
     inquire(file=fpath, exist=exist)
     if(exist)then
         open(file=fpath, newunit=unit, status="old")
@@ -36,8 +37,7 @@ program generator
     open(file=fpath, newunit=ffortran, status="new", action="write")
     
     ! C API
-    fpath = "../src/ciaaw_saw_capi.f90"
-    print *, "Opening C API file..."
+    fpath = root // "/src/ciaaw_saw_capi.f90"
     inquire(file=fpath, exist=exist)
     if(exist)then
         open(file=fpath, newunit=unit, status="old")
@@ -46,8 +46,7 @@ program generator
     open(file=fpath, newunit=ffortran_capi, status="new", action="write")
 
     ! C Header
-    fpath = "../include/ciaaw_saw.h"
-    print *, "Opening C header..."
+    fpath = root//"/include/ciaaw_saw.h"
     inquire(file=fpath, exist=exist)
     if(exist)then
         open(file=fpath, newunit=unit, status="old")
@@ -56,15 +55,16 @@ program generator
     open(file=fpath, newunit=fcheader, status="new", action="write")
     
     ! CPython
-    fpath = "../pywrapper/pyciaaw/ciaaw_saw.c"
-    print *, "Opening CPython ..."
+    fpath = root//"pywrapper/pyciaaw/ciaaw_saw.c"
     inquire(file=fpath, exist=exist)
     if(exist)then
         open(file=fpath, newunit=unit, status="old")
         close(unit=unit, status="delete")
     endif
     open(file=fpath, newunit=fcpython, status="new", action="write")
+    write(output_unit, "(A)", advance="YES") "OK"
 
+    write(output_unit, "(A)", advance="NO") "Generating code..."
     call write_fortran_module_declaration(ffortran)
     call write_fortran_capi_module_declaration(ffortran_capi)
     call write_C_header_declaration(fcheader)
@@ -74,6 +74,7 @@ program generator
     call write_fortran_capi_module_end(ffortran_capi)
     call write_C_header_end(fcheader)
     call write_cpython_extension_end(fcpython)
+    write(output_unit, "(A)", advance="YES") "OK"
 
     close(fciaaw)
     close(ffortran)

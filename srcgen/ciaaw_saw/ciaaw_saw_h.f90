@@ -1,4 +1,4 @@
-module c_code
+module ciaaw_saw_h
     ! Module for generating C header
     use iso_fortran_env
     use core
