@@ -17,5 +17,5 @@ generator: core.o ciaaw_saw_f90.o ciaaw_saw_h.o ciaaw_saw_cpy.o ciaaw_saw_writer
 
 clean:
 	rm -f *.o
-	rm -f generator
+	rm -f generator*
 	rm -f *.mod

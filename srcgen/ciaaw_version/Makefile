@@ -17,5 +17,5 @@ generator: core.o ciaaw_version_f90.o ciaaw_version_h.o main.o
 
 clean:
 	rm -f *.o
-	rm -f generator
+	rm -f generator*
 	rm -f *.mod
