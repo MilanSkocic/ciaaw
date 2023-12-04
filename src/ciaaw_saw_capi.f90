@@ -128,5 +128,113 @@ ciaaw_saw_capi_element_t(&
 ["A","r",c_null_char, " "," "," "," "," "," "], &
 ciaaw_saw_Ar%z, &
 ciaaw_saw_Ar%saw_max, ciaaw_saw_Ar%saw_min, ciaaw_saw_Ar%saw, ciaaw_saw_Ar%saw_u, ciaaw_saw_Ar%asaw, ciaaw_saw_Ar%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_K") :: ciaaw_saw_capi_K =&
+ciaaw_saw_capi_element_t(&
+["p","o","t","a","s","s","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["K",c_null_char, " "," "," "," "," "," "," "], &
+ciaaw_saw_K%z, &
+ciaaw_saw_K%saw_max, ciaaw_saw_K%saw_min, ciaaw_saw_K%saw, ciaaw_saw_K%saw_u, ciaaw_saw_K%asaw, ciaaw_saw_K%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Ca") :: ciaaw_saw_capi_Ca =&
+ciaaw_saw_capi_element_t(&
+["c","a","l","c","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","a",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Ca%z, &
+ciaaw_saw_Ca%saw_max, ciaaw_saw_Ca%saw_min, ciaaw_saw_Ca%saw, ciaaw_saw_Ca%saw_u, ciaaw_saw_Ca%asaw, ciaaw_saw_Ca%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Sc") :: ciaaw_saw_capi_Sc =&
+ciaaw_saw_capi_element_t(&
+["s","c","a","n","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["S","c",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Sc%z, &
+ciaaw_saw_Sc%saw_max, ciaaw_saw_Sc%saw_min, ciaaw_saw_Sc%saw, ciaaw_saw_Sc%saw_u, ciaaw_saw_Sc%asaw, ciaaw_saw_Sc%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Ti") :: ciaaw_saw_capi_Ti =&
+ciaaw_saw_capi_element_t(&
+["t","i","t","a","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["T","i",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Ti%z, &
+ciaaw_saw_Ti%saw_max, ciaaw_saw_Ti%saw_min, ciaaw_saw_Ti%saw, ciaaw_saw_Ti%saw_u, ciaaw_saw_Ti%asaw, ciaaw_saw_Ti%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_V") :: ciaaw_saw_capi_V =&
+ciaaw_saw_capi_element_t(&
+["v","a","n","a","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["V",c_null_char, " "," "," "," "," "," "," "], &
+ciaaw_saw_V%z, &
+ciaaw_saw_V%saw_max, ciaaw_saw_V%saw_min, ciaaw_saw_V%saw, ciaaw_saw_V%saw_u, ciaaw_saw_V%asaw, ciaaw_saw_V%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Cr") :: ciaaw_saw_capi_Cr =&
+ciaaw_saw_capi_element_t(&
+["c","h","r","o","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","r",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Cr%z, &
+ciaaw_saw_Cr%saw_max, ciaaw_saw_Cr%saw_min, ciaaw_saw_Cr%saw, ciaaw_saw_Cr%saw_u, ciaaw_saw_Cr%asaw, ciaaw_saw_Cr%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Mn") :: ciaaw_saw_capi_Mn =&
+ciaaw_saw_capi_element_t(&
+["m","a","n","g","a","n","e","s","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["M","n",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Mn%z, &
+ciaaw_saw_Mn%saw_max, ciaaw_saw_Mn%saw_min, ciaaw_saw_Mn%saw, ciaaw_saw_Mn%saw_u, ciaaw_saw_Mn%asaw, ciaaw_saw_Mn%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Fe") :: ciaaw_saw_capi_Fe =&
+ciaaw_saw_capi_element_t(&
+["i","r","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["F","e",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Fe%z, &
+ciaaw_saw_Fe%saw_max, ciaaw_saw_Fe%saw_min, ciaaw_saw_Fe%saw, ciaaw_saw_Fe%saw_u, ciaaw_saw_Fe%asaw, ciaaw_saw_Fe%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Co") :: ciaaw_saw_capi_Co =&
+ciaaw_saw_capi_element_t(&
+["c","o","b","a","l","t",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","o",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Co%z, &
+ciaaw_saw_Co%saw_max, ciaaw_saw_Co%saw_min, ciaaw_saw_Co%saw, ciaaw_saw_Co%saw_u, ciaaw_saw_Co%asaw, ciaaw_saw_Co%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Ni") :: ciaaw_saw_capi_Ni =&
+ciaaw_saw_capi_element_t(&
+["n","i","c","k","e","l",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["N","i",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Ni%z, &
+ciaaw_saw_Ni%saw_max, ciaaw_saw_Ni%saw_min, ciaaw_saw_Ni%saw, ciaaw_saw_Ni%saw_u, ciaaw_saw_Ni%asaw, ciaaw_saw_Ni%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Cu") :: ciaaw_saw_capi_Cu =&
+ciaaw_saw_capi_element_t(&
+["c","o","p","p","e","r",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","u",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Cu%z, &
+ciaaw_saw_Cu%saw_max, ciaaw_saw_Cu%saw_min, ciaaw_saw_Cu%saw, ciaaw_saw_Cu%saw_u, ciaaw_saw_Cu%asaw, ciaaw_saw_Cu%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Zn") :: ciaaw_saw_capi_Zn =&
+ciaaw_saw_capi_element_t(&
+["z","i","n","c",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["Z","n",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Zn%z, &
+ciaaw_saw_Zn%saw_max, ciaaw_saw_Zn%saw_min, ciaaw_saw_Zn%saw, ciaaw_saw_Zn%saw_u, ciaaw_saw_Zn%asaw, ciaaw_saw_Zn%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Ga") :: ciaaw_saw_capi_Ga =&
+ciaaw_saw_capi_element_t(&
+["g","a","l","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["G","a",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Ga%z, &
+ciaaw_saw_Ga%saw_max, ciaaw_saw_Ga%saw_min, ciaaw_saw_Ga%saw, ciaaw_saw_Ga%saw_u, ciaaw_saw_Ga%asaw, ciaaw_saw_Ga%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Ge") :: ciaaw_saw_capi_Ge =&
+ciaaw_saw_capi_element_t(&
+["g","e","r","m","a","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["G","e",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Ge%z, &
+ciaaw_saw_Ge%saw_max, ciaaw_saw_Ge%saw_min, ciaaw_saw_Ge%saw, ciaaw_saw_Ge%saw_u, ciaaw_saw_Ge%asaw, ciaaw_saw_Ge%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_As") :: ciaaw_saw_capi_As =&
+ciaaw_saw_capi_element_t(&
+["a","r","s","e","n","i","c",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["A","s",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_As%z, &
+ciaaw_saw_As%saw_max, ciaaw_saw_As%saw_min, ciaaw_saw_As%saw, ciaaw_saw_As%saw_u, ciaaw_saw_As%asaw, ciaaw_saw_As%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Se") :: ciaaw_saw_capi_Se =&
+ciaaw_saw_capi_element_t(&
+["s","e","l","e","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["S","e",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Se%z, &
+ciaaw_saw_Se%saw_max, ciaaw_saw_Se%saw_min, ciaaw_saw_Se%saw, ciaaw_saw_Se%saw_u, ciaaw_saw_Se%asaw, ciaaw_saw_Se%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Br") :: ciaaw_saw_capi_Br =&
+ciaaw_saw_capi_element_t(&
+["b","r","o","m","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["B","r",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Br%z, &
+ciaaw_saw_Br%saw_max, ciaaw_saw_Br%saw_min, ciaaw_saw_Br%saw, ciaaw_saw_Br%saw_u, ciaaw_saw_Br%asaw, ciaaw_saw_Br%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Kr") :: ciaaw_saw_capi_Kr =&
+ciaaw_saw_capi_element_t(&
+["k","r","y","p","t","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["K","r",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Kr%z, &
+ciaaw_saw_Kr%saw_max, ciaaw_saw_Kr%saw_min, ciaaw_saw_Kr%saw, ciaaw_saw_Kr%saw_u, ciaaw_saw_Kr%asaw, ciaaw_saw_Kr%asaw_u)
 
 end module ciaaw__saw_capi

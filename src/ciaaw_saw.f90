@@ -55,5 +55,41 @@ type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Cl =&
 ciaaw_saw_element_t("chlorine", "Cl", 17, 35.446d0, 35.457d0, 35.451d0, 0.004d0, 35.45d0, 0.01d0)
 type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Ar =&
 ciaaw_saw_element_t("argon", "Ar", 18, 39.792d0, 39.963d0, 39.88d0, 0.05d0, 39.95d0, 0.16d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_K =&
+ciaaw_saw_element_t("potassium", "K", 19, -1.0d0, -1.0d0, 39.0983d0, 0.0001d0, 39.098d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Ca =&
+ciaaw_saw_element_t("calcium", "Ca", 20, -1.0d0, -1.0d0, 40.078d0, 0.004d0, 40.078d0, 0.004d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Sc =&
+ciaaw_saw_element_t("scandium", "Sc", 21, -1.0d0, -1.0d0, 44.955907d0, 0.000004d0, 44.956d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Ti =&
+ciaaw_saw_element_t("titanium", "Ti", 22, -1.0d0, -1.0d0, 47.867d0, 0.001d0, 47.867d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_V =&
+ciaaw_saw_element_t("vanadium", "V", 23, -1.0d0, -1.0d0, 50.9415d0, 0.0001d0, 50.942d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Cr =&
+ciaaw_saw_element_t("chromium", "Cr", 24, -1.0d0, -1.0d0, 51.9961d0, 0.0006d0, 51.996d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Mn =&
+ciaaw_saw_element_t("manganese", "Mn", 25, -1.0d0, -1.0d0, 54.938043d0, 0.000002d0, 54.938d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Fe =&
+ciaaw_saw_element_t("iron", "Fe", 26, -1.0d0, -1.0d0, 55.845d0, 0.002d0, 55.845d0, 0.002d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Co =&
+ciaaw_saw_element_t("cobalt", "Co", 27, -1.0d0, -1.0d0, 58.933194d0, 0.000003d0, 58.933d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Ni =&
+ciaaw_saw_element_t("nickel", "Ni", 28, -1.0d0, -1.0d0, 58.6934d0, 0.0004d0, 58.693d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Cu =&
+ciaaw_saw_element_t("copper", "Cu", 29, -1.0d0, -1.0d0, 63.546d0, 0.003d0, 63.546d0, 0.003d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Zn =&
+ciaaw_saw_element_t("zinc", "Zn", 30, -1.0d0, -1.0d0, 65.38d0, 0.02d0, 65.38d0, 0.02d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Ga =&
+ciaaw_saw_element_t("gallium", "Ga", 31, -1.0d0, -1.0d0, 69.723d0, 0.001d0, 69.723d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Ge =&
+ciaaw_saw_element_t("germanium", "Ge", 32, -1.0d0, -1.0d0, 72.630d0, 0.008d0, 72.630d0, 0.008d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_As =&
+ciaaw_saw_element_t("arsenic", "As", 33, -1.0d0, -1.0d0, 74.921595d0, 0.000006d0, 74.922d0, 0.001d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Se =&
+ciaaw_saw_element_t("selenium", "Se", 34, -1.0d0, -1.0d0, 78.971d0, 0.008d0, 78.971d0, 0.008d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Br =&
+ciaaw_saw_element_t("bromine", "Br", 35, 79.901d0, 79.907d0, 79.904d0, 0.002d0, 79.904d0, 0.003d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Kr =&
+ciaaw_saw_element_t("krypton", "Kr", 36, -1.0d0, -1.0d0, 83.798d0, 0.002d0, 83.798d0, 0.002d0)
 
 end module ciaaw__saw
