@@ -181,8 +181,8 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
                 write(saw, out_format) saw_value_db, "d0"
                 write(saw_u, out_format) saw_u_db, "d0"
             else
-                saw_max = "-1.0d0"
-                saw_min = "-1.0d0"
+                saw_max = "nan"
+                saw_min = "nan"
                 saw = trim(saw) //'d0'
                 saw_u = trim(saw_u) //'d0'
             end if
@@ -193,10 +193,10 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
             ! Fortran
             name = "ciaaw_saw_"//trim(symbol)
             write(ffortran, "(A)") "type(ciaaw_saw_element_t), parameter, public :: "//trim(name)//" =&"
-            write(ffortran, "(A)") 'ciaaw_saw_element_t("'//trim(element)//'", '//'"'//trim(symbol)//'", '//trim(z)//", "//&
-                                    trim(saw_min)// ", "//trim(saw_max)//", "//&
-                                    trim(adjustl(saw))//", "//trim(adjustl(saw_u))//", "//&
-                                    trim(asaw)//", "//trim(asaw_u)//')'
+            write(ffortran, "(A)") 'ciaaw_saw_element_t("'//trim(element)//'", '//'"'//trim(symbol)//'", '//trim(z)//", &"
+            write(ffortran, "(A)") trim(saw_min)// ", "//trim(saw_max)//", &"
+            write(ffortran, "(A)") trim(adjustl(saw))//", "//trim(adjustl(saw_u))//", &"
+            write(ffortran, "(A)") trim(asaw)//", "//trim(asaw_u)//')'
 
             ! Fortran C API
             name_capi = "ciaaw_saw_capi_"//trim(symbol)
