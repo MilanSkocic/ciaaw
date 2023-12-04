@@ -24,16 +24,16 @@ module-naming = true
 library = true
 
 [[test]]
-name = "test_asaw"
-main = "test_asaw.f90"
+name = "test_saw"
+main = "test_saw.f90"
 
 [[test]]
 name = "test_version"
 main = "test_version.f90"
 
 [[test]]
-name = "test_asaw_capi"
-main = "test_asaw_capi.c"
+name = "test_saw_capi"
+main = "test_saw_capi.c"
 
 [[test]]
 name = "test_version_capi"
