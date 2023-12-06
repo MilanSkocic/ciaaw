@@ -21,5 +21,7 @@ class TestkH(unittest.TestCase):
         for i in range(N):
             with self.subTest():
                 diff = elements[i]["asaw"] - expected[i]
-                self.assertEqual(diff, 0.0, msg=f"   {elements[i]["symbol"]:s}    {elements[i]["asaw"]:+23.16f}/{expected[i]}/{diff:+23.16f}")
+                symbol = elements[i]["symbol"]
+                asaw = elements[i]["asaw"]
+                self.assertEqual(diff, 0.0, msg=f"   {symbol:s}    {asaw:+23.16f}/{expected[i]}/{diff:+23.16f}")
     
