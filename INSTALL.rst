@@ -16,7 +16,7 @@ Run tests
 
 .. code-block:: bash
     
-    fpm test
+    make test
 
 Install
     
@@ -35,4 +35,5 @@ If building the python wrapper is needed:
 .. code-block:: bash
 
     cd pywrapper
-    python setup.py bdist_wheel
+    make clean plat=(windows, linux or darwin)
+    make plat=(windows, linux or darwin)
