@@ -236,5 +236,11 @@ ciaaw_saw_capi_element_t(&
 ["K","r",c_null_char, " "," "," "," "," "," "], &
 ciaaw_saw_Kr%z, &
 ciaaw_saw_Kr%saw_max, ciaaw_saw_Kr%saw_min, ciaaw_saw_Kr%saw, ciaaw_saw_Kr%saw_u, ciaaw_saw_Kr%asaw, ciaaw_saw_Kr%asaw_u)
+type(ciaaw_saw_capi_element_t), protected, public, bind(C, name="ciaaw_saw_capi_Tc") :: ciaaw_saw_capi_Tc =&
+ciaaw_saw_capi_element_t(&
+["t","e","c","h","n","e","t","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["T","c",c_null_char, " "," "," "," "," "," "], &
+ciaaw_saw_Tc%z, &
+ciaaw_saw_Tc%saw_max, ciaaw_saw_Tc%saw_min, ciaaw_saw_Tc%saw, ciaaw_saw_Tc%saw_u, ciaaw_saw_Tc%asaw, ciaaw_saw_Tc%asaw_u)
 
 end module ciaaw__saw_capi

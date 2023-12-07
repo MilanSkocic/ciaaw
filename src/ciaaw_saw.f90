@@ -203,5 +203,10 @@ ciaaw_saw_element_t("krypton", "Kr", 36, &
 nan, nan, &
 83.798d0, 0.002d0, &
 83.798d0, 0.002d0)
+type(ciaaw_saw_element_t), parameter, public :: ciaaw_saw_Tc =&
+ciaaw_saw_element_t("technetium", "Tc", 43, &
+nan, nan, &
+nan, nan, &
+nan, nan)
 
 end module ciaaw__saw

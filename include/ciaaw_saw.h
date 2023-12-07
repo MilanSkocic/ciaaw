@@ -59,6 +59,7 @@ ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_As;
 ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Se;
 ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Br;
 ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Kr;
+ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Tc;
 
 #endif
 

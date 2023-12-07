@@ -524,5 +524,19 @@ PyMODINIT_FUNC PyInit_saw(void){
     PyDict_SetItemString(d, "Kr", element);
     Py_INCREF(element);
 
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_capi_Tc.element,
+        "symbol",ciaaw_saw_capi_Tc.symbol,
+        "z",ciaaw_saw_capi_Tc.z,
+        "saw_max",ciaaw_saw_capi_Tc.saw_max,
+        "saw_min",ciaaw_saw_capi_Tc.saw_min,
+        "saw",ciaaw_saw_capi_Tc.saw,
+        "saw_u",ciaaw_saw_capi_Tc.saw_u,
+        "asaw",ciaaw_saw_capi_Tc.asaw,
+        "asaw_u",ciaaw_saw_capi_Tc.asaw_u
+    );
+    PyDict_SetItemString(d, "Tc", element);
+    Py_INCREF(element);
+
     return m;
 }

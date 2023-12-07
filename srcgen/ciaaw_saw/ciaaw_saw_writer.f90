@@ -183,12 +183,27 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
             else
                 saw_max = "nan"
                 saw_min = "nan"
-                saw = trim(saw) //'d0'
-                saw_u = trim(saw_u) //'d0'
+                if(trim(saw) == "nan")then
+                    saw = trim(saw)
+                else
+                    saw = trim(saw) //'d0'
+                end if
+                if(trim(saw_u) == "nan")then
+                    saw_u = trim(saw_u)
+                else
+                    saw_u = trim(saw_u) //'d0'
+                end if
             end if
-
-            asaw = trim(asaw)//'d0'
-            asaw_u = trim(asaw_u)//'d0'
+            if(trim(asaw) == "nan")then
+                asaw = trim(asaw)
+            else
+                asaw = trim(asaw)//'d0'
+            end if
+            if(trim(asaw_u) == "nan")then
+                asaw_u = trim(asaw_u)
+            else
+                asaw_u = trim(asaw_u)//'d0'
+            end if
             
             ! Fortran
             name = "ciaaw_saw_"//trim(symbol)
