@@ -4,7 +4,7 @@ from .. import saw
 import numpy as np
 
 
-class TestkH(unittest.TestCase):
+class Test_saw(unittest.TestCase):
     r"""Test ciaaw library."""
     def test_asaw(self):
         N = 2
