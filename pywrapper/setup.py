@@ -26,6 +26,4 @@ if __name__ == "__main__":
                         library_dirs=library_dirs,
                         runtime_library_dirs=runtime_library_dirs,
                         extra_objects=extra_objects)
-    
     setup(ext_modules=[mod_ext])
-    
