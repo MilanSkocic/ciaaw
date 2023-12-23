@@ -4,7 +4,7 @@ summary: Standard atomic weights according to CIAAW.
 project_github: https://github.com/MilanSkocic/ciaaw
 project_download: https://github.com/MilanSkocic/ciaaw/releases
 author: Milan Skocic
-author_email: milan.skocic@icloud.com
+email: milan.skocic@icloud.com
 github: https://github.com/MilanSkocic
 website: https://milanskocic.github.io/ciaaw/index.html
 src_dir: ../../src
