@@ -41,3 +41,4 @@ pywrapper/pyciaaw/*.dll.a
 pywrapper/pyciaaw/*.so
 pywrapper/pyciaaw/*.dylib
 pywrapper/pyciaaw/*.pyd
+pywrapper/wheelhouse/
