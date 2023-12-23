@@ -1,3 +1,5 @@
+Interpretation and use of standard atomic weights (IUPAC Technical Report): https://doi.org/10.1515/pac-2017-1002
+Standard atomic weights of the elements 2021 (IUPAC Technical Report): https://doi.org/10.1515/pac-2019-0603
 123456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_
 1         11        21        31        41        51        61        71        81        91        101       111       121
 Element             Symbol    z         saw                           saw_u               footnote  asaw      asawu    
