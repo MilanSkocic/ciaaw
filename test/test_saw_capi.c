@@ -13,15 +13,15 @@ void test_asaw(void){
     double expected[N];
     double diff;
 
-    struct ciaaw_saw_capi_element_t elements[N];
+    struct ciaaw_saw_element_t elements[N];
     
     printf("    %s", "ASAW...");
     
     expected[0] = 1.0080;
     expected[1] = 12.011;
 
-    elements[0] = ciaaw_saw_capi_H;
-    elements[1] = ciaaw_saw_capi_C;
+    elements[0] = ciaaw_saw_H;
+    elements[1] = ciaaw_saw_C;
     
 
     for(i=0; i<N; i++){

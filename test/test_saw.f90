@@ -15,14 +15,14 @@ subroutine test_asaw()
 
     integer(int32), parameter :: N=2
     integer(int32) :: i
-    type(ciaaw_saw_element_t) :: elements(N)
+    type(element_t) :: elements(N)
     real(real64) :: value
     real(real64) :: expected(N)
     real(real64) :: diff
     write(*, "(4X, A)", advance="no") "ASAW..."
 
-    elements(1) = ciaaw_saw_H
-    elements(2) = ciaaw_saw_C
+    elements(1) = H
+    elements(2) = C
 
     expected(1) = 1.008d0
     expected(2) = 12.011d0
