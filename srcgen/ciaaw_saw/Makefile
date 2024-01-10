@@ -1,7 +1,7 @@
 CC=gcc
 FC=gfortran
 FFLAGS=-std=f2008 -Wall -Wextra -pedantic
-OBJECTS=core.o ciaaw_saw_f90.o ciaaw_saw_h.o ciaaw_saw_cpy.o ciaaw_saw_writer.o main.o
+OBJECTS=main.o
 
 all: generator
 
