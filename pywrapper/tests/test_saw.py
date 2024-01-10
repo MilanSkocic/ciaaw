@@ -1,7 +1,6 @@
 r"""Tests"""
 import unittest
-from .. import saw
-import numpy as np
+from pyciaaw import saw
 
 
 class Test_saw(unittest.TestCase):

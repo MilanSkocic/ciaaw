@@ -2,6 +2,6 @@ program example_in_f
     use ciaaw
     implicit none
 
-    print *, "version ", ciaaw_version_version
+    print *, "version ", get_version()  
 
 end program

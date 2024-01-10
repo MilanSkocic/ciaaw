@@ -6,7 +6,7 @@
 
 int main(void){
 
-    printf("version %s\n", ciaaw_version_capi_version);
+    printf("version %s\n", ciaaw_get_version());
 
     return EXIT_SUCCESS;
 }
