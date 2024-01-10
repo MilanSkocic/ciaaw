@@ -525,6 +525,90 @@ PyMODINIT_FUNC PyInit_saw(void){
     Py_INCREF(element);
 
     element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Rb.element,
+        "symbol",ciaaw_saw_Rb.symbol,
+        "z",ciaaw_saw_Rb.z,
+        "saw_max",ciaaw_saw_Rb.saw_max,
+        "saw_min",ciaaw_saw_Rb.saw_min,
+        "saw",ciaaw_saw_Rb.saw,
+        "saw_u",ciaaw_saw_Rb.saw_u,
+        "asaw",ciaaw_saw_Rb.asaw,
+        "asaw_u",ciaaw_saw_Rb.asaw_u
+    );
+    PyDict_SetItemString(d, "Rb", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Sr.element,
+        "symbol",ciaaw_saw_Sr.symbol,
+        "z",ciaaw_saw_Sr.z,
+        "saw_max",ciaaw_saw_Sr.saw_max,
+        "saw_min",ciaaw_saw_Sr.saw_min,
+        "saw",ciaaw_saw_Sr.saw,
+        "saw_u",ciaaw_saw_Sr.saw_u,
+        "asaw",ciaaw_saw_Sr.asaw,
+        "asaw_u",ciaaw_saw_Sr.asaw_u
+    );
+    PyDict_SetItemString(d, "Sr", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Y.element,
+        "symbol",ciaaw_saw_Y.symbol,
+        "z",ciaaw_saw_Y.z,
+        "saw_max",ciaaw_saw_Y.saw_max,
+        "saw_min",ciaaw_saw_Y.saw_min,
+        "saw",ciaaw_saw_Y.saw,
+        "saw_u",ciaaw_saw_Y.saw_u,
+        "asaw",ciaaw_saw_Y.asaw,
+        "asaw_u",ciaaw_saw_Y.asaw_u
+    );
+    PyDict_SetItemString(d, "Y", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Zr.element,
+        "symbol",ciaaw_saw_Zr.symbol,
+        "z",ciaaw_saw_Zr.z,
+        "saw_max",ciaaw_saw_Zr.saw_max,
+        "saw_min",ciaaw_saw_Zr.saw_min,
+        "saw",ciaaw_saw_Zr.saw,
+        "saw_u",ciaaw_saw_Zr.saw_u,
+        "asaw",ciaaw_saw_Zr.asaw,
+        "asaw_u",ciaaw_saw_Zr.asaw_u
+    );
+    PyDict_SetItemString(d, "Zr", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Nb.element,
+        "symbol",ciaaw_saw_Nb.symbol,
+        "z",ciaaw_saw_Nb.z,
+        "saw_max",ciaaw_saw_Nb.saw_max,
+        "saw_min",ciaaw_saw_Nb.saw_min,
+        "saw",ciaaw_saw_Nb.saw,
+        "saw_u",ciaaw_saw_Nb.saw_u,
+        "asaw",ciaaw_saw_Nb.asaw,
+        "asaw_u",ciaaw_saw_Nb.asaw_u
+    );
+    PyDict_SetItemString(d, "Nb", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Mo.element,
+        "symbol",ciaaw_saw_Mo.symbol,
+        "z",ciaaw_saw_Mo.z,
+        "saw_max",ciaaw_saw_Mo.saw_max,
+        "saw_min",ciaaw_saw_Mo.saw_min,
+        "saw",ciaaw_saw_Mo.saw,
+        "saw_u",ciaaw_saw_Mo.saw_u,
+        "asaw",ciaaw_saw_Mo.asaw,
+        "asaw_u",ciaaw_saw_Mo.asaw_u
+    );
+    PyDict_SetItemString(d, "Mo", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
         "element",ciaaw_saw_Tc.element,
         "symbol",ciaaw_saw_Tc.symbol,
         "z",ciaaw_saw_Tc.z,
@@ -536,6 +620,356 @@ PyMODINIT_FUNC PyInit_saw(void){
         "asaw_u",ciaaw_saw_Tc.asaw_u
     );
     PyDict_SetItemString(d, "Tc", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Ru.element,
+        "symbol",ciaaw_saw_Ru.symbol,
+        "z",ciaaw_saw_Ru.z,
+        "saw_max",ciaaw_saw_Ru.saw_max,
+        "saw_min",ciaaw_saw_Ru.saw_min,
+        "saw",ciaaw_saw_Ru.saw,
+        "saw_u",ciaaw_saw_Ru.saw_u,
+        "asaw",ciaaw_saw_Ru.asaw,
+        "asaw_u",ciaaw_saw_Ru.asaw_u
+    );
+    PyDict_SetItemString(d, "Ru", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Rh.element,
+        "symbol",ciaaw_saw_Rh.symbol,
+        "z",ciaaw_saw_Rh.z,
+        "saw_max",ciaaw_saw_Rh.saw_max,
+        "saw_min",ciaaw_saw_Rh.saw_min,
+        "saw",ciaaw_saw_Rh.saw,
+        "saw_u",ciaaw_saw_Rh.saw_u,
+        "asaw",ciaaw_saw_Rh.asaw,
+        "asaw_u",ciaaw_saw_Rh.asaw_u
+    );
+    PyDict_SetItemString(d, "Rh", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Pd.element,
+        "symbol",ciaaw_saw_Pd.symbol,
+        "z",ciaaw_saw_Pd.z,
+        "saw_max",ciaaw_saw_Pd.saw_max,
+        "saw_min",ciaaw_saw_Pd.saw_min,
+        "saw",ciaaw_saw_Pd.saw,
+        "saw_u",ciaaw_saw_Pd.saw_u,
+        "asaw",ciaaw_saw_Pd.asaw,
+        "asaw_u",ciaaw_saw_Pd.asaw_u
+    );
+    PyDict_SetItemString(d, "Pd", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Ag.element,
+        "symbol",ciaaw_saw_Ag.symbol,
+        "z",ciaaw_saw_Ag.z,
+        "saw_max",ciaaw_saw_Ag.saw_max,
+        "saw_min",ciaaw_saw_Ag.saw_min,
+        "saw",ciaaw_saw_Ag.saw,
+        "saw_u",ciaaw_saw_Ag.saw_u,
+        "asaw",ciaaw_saw_Ag.asaw,
+        "asaw_u",ciaaw_saw_Ag.asaw_u
+    );
+    PyDict_SetItemString(d, "Ag", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Cd.element,
+        "symbol",ciaaw_saw_Cd.symbol,
+        "z",ciaaw_saw_Cd.z,
+        "saw_max",ciaaw_saw_Cd.saw_max,
+        "saw_min",ciaaw_saw_Cd.saw_min,
+        "saw",ciaaw_saw_Cd.saw,
+        "saw_u",ciaaw_saw_Cd.saw_u,
+        "asaw",ciaaw_saw_Cd.asaw,
+        "asaw_u",ciaaw_saw_Cd.asaw_u
+    );
+    PyDict_SetItemString(d, "Cd", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_In.element,
+        "symbol",ciaaw_saw_In.symbol,
+        "z",ciaaw_saw_In.z,
+        "saw_max",ciaaw_saw_In.saw_max,
+        "saw_min",ciaaw_saw_In.saw_min,
+        "saw",ciaaw_saw_In.saw,
+        "saw_u",ciaaw_saw_In.saw_u,
+        "asaw",ciaaw_saw_In.asaw,
+        "asaw_u",ciaaw_saw_In.asaw_u
+    );
+    PyDict_SetItemString(d, "In", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Sn.element,
+        "symbol",ciaaw_saw_Sn.symbol,
+        "z",ciaaw_saw_Sn.z,
+        "saw_max",ciaaw_saw_Sn.saw_max,
+        "saw_min",ciaaw_saw_Sn.saw_min,
+        "saw",ciaaw_saw_Sn.saw,
+        "saw_u",ciaaw_saw_Sn.saw_u,
+        "asaw",ciaaw_saw_Sn.asaw,
+        "asaw_u",ciaaw_saw_Sn.asaw_u
+    );
+    PyDict_SetItemString(d, "Sn", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Sb.element,
+        "symbol",ciaaw_saw_Sb.symbol,
+        "z",ciaaw_saw_Sb.z,
+        "saw_max",ciaaw_saw_Sb.saw_max,
+        "saw_min",ciaaw_saw_Sb.saw_min,
+        "saw",ciaaw_saw_Sb.saw,
+        "saw_u",ciaaw_saw_Sb.saw_u,
+        "asaw",ciaaw_saw_Sb.asaw,
+        "asaw_u",ciaaw_saw_Sb.asaw_u
+    );
+    PyDict_SetItemString(d, "Sb", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Te.element,
+        "symbol",ciaaw_saw_Te.symbol,
+        "z",ciaaw_saw_Te.z,
+        "saw_max",ciaaw_saw_Te.saw_max,
+        "saw_min",ciaaw_saw_Te.saw_min,
+        "saw",ciaaw_saw_Te.saw,
+        "saw_u",ciaaw_saw_Te.saw_u,
+        "asaw",ciaaw_saw_Te.asaw,
+        "asaw_u",ciaaw_saw_Te.asaw_u
+    );
+    PyDict_SetItemString(d, "Te", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_I.element,
+        "symbol",ciaaw_saw_I.symbol,
+        "z",ciaaw_saw_I.z,
+        "saw_max",ciaaw_saw_I.saw_max,
+        "saw_min",ciaaw_saw_I.saw_min,
+        "saw",ciaaw_saw_I.saw,
+        "saw_u",ciaaw_saw_I.saw_u,
+        "asaw",ciaaw_saw_I.asaw,
+        "asaw_u",ciaaw_saw_I.asaw_u
+    );
+    PyDict_SetItemString(d, "I", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Xe.element,
+        "symbol",ciaaw_saw_Xe.symbol,
+        "z",ciaaw_saw_Xe.z,
+        "saw_max",ciaaw_saw_Xe.saw_max,
+        "saw_min",ciaaw_saw_Xe.saw_min,
+        "saw",ciaaw_saw_Xe.saw,
+        "saw_u",ciaaw_saw_Xe.saw_u,
+        "asaw",ciaaw_saw_Xe.asaw,
+        "asaw_u",ciaaw_saw_Xe.asaw_u
+    );
+    PyDict_SetItemString(d, "Xe", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Cs.element,
+        "symbol",ciaaw_saw_Cs.symbol,
+        "z",ciaaw_saw_Cs.z,
+        "saw_max",ciaaw_saw_Cs.saw_max,
+        "saw_min",ciaaw_saw_Cs.saw_min,
+        "saw",ciaaw_saw_Cs.saw,
+        "saw_u",ciaaw_saw_Cs.saw_u,
+        "asaw",ciaaw_saw_Cs.asaw,
+        "asaw_u",ciaaw_saw_Cs.asaw_u
+    );
+    PyDict_SetItemString(d, "Cs", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Ba.element,
+        "symbol",ciaaw_saw_Ba.symbol,
+        "z",ciaaw_saw_Ba.z,
+        "saw_max",ciaaw_saw_Ba.saw_max,
+        "saw_min",ciaaw_saw_Ba.saw_min,
+        "saw",ciaaw_saw_Ba.saw,
+        "saw_u",ciaaw_saw_Ba.saw_u,
+        "asaw",ciaaw_saw_Ba.asaw,
+        "asaw_u",ciaaw_saw_Ba.asaw_u
+    );
+    PyDict_SetItemString(d, "Ba", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_La.element,
+        "symbol",ciaaw_saw_La.symbol,
+        "z",ciaaw_saw_La.z,
+        "saw_max",ciaaw_saw_La.saw_max,
+        "saw_min",ciaaw_saw_La.saw_min,
+        "saw",ciaaw_saw_La.saw,
+        "saw_u",ciaaw_saw_La.saw_u,
+        "asaw",ciaaw_saw_La.asaw,
+        "asaw_u",ciaaw_saw_La.asaw_u
+    );
+    PyDict_SetItemString(d, "La", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Ce.element,
+        "symbol",ciaaw_saw_Ce.symbol,
+        "z",ciaaw_saw_Ce.z,
+        "saw_max",ciaaw_saw_Ce.saw_max,
+        "saw_min",ciaaw_saw_Ce.saw_min,
+        "saw",ciaaw_saw_Ce.saw,
+        "saw_u",ciaaw_saw_Ce.saw_u,
+        "asaw",ciaaw_saw_Ce.asaw,
+        "asaw_u",ciaaw_saw_Ce.asaw_u
+    );
+    PyDict_SetItemString(d, "Ce", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Pr.element,
+        "symbol",ciaaw_saw_Pr.symbol,
+        "z",ciaaw_saw_Pr.z,
+        "saw_max",ciaaw_saw_Pr.saw_max,
+        "saw_min",ciaaw_saw_Pr.saw_min,
+        "saw",ciaaw_saw_Pr.saw,
+        "saw_u",ciaaw_saw_Pr.saw_u,
+        "asaw",ciaaw_saw_Pr.asaw,
+        "asaw_u",ciaaw_saw_Pr.asaw_u
+    );
+    PyDict_SetItemString(d, "Pr", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Nd.element,
+        "symbol",ciaaw_saw_Nd.symbol,
+        "z",ciaaw_saw_Nd.z,
+        "saw_max",ciaaw_saw_Nd.saw_max,
+        "saw_min",ciaaw_saw_Nd.saw_min,
+        "saw",ciaaw_saw_Nd.saw,
+        "saw_u",ciaaw_saw_Nd.saw_u,
+        "asaw",ciaaw_saw_Nd.asaw,
+        "asaw_u",ciaaw_saw_Nd.asaw_u
+    );
+    PyDict_SetItemString(d, "Nd", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Pm.element,
+        "symbol",ciaaw_saw_Pm.symbol,
+        "z",ciaaw_saw_Pm.z,
+        "saw_max",ciaaw_saw_Pm.saw_max,
+        "saw_min",ciaaw_saw_Pm.saw_min,
+        "saw",ciaaw_saw_Pm.saw,
+        "saw_u",ciaaw_saw_Pm.saw_u,
+        "asaw",ciaaw_saw_Pm.asaw,
+        "asaw_u",ciaaw_saw_Pm.asaw_u
+    );
+    PyDict_SetItemString(d, "Pm", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Sm.element,
+        "symbol",ciaaw_saw_Sm.symbol,
+        "z",ciaaw_saw_Sm.z,
+        "saw_max",ciaaw_saw_Sm.saw_max,
+        "saw_min",ciaaw_saw_Sm.saw_min,
+        "saw",ciaaw_saw_Sm.saw,
+        "saw_u",ciaaw_saw_Sm.saw_u,
+        "asaw",ciaaw_saw_Sm.asaw,
+        "asaw_u",ciaaw_saw_Sm.asaw_u
+    );
+    PyDict_SetItemString(d, "Sm", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Eu.element,
+        "symbol",ciaaw_saw_Eu.symbol,
+        "z",ciaaw_saw_Eu.z,
+        "saw_max",ciaaw_saw_Eu.saw_max,
+        "saw_min",ciaaw_saw_Eu.saw_min,
+        "saw",ciaaw_saw_Eu.saw,
+        "saw_u",ciaaw_saw_Eu.saw_u,
+        "asaw",ciaaw_saw_Eu.asaw,
+        "asaw_u",ciaaw_saw_Eu.asaw_u
+    );
+    PyDict_SetItemString(d, "Eu", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Gd.element,
+        "symbol",ciaaw_saw_Gd.symbol,
+        "z",ciaaw_saw_Gd.z,
+        "saw_max",ciaaw_saw_Gd.saw_max,
+        "saw_min",ciaaw_saw_Gd.saw_min,
+        "saw",ciaaw_saw_Gd.saw,
+        "saw_u",ciaaw_saw_Gd.saw_u,
+        "asaw",ciaaw_saw_Gd.asaw,
+        "asaw_u",ciaaw_saw_Gd.asaw_u
+    );
+    PyDict_SetItemString(d, "Gd", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Tb.element,
+        "symbol",ciaaw_saw_Tb.symbol,
+        "z",ciaaw_saw_Tb.z,
+        "saw_max",ciaaw_saw_Tb.saw_max,
+        "saw_min",ciaaw_saw_Tb.saw_min,
+        "saw",ciaaw_saw_Tb.saw,
+        "saw_u",ciaaw_saw_Tb.saw_u,
+        "asaw",ciaaw_saw_Tb.asaw,
+        "asaw_u",ciaaw_saw_Tb.asaw_u
+    );
+    PyDict_SetItemString(d, "Tb", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Dy.element,
+        "symbol",ciaaw_saw_Dy.symbol,
+        "z",ciaaw_saw_Dy.z,
+        "saw_max",ciaaw_saw_Dy.saw_max,
+        "saw_min",ciaaw_saw_Dy.saw_min,
+        "saw",ciaaw_saw_Dy.saw,
+        "saw_u",ciaaw_saw_Dy.saw_u,
+        "asaw",ciaaw_saw_Dy.asaw,
+        "asaw_u",ciaaw_saw_Dy.asaw_u
+    );
+    PyDict_SetItemString(d, "Dy", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Ho.element,
+        "symbol",ciaaw_saw_Ho.symbol,
+        "z",ciaaw_saw_Ho.z,
+        "saw_max",ciaaw_saw_Ho.saw_max,
+        "saw_min",ciaaw_saw_Ho.saw_min,
+        "saw",ciaaw_saw_Ho.saw,
+        "saw_u",ciaaw_saw_Ho.saw_u,
+        "asaw",ciaaw_saw_Ho.asaw,
+        "asaw_u",ciaaw_saw_Ho.asaw_u
+    );
+    PyDict_SetItemString(d, "Ho", element);
+    Py_INCREF(element);
+
+    element = Py_BuildValue("{s:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d}",
+        "element",ciaaw_saw_Er.element,
+        "symbol",ciaaw_saw_Er.symbol,
+        "z",ciaaw_saw_Er.z,
+        "saw_max",ciaaw_saw_Er.saw_max,
+        "saw_min",ciaaw_saw_Er.saw_min,
+        "saw",ciaaw_saw_Er.saw,
+        "saw_u",ciaaw_saw_Er.saw_u,
+        "asaw",ciaaw_saw_Er.asaw,
+        "asaw_u",ciaaw_saw_Er.asaw_u
+    );
+    PyDict_SetItemString(d, "Er", element);
     Py_INCREF(element);
 
     return m;
