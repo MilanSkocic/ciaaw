@@ -72,3 +72,53 @@ terbium             Tb        65        158.925354                    0.000007  
 dysprosium          Dy        66        162.500                       0.001               g         162.50    0.01      
 holmium             Ho        67        164.930329                    0.000005                      164.93    0.01      
 erbium              Er        68        167.259                       0.003               g         167.26    0.01      
+thulium             Tm        69        168.934219                    0.000005                      168.93    0.01      
+ytterbium           Yb        70        173.045                       0.010               g         173.05    0.02      
+lutetium            Lu        71        174.9668                      0.0001              g         174.97    0.01      
+hafnium             Hf        72        178.486                       0.006               g         178.49    0.01      
+tantalum            Ta        73        180.94788                     0.00002                       180.95    0.01      
+tungsten            W         74        183.84                        0.01                          183.84    0.01      
+rhenium             Re        75        186.207                       0.001                         186.21    0.01      
+osmium              Os        76        190.23                        0.03                g         190.23    0.03      
+iridium             Ir        77        192.217                       0.002                         192.22    0.01      
+platinum            Pt        78        195.084                       0.009                         195.08    0.02      
+gold                Au        79        196.966570                    0.000004                      196.97    0.01      
+mercury             Hg        80        200.592                       0.003                         200.59    0.01      
+thallium            Tl        81        [204.382,204.385]                                           204.38    0.01      
+lead                Pb        82        [206.14,207.94]                                             207.2     1.1       
+bismuth             Bi        83        208.98040                     0.00001                       208.98    0.01      
+polonium            Po        84        nan                           nan                           nan       nan       
+astatine            At        85        nan                           nan                           nan       nan       
+radon               Rn        86        nan                           nan                           nan       nan       
+francium            Fr        87        nan                           nan                           nan       nan       
+radium              Ra        88        nan                           nan                           nan       nan       
+actinium            Ac        89        nan                           nan                           nan       nan       
+thorium             Th        90        232.0377                      0.0004                        232.04    0.01      
+protactinium        Pa        91        231.03588                     0.00001                       231.04    0.01      
+uranium             U         92        238.02891                     0.00003             g m       238.03    0.01      
+neptunium           Np        93        nan                           nan                           nan       nan       
+plutonium           Pu        94        nan                           nan                           nan       nan       
+americium           Am        95        nan                           nan                           nan       nan       
+curium              Cm        96        nan                           nan                           nan       nan       
+berkelium           Bk        97        nan                           nan                           nan       nan       
+californium         Cf        98        nan                           nan                           nan       nan       
+einsteinium         Es        99        nan                           nan                           nan       nan       
+fermium             Fm        100       nan                           nan                           nan       nan       
+mendelevium         Md        101       nan                           nan                           nan       nan       
+nobelium            No        102       nan                           nan                           nan       nan       
+lawrencium          Lr        103       nan                           nan                           nan       nan       
+rutherfordium       Rf        104       nan                           nan                           nan       nan       
+dubnium             Db        105       nan                           nan                           nan       nan       
+seaborgium          Sg        106       nan                           nan                           nan       nan       
+bohrium             Bh        107       nan                           nan                           nan       nan       
+hassium             Hs        108       nan                           nan                           nan       nan       
+meitnerium          Mt        109       nan                           nan                           nan       nan       
+darmstadtium        Ds        110       nan                           nan                           nan       nan       
+roentgenium         Rg        111       nan                           nan                           nan       nan       
+copernicium         Cn        112       nan                           nan                           nan       nan       
+nihonium            Nh        113       nan                           nan                           nan       nan       
+flerovium           Fl        114       nan                           nan                           nan       nan       
+moscovium           Mc        115       nan                           nan                           nan       nan       
+livermorium         Lv        116       nan                           nan                           nan       nan       
+tennesine           Ts        117       nan                           nan                           nan       nan       
+organesson          Og        118       nan                           nan                           nan       nan       
