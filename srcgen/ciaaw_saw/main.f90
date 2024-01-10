@@ -8,7 +8,7 @@ program generator
     implicit none
 
     character(len=*), parameter :: root = "../../"
-    integer(int32) :: fciaaw, ffortran, ffortran_capi, fcheader, fcpython
+    integer(int32) :: fciaaw, ffortran, fcheader, fcpython
     integer(int32) :: unit
     logical :: exist
     character(len=64) :: fpath
@@ -36,15 +36,6 @@ program generator
     endif
     open(file=fpath, newunit=ffortran, status="new", action="write")
     
-    ! C API
-    fpath = root // "/src/ciaaw_saw_capi.f90"
-    inquire(file=fpath, exist=exist)
-    if(exist)then
-        open(file=fpath, newunit=unit, status="old")
-        close(unit=unit, status="delete")
-    endif
-    open(file=fpath, newunit=ffortran_capi, status="new", action="write")
-
     ! C Header
     fpath = root//"/include/ciaaw_saw.h"
     inquire(file=fpath, exist=exist)
@@ -66,19 +57,16 @@ program generator
 
     write(output_unit, "(A)", advance="NO") "Generating code..."
     call write_fortran_module_declaration(ffortran)
-    call write_fortran_capi_module_declaration(ffortran_capi)
     call write_C_header_declaration(fcheader)
     call write_cpython_extension_declaration(fcpython)
-    call write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, props)
+    call write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
     call write_fortran_module_end(ffortran)
-    call write_fortran_capi_module_end(ffortran_capi)
     call write_C_header_end(fcheader)
     call write_cpython_extension_end(fcpython)
     write(output_unit, "(A)", advance="YES") "OK"
 
     close(fciaaw)
     close(ffortran)
-    close(ffortran_capi)
     close(fcheader)
 
 end program

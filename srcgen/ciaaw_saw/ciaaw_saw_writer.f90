@@ -83,7 +83,7 @@ subroutine get_props(properties)
 
 end subroutine
 
-subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, props)
+subroutine write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
     !! Generate the fortran code for ciaaw__saw.
     implicit none
     ! Arguments
@@ -91,8 +91,6 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
         !! File unit of the ciaaw data.
     integer(int32), intent(in) :: ffortran
         !! File unit of the Fortran module.
-    integer(int32), intent(in) :: ffortran_capi
-        !! File unit of the Fortran CAPI module.
     integer(int32), intent(in) :: fcheader
         !! File unit of the C header.
     integer(int32), intent(in) :: fcpython
@@ -106,6 +104,7 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
     
     character(len=64) :: name
     character(len=64) :: name_capi
+    character(len=64) :: name_binding
     
     character(len=LENGTH_ELEMENT+1) :: element
     character(len=LENGTH_SYMBOL+1) :: symbol
@@ -130,15 +129,15 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
     end do
 
     ! fortran
-    write(ffortran, "(A,/)") 'integer(int32), parameter, public :: ciaaw_saw_YEAR = ' // props%year
+    write(ffortran, "(A)") 'integer(int32), parameter, public :: YEAR = ' // props%year
     ! fortran C API
-    write(ffortran_capi, "(A,/)") &
-    'integer(c_int), protected, public, bind(C, name="ciaaw_saw_capi_YEAR") :: ciaaw_saw_capi_YEAR = ciaaw_saw_YEAR'
+    write(ffortran, "(A,/)") &
+    'integer(c_int), protected, public, bind(C, name="ciaaw_saw_YEAR") :: capi_YEAR = YEAR'
     ! C HEADER
     write(fcheader, "(A,/)") &
-    'ADD_IMPORT extern const int ciaaw_saw_capi_YEAR;'
+    'ADD_IMPORT extern const int ciaaw_saw_YEAR;'
     ! cpython
-    write(fcpython, "(4X, A)") "v = PyLong_FromLong(ciaaw_saw_capi_YEAR);"
+    write(fcpython, "(4X, A)") "v = PyLong_FromLong(ciaaw_saw_YEAR);"
     write(fcpython, "(4X, A)") 'PyDict_SetItemString(d, "YEAR", v);'
     write(fcpython, "(4X, A)") "Py_INCREF(v);"
     write(fcpython, "(A)") ""
@@ -206,51 +205,53 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
             end if
             
             ! Fortran
-            name = "ciaaw_saw_"//trim(symbol)
-            write(ffortran, "(A)") "type(ciaaw_saw_element_t), parameter, public :: "//trim(name)//" =&"
-            write(ffortran, "(A)") 'ciaaw_saw_element_t("'//trim(element)//'", '//'"'//trim(symbol)//'", '//trim(z)//", &"
-            write(ffortran, "(A)") trim(saw_min)// ", "//trim(saw_max)//", &"
-            write(ffortran, "(A)") trim(adjustl(saw))//", "//trim(adjustl(saw_u))//", &"
-            write(ffortran, "(A)") trim(asaw)//", "//trim(asaw_u)//')'
+            name = trim(symbol)
+            write(ffortran, "(A)") "type(element_t), parameter, public :: "//trim(name)//" =&"
+            write(ffortran, "(A)", advance='NO') 'element_t("'//trim(element)//'", '//'"'//trim(symbol)//'", '//trim(z)//", "
+            write(ffortran, "(A)", advance='NO') trim(saw_min)// ", "//trim(saw_max)//", "
+            write(ffortran, "(A)", advance='NO') trim(adjustl(saw))//", "//trim(adjustl(saw_u))//", "
+            write(ffortran, "(A)", advance='YES') trim(asaw)//", "//trim(asaw_u)//')'
 
             ! Fortran C API
-            name_capi = "ciaaw_saw_capi_"//trim(symbol)
-            write(ffortran_capi, "(A)", advance="NO") 'type(ciaaw_saw_capi_element_t), protected, public, '
-            write(ffortran_capi, "(A)", advance="YES") 'bind(C, name="'//trim(name_capi)//'") :: '//trim(name_capi)//' =&'
-            write(ffortran_capi, "(A)", advance="YES")  "ciaaw_saw_capi_element_t(&"
+            name_capi = "capi_"//trim(symbol)
+            name_binding = 'ciaaw_saw_'//trim(symbol)
+            write(ffortran, "(A)", advance="NO") 'type(capi_element_t), protected, public, '
+            write(ffortran, "(A)", advance="YES") 'bind(C, name="'//trim(name_binding)//'") :: '//trim(name_capi)//' =&'
+            write(ffortran, "(A)", advance="YES")  "capi_element_t(&"
             ix_trim = len(trim(element))
-            write(ffortran_capi, "(A)", advance="NO") '['
+            write(ffortran, "(A)", advance="NO") '['
             do j=1, ix_trim
-                 write(ffortran_capi, "(A)", advance="NO") '"'//element(j:j)//'",'
+                 write(ffortran, "(A)", advance="NO") '"'//element(j:j)//'",'
             end do
-            write(ffortran_capi, "(A)", advance='NO') 'c_null_char, '
+            write(ffortran, "(A)", advance='NO') 'c_null_char, '
             do j=(ix_trim+2), len(element)-1
-                 write(ffortran_capi, "(A)", advance="NO") '"'//element(j:j)//'",'
+                 write(ffortran, "(A)", advance="NO") '"'//element(j:j)//'",'
             end do
-            write(ffortran_capi, "(A)", advance="YES") '" "], &'
+            write(ffortran, "(A)", advance="YES") '" "], &'
             
             ix_trim = len(trim(symbol))
-            write(ffortran_capi, "(A)", advance="NO") '['
+            write(ffortran, "(A)", advance="NO") '['
             do j=1, ix_trim
-                write(ffortran_capi, "(A)", advance="NO") '"'//symbol(j:j)//'",'
+                write(ffortran, "(A)", advance="NO") '"'//symbol(j:j)//'",'
             end do
-            write(ffortran_capi, "(A)", advance='NO') 'c_null_char, '
+            write(ffortran, "(A)", advance='NO') 'c_null_char, '
             do j=(ix_trim+2), len(symbol)-1
-                 write(ffortran_capi, "(A)", advance="NO") '"'//symbol(j:j)//'",'
+                 write(ffortran, "(A)", advance="NO") '"'//symbol(j:j)//'",'
             end do
-            write(ffortran_capi, "(A)", advance="YES") '" "], &'
+            write(ffortran, "(A)", advance="YES") '" "], &'
 
-            write(ffortran_capi, "(A)", advance="YES") trim(name)//"%z, &"
-            write(ffortran_capi, "(A)", advance="NO") trim(name)//"%saw_max, "//trim(name)//"%saw_min, "
-            write(ffortran_capi, "(A)", advance="NO") trim(name)//"%saw, "//trim(name)//"%saw_u, "
-            write(ffortran_capi, "(A)") trim(name)//"%asaw, "//trim(name)//"%asaw_u)"
+            write(ffortran, "(A)", advance="YES") trim(name)//"%z, &"
+            write(ffortran, "(A)", advance="NO") trim(name)//"%saw_max, "//trim(name)//"%saw_min, "
+            write(ffortran, "(A)", advance="NO") trim(name)//"%saw, "//trim(name)//"%saw_u, "
+            write(ffortran, "(A)") trim(name)//"%asaw, "//trim(name)//"%asaw_u)"
+            write(ffortran, '(A)') ""
 
             ! C Header
-            name = "ciaaw_saw_capi_"//trim(symbol)
-            write(fcheader, "(A)") 'ADD_IMPORT extern const struct ciaaw_saw_capi_element_t '//trim(name)//';'
+            name = "ciaaw_saw_"//trim(symbol)
+            write(fcheader, "(A)") 'ADD_IMPORT extern const struct ciaaw_saw_element_t '//trim(name)//';'
 
             ! Cpython
-            name_capi = "ciaaw_saw_capi_"//trim(symbol)
+            name_capi = "ciaaw_saw_"//trim(symbol)
             write(fcpython, "(4X, A)", advance="NO") 'element = Py_BuildValue("{'
             write(fcpython, "(A)", advance='NO') 's:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d'
             write(fcpython, "(A)", advance="YES") '}",'
@@ -272,7 +273,6 @@ subroutine write_saw_data(fciaaw, ffortran, ffortran_capi, fcheader, fcpython, p
 
     end do
     write(ffortran, '(A)') ''
-    write(ffortran_capi, '(A)') ''
     write(fcheader, '(A)') ''
 
 end subroutine

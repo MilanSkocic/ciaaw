@@ -10,7 +10,7 @@
 #else
 #define ADD_IMPORT
 #endif
-struct ciaaw_saw_capi_element_t{
+struct ciaaw_saw_element_t{
     char element[25];
     char symbol[9];
     int z;
@@ -21,45 +21,45 @@ struct ciaaw_saw_capi_element_t{
     double asaw;
     double asaw_u;
 };
-ADD_IMPORT extern const int ciaaw_saw_capi_YEAR;
+ADD_IMPORT extern const int ciaaw_saw_YEAR;
 
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_H;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_He;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Li;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Be;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_B;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_C;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_N;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_O;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_F;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Ne;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Na;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Mg;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Al;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Si;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_P;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_S;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Cl;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Ar;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_K;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Ca;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Sc;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Ti;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_V;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Cr;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Mn;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Fe;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Co;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Ni;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Cu;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Zn;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Ga;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Ge;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_As;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Se;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Br;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Kr;
-ADD_IMPORT extern const struct ciaaw_saw_capi_element_t ciaaw_saw_capi_Tc;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_H;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_He;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Li;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Be;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_B;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_C;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_N;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_O;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_F;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Ne;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Na;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Mg;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Al;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Si;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_P;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_S;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Cl;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Ar;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_K;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Ca;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Sc;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Ti;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_V;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Cr;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Mn;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Fe;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Co;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Ni;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Cu;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Zn;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Ga;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Ge;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_As;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Se;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Br;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Kr;
+ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_Tc;
 
 #endif
 

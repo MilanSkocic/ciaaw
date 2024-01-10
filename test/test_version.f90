@@ -10,9 +10,10 @@ contains
 subroutine test_version_number()
     implicit none
 
-    character(len=len(ciaaw_version_version)) :: value = ciaaw_version_version
-    character(len=len(ciaaw_version_version)) :: expected
+    character(len=:), allocatable :: value
+    character(len=:), allocatable :: expected
 
+    value = get_version()
     expected = "0.1.0"
     
     write(*, "(4X, A)", advance="no") "VERSION..."

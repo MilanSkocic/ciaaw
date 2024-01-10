@@ -9,11 +9,7 @@ void test_version_number(void){
 
 
     char expected[6] = "0.1.0";
-    char value[6] = "12345";
-    int i;
-    for(i=0; i<strlen(value); i++){
-        value[i] = ciaaw_version_capi_version[i];
-    }
+    char* value = ciaaw_get_version();
 
     printf("    %s", "VERSION...");
     
