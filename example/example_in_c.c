@@ -18,7 +18,7 @@ int main(void){
     printf("%s %d", "Z: ", elmt.z);
     printf("%s %23.16f\n", "standard atomic weight max: ", elmt.saw_max);
     printf("%s %23.16f\n", "standard atomic weight min: ", elmt.saw_min);
-    printf("%s %23.16f\n", "standard atomic weight: ", elmt.saw_min);
+    printf("%s %23.16f\n", "standard atomic weight: ", elmt.saw);
     printf("%s %23.16f\n", "standard atomic weight uncertainty: ", elmt.saw_u);
     printf("%s %23.16f\n", "abredged standard atomic weight: ", elmt.asaw);
     printf("%s %23.16f\n", "abredged standard atomic weight uncertainty: ", elmt.asaw_u);
@@ -30,7 +30,7 @@ int main(void){
     printf("%s %d", "Z: ", elmt.z);
     printf("%s %23.16f\n", "standard atomic weight max: ", elmt.saw_max);
     printf("%s %23.16f\n", "standard atomic weight min: ", elmt.saw_min);
-    printf("%s %23.16f\n", "standard atomic weight: ", elmt.saw_min);
+    printf("%s %23.16f\n", "standard atomic weight: ", elmt.saw);
     printf("%s %23.16f\n", "standard atomic weight uncertainty: ", elmt.saw_u);
     printf("%s %23.16f\n", "abredged standard atomic weight: ", elmt.asaw);
     printf("%s %23.16f\n", "abredged standard atomic weight uncertainty: ", elmt.asaw_u);
