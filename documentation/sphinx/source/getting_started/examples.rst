@@ -20,3 +20,4 @@ Example in Python
 
 .. literalinclude:: ../../../../example/example_in_py.py
     :language: python
+    :lines: 4-
