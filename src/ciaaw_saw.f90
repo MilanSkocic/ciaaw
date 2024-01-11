@@ -362,6 +362,60 @@ capi_element_t(&
 Kr%z, &
 Kr%saw_max, Kr%saw_min, Kr%saw, Kr%saw_u, Kr%asaw, Kr%asaw_u)
 
+type(element_t), parameter, public :: Rb =&
+element_t("rubidium", "Rb", 37, nan, nan, 85.4678d0, 0.0003d0, 85.468d0, 0.001d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Rb") :: capi_Rb =&
+capi_element_t(&
+["r","u","b","i","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["R","b",c_null_char, " "," "," "," "," "," "], &
+Rb%z, &
+Rb%saw_max, Rb%saw_min, Rb%saw, Rb%saw_u, Rb%asaw, Rb%asaw_u)
+
+type(element_t), parameter, public :: Sr =&
+element_t("strontium", "Sr", 38, nan, nan, 87.62d0, 0.01d0, 87.62d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Sr") :: capi_Sr =&
+capi_element_t(&
+["s","t","r","o","n","t","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["S","r",c_null_char, " "," "," "," "," "," "], &
+Sr%z, &
+Sr%saw_max, Sr%saw_min, Sr%saw, Sr%saw_u, Sr%asaw, Sr%asaw_u)
+
+type(element_t), parameter, public :: Y =&
+element_t("yttrium", "Y", 39, nan, nan, 88.905838d0, 0.000002d0, 88.906d0, 0.001d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Y") :: capi_Y =&
+capi_element_t(&
+["y","t","t","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["Y",c_null_char, " "," "," "," "," "," "," "], &
+Y%z, &
+Y%saw_max, Y%saw_min, Y%saw, Y%saw_u, Y%asaw, Y%asaw_u)
+
+type(element_t), parameter, public :: Zr =&
+element_t("zirconium", "Zr", 40, nan, nan, 91.224d0, 0.002d0, 91.224d0, 0.002d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Zr") :: capi_Zr =&
+capi_element_t(&
+["z","i","r","c","o","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["Z","r",c_null_char, " "," "," "," "," "," "], &
+Zr%z, &
+Zr%saw_max, Zr%saw_min, Zr%saw, Zr%saw_u, Zr%asaw, Zr%asaw_u)
+
+type(element_t), parameter, public :: Nb =&
+element_t("nobium", "Nb", 41, nan, nan, 92.90637d0, 0.00001d0, 92.906d0, 0.001d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Nb") :: capi_Nb =&
+capi_element_t(&
+["n","o","b","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["N","b",c_null_char, " "," "," "," "," "," "], &
+Nb%z, &
+Nb%saw_max, Nb%saw_min, Nb%saw, Nb%saw_u, Nb%asaw, Nb%asaw_u)
+
+type(element_t), parameter, public :: Mo =&
+element_t("molybdenum", "Mo", 42, nan, nan, 95.95d0, 0.01d0, 95.95d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Mo") :: capi_Mo =&
+capi_element_t(&
+["m","o","l","y","b","d","e","n","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["M","o",c_null_char, " "," "," "," "," "," "], &
+Mo%z, &
+Mo%saw_max, Mo%saw_min, Mo%saw, Mo%saw_u, Mo%asaw, Mo%asaw_u)
+
 type(element_t), parameter, public :: Tc =&
 element_t("technetium", "Tc", 43, nan, nan, nan, nan, nan, nan)
 type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Tc") :: capi_Tc =&
@@ -370,6 +424,681 @@ capi_element_t(&
 ["T","c",c_null_char, " "," "," "," "," "," "], &
 Tc%z, &
 Tc%saw_max, Tc%saw_min, Tc%saw, Tc%saw_u, Tc%asaw, Tc%asaw_u)
+
+type(element_t), parameter, public :: Ru =&
+element_t("ruthenium", "Ru", 44, nan, nan, 101.07d0, 0.02d0, 101.07d0, 0.02d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ru") :: capi_Ru =&
+capi_element_t(&
+["r","u","t","h","e","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["R","u",c_null_char, " "," "," "," "," "," "], &
+Ru%z, &
+Ru%saw_max, Ru%saw_min, Ru%saw, Ru%saw_u, Ru%asaw, Ru%asaw_u)
+
+type(element_t), parameter, public :: Rh =&
+element_t("rhodium", "Rh", 45, nan, nan, 102.90549d0, 0.00002d0, 102.91d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Rh") :: capi_Rh =&
+capi_element_t(&
+["r","h","o","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["R","h",c_null_char, " "," "," "," "," "," "], &
+Rh%z, &
+Rh%saw_max, Rh%saw_min, Rh%saw, Rh%saw_u, Rh%asaw, Rh%asaw_u)
+
+type(element_t), parameter, public :: Pd =&
+element_t("palladium", "Pd", 46, nan, nan, 106.42d0, 0.01d0, 106.42d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Pd") :: capi_Pd =&
+capi_element_t(&
+["p","a","l","l","a","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["P","d",c_null_char, " "," "," "," "," "," "], &
+Pd%z, &
+Pd%saw_max, Pd%saw_min, Pd%saw, Pd%saw_u, Pd%asaw, Pd%asaw_u)
+
+type(element_t), parameter, public :: Ag =&
+element_t("silver", "Ag", 47, nan, nan, 107.8682d0, 0.0002d0, 107.87d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ag") :: capi_Ag =&
+capi_element_t(&
+["s","i","l","v","e","r",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["A","g",c_null_char, " "," "," "," "," "," "], &
+Ag%z, &
+Ag%saw_max, Ag%saw_min, Ag%saw, Ag%saw_u, Ag%asaw, Ag%asaw_u)
+
+type(element_t), parameter, public :: Cd =&
+element_t("cadmium", "Cd", 48, nan, nan, 112.414d0, 0.004d0, 112.41d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Cd") :: capi_Cd =&
+capi_element_t(&
+["c","a","d","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","d",c_null_char, " "," "," "," "," "," "], &
+Cd%z, &
+Cd%saw_max, Cd%saw_min, Cd%saw, Cd%saw_u, Cd%asaw, Cd%asaw_u)
+
+type(element_t), parameter, public :: In =&
+element_t("indium", "In", 49, nan, nan, 114.818d0, 0.001d0, 114.82d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_In") :: capi_In =&
+capi_element_t(&
+["i","n","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["I","n",c_null_char, " "," "," "," "," "," "], &
+In%z, &
+In%saw_max, In%saw_min, In%saw, In%saw_u, In%asaw, In%asaw_u)
+
+type(element_t), parameter, public :: Sn =&
+element_t("tin", "Sn", 50, nan, nan, 118.70d0, 0.007d0, 118.71d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Sn") :: capi_Sn =&
+capi_element_t(&
+["t","i","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["S","n",c_null_char, " "," "," "," "," "," "], &
+Sn%z, &
+Sn%saw_max, Sn%saw_min, Sn%saw, Sn%saw_u, Sn%asaw, Sn%asaw_u)
+
+type(element_t), parameter, public :: Sb =&
+element_t("antimony", "Sb", 51, nan, nan, 121.760d0, 0.001d0, 121.76d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Sb") :: capi_Sb =&
+capi_element_t(&
+["a","n","t","i","m","o","n","y",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["S","b",c_null_char, " "," "," "," "," "," "], &
+Sb%z, &
+Sb%saw_max, Sb%saw_min, Sb%saw, Sb%saw_u, Sb%asaw, Sb%asaw_u)
+
+type(element_t), parameter, public :: Te =&
+element_t("tellurium", "Te", 52, nan, nan, 127.60d0, 0.03d0, 127.60d0, 0.03d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Te") :: capi_Te =&
+capi_element_t(&
+["t","e","l","l","u","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["T","e",c_null_char, " "," "," "," "," "," "], &
+Te%z, &
+Te%saw_max, Te%saw_min, Te%saw, Te%saw_u, Te%asaw, Te%asaw_u)
+
+type(element_t), parameter, public :: I =&
+element_t("iodine", "I", 53, nan, nan, 126.90447d0, 0.00003d0, 126.90d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_I") :: capi_I =&
+capi_element_t(&
+["i","o","d","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["I",c_null_char, " "," "," "," "," "," "," "], &
+I%z, &
+I%saw_max, I%saw_min, I%saw, I%saw_u, I%asaw, I%asaw_u)
+
+type(element_t), parameter, public :: Xe =&
+element_t("xenon", "Xe", 54, nan, nan, 131.293d0, 0.006d0, 131.29d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Xe") :: capi_Xe =&
+capi_element_t(&
+["x","e","n","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["X","e",c_null_char, " "," "," "," "," "," "], &
+Xe%z, &
+Xe%saw_max, Xe%saw_min, Xe%saw, Xe%saw_u, Xe%asaw, Xe%asaw_u)
+
+type(element_t), parameter, public :: Cs =&
+element_t("caesium", "Cs", 55, nan, nan, 132.90545196d0, 0.00000006d0, 132.91d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Cs") :: capi_Cs =&
+capi_element_t(&
+["c","a","e","s","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","s",c_null_char, " "," "," "," "," "," "], &
+Cs%z, &
+Cs%saw_max, Cs%saw_min, Cs%saw, Cs%saw_u, Cs%asaw, Cs%asaw_u)
+
+type(element_t), parameter, public :: Ba =&
+element_t("barium", "Ba", 56, nan, nan, 137.327d0, 0.007d0, 137.33d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ba") :: capi_Ba =&
+capi_element_t(&
+["b","a","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["B","a",c_null_char, " "," "," "," "," "," "], &
+Ba%z, &
+Ba%saw_max, Ba%saw_min, Ba%saw, Ba%saw_u, Ba%asaw, Ba%asaw_u)
+
+type(element_t), parameter, public :: La =&
+element_t("lanthanum", "La", 57, nan, nan, 138.90547d0, 0.00007d0, 138.91d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_La") :: capi_La =&
+capi_element_t(&
+["l","a","n","t","h","a","n","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["L","a",c_null_char, " "," "," "," "," "," "], &
+La%z, &
+La%saw_max, La%saw_min, La%saw, La%saw_u, La%asaw, La%asaw_u)
+
+type(element_t), parameter, public :: Ce =&
+element_t("cerium", "Ce", 58, nan, nan, 140.116d0, 0.001d0, 140.12d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ce") :: capi_Ce =&
+capi_element_t(&
+["c","e","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","e",c_null_char, " "," "," "," "," "," "], &
+Ce%z, &
+Ce%saw_max, Ce%saw_min, Ce%saw, Ce%saw_u, Ce%asaw, Ce%asaw_u)
+
+type(element_t), parameter, public :: Pr =&
+element_t("praseodymium", "Pr", 59, nan, nan, 140.90766d0, 0.00001d0, 140.91d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Pr") :: capi_Pr =&
+capi_element_t(&
+["p","r","a","s","e","o","d","y","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "], &
+["P","r",c_null_char, " "," "," "," "," "," "], &
+Pr%z, &
+Pr%saw_max, Pr%saw_min, Pr%saw, Pr%saw_u, Pr%asaw, Pr%asaw_u)
+
+type(element_t), parameter, public :: Nd =&
+element_t("neodymium", "Nd", 60, nan, nan, 144.242d0, 0.003d0, 144.24d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Nd") :: capi_Nd =&
+capi_element_t(&
+["n","e","o","d","y","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["N","d",c_null_char, " "," "," "," "," "," "], &
+Nd%z, &
+Nd%saw_max, Nd%saw_min, Nd%saw, Nd%saw_u, Nd%asaw, Nd%asaw_u)
+
+type(element_t), parameter, public :: Pm =&
+element_t("promethium", "Pm", 61, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Pm") :: capi_Pm =&
+capi_element_t(&
+["p","r","o","m","e","t","h","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["P","m",c_null_char, " "," "," "," "," "," "], &
+Pm%z, &
+Pm%saw_max, Pm%saw_min, Pm%saw, Pm%saw_u, Pm%asaw, Pm%asaw_u)
+
+type(element_t), parameter, public :: Sm =&
+element_t("samarium", "Sm", 62, nan, nan, 150.36d0, 0.02d0, 150.36d0, 0.02d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Sm") :: capi_Sm =&
+capi_element_t(&
+["s","a","m","a","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["S","m",c_null_char, " "," "," "," "," "," "], &
+Sm%z, &
+Sm%saw_max, Sm%saw_min, Sm%saw, Sm%saw_u, Sm%asaw, Sm%asaw_u)
+
+type(element_t), parameter, public :: Eu =&
+element_t("europium", "Eu", 63, nan, nan, 151.964d0, 0.001d0, 151.96d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Eu") :: capi_Eu =&
+capi_element_t(&
+["e","u","r","o","p","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["E","u",c_null_char, " "," "," "," "," "," "], &
+Eu%z, &
+Eu%saw_max, Eu%saw_min, Eu%saw, Eu%saw_u, Eu%asaw, Eu%asaw_u)
+
+type(element_t), parameter, public :: Gd =&
+element_t("gadolinium", "Gd", 64, nan, nan, 157.25d0, 0.03d0, 157.25d0, 0.03d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Gd") :: capi_Gd =&
+capi_element_t(&
+["g","a","d","o","l","i","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["G","d",c_null_char, " "," "," "," "," "," "], &
+Gd%z, &
+Gd%saw_max, Gd%saw_min, Gd%saw, Gd%saw_u, Gd%asaw, Gd%asaw_u)
+
+type(element_t), parameter, public :: Tb =&
+element_t("terbium", "Tb", 65, nan, nan, 158.925354d0, 0.000007d0, 158.93d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Tb") :: capi_Tb =&
+capi_element_t(&
+["t","e","r","b","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["T","b",c_null_char, " "," "," "," "," "," "], &
+Tb%z, &
+Tb%saw_max, Tb%saw_min, Tb%saw, Tb%saw_u, Tb%asaw, Tb%asaw_u)
+
+type(element_t), parameter, public :: Dy =&
+element_t("dysprosium", "Dy", 66, nan, nan, 162.500d0, 0.001d0, 162.50d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Dy") :: capi_Dy =&
+capi_element_t(&
+["d","y","s","p","r","o","s","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["D","y",c_null_char, " "," "," "," "," "," "], &
+Dy%z, &
+Dy%saw_max, Dy%saw_min, Dy%saw, Dy%saw_u, Dy%asaw, Dy%asaw_u)
+
+type(element_t), parameter, public :: Ho =&
+element_t("holmium", "Ho", 67, nan, nan, 164.930329d0, 0.000005d0, 164.93d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ho") :: capi_Ho =&
+capi_element_t(&
+["h","o","l","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["H","o",c_null_char, " "," "," "," "," "," "], &
+Ho%z, &
+Ho%saw_max, Ho%saw_min, Ho%saw, Ho%saw_u, Ho%asaw, Ho%asaw_u)
+
+type(element_t), parameter, public :: Er =&
+element_t("erbium", "Er", 68, nan, nan, 167.259d0, 0.003d0, 167.26d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Er") :: capi_Er =&
+capi_element_t(&
+["e","r","b","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["E","r",c_null_char, " "," "," "," "," "," "], &
+Er%z, &
+Er%saw_max, Er%saw_min, Er%saw, Er%saw_u, Er%asaw, Er%asaw_u)
+
+type(element_t), parameter, public :: Tm =&
+element_t("thulium", "Tm", 69, nan, nan, 168.934219d0, 0.000005d0, 168.93d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Tm") :: capi_Tm =&
+capi_element_t(&
+["t","h","u","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["T","m",c_null_char, " "," "," "," "," "," "], &
+Tm%z, &
+Tm%saw_max, Tm%saw_min, Tm%saw, Tm%saw_u, Tm%asaw, Tm%asaw_u)
+
+type(element_t), parameter, public :: Yb =&
+element_t("ytterbium", "Yb", 70, nan, nan, 173.045d0, 0.010d0, 173.05d0, 0.02d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Yb") :: capi_Yb =&
+capi_element_t(&
+["y","t","t","e","r","b","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["Y","b",c_null_char, " "," "," "," "," "," "], &
+Yb%z, &
+Yb%saw_max, Yb%saw_min, Yb%saw, Yb%saw_u, Yb%asaw, Yb%asaw_u)
+
+type(element_t), parameter, public :: Lu =&
+element_t("lutetium", "Lu", 71, nan, nan, 174.9668d0, 0.0001d0, 174.97d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Lu") :: capi_Lu =&
+capi_element_t(&
+["l","u","t","e","t","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["L","u",c_null_char, " "," "," "," "," "," "], &
+Lu%z, &
+Lu%saw_max, Lu%saw_min, Lu%saw, Lu%saw_u, Lu%asaw, Lu%asaw_u)
+
+type(element_t), parameter, public :: Hf =&
+element_t("hafnium", "Hf", 72, nan, nan, 178.486d0, 0.006d0, 178.49d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Hf") :: capi_Hf =&
+capi_element_t(&
+["h","a","f","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["H","f",c_null_char, " "," "," "," "," "," "], &
+Hf%z, &
+Hf%saw_max, Hf%saw_min, Hf%saw, Hf%saw_u, Hf%asaw, Hf%asaw_u)
+
+type(element_t), parameter, public :: Ta =&
+element_t("tantalum", "Ta", 73, nan, nan, 180.94788d0, 0.00002d0, 180.95d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ta") :: capi_Ta =&
+capi_element_t(&
+["t","a","n","t","a","l","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["T","a",c_null_char, " "," "," "," "," "," "], &
+Ta%z, &
+Ta%saw_max, Ta%saw_min, Ta%saw, Ta%saw_u, Ta%asaw, Ta%asaw_u)
+
+type(element_t), parameter, public :: W =&
+element_t("tungsten", "W", 74, nan, nan, 183.84d0, 0.01d0, 183.84d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_W") :: capi_W =&
+capi_element_t(&
+["t","u","n","g","s","t","e","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["W",c_null_char, " "," "," "," "," "," "," "], &
+W%z, &
+W%saw_max, W%saw_min, W%saw, W%saw_u, W%asaw, W%asaw_u)
+
+type(element_t), parameter, public :: Re =&
+element_t("rhenium", "Re", 75, nan, nan, 186.207d0, 0.001d0, 186.21d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Re") :: capi_Re =&
+capi_element_t(&
+["r","h","e","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["R","e",c_null_char, " "," "," "," "," "," "], &
+Re%z, &
+Re%saw_max, Re%saw_min, Re%saw, Re%saw_u, Re%asaw, Re%asaw_u)
+
+type(element_t), parameter, public :: Os =&
+element_t("osmium", "Os", 76, nan, nan, 190.23d0, 0.03d0, 190.23d0, 0.03d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Os") :: capi_Os =&
+capi_element_t(&
+["o","s","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["O","s",c_null_char, " "," "," "," "," "," "], &
+Os%z, &
+Os%saw_max, Os%saw_min, Os%saw, Os%saw_u, Os%asaw, Os%asaw_u)
+
+type(element_t), parameter, public :: Ir =&
+element_t("iridium", "Ir", 77, nan, nan, 192.217d0, 0.002d0, 192.22d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ir") :: capi_Ir =&
+capi_element_t(&
+["i","r","i","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["I","r",c_null_char, " "," "," "," "," "," "], &
+Ir%z, &
+Ir%saw_max, Ir%saw_min, Ir%saw, Ir%saw_u, Ir%asaw, Ir%asaw_u)
+
+type(element_t), parameter, public :: Pt =&
+element_t("platinum", "Pt", 78, nan, nan, 195.084d0, 0.009d0, 195.08d0, 0.02d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Pt") :: capi_Pt =&
+capi_element_t(&
+["p","l","a","t","i","n","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["P","t",c_null_char, " "," "," "," "," "," "], &
+Pt%z, &
+Pt%saw_max, Pt%saw_min, Pt%saw, Pt%saw_u, Pt%asaw, Pt%asaw_u)
+
+type(element_t), parameter, public :: Au =&
+element_t("gold", "Au", 79, nan, nan, 196.966570d0, 0.000004d0, 196.97d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Au") :: capi_Au =&
+capi_element_t(&
+["g","o","l","d",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["A","u",c_null_char, " "," "," "," "," "," "], &
+Au%z, &
+Au%saw_max, Au%saw_min, Au%saw, Au%saw_u, Au%asaw, Au%asaw_u)
+
+type(element_t), parameter, public :: Hg =&
+element_t("mercury", "Hg", 80, nan, nan, 200.592d0, 0.003d0, 200.59d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Hg") :: capi_Hg =&
+capi_element_t(&
+["m","e","r","c","u","r","y",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["H","g",c_null_char, " "," "," "," "," "," "], &
+Hg%z, &
+Hg%saw_max, Hg%saw_min, Hg%saw, Hg%saw_u, Hg%asaw, Hg%asaw_u)
+
+type(element_t), parameter, public :: Tl =&
+element_t("thallium", "Tl", 81, 204.382d0, 204.385d0, 204.3835d0, 0.0009d0, 204.38d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Tl") :: capi_Tl =&
+capi_element_t(&
+["t","h","a","l","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["T","l",c_null_char, " "," "," "," "," "," "], &
+Tl%z, &
+Tl%saw_max, Tl%saw_min, Tl%saw, Tl%saw_u, Tl%asaw, Tl%asaw_u)
+
+type(element_t), parameter, public :: Pb =&
+element_t("lead", "Pb", 82, 206.14d0, 207.94d0, 207.0d0, 0.6d0, 207.2d0, 1.1d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Pb") :: capi_Pb =&
+capi_element_t(&
+["l","e","a","d",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["P","b",c_null_char, " "," "," "," "," "," "], &
+Pb%z, &
+Pb%saw_max, Pb%saw_min, Pb%saw, Pb%saw_u, Pb%asaw, Pb%asaw_u)
+
+type(element_t), parameter, public :: Bi =&
+element_t("bismuth", "Bi", 83, nan, nan, 208.98040d0, 0.00001d0, 208.98d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Bi") :: capi_Bi =&
+capi_element_t(&
+["b","i","s","m","u","t","h",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["B","i",c_null_char, " "," "," "," "," "," "], &
+Bi%z, &
+Bi%saw_max, Bi%saw_min, Bi%saw, Bi%saw_u, Bi%asaw, Bi%asaw_u)
+
+type(element_t), parameter, public :: Po =&
+element_t("polonium", "Po", 84, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Po") :: capi_Po =&
+capi_element_t(&
+["p","o","l","o","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["P","o",c_null_char, " "," "," "," "," "," "], &
+Po%z, &
+Po%saw_max, Po%saw_min, Po%saw, Po%saw_u, Po%asaw, Po%asaw_u)
+
+type(element_t), parameter, public :: At =&
+element_t("astatine", "At", 85, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_At") :: capi_At =&
+capi_element_t(&
+["a","s","t","a","t","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["A","t",c_null_char, " "," "," "," "," "," "], &
+At%z, &
+At%saw_max, At%saw_min, At%saw, At%saw_u, At%asaw, At%asaw_u)
+
+type(element_t), parameter, public :: Rn =&
+element_t("radon", "Rn", 86, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Rn") :: capi_Rn =&
+capi_element_t(&
+["r","a","d","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["R","n",c_null_char, " "," "," "," "," "," "], &
+Rn%z, &
+Rn%saw_max, Rn%saw_min, Rn%saw, Rn%saw_u, Rn%asaw, Rn%asaw_u)
+
+type(element_t), parameter, public :: Fr =&
+element_t("francium", "Fr", 87, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Fr") :: capi_Fr =&
+capi_element_t(&
+["f","r","a","n","c","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["F","r",c_null_char, " "," "," "," "," "," "], &
+Fr%z, &
+Fr%saw_max, Fr%saw_min, Fr%saw, Fr%saw_u, Fr%asaw, Fr%asaw_u)
+
+type(element_t), parameter, public :: Ra =&
+element_t("radium", "Ra", 88, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ra") :: capi_Ra =&
+capi_element_t(&
+["r","a","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["R","a",c_null_char, " "," "," "," "," "," "], &
+Ra%z, &
+Ra%saw_max, Ra%saw_min, Ra%saw, Ra%saw_u, Ra%asaw, Ra%asaw_u)
+
+type(element_t), parameter, public :: Ac =&
+element_t("actinium", "Ac", 89, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ac") :: capi_Ac =&
+capi_element_t(&
+["a","c","t","i","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["A","c",c_null_char, " "," "," "," "," "," "], &
+Ac%z, &
+Ac%saw_max, Ac%saw_min, Ac%saw, Ac%saw_u, Ac%asaw, Ac%asaw_u)
+
+type(element_t), parameter, public :: Th =&
+element_t("thorium", "Th", 90, nan, nan, 232.0377d0, 0.0004d0, 232.04d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Th") :: capi_Th =&
+capi_element_t(&
+["t","h","o","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["T","h",c_null_char, " "," "," "," "," "," "], &
+Th%z, &
+Th%saw_max, Th%saw_min, Th%saw, Th%saw_u, Th%asaw, Th%asaw_u)
+
+type(element_t), parameter, public :: Pa =&
+element_t("protactinium", "Pa", 91, nan, nan, 231.03588d0, 0.00001d0, 231.04d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Pa") :: capi_Pa =&
+capi_element_t(&
+["p","r","o","t","a","c","t","i","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "], &
+["P","a",c_null_char, " "," "," "," "," "," "], &
+Pa%z, &
+Pa%saw_max, Pa%saw_min, Pa%saw, Pa%saw_u, Pa%asaw, Pa%asaw_u)
+
+type(element_t), parameter, public :: U =&
+element_t("uranium", "U", 92, nan, nan, 238.02891d0, 0.00003d0, 238.03d0, 0.01d0)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_U") :: capi_U =&
+capi_element_t(&
+["u","r","a","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["U",c_null_char, " "," "," "," "," "," "," "], &
+U%z, &
+U%saw_max, U%saw_min, U%saw, U%saw_u, U%asaw, U%asaw_u)
+
+type(element_t), parameter, public :: Np =&
+element_t("neptunium", "Np", 93, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Np") :: capi_Np =&
+capi_element_t(&
+["n","e","p","t","u","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["N","p",c_null_char, " "," "," "," "," "," "], &
+Np%z, &
+Np%saw_max, Np%saw_min, Np%saw, Np%saw_u, Np%asaw, Np%asaw_u)
+
+type(element_t), parameter, public :: Pu =&
+element_t("plutonium", "Pu", 94, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Pu") :: capi_Pu =&
+capi_element_t(&
+["p","l","u","t","o","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["P","u",c_null_char, " "," "," "," "," "," "], &
+Pu%z, &
+Pu%saw_max, Pu%saw_min, Pu%saw, Pu%saw_u, Pu%asaw, Pu%asaw_u)
+
+type(element_t), parameter, public :: Am =&
+element_t("americium", "Am", 95, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Am") :: capi_Am =&
+capi_element_t(&
+["a","m","e","r","i","c","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["A","m",c_null_char, " "," "," "," "," "," "], &
+Am%z, &
+Am%saw_max, Am%saw_min, Am%saw, Am%saw_u, Am%asaw, Am%asaw_u)
+
+type(element_t), parameter, public :: Cm =&
+element_t("curium", "Cm", 96, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Cm") :: capi_Cm =&
+capi_element_t(&
+["c","u","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","m",c_null_char, " "," "," "," "," "," "], &
+Cm%z, &
+Cm%saw_max, Cm%saw_min, Cm%saw, Cm%saw_u, Cm%asaw, Cm%asaw_u)
+
+type(element_t), parameter, public :: Bk =&
+element_t("berkelium", "Bk", 97, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Bk") :: capi_Bk =&
+capi_element_t(&
+["b","e","r","k","e","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["B","k",c_null_char, " "," "," "," "," "," "], &
+Bk%z, &
+Bk%saw_max, Bk%saw_min, Bk%saw, Bk%saw_u, Bk%asaw, Bk%asaw_u)
+
+type(element_t), parameter, public :: Cf =&
+element_t("californium", "Cf", 98, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Cf") :: capi_Cf =&
+capi_element_t(&
+["c","a","l","i","f","o","r","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","f",c_null_char, " "," "," "," "," "," "], &
+Cf%z, &
+Cf%saw_max, Cf%saw_min, Cf%saw, Cf%saw_u, Cf%asaw, Cf%asaw_u)
+
+type(element_t), parameter, public :: Es =&
+element_t("einsteinium", "Es", 99, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Es") :: capi_Es =&
+capi_element_t(&
+["e","i","n","s","t","e","i","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["E","s",c_null_char, " "," "," "," "," "," "], &
+Es%z, &
+Es%saw_max, Es%saw_min, Es%saw, Es%saw_u, Es%asaw, Es%asaw_u)
+
+type(element_t), parameter, public :: Fm =&
+element_t("fermium", "Fm", 100, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Fm") :: capi_Fm =&
+capi_element_t(&
+["f","e","r","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["F","m",c_null_char, " "," "," "," "," "," "], &
+Fm%z, &
+Fm%saw_max, Fm%saw_min, Fm%saw, Fm%saw_u, Fm%asaw, Fm%asaw_u)
+
+type(element_t), parameter, public :: Md =&
+element_t("mendelevium", "Md", 101, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Md") :: capi_Md =&
+capi_element_t(&
+["m","e","n","d","e","l","e","v","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["M","d",c_null_char, " "," "," "," "," "," "], &
+Md%z, &
+Md%saw_max, Md%saw_min, Md%saw, Md%saw_u, Md%asaw, Md%asaw_u)
+
+type(element_t), parameter, public :: No =&
+element_t("nobelium", "No", 102, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_No") :: capi_No =&
+capi_element_t(&
+["n","o","b","e","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["N","o",c_null_char, " "," "," "," "," "," "], &
+No%z, &
+No%saw_max, No%saw_min, No%saw, No%saw_u, No%asaw, No%asaw_u)
+
+type(element_t), parameter, public :: Lr =&
+element_t("lawrencium", "Lr", 103, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Lr") :: capi_Lr =&
+capi_element_t(&
+["l","a","w","r","e","n","c","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["L","r",c_null_char, " "," "," "," "," "," "], &
+Lr%z, &
+Lr%saw_max, Lr%saw_min, Lr%saw, Lr%saw_u, Lr%asaw, Lr%asaw_u)
+
+type(element_t), parameter, public :: Rf =&
+element_t("rutherfordium", "Rf", 104, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Rf") :: capi_Rf =&
+capi_element_t(&
+["r","u","t","h","e","r","f","o","r","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "], &
+["R","f",c_null_char, " "," "," "," "," "," "], &
+Rf%z, &
+Rf%saw_max, Rf%saw_min, Rf%saw, Rf%saw_u, Rf%asaw, Rf%asaw_u)
+
+type(element_t), parameter, public :: Db =&
+element_t("dubnium", "Db", 105, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Db") :: capi_Db =&
+capi_element_t(&
+["d","u","b","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["D","b",c_null_char, " "," "," "," "," "," "], &
+Db%z, &
+Db%saw_max, Db%saw_min, Db%saw, Db%saw_u, Db%asaw, Db%asaw_u)
+
+type(element_t), parameter, public :: Sg =&
+element_t("seaborgium", "Sg", 106, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Sg") :: capi_Sg =&
+capi_element_t(&
+["s","e","a","b","o","r","g","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["S","g",c_null_char, " "," "," "," "," "," "], &
+Sg%z, &
+Sg%saw_max, Sg%saw_min, Sg%saw, Sg%saw_u, Sg%asaw, Sg%asaw_u)
+
+type(element_t), parameter, public :: Bh =&
+element_t("bohrium", "Bh", 107, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Bh") :: capi_Bh =&
+capi_element_t(&
+["b","o","h","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["B","h",c_null_char, " "," "," "," "," "," "], &
+Bh%z, &
+Bh%saw_max, Bh%saw_min, Bh%saw, Bh%saw_u, Bh%asaw, Bh%asaw_u)
+
+type(element_t), parameter, public :: Hs =&
+element_t("hassium", "Hs", 108, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Hs") :: capi_Hs =&
+capi_element_t(&
+["h","a","s","s","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["H","s",c_null_char, " "," "," "," "," "," "], &
+Hs%z, &
+Hs%saw_max, Hs%saw_min, Hs%saw, Hs%saw_u, Hs%asaw, Hs%asaw_u)
+
+type(element_t), parameter, public :: Mt =&
+element_t("meitnerium", "Mt", 109, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Mt") :: capi_Mt =&
+capi_element_t(&
+["m","e","i","t","n","e","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["M","t",c_null_char, " "," "," "," "," "," "], &
+Mt%z, &
+Mt%saw_max, Mt%saw_min, Mt%saw, Mt%saw_u, Mt%asaw, Mt%asaw_u)
+
+type(element_t), parameter, public :: Ds =&
+element_t("darmstadtium", "Ds", 110, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ds") :: capi_Ds =&
+capi_element_t(&
+["d","a","r","m","s","t","a","d","t","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "], &
+["D","s",c_null_char, " "," "," "," "," "," "], &
+Ds%z, &
+Ds%saw_max, Ds%saw_min, Ds%saw, Ds%saw_u, Ds%asaw, Ds%asaw_u)
+
+type(element_t), parameter, public :: Rg =&
+element_t("roentgenium", "Rg", 111, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Rg") :: capi_Rg =&
+capi_element_t(&
+["r","o","e","n","t","g","e","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["R","g",c_null_char, " "," "," "," "," "," "], &
+Rg%z, &
+Rg%saw_max, Rg%saw_min, Rg%saw, Rg%saw_u, Rg%asaw, Rg%asaw_u)
+
+type(element_t), parameter, public :: Cn =&
+element_t("copernicium", "Cn", 112, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Cn") :: capi_Cn =&
+capi_element_t(&
+["c","o","p","e","r","n","i","c","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["C","n",c_null_char, " "," "," "," "," "," "], &
+Cn%z, &
+Cn%saw_max, Cn%saw_min, Cn%saw, Cn%saw_u, Cn%asaw, Cn%asaw_u)
+
+type(element_t), parameter, public :: Nh =&
+element_t("nihonium", "Nh", 113, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Nh") :: capi_Nh =&
+capi_element_t(&
+["n","i","h","o","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["N","h",c_null_char, " "," "," "," "," "," "], &
+Nh%z, &
+Nh%saw_max, Nh%saw_min, Nh%saw, Nh%saw_u, Nh%asaw, Nh%asaw_u)
+
+type(element_t), parameter, public :: Fl =&
+element_t("flerovium", "Fl", 114, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Fl") :: capi_Fl =&
+capi_element_t(&
+["f","l","e","r","o","v","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["F","l",c_null_char, " "," "," "," "," "," "], &
+Fl%z, &
+Fl%saw_max, Fl%saw_min, Fl%saw, Fl%saw_u, Fl%asaw, Fl%asaw_u)
+
+type(element_t), parameter, public :: Mc =&
+element_t("moscovium", "Mc", 115, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Mc") :: capi_Mc =&
+capi_element_t(&
+["m","o","s","c","o","v","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["M","c",c_null_char, " "," "," "," "," "," "], &
+Mc%z, &
+Mc%saw_max, Mc%saw_min, Mc%saw, Mc%saw_u, Mc%asaw, Mc%asaw_u)
+
+type(element_t), parameter, public :: Lv =&
+element_t("livermorium", "Lv", 116, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Lv") :: capi_Lv =&
+capi_element_t(&
+["l","i","v","e","r","m","o","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["L","v",c_null_char, " "," "," "," "," "," "], &
+Lv%z, &
+Lv%saw_max, Lv%saw_min, Lv%saw, Lv%saw_u, Lv%asaw, Lv%asaw_u)
+
+type(element_t), parameter, public :: Ts =&
+element_t("tennesine", "Ts", 117, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Ts") :: capi_Ts =&
+capi_element_t(&
+["t","e","n","n","e","s","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["T","s",c_null_char, " "," "," "," "," "," "], &
+Ts%z, &
+Ts%saw_max, Ts%saw_min, Ts%saw, Ts%saw_u, Ts%asaw, Ts%asaw_u)
+
+type(element_t), parameter, public :: Og =&
+element_t("organesson", "Og", 118, nan, nan, nan, nan, nan, nan)
+type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_Og") :: capi_Og =&
+capi_element_t(&
+["o","r","g","a","n","e","s","s","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["O","g",c_null_char, " "," "," "," "," "," "], &
+Og%z, &
+Og%saw_max, Og%saw_min, Og%saw, Og%saw_u, Og%asaw, Og%asaw_u)
 
 
 end module ciaaw__saw
