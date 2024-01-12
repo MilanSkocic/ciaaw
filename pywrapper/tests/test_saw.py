@@ -3,7 +3,15 @@ import unittest
 from pyciaaw import saw
 
 
-class Test_saw(unittest.TestCase):
+class TestYear(unittest.TestCase):
+    r"""Test year."""
+    def test_year(self):
+        value = saw.YEAR
+        expected = 2021
+        self.assertEqual(value, expected)
+
+
+class TestSaw(unittest.TestCase):
     r"""Test ciaaw library."""
     def test_asaw(self):
         N = 2
