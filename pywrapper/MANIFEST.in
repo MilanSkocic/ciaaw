@@ -1,12 +1,5 @@
-# sdist
-
-
 include INSTALL.rst
 include LICENSE.TXT
 include MANIFEST.in
 include README.rst
 include requirements.txt
-
-include pyciaaw/*.c
-include pyciaaw/*.h
-include pyciaaw/libiapws.*
