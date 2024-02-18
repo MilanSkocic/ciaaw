@@ -1,4 +1,4 @@
-CIAAW - Theoretical background
+User Guide
 ===================================
 
 .. toctree::

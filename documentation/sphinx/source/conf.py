@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import sys, importlib.util
+import sys
 sys.path.insert(0, os.path.abspath('../../../pywrapper/src/'))
 cautodoc_root = os.path.abspath('../../../pywrapper/src/')
 

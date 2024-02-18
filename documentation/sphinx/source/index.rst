@@ -5,10 +5,10 @@ Welcome to iapws documentation!
    :maxdepth: 1
    :caption: Contents:
 
-   getting_started/index.rst
-   ciaaw_theory/index.rst
-   releases/index.rst
-   api/index.rst
+   0-getting_started/index.rst
+   1-user_guide/index.rst
+   2-releases/index.rst
+   3-api/index.rst
    references/index.rst
 
 

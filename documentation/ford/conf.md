@@ -25,5 +25,5 @@ md_extensions: markdown.extensions.toc
 
 This is the documentation of the Fortran code. 
 
-Go back to the main documentation [click here](../api/index.html)
+Go back to the main documentation [click here](../3-api/index.html)
 
