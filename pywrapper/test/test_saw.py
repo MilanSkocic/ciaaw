@@ -14,16 +14,18 @@ class TestYear(unittest.TestCase):
 class TestSaw(unittest.TestCase):
     r"""Test ciaaw library."""
     def test_asaw(self):
-        N = 2
+        N = 3
         i = 0
         expected = [0.0] * N
         elements = [{}] * N
 
         expected[0] = 1.0080
         expected[1] = 12.011
+        expected[2] = 20.180
 
         elements[0] = saw.H
         elements[1] = saw.C
+        elements[2] = saw.Ne
 
         for i in range(N):
             with self.subTest():
