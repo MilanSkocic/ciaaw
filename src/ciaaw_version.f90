@@ -1,3 +1,7 @@
+!> @file
+!! @brief Version module
+
+!> @brief Version module.
 module ciaaw__version
 !! Version
 use iso_fortran_env
@@ -13,6 +17,8 @@ public :: get_version
 
 contains
 
+!> @brief Get the version
+!! @return fptr Pointer to the version string.
 function get_version()result(fptr)
     !! Get the version. 
     implicit none
