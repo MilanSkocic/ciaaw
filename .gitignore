@@ -25,6 +25,7 @@ dist/
 *.dll
 *.so
 *.exe
+*.dylib
 
 *.egg-info
 __pycache__
@@ -34,11 +35,11 @@ __pycache__
 
 *generator*
 
-pywrapper/pyciaaw/*.h
-pywrapper/pyciaaw/*.a
-pywrapper/pyciaaw/*.dll
-pywrapper/pyciaaw/*.dll.a
-pywrapper/pyciaaw/*.so
-pywrapper/pyciaaw/*.dylib
-pywrapper/pyciaaw/*.pyd
+pywrapper/src/pyciaaw/*.h
+pywrapper/src/pyciaaw/*.a
+pywrapper/src/pyciaaw/*.dll
+pywrapper/src/pyciaaw/*.dll.a
+pywrapper/src/pyciaaw/*.so
+pywrapper/src/pyciaaw/*.dylib
+pywrapper/src/pyciaaw/*.pyd
 pywrapper/wheelhouse/
