@@ -8,7 +8,7 @@ INCLUDE_DIR="./include"
 PYW_MOD_DIR="$PYW_DIR/src/py$LIBNAME"
 FPM_FFLAGS="-std=f2008 -pedantic -Wall -Wextra"
 FPM_CFLAGS="-std=c11 -pedantic -Wall -Wextra"
-FPM_LDFLAGS="-static"
+FPM_LDFLAGS=""
 DEFAULT_INSTALL_DIR="$HOME/.local"
 PLATFORM="linux"
 
@@ -34,7 +34,6 @@ if [[ "$OSTYPE" == "msys" ]]; then
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]];then
-    FPM_LDFLAGS="-static-libgfortran -static-libquadmath -static-libgcc"
     PLATFORM="darwin"
 fi
 
