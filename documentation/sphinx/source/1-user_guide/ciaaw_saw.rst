@@ -1,5 +1,6 @@
+***********************
 Standard Atomic Weights
-=========================
+***********************
 
 The standard atomic weights (or realtive atomic mass), :math:`A_r(E)`, 
 are extracted from table 1 in :cite:t:`prohaska2022-0`. For the elements

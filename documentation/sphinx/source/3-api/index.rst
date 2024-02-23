@@ -1,8 +1,9 @@
+###
 API
-==================================
+###
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     ciaaw.rst
     pyciaaw.rst

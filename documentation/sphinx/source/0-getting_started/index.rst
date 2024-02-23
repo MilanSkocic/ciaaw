@@ -1,5 +1,6 @@
+###############
 Getting Started
-================
+###############
 
 .. only:: html
   
@@ -8,7 +9,7 @@ Getting Started
 Sources: https://github.com/MilanSkocic/ciaaw
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     ciaaw.rst
     pyciaaw.rst
