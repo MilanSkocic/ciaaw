@@ -15,8 +15,9 @@ ford:
 	$(MAKE) -C ./ford
 
 doxygen:
-	mkdir ./sphinx/build/html
+	mkdir -p ./sphinx/build/html
 	$(MAKE) -C ./doxygen
+	$(MAKE) -C ./sphinx/build/html/doxygen/latex
 
 clean:
 	$(MAKE) -C ./sphinx clean
