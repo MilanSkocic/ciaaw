@@ -4,6 +4,12 @@ else
 	install_dir=$(DEFAULT_INSTALL_DIR)
 endif
 
+ifneq ($(type), )
+	btype=$(type)
+else
+	btype=release
+endif
+
 .PHONY: clean install uninstall copy_h copy_a shared_linux shared_windows shared_darwin
 
 all: clean $(LIBNAME)
@@ -14,23 +20,14 @@ generator:
 	make -C srcgen generator
 
 build: generator
-	fpm build --profile=release
-
-build_debug: generator
-	fpm build --profile=debug
+	fpm build --profile=$(btype)
 
 test: build
-	fpm test --profile=release
+	fpm test --profile=$(debug)
 	
-test_debug: build_debug
-	fpm test --profile=debug
-
 example: build
-	fpm run --profile=release --example --all
+	fpm run --profile=$(btype) --example --all
 
-example_debug: build_debug
-	fpm run --profile=debug --example --all
-	
 shared: shared_$(PLATFORM)
 
 copy_shared: copy_shared_$(PLATFORM)
