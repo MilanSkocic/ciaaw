@@ -1,7 +1,14 @@
 r"""Tests"""
 import unittest
-from pyciaaw import saw
+from pyciaaw import saw, version
 
+
+class TestVersion(unittest.TestCase):
+    r"""Test version."""
+    def test_version(self):
+        value = version.__version__
+        expected = "0.1.0"
+        self.assertEqual(value, expected)
 
 class TestYear(unittest.TestCase):
     r"""Test year."""
