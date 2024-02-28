@@ -12,9 +12,9 @@ Summary
 Download
 ========
 
-`iapws <https://github.com/MilanSkocic/ciaaw/releases>`_
+`ciaaw <https://github.com/MilanSkocic/ciaaw/releases>`_
 
-`pyiapws <https://pypi.org/project/pyciaaw>`_
+`ciaaw <https://pypi.org/project/pyciaaw>`_
 
 
 Contributors
