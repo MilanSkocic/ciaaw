@@ -37,19 +37,7 @@ if ! [ -z $1 ]; then
     ROOT=$1
 fi
 
-echo "GCC folder: $ROOT"
-
-for lib in ${LIBS[@]}; do
-    fpath=$ROOT/$lib$EXT
-    if [ -f "$fpath" ]; then
-        echo -n "   $fpath exists."
-        cp "$fpath" $PYW_SRC
-        echo " Copied."
-    else
-        echo "   $fpath does not exist."
-    fi
-done
-
+# LIBRARY
 echo "$LIBNAME folder: $LIB_BUILD_DIR"
 fpath=$LIB_BUILD_DIR/$LIBNAME$EXT 
 if [ -f $fpath ]; then
@@ -63,7 +51,36 @@ else
     echo "    $fpath does not exist."
 fi
 
+
+# C HEADERS
 echo "Include folder: $LIB_INCLUDE_DIR"
-echo -n "    Copying headers..."
-cp $LIB_INCLUDE_DIR/$HEADER_PREFIX*.h $PYW_SRC
-echo "OK"
+for header in "$LIB_INCLUDE_DIR"/*; do
+   echo -n "    $header."
+   cp $LIB_INCLUDE_DIR/$header $PYW_SRC
+   echo  " Copied."
+done
+
+
+# GFORTRAN LIBRARIES
+echo "Gfortran libraries: $ROOT"
+for lib in ${LIBS[@]}; do
+    fpath=$ROOT/$lib$EXT
+    if [ -f "$fpath" ]; then
+        echo -n "   $fpath exists."
+        cp "$fpath" $PYW_SRC
+        if [ "$PLATFORM" = "darwin" ]; then
+            install_name_tool -change "$fpath" "@loader_path/$lib$EXT" $PYW_SRC/$LIBNAME$EXT
+            echo " Copied. Changed rpath in $LIBNAME$EXT."
+        else
+            echo " Copied."
+        fi
+    else
+        echo "   $fpath does not exist."
+    fi
+done
+
+
+if [ "$PLATFORM" = "darwin" ]; then
+    echo "Check rpaths:"
+    otool -L $PYW_SRC/$LIBNAME$EXT
+fi
