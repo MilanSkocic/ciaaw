@@ -14,7 +14,7 @@ Download
 
 `ciaaw <https://github.com/MilanSkocic/ciaaw/releases>`_
 
-`ciaaw <https://pypi.org/project/pyciaaw>`_
+`pyciaaw <https://pypi.org/project/pyciaaw>`_
 
 
 Contributors
