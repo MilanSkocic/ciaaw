@@ -37,5 +37,6 @@ If building the python wrapper is needed:
 .. code-block:: bash
 
     cd pywrapper
-    make clean
-    make plat=(windows, linux or darwin)
+    chmod +x configure.sh
+    . ./configure.sh
+    make
