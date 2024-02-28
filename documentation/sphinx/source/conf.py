@@ -2,15 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import os
-import sys, importlib.util
-sys.path.insert(0, os.path.abspath('../../../pywrapper/'))
-cautodoc_root = os.path.abspath('../../../pywrapper/')
-
-# Import only version.py file for extracting the version
-spec = importlib.util.spec_from_file_location('version', '../../../pywrapper/pyciaaw/version.py')
-mod = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(mod)
-
+import sys
+sys.path.insert(0, os.path.abspath('../../../pywrapper/src/'))
+cautodoc_root = os.path.abspath('../../../pywrapper/src/')
 
 # -- General configuration ------------------------------------------------
 
@@ -48,7 +42,7 @@ author = "M. Skocic"
 # built documents.
 #
 # The short X.Y version.
-version = mod.__version__
+version = "0.1.0" 
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -76,37 +70,37 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'classic'
+html_theme = 'pydata_sphinx_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-ford_blue = "#337ab7"
-ford_light_gray = "#9d9d9d"
-ford_dark_gray = "#101010"
-ford_code_gray = "#f5f5f5"
-ford_white = "#FFFFFF"
-ford_black = "#000000"
-ford_purple = "#734f96"
-html_theme_options = {"nosidebar": True,
-                      "rightsidebar": False,
-                      "headfont": "Helvetica Neue",
-                      "bodyfont": "Helvetica Neue",
-                        "body_max_width": "100%",
-                        "relbarbgcolor": ford_black,
-                      "relbartextcolor": ford_light_gray,
-                      "relbarlinkcolor": ford_light_gray,
-                      "sidebarbgcolor": ford_white,
-                      "sidebarlinkcolor": ford_blue,
-                      "footerbgcolor": ford_dark_gray,
-                      "sidebartextcolor": ford_black,
-                      "textcolor": ford_black,
-                      "headbgcolor": ford_blue,
-                      "headtextcolor": ford_white,
-                      "linkcolor": ford_blue,
-                      "visitedlinkcolor": ford_blue,
-                      "codebgcolor": ford_code_gray}
+#ford_blue = "#337ab7"
+#ford_light_gray = "#9d9d9d"
+#ford_dark_gray = "#101010"
+#ford_code_gray = "#f5f5f5"
+#ford_white = "#FFFFFF"
+#ford_black = "#000000"
+#ford_purple = "#734f96"
+#html_theme_options = {"nosidebar": True,
+#                      "rightsidebar": False,
+#                      "headfont": "Helvetica Neue",
+#                      "bodyfont": "Helvetica Neue",
+#                        "body_max_width": "100%",
+#                        "relbarbgcolor": ford_black,
+#                      "relbartextcolor": ford_light_gray,
+#                      "relbarlinkcolor": ford_light_gray,
+#                      "sidebarbgcolor": ford_white,
+#                      "sidebarlinkcolor": ford_blue,
+#                      "footerbgcolor": ford_dark_gray,
+#                      "sidebartextcolor": ford_black,
+#                      "textcolor": ford_black,
+#                      "headbgcolor": ford_blue,
+#                      "headtextcolor": ford_white,
+#                      "linkcolor": ford_blue,
+#                      "visitedlinkcolor": ford_blue,
+#                      "codebgcolor": ford_code_gray}
 # html_theme_path = []
 
 # Add any paths that contain custom static files (such as style sheets) here,

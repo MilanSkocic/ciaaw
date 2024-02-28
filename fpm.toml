@@ -18,26 +18,10 @@ source-form = "free"
 auto-executables = true
 auto-tests = true
 auto-examples = true
-module-naming = true
+module-naming = false
 
 [install]
 library = true
-
-[[test]]
-name = "test_saw"
-main = "test_saw.f90"
-
-[[test]]
-name = "test_version"
-main = "test_version.f90"
-
-[[test]]
-name = "test_saw_capi"
-main = "test_saw_capi.c"
-
-[[test]]
-name = "test_version_capi"
-main = "test_version_capi.c"
 
 [[example]]
 name = "example_in_f"
@@ -46,3 +30,9 @@ main = "example_in_f.f90"
 [[example]]
 name = "example_in_c"
 main = "example_in_c.c"
+
+[[test]]
+name = "tester"
+main = "tester.f90"
+[test.dependencies]
+test-drive = {git="https://github.com/fortran-lang/test-drive", tag="v0.4.0"}
