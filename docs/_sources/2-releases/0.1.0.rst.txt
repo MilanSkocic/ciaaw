@@ -1,0 +1,29 @@
+*****
+0.1.0
+*****
+
+Summary
+=======
+
+* All elements from the periodic table added for the saw module.
+* They are implemented as parameter derived type.
+
+
+Download
+========
+
+`iapws <https://github.com/MilanSkocic/ciaaw/releases>`_
+
+`pyiapws <https://pypi.org/project/pyciaaw>`_
+
+
+Contributors
+============
+
+Milan Skocic
+
+
+Commits
+=======
+
+Full Changelog: https://github.com/MilanSkocic/ciaaw/compare/....0.1.0

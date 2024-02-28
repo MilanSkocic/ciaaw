@@ -1,0 +1,173 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}CIAAW Fortran and C API}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Modules Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Modules List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Data Type Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Data Types List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}File Index}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}File List}{7}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Module Documentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}ciaaw Module Reference}{9}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{9}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}saw Module Reference}{9}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{24}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}version Module Reference}{24}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{25}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Function/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Subroutine Documentation}{25}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}get\_version()}{25}{subsubsection.5.3.2.1}%
+\contentsline {chapter}{\numberline {6}Data Type Documentation}{27}{chapter.6}%
+\contentsline {section}{\numberline {6.1}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}saw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::capi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}element\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Type Reference}{27}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{27}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}saw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}element\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{28}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{28}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Field Documentation}{28}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.1}asaw}{28}{subsubsection.6.2.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2.2}asaw\_u}{28}{subsubsection.6.2.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.3}element}{28}{subsubsection.6.2.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.2.4}saw}{28}{subsubsection.6.2.2.4}%
+\contentsline {subsubsection}{\numberline {6.2.2.5}saw\_max}{29}{subsubsection.6.2.2.5}%
+\contentsline {subsubsection}{\numberline {6.2.2.6}saw\_min}{29}{subsubsection.6.2.2.6}%
+\contentsline {subsubsection}{\numberline {6.2.2.7}saw\_u}{29}{subsubsection.6.2.2.7}%
+\contentsline {subsubsection}{\numberline {6.2.2.8}symbol}{29}{subsubsection.6.2.2.8}%
+\contentsline {subsubsection}{\numberline {6.2.2.9}z}{29}{subsubsection.6.2.2.9}%
+\contentsline {section}{\numberline {6.3}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}saw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::element\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Type Reference}{29}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{30}{subsection.6.3.1}%
+\contentsline {chapter}{\numberline {7}File Documentation}{31}{chapter.7}%
+\contentsline {section}{\numberline {7.1}ciaaw.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{31}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Detailed Description}{31}{subsection.7.1.1}%
+\contentsline {section}{\numberline {7.2}ciaaw.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{31}{section.7.2}%
+\contentsline {section}{\numberline {7.3}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}saw.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{32}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Detailed Description}{34}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Variable Documentation}{34}{subsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.1}ciaaw\_saw\_Ac}{34}{subsubsection.7.3.2.1}%
+\contentsline {subsubsection}{\numberline {7.3.2.2}ciaaw\_saw\_Ag}{35}{subsubsection.7.3.2.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.3}ciaaw\_saw\_Al}{35}{subsubsection.7.3.2.3}%
+\contentsline {subsubsection}{\numberline {7.3.2.4}ciaaw\_saw\_Am}{35}{subsubsection.7.3.2.4}%
+\contentsline {subsubsection}{\numberline {7.3.2.5}ciaaw\_saw\_Ar}{35}{subsubsection.7.3.2.5}%
+\contentsline {subsubsection}{\numberline {7.3.2.6}ciaaw\_saw\_As}{35}{subsubsection.7.3.2.6}%
+\contentsline {subsubsection}{\numberline {7.3.2.7}ciaaw\_saw\_At}{35}{subsubsection.7.3.2.7}%
+\contentsline {subsubsection}{\numberline {7.3.2.8}ciaaw\_saw\_Au}{35}{subsubsection.7.3.2.8}%
+\contentsline {subsubsection}{\numberline {7.3.2.9}ciaaw\_saw\_B}{35}{subsubsection.7.3.2.9}%
+\contentsline {subsubsection}{\numberline {7.3.2.10}ciaaw\_saw\_Ba}{36}{subsubsection.7.3.2.10}%
+\contentsline {subsubsection}{\numberline {7.3.2.11}ciaaw\_saw\_Be}{36}{subsubsection.7.3.2.11}%
+\contentsline {subsubsection}{\numberline {7.3.2.12}ciaaw\_saw\_Bh}{36}{subsubsection.7.3.2.12}%
+\contentsline {subsubsection}{\numberline {7.3.2.13}ciaaw\_saw\_Bi}{36}{subsubsection.7.3.2.13}%
+\contentsline {subsubsection}{\numberline {7.3.2.14}ciaaw\_saw\_Bk}{36}{subsubsection.7.3.2.14}%
+\contentsline {subsubsection}{\numberline {7.3.2.15}ciaaw\_saw\_Br}{36}{subsubsection.7.3.2.15}%
+\contentsline {subsubsection}{\numberline {7.3.2.16}ciaaw\_saw\_C}{36}{subsubsection.7.3.2.16}%
+\contentsline {subsubsection}{\numberline {7.3.2.17}ciaaw\_saw\_Ca}{36}{subsubsection.7.3.2.17}%
+\contentsline {subsubsection}{\numberline {7.3.2.18}ciaaw\_saw\_Cd}{37}{subsubsection.7.3.2.18}%
+\contentsline {subsubsection}{\numberline {7.3.2.19}ciaaw\_saw\_Ce}{37}{subsubsection.7.3.2.19}%
+\contentsline {subsubsection}{\numberline {7.3.2.20}ciaaw\_saw\_Cf}{37}{subsubsection.7.3.2.20}%
+\contentsline {subsubsection}{\numberline {7.3.2.21}ciaaw\_saw\_Cl}{37}{subsubsection.7.3.2.21}%
+\contentsline {subsubsection}{\numberline {7.3.2.22}ciaaw\_saw\_Cm}{37}{subsubsection.7.3.2.22}%
+\contentsline {subsubsection}{\numberline {7.3.2.23}ciaaw\_saw\_Cn}{37}{subsubsection.7.3.2.23}%
+\contentsline {subsubsection}{\numberline {7.3.2.24}ciaaw\_saw\_Co}{37}{subsubsection.7.3.2.24}%
+\contentsline {subsubsection}{\numberline {7.3.2.25}ciaaw\_saw\_Cr}{37}{subsubsection.7.3.2.25}%
+\contentsline {subsubsection}{\numberline {7.3.2.26}ciaaw\_saw\_Cs}{38}{subsubsection.7.3.2.26}%
+\contentsline {subsubsection}{\numberline {7.3.2.27}ciaaw\_saw\_Cu}{38}{subsubsection.7.3.2.27}%
+\contentsline {subsubsection}{\numberline {7.3.2.28}ciaaw\_saw\_Db}{38}{subsubsection.7.3.2.28}%
+\contentsline {subsubsection}{\numberline {7.3.2.29}ciaaw\_saw\_Ds}{38}{subsubsection.7.3.2.29}%
+\contentsline {subsubsection}{\numberline {7.3.2.30}ciaaw\_saw\_Dy}{38}{subsubsection.7.3.2.30}%
+\contentsline {subsubsection}{\numberline {7.3.2.31}ciaaw\_saw\_Er}{38}{subsubsection.7.3.2.31}%
+\contentsline {subsubsection}{\numberline {7.3.2.32}ciaaw\_saw\_Es}{38}{subsubsection.7.3.2.32}%
+\contentsline {subsubsection}{\numberline {7.3.2.33}ciaaw\_saw\_Eu}{38}{subsubsection.7.3.2.33}%
+\contentsline {subsubsection}{\numberline {7.3.2.34}ciaaw\_saw\_F}{39}{subsubsection.7.3.2.34}%
+\contentsline {subsubsection}{\numberline {7.3.2.35}ciaaw\_saw\_Fe}{39}{subsubsection.7.3.2.35}%
+\contentsline {subsubsection}{\numberline {7.3.2.36}ciaaw\_saw\_Fl}{39}{subsubsection.7.3.2.36}%
+\contentsline {subsubsection}{\numberline {7.3.2.37}ciaaw\_saw\_Fm}{39}{subsubsection.7.3.2.37}%
+\contentsline {subsubsection}{\numberline {7.3.2.38}ciaaw\_saw\_Fr}{39}{subsubsection.7.3.2.38}%
+\contentsline {subsubsection}{\numberline {7.3.2.39}ciaaw\_saw\_Ga}{39}{subsubsection.7.3.2.39}%
+\contentsline {subsubsection}{\numberline {7.3.2.40}ciaaw\_saw\_Gd}{39}{subsubsection.7.3.2.40}%
+\contentsline {subsubsection}{\numberline {7.3.2.41}ciaaw\_saw\_Ge}{39}{subsubsection.7.3.2.41}%
+\contentsline {subsubsection}{\numberline {7.3.2.42}ciaaw\_saw\_H}{40}{subsubsection.7.3.2.42}%
+\contentsline {subsubsection}{\numberline {7.3.2.43}ciaaw\_saw\_He}{40}{subsubsection.7.3.2.43}%
+\contentsline {subsubsection}{\numberline {7.3.2.44}ciaaw\_saw\_Hf}{40}{subsubsection.7.3.2.44}%
+\contentsline {subsubsection}{\numberline {7.3.2.45}ciaaw\_saw\_Hg}{40}{subsubsection.7.3.2.45}%
+\contentsline {subsubsection}{\numberline {7.3.2.46}ciaaw\_saw\_Ho}{40}{subsubsection.7.3.2.46}%
+\contentsline {subsubsection}{\numberline {7.3.2.47}ciaaw\_saw\_Hs}{40}{subsubsection.7.3.2.47}%
+\contentsline {subsubsection}{\numberline {7.3.2.48}ciaaw\_saw\_I}{40}{subsubsection.7.3.2.48}%
+\contentsline {subsubsection}{\numberline {7.3.2.49}ciaaw\_saw\_In}{40}{subsubsection.7.3.2.49}%
+\contentsline {subsubsection}{\numberline {7.3.2.50}ciaaw\_saw\_Ir}{41}{subsubsection.7.3.2.50}%
+\contentsline {subsubsection}{\numberline {7.3.2.51}ciaaw\_saw\_K}{41}{subsubsection.7.3.2.51}%
+\contentsline {subsubsection}{\numberline {7.3.2.52}ciaaw\_saw\_Kr}{41}{subsubsection.7.3.2.52}%
+\contentsline {subsubsection}{\numberline {7.3.2.53}ciaaw\_saw\_La}{41}{subsubsection.7.3.2.53}%
+\contentsline {subsubsection}{\numberline {7.3.2.54}ciaaw\_saw\_Li}{41}{subsubsection.7.3.2.54}%
+\contentsline {subsubsection}{\numberline {7.3.2.55}ciaaw\_saw\_Lr}{41}{subsubsection.7.3.2.55}%
+\contentsline {subsubsection}{\numberline {7.3.2.56}ciaaw\_saw\_Lu}{41}{subsubsection.7.3.2.56}%
+\contentsline {subsubsection}{\numberline {7.3.2.57}ciaaw\_saw\_Lv}{41}{subsubsection.7.3.2.57}%
+\contentsline {subsubsection}{\numberline {7.3.2.58}ciaaw\_saw\_Mc}{42}{subsubsection.7.3.2.58}%
+\contentsline {subsubsection}{\numberline {7.3.2.59}ciaaw\_saw\_Md}{42}{subsubsection.7.3.2.59}%
+\contentsline {subsubsection}{\numberline {7.3.2.60}ciaaw\_saw\_Mg}{42}{subsubsection.7.3.2.60}%
+\contentsline {subsubsection}{\numberline {7.3.2.61}ciaaw\_saw\_Mn}{42}{subsubsection.7.3.2.61}%
+\contentsline {subsubsection}{\numberline {7.3.2.62}ciaaw\_saw\_Mo}{42}{subsubsection.7.3.2.62}%
+\contentsline {subsubsection}{\numberline {7.3.2.63}ciaaw\_saw\_Mt}{42}{subsubsection.7.3.2.63}%
+\contentsline {subsubsection}{\numberline {7.3.2.64}ciaaw\_saw\_N}{42}{subsubsection.7.3.2.64}%
+\contentsline {subsubsection}{\numberline {7.3.2.65}ciaaw\_saw\_Na}{42}{subsubsection.7.3.2.65}%
+\contentsline {subsubsection}{\numberline {7.3.2.66}ciaaw\_saw\_Nb}{43}{subsubsection.7.3.2.66}%
+\contentsline {subsubsection}{\numberline {7.3.2.67}ciaaw\_saw\_Nd}{43}{subsubsection.7.3.2.67}%
+\contentsline {subsubsection}{\numberline {7.3.2.68}ciaaw\_saw\_Ne}{43}{subsubsection.7.3.2.68}%
+\contentsline {subsubsection}{\numberline {7.3.2.69}ciaaw\_saw\_Nh}{43}{subsubsection.7.3.2.69}%
+\contentsline {subsubsection}{\numberline {7.3.2.70}ciaaw\_saw\_Ni}{43}{subsubsection.7.3.2.70}%
+\contentsline {subsubsection}{\numberline {7.3.2.71}ciaaw\_saw\_No}{43}{subsubsection.7.3.2.71}%
+\contentsline {subsubsection}{\numberline {7.3.2.72}ciaaw\_saw\_Np}{43}{subsubsection.7.3.2.72}%
+\contentsline {subsubsection}{\numberline {7.3.2.73}ciaaw\_saw\_O}{43}{subsubsection.7.3.2.73}%
+\contentsline {subsubsection}{\numberline {7.3.2.74}ciaaw\_saw\_Og}{44}{subsubsection.7.3.2.74}%
+\contentsline {subsubsection}{\numberline {7.3.2.75}ciaaw\_saw\_Os}{44}{subsubsection.7.3.2.75}%
+\contentsline {subsubsection}{\numberline {7.3.2.76}ciaaw\_saw\_P}{44}{subsubsection.7.3.2.76}%
+\contentsline {subsubsection}{\numberline {7.3.2.77}ciaaw\_saw\_Pa}{44}{subsubsection.7.3.2.77}%
+\contentsline {subsubsection}{\numberline {7.3.2.78}ciaaw\_saw\_Pb}{44}{subsubsection.7.3.2.78}%
+\contentsline {subsubsection}{\numberline {7.3.2.79}ciaaw\_saw\_Pd}{44}{subsubsection.7.3.2.79}%
+\contentsline {subsubsection}{\numberline {7.3.2.80}ciaaw\_saw\_Pm}{44}{subsubsection.7.3.2.80}%
+\contentsline {subsubsection}{\numberline {7.3.2.81}ciaaw\_saw\_Po}{44}{subsubsection.7.3.2.81}%
+\contentsline {subsubsection}{\numberline {7.3.2.82}ciaaw\_saw\_Pr}{45}{subsubsection.7.3.2.82}%
+\contentsline {subsubsection}{\numberline {7.3.2.83}ciaaw\_saw\_Pt}{45}{subsubsection.7.3.2.83}%
+\contentsline {subsubsection}{\numberline {7.3.2.84}ciaaw\_saw\_Pu}{45}{subsubsection.7.3.2.84}%
+\contentsline {subsubsection}{\numberline {7.3.2.85}ciaaw\_saw\_Ra}{45}{subsubsection.7.3.2.85}%
+\contentsline {subsubsection}{\numberline {7.3.2.86}ciaaw\_saw\_Rb}{45}{subsubsection.7.3.2.86}%
+\contentsline {subsubsection}{\numberline {7.3.2.87}ciaaw\_saw\_Re}{45}{subsubsection.7.3.2.87}%
+\contentsline {subsubsection}{\numberline {7.3.2.88}ciaaw\_saw\_Rf}{45}{subsubsection.7.3.2.88}%
+\contentsline {subsubsection}{\numberline {7.3.2.89}ciaaw\_saw\_Rg}{45}{subsubsection.7.3.2.89}%
+\contentsline {subsubsection}{\numberline {7.3.2.90}ciaaw\_saw\_Rh}{46}{subsubsection.7.3.2.90}%
+\contentsline {subsubsection}{\numberline {7.3.2.91}ciaaw\_saw\_Rn}{46}{subsubsection.7.3.2.91}%
+\contentsline {subsubsection}{\numberline {7.3.2.92}ciaaw\_saw\_Ru}{46}{subsubsection.7.3.2.92}%
+\contentsline {subsubsection}{\numberline {7.3.2.93}ciaaw\_saw\_S}{46}{subsubsection.7.3.2.93}%
+\contentsline {subsubsection}{\numberline {7.3.2.94}ciaaw\_saw\_Sb}{46}{subsubsection.7.3.2.94}%
+\contentsline {subsubsection}{\numberline {7.3.2.95}ciaaw\_saw\_Sc}{46}{subsubsection.7.3.2.95}%
+\contentsline {subsubsection}{\numberline {7.3.2.96}ciaaw\_saw\_Se}{46}{subsubsection.7.3.2.96}%
+\contentsline {subsubsection}{\numberline {7.3.2.97}ciaaw\_saw\_Sg}{46}{subsubsection.7.3.2.97}%
+\contentsline {subsubsection}{\numberline {7.3.2.98}ciaaw\_saw\_Si}{47}{subsubsection.7.3.2.98}%
+\contentsline {subsubsection}{\numberline {7.3.2.99}ciaaw\_saw\_Sm}{47}{subsubsection.7.3.2.99}%
+\contentsline {subsubsection}{\numberline {7.3.2.100}ciaaw\_saw\_Sn}{47}{subsubsection.7.3.2.100}%
+\contentsline {subsubsection}{\numberline {7.3.2.101}ciaaw\_saw\_Sr}{47}{subsubsection.7.3.2.101}%
+\contentsline {subsubsection}{\numberline {7.3.2.102}ciaaw\_saw\_Ta}{47}{subsubsection.7.3.2.102}%
+\contentsline {subsubsection}{\numberline {7.3.2.103}ciaaw\_saw\_Tb}{47}{subsubsection.7.3.2.103}%
+\contentsline {subsubsection}{\numberline {7.3.2.104}ciaaw\_saw\_Tc}{47}{subsubsection.7.3.2.104}%
+\contentsline {subsubsection}{\numberline {7.3.2.105}ciaaw\_saw\_Te}{47}{subsubsection.7.3.2.105}%
+\contentsline {subsubsection}{\numberline {7.3.2.106}ciaaw\_saw\_Th}{48}{subsubsection.7.3.2.106}%
+\contentsline {subsubsection}{\numberline {7.3.2.107}ciaaw\_saw\_Ti}{48}{subsubsection.7.3.2.107}%
+\contentsline {subsubsection}{\numberline {7.3.2.108}ciaaw\_saw\_Tl}{48}{subsubsection.7.3.2.108}%
+\contentsline {subsubsection}{\numberline {7.3.2.109}ciaaw\_saw\_Tm}{48}{subsubsection.7.3.2.109}%
+\contentsline {subsubsection}{\numberline {7.3.2.110}ciaaw\_saw\_Ts}{48}{subsubsection.7.3.2.110}%
+\contentsline {subsubsection}{\numberline {7.3.2.111}ciaaw\_saw\_U}{48}{subsubsection.7.3.2.111}%
+\contentsline {subsubsection}{\numberline {7.3.2.112}ciaaw\_saw\_V}{48}{subsubsection.7.3.2.112}%
+\contentsline {subsubsection}{\numberline {7.3.2.113}ciaaw\_saw\_W}{48}{subsubsection.7.3.2.113}%
+\contentsline {subsubsection}{\numberline {7.3.2.114}ciaaw\_saw\_Xe}{49}{subsubsection.7.3.2.114}%
+\contentsline {subsubsection}{\numberline {7.3.2.115}ciaaw\_saw\_Y}{49}{subsubsection.7.3.2.115}%
+\contentsline {subsubsection}{\numberline {7.3.2.116}ciaaw\_saw\_Yb}{49}{subsubsection.7.3.2.116}%
+\contentsline {subsubsection}{\numberline {7.3.2.117}ciaaw\_saw\_YEAR}{49}{subsubsection.7.3.2.117}%
+\contentsline {subsubsection}{\numberline {7.3.2.118}ciaaw\_saw\_Zn}{49}{subsubsection.7.3.2.118}%
+\contentsline {subsubsection}{\numberline {7.3.2.119}ciaaw\_saw\_Zr}{49}{subsubsection.7.3.2.119}%
+\contentsline {section}{\numberline {7.4}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}saw.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{50}{section.7.4}%
+\contentsline {section}{\numberline {7.5}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}version.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{51}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Detailed Description}{52}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Function Documentation}{52}{subsection.7.5.2}%
+\contentsline {subsubsection}{\numberline {7.5.2.1}ciaaw\_get\_version()}{52}{subsubsection.7.5.2.1}%
+\contentsline {section}{\numberline {7.6}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}version.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{52}{section.7.6}%
+\contentsline {section}{\numberline {7.7}ciaaw.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}f90 File Reference}{53}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Detailed Description}{53}{subsection.7.7.1}%
+\contentsline {section}{\numberline {7.8}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}saw.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}f90 File Reference}{53}{section.7.8}%
+\contentsline {subsection}{\numberline {7.8.1}Detailed Description}{69}{subsection.7.8.1}%
+\contentsline {section}{\numberline {7.9}ciaaw\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}version.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}f90 File Reference}{69}{section.7.9}%
+\contentsline {subsection}{\numberline {7.9.1}Detailed Description}{69}{subsection.7.9.1}%
+\contentsline {chapter}{Index}{71}{section*.19}%

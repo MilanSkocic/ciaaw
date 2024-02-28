@@ -1,0 +1,422 @@
+\begin{theindex}
+
+  \item {asaw}
+    \subitem {ciaaw\_saw\_element\_t}, \hyperpage{28}
+  \item {asaw\_u}
+    \subitem {ciaaw\_saw\_element\_t}, \hyperpage{28}
+
+  \indexspace
+
+  \item {ciaaw}, \hyperpage{9}
+  \item {CIAAW Fortran and C API}, \hyperpage{1}
+  \item {ciaaw.f90}, \hyperpage{53}
+  \item {ciaaw.h}, \hyperpage{31}
+  \item {ciaaw\_\_saw}, \hyperpage{9}
+  \item {ciaaw\_\_saw::capi\_element\_t}, \hyperpage{27}
+  \item {ciaaw\_\_saw::element\_t}, \hyperpage{29}
+  \item {ciaaw\_\_version}, \hyperpage{24}
+    \subitem {get\_version}, \hyperpage{25}
+  \item {ciaaw\_get\_version}
+    \subitem {ciaaw\_version.h}, \hyperpage{52}
+  \item {ciaaw\_saw.f90}, \hyperpage{53}
+  \item {ciaaw\_saw.h}, \hyperpage{32}, \hyperpage{50}
+    \subitem {ciaaw\_saw\_Ac}, \hyperpage{34}
+    \subitem {ciaaw\_saw\_Ag}, \hyperpage{34}
+    \subitem {ciaaw\_saw\_Al}, \hyperpage{35}
+    \subitem {ciaaw\_saw\_Am}, \hyperpage{35}
+    \subitem {ciaaw\_saw\_Ar}, \hyperpage{35}
+    \subitem {ciaaw\_saw\_As}, \hyperpage{35}
+    \subitem {ciaaw\_saw\_At}, \hyperpage{35}
+    \subitem {ciaaw\_saw\_Au}, \hyperpage{35}
+    \subitem {ciaaw\_saw\_B}, \hyperpage{35}
+    \subitem {ciaaw\_saw\_Ba}, \hyperpage{35}
+    \subitem {ciaaw\_saw\_Be}, \hyperpage{36}
+    \subitem {ciaaw\_saw\_Bh}, \hyperpage{36}
+    \subitem {ciaaw\_saw\_Bi}, \hyperpage{36}
+    \subitem {ciaaw\_saw\_Bk}, \hyperpage{36}
+    \subitem {ciaaw\_saw\_Br}, \hyperpage{36}
+    \subitem {ciaaw\_saw\_C}, \hyperpage{36}
+    \subitem {ciaaw\_saw\_Ca}, \hyperpage{36}
+    \subitem {ciaaw\_saw\_Cd}, \hyperpage{36}
+    \subitem {ciaaw\_saw\_Ce}, \hyperpage{37}
+    \subitem {ciaaw\_saw\_Cf}, \hyperpage{37}
+    \subitem {ciaaw\_saw\_Cl}, \hyperpage{37}
+    \subitem {ciaaw\_saw\_Cm}, \hyperpage{37}
+    \subitem {ciaaw\_saw\_Cn}, \hyperpage{37}
+    \subitem {ciaaw\_saw\_Co}, \hyperpage{37}
+    \subitem {ciaaw\_saw\_Cr}, \hyperpage{37}
+    \subitem {ciaaw\_saw\_Cs}, \hyperpage{37}
+    \subitem {ciaaw\_saw\_Cu}, \hyperpage{38}
+    \subitem {ciaaw\_saw\_Db}, \hyperpage{38}
+    \subitem {ciaaw\_saw\_Ds}, \hyperpage{38}
+    \subitem {ciaaw\_saw\_Dy}, \hyperpage{38}
+    \subitem {ciaaw\_saw\_Er}, \hyperpage{38}
+    \subitem {ciaaw\_saw\_Es}, \hyperpage{38}
+    \subitem {ciaaw\_saw\_Eu}, \hyperpage{38}
+    \subitem {ciaaw\_saw\_F}, \hyperpage{38}
+    \subitem {ciaaw\_saw\_Fe}, \hyperpage{39}
+    \subitem {ciaaw\_saw\_Fl}, \hyperpage{39}
+    \subitem {ciaaw\_saw\_Fm}, \hyperpage{39}
+    \subitem {ciaaw\_saw\_Fr}, \hyperpage{39}
+    \subitem {ciaaw\_saw\_Ga}, \hyperpage{39}
+    \subitem {ciaaw\_saw\_Gd}, \hyperpage{39}
+    \subitem {ciaaw\_saw\_Ge}, \hyperpage{39}
+    \subitem {ciaaw\_saw\_H}, \hyperpage{39}
+    \subitem {ciaaw\_saw\_He}, \hyperpage{40}
+    \subitem {ciaaw\_saw\_Hf}, \hyperpage{40}
+    \subitem {ciaaw\_saw\_Hg}, \hyperpage{40}
+    \subitem {ciaaw\_saw\_Ho}, \hyperpage{40}
+    \subitem {ciaaw\_saw\_Hs}, \hyperpage{40}
+    \subitem {ciaaw\_saw\_I}, \hyperpage{40}
+    \subitem {ciaaw\_saw\_In}, \hyperpage{40}
+    \subitem {ciaaw\_saw\_Ir}, \hyperpage{40}
+    \subitem {ciaaw\_saw\_K}, \hyperpage{41}
+    \subitem {ciaaw\_saw\_Kr}, \hyperpage{41}
+    \subitem {ciaaw\_saw\_La}, \hyperpage{41}
+    \subitem {ciaaw\_saw\_Li}, \hyperpage{41}
+    \subitem {ciaaw\_saw\_Lr}, \hyperpage{41}
+    \subitem {ciaaw\_saw\_Lu}, \hyperpage{41}
+    \subitem {ciaaw\_saw\_Lv}, \hyperpage{41}
+    \subitem {ciaaw\_saw\_Mc}, \hyperpage{41}
+    \subitem {ciaaw\_saw\_Md}, \hyperpage{42}
+    \subitem {ciaaw\_saw\_Mg}, \hyperpage{42}
+    \subitem {ciaaw\_saw\_Mn}, \hyperpage{42}
+    \subitem {ciaaw\_saw\_Mo}, \hyperpage{42}
+    \subitem {ciaaw\_saw\_Mt}, \hyperpage{42}
+    \subitem {ciaaw\_saw\_N}, \hyperpage{42}
+    \subitem {ciaaw\_saw\_Na}, \hyperpage{42}
+    \subitem {ciaaw\_saw\_Nb}, \hyperpage{42}
+    \subitem {ciaaw\_saw\_Nd}, \hyperpage{43}
+    \subitem {ciaaw\_saw\_Ne}, \hyperpage{43}
+    \subitem {ciaaw\_saw\_Nh}, \hyperpage{43}
+    \subitem {ciaaw\_saw\_Ni}, \hyperpage{43}
+    \subitem {ciaaw\_saw\_No}, \hyperpage{43}
+    \subitem {ciaaw\_saw\_Np}, \hyperpage{43}
+    \subitem {ciaaw\_saw\_O}, \hyperpage{43}
+    \subitem {ciaaw\_saw\_Og}, \hyperpage{43}
+    \subitem {ciaaw\_saw\_Os}, \hyperpage{44}
+    \subitem {ciaaw\_saw\_P}, \hyperpage{44}
+    \subitem {ciaaw\_saw\_Pa}, \hyperpage{44}
+    \subitem {ciaaw\_saw\_Pb}, \hyperpage{44}
+    \subitem {ciaaw\_saw\_Pd}, \hyperpage{44}
+    \subitem {ciaaw\_saw\_Pm}, \hyperpage{44}
+    \subitem {ciaaw\_saw\_Po}, \hyperpage{44}
+    \subitem {ciaaw\_saw\_Pr}, \hyperpage{44}
+    \subitem {ciaaw\_saw\_Pt}, \hyperpage{45}
+    \subitem {ciaaw\_saw\_Pu}, \hyperpage{45}
+    \subitem {ciaaw\_saw\_Ra}, \hyperpage{45}
+    \subitem {ciaaw\_saw\_Rb}, \hyperpage{45}
+    \subitem {ciaaw\_saw\_Re}, \hyperpage{45}
+    \subitem {ciaaw\_saw\_Rf}, \hyperpage{45}
+    \subitem {ciaaw\_saw\_Rg}, \hyperpage{45}
+    \subitem {ciaaw\_saw\_Rh}, \hyperpage{45}
+    \subitem {ciaaw\_saw\_Rn}, \hyperpage{46}
+    \subitem {ciaaw\_saw\_Ru}, \hyperpage{46}
+    \subitem {ciaaw\_saw\_S}, \hyperpage{46}
+    \subitem {ciaaw\_saw\_Sb}, \hyperpage{46}
+    \subitem {ciaaw\_saw\_Sc}, \hyperpage{46}
+    \subitem {ciaaw\_saw\_Se}, \hyperpage{46}
+    \subitem {ciaaw\_saw\_Sg}, \hyperpage{46}
+    \subitem {ciaaw\_saw\_Si}, \hyperpage{46}
+    \subitem {ciaaw\_saw\_Sm}, \hyperpage{47}
+    \subitem {ciaaw\_saw\_Sn}, \hyperpage{47}
+    \subitem {ciaaw\_saw\_Sr}, \hyperpage{47}
+    \subitem {ciaaw\_saw\_Ta}, \hyperpage{47}
+    \subitem {ciaaw\_saw\_Tb}, \hyperpage{47}
+    \subitem {ciaaw\_saw\_Tc}, \hyperpage{47}
+    \subitem {ciaaw\_saw\_Te}, \hyperpage{47}
+    \subitem {ciaaw\_saw\_Th}, \hyperpage{47}
+    \subitem {ciaaw\_saw\_Ti}, \hyperpage{48}
+    \subitem {ciaaw\_saw\_Tl}, \hyperpage{48}
+    \subitem {ciaaw\_saw\_Tm}, \hyperpage{48}
+    \subitem {ciaaw\_saw\_Ts}, \hyperpage{48}
+    \subitem {ciaaw\_saw\_U}, \hyperpage{48}
+    \subitem {ciaaw\_saw\_V}, \hyperpage{48}
+    \subitem {ciaaw\_saw\_W}, \hyperpage{48}
+    \subitem {ciaaw\_saw\_Xe}, \hyperpage{48}
+    \subitem {ciaaw\_saw\_Y}, \hyperpage{49}
+    \subitem {ciaaw\_saw\_Yb}, \hyperpage{49}
+    \subitem {ciaaw\_saw\_YEAR}, \hyperpage{49}
+    \subitem {ciaaw\_saw\_Zn}, \hyperpage{49}
+    \subitem {ciaaw\_saw\_Zr}, \hyperpage{49}
+  \item {ciaaw\_saw\_Ac}
+    \subitem {ciaaw\_saw.h}, \hyperpage{34}
+  \item {ciaaw\_saw\_Ag}
+    \subitem {ciaaw\_saw.h}, \hyperpage{34}
+  \item {ciaaw\_saw\_Al}
+    \subitem {ciaaw\_saw.h}, \hyperpage{35}
+  \item {ciaaw\_saw\_Am}
+    \subitem {ciaaw\_saw.h}, \hyperpage{35}
+  \item {ciaaw\_saw\_Ar}
+    \subitem {ciaaw\_saw.h}, \hyperpage{35}
+  \item {ciaaw\_saw\_As}
+    \subitem {ciaaw\_saw.h}, \hyperpage{35}
+  \item {ciaaw\_saw\_At}
+    \subitem {ciaaw\_saw.h}, \hyperpage{35}
+  \item {ciaaw\_saw\_Au}
+    \subitem {ciaaw\_saw.h}, \hyperpage{35}
+  \item {ciaaw\_saw\_B}
+    \subitem {ciaaw\_saw.h}, \hyperpage{35}
+  \item {ciaaw\_saw\_Ba}
+    \subitem {ciaaw\_saw.h}, \hyperpage{35}
+  \item {ciaaw\_saw\_Be}
+    \subitem {ciaaw\_saw.h}, \hyperpage{36}
+  \item {ciaaw\_saw\_Bh}
+    \subitem {ciaaw\_saw.h}, \hyperpage{36}
+  \item {ciaaw\_saw\_Bi}
+    \subitem {ciaaw\_saw.h}, \hyperpage{36}
+  \item {ciaaw\_saw\_Bk}
+    \subitem {ciaaw\_saw.h}, \hyperpage{36}
+  \item {ciaaw\_saw\_Br}
+    \subitem {ciaaw\_saw.h}, \hyperpage{36}
+  \item {ciaaw\_saw\_C}
+    \subitem {ciaaw\_saw.h}, \hyperpage{36}
+  \item {ciaaw\_saw\_Ca}
+    \subitem {ciaaw\_saw.h}, \hyperpage{36}
+  \item {ciaaw\_saw\_Cd}
+    \subitem {ciaaw\_saw.h}, \hyperpage{36}
+  \item {ciaaw\_saw\_Ce}
+    \subitem {ciaaw\_saw.h}, \hyperpage{37}
+  \item {ciaaw\_saw\_Cf}
+    \subitem {ciaaw\_saw.h}, \hyperpage{37}
+  \item {ciaaw\_saw\_Cl}
+    \subitem {ciaaw\_saw.h}, \hyperpage{37}
+  \item {ciaaw\_saw\_Cm}
+    \subitem {ciaaw\_saw.h}, \hyperpage{37}
+  \item {ciaaw\_saw\_Cn}
+    \subitem {ciaaw\_saw.h}, \hyperpage{37}
+  \item {ciaaw\_saw\_Co}
+    \subitem {ciaaw\_saw.h}, \hyperpage{37}
+  \item {ciaaw\_saw\_Cr}
+    \subitem {ciaaw\_saw.h}, \hyperpage{37}
+  \item {ciaaw\_saw\_Cs}
+    \subitem {ciaaw\_saw.h}, \hyperpage{37}
+  \item {ciaaw\_saw\_Cu}
+    \subitem {ciaaw\_saw.h}, \hyperpage{38}
+  \item {ciaaw\_saw\_Db}
+    \subitem {ciaaw\_saw.h}, \hyperpage{38}
+  \item {ciaaw\_saw\_Ds}
+    \subitem {ciaaw\_saw.h}, \hyperpage{38}
+  \item {ciaaw\_saw\_Dy}
+    \subitem {ciaaw\_saw.h}, \hyperpage{38}
+  \item {ciaaw\_saw\_element\_t}, \hyperpage{28}
+    \subitem {asaw}, \hyperpage{28}
+    \subitem {asaw\_u}, \hyperpage{28}
+    \subitem {element}, \hyperpage{28}
+    \subitem {saw}, \hyperpage{28}
+    \subitem {saw\_max}, \hyperpage{28}
+    \subitem {saw\_min}, \hyperpage{29}
+    \subitem {saw\_u}, \hyperpage{29}
+    \subitem {symbol}, \hyperpage{29}
+    \subitem {z}, \hyperpage{29}
+  \item {ciaaw\_saw\_Er}
+    \subitem {ciaaw\_saw.h}, \hyperpage{38}
+  \item {ciaaw\_saw\_Es}
+    \subitem {ciaaw\_saw.h}, \hyperpage{38}
+  \item {ciaaw\_saw\_Eu}
+    \subitem {ciaaw\_saw.h}, \hyperpage{38}
+  \item {ciaaw\_saw\_F}
+    \subitem {ciaaw\_saw.h}, \hyperpage{38}
+  \item {ciaaw\_saw\_Fe}
+    \subitem {ciaaw\_saw.h}, \hyperpage{39}
+  \item {ciaaw\_saw\_Fl}
+    \subitem {ciaaw\_saw.h}, \hyperpage{39}
+  \item {ciaaw\_saw\_Fm}
+    \subitem {ciaaw\_saw.h}, \hyperpage{39}
+  \item {ciaaw\_saw\_Fr}
+    \subitem {ciaaw\_saw.h}, \hyperpage{39}
+  \item {ciaaw\_saw\_Ga}
+    \subitem {ciaaw\_saw.h}, \hyperpage{39}
+  \item {ciaaw\_saw\_Gd}
+    \subitem {ciaaw\_saw.h}, \hyperpage{39}
+  \item {ciaaw\_saw\_Ge}
+    \subitem {ciaaw\_saw.h}, \hyperpage{39}
+  \item {ciaaw\_saw\_H}
+    \subitem {ciaaw\_saw.h}, \hyperpage{39}
+  \item {ciaaw\_saw\_He}
+    \subitem {ciaaw\_saw.h}, \hyperpage{40}
+  \item {ciaaw\_saw\_Hf}
+    \subitem {ciaaw\_saw.h}, \hyperpage{40}
+  \item {ciaaw\_saw\_Hg}
+    \subitem {ciaaw\_saw.h}, \hyperpage{40}
+  \item {ciaaw\_saw\_Ho}
+    \subitem {ciaaw\_saw.h}, \hyperpage{40}
+  \item {ciaaw\_saw\_Hs}
+    \subitem {ciaaw\_saw.h}, \hyperpage{40}
+  \item {ciaaw\_saw\_I}
+    \subitem {ciaaw\_saw.h}, \hyperpage{40}
+  \item {ciaaw\_saw\_In}
+    \subitem {ciaaw\_saw.h}, \hyperpage{40}
+  \item {ciaaw\_saw\_Ir}
+    \subitem {ciaaw\_saw.h}, \hyperpage{40}
+  \item {ciaaw\_saw\_K}
+    \subitem {ciaaw\_saw.h}, \hyperpage{41}
+  \item {ciaaw\_saw\_Kr}
+    \subitem {ciaaw\_saw.h}, \hyperpage{41}
+  \item {ciaaw\_saw\_La}
+    \subitem {ciaaw\_saw.h}, \hyperpage{41}
+  \item {ciaaw\_saw\_Li}
+    \subitem {ciaaw\_saw.h}, \hyperpage{41}
+  \item {ciaaw\_saw\_Lr}
+    \subitem {ciaaw\_saw.h}, \hyperpage{41}
+  \item {ciaaw\_saw\_Lu}
+    \subitem {ciaaw\_saw.h}, \hyperpage{41}
+  \item {ciaaw\_saw\_Lv}
+    \subitem {ciaaw\_saw.h}, \hyperpage{41}
+  \item {ciaaw\_saw\_Mc}
+    \subitem {ciaaw\_saw.h}, \hyperpage{41}
+  \item {ciaaw\_saw\_Md}
+    \subitem {ciaaw\_saw.h}, \hyperpage{42}
+  \item {ciaaw\_saw\_Mg}
+    \subitem {ciaaw\_saw.h}, \hyperpage{42}
+  \item {ciaaw\_saw\_Mn}
+    \subitem {ciaaw\_saw.h}, \hyperpage{42}
+  \item {ciaaw\_saw\_Mo}
+    \subitem {ciaaw\_saw.h}, \hyperpage{42}
+  \item {ciaaw\_saw\_Mt}
+    \subitem {ciaaw\_saw.h}, \hyperpage{42}
+  \item {ciaaw\_saw\_N}
+    \subitem {ciaaw\_saw.h}, \hyperpage{42}
+  \item {ciaaw\_saw\_Na}
+    \subitem {ciaaw\_saw.h}, \hyperpage{42}
+  \item {ciaaw\_saw\_Nb}
+    \subitem {ciaaw\_saw.h}, \hyperpage{42}
+  \item {ciaaw\_saw\_Nd}
+    \subitem {ciaaw\_saw.h}, \hyperpage{43}
+  \item {ciaaw\_saw\_Ne}
+    \subitem {ciaaw\_saw.h}, \hyperpage{43}
+  \item {ciaaw\_saw\_Nh}
+    \subitem {ciaaw\_saw.h}, \hyperpage{43}
+  \item {ciaaw\_saw\_Ni}
+    \subitem {ciaaw\_saw.h}, \hyperpage{43}
+  \item {ciaaw\_saw\_No}
+    \subitem {ciaaw\_saw.h}, \hyperpage{43}
+  \item {ciaaw\_saw\_Np}
+    \subitem {ciaaw\_saw.h}, \hyperpage{43}
+  \item {ciaaw\_saw\_O}
+    \subitem {ciaaw\_saw.h}, \hyperpage{43}
+  \item {ciaaw\_saw\_Og}
+    \subitem {ciaaw\_saw.h}, \hyperpage{43}
+  \item {ciaaw\_saw\_Os}
+    \subitem {ciaaw\_saw.h}, \hyperpage{44}
+  \item {ciaaw\_saw\_P}
+    \subitem {ciaaw\_saw.h}, \hyperpage{44}
+  \item {ciaaw\_saw\_Pa}
+    \subitem {ciaaw\_saw.h}, \hyperpage{44}
+  \item {ciaaw\_saw\_Pb}
+    \subitem {ciaaw\_saw.h}, \hyperpage{44}
+  \item {ciaaw\_saw\_Pd}
+    \subitem {ciaaw\_saw.h}, \hyperpage{44}
+  \item {ciaaw\_saw\_Pm}
+    \subitem {ciaaw\_saw.h}, \hyperpage{44}
+  \item {ciaaw\_saw\_Po}
+    \subitem {ciaaw\_saw.h}, \hyperpage{44}
+  \item {ciaaw\_saw\_Pr}
+    \subitem {ciaaw\_saw.h}, \hyperpage{44}
+  \item {ciaaw\_saw\_Pt}
+    \subitem {ciaaw\_saw.h}, \hyperpage{45}
+  \item {ciaaw\_saw\_Pu}
+    \subitem {ciaaw\_saw.h}, \hyperpage{45}
+  \item {ciaaw\_saw\_Ra}
+    \subitem {ciaaw\_saw.h}, \hyperpage{45}
+  \item {ciaaw\_saw\_Rb}
+    \subitem {ciaaw\_saw.h}, \hyperpage{45}
+  \item {ciaaw\_saw\_Re}
+    \subitem {ciaaw\_saw.h}, \hyperpage{45}
+  \item {ciaaw\_saw\_Rf}
+    \subitem {ciaaw\_saw.h}, \hyperpage{45}
+  \item {ciaaw\_saw\_Rg}
+    \subitem {ciaaw\_saw.h}, \hyperpage{45}
+  \item {ciaaw\_saw\_Rh}
+    \subitem {ciaaw\_saw.h}, \hyperpage{45}
+  \item {ciaaw\_saw\_Rn}
+    \subitem {ciaaw\_saw.h}, \hyperpage{46}
+  \item {ciaaw\_saw\_Ru}
+    \subitem {ciaaw\_saw.h}, \hyperpage{46}
+  \item {ciaaw\_saw\_S}
+    \subitem {ciaaw\_saw.h}, \hyperpage{46}
+  \item {ciaaw\_saw\_Sb}
+    \subitem {ciaaw\_saw.h}, \hyperpage{46}
+  \item {ciaaw\_saw\_Sc}
+    \subitem {ciaaw\_saw.h}, \hyperpage{46}
+  \item {ciaaw\_saw\_Se}
+    \subitem {ciaaw\_saw.h}, \hyperpage{46}
+  \item {ciaaw\_saw\_Sg}
+    \subitem {ciaaw\_saw.h}, \hyperpage{46}
+  \item {ciaaw\_saw\_Si}
+    \subitem {ciaaw\_saw.h}, \hyperpage{46}
+  \item {ciaaw\_saw\_Sm}
+    \subitem {ciaaw\_saw.h}, \hyperpage{47}
+  \item {ciaaw\_saw\_Sn}
+    \subitem {ciaaw\_saw.h}, \hyperpage{47}
+  \item {ciaaw\_saw\_Sr}
+    \subitem {ciaaw\_saw.h}, \hyperpage{47}
+  \item {ciaaw\_saw\_Ta}
+    \subitem {ciaaw\_saw.h}, \hyperpage{47}
+  \item {ciaaw\_saw\_Tb}
+    \subitem {ciaaw\_saw.h}, \hyperpage{47}
+  \item {ciaaw\_saw\_Tc}
+    \subitem {ciaaw\_saw.h}, \hyperpage{47}
+  \item {ciaaw\_saw\_Te}
+    \subitem {ciaaw\_saw.h}, \hyperpage{47}
+  \item {ciaaw\_saw\_Th}
+    \subitem {ciaaw\_saw.h}, \hyperpage{47}
+  \item {ciaaw\_saw\_Ti}
+    \subitem {ciaaw\_saw.h}, \hyperpage{48}
+  \item {ciaaw\_saw\_Tl}
+    \subitem {ciaaw\_saw.h}, \hyperpage{48}
+  \item {ciaaw\_saw\_Tm}
+    \subitem {ciaaw\_saw.h}, \hyperpage{48}
+  \item {ciaaw\_saw\_Ts}
+    \subitem {ciaaw\_saw.h}, \hyperpage{48}
+  \item {ciaaw\_saw\_U}
+    \subitem {ciaaw\_saw.h}, \hyperpage{48}
+  \item {ciaaw\_saw\_V}
+    \subitem {ciaaw\_saw.h}, \hyperpage{48}
+  \item {ciaaw\_saw\_W}
+    \subitem {ciaaw\_saw.h}, \hyperpage{48}
+  \item {ciaaw\_saw\_Xe}
+    \subitem {ciaaw\_saw.h}, \hyperpage{48}
+  \item {ciaaw\_saw\_Y}
+    \subitem {ciaaw\_saw.h}, \hyperpage{49}
+  \item {ciaaw\_saw\_Yb}
+    \subitem {ciaaw\_saw.h}, \hyperpage{49}
+  \item {ciaaw\_saw\_YEAR}
+    \subitem {ciaaw\_saw.h}, \hyperpage{49}
+  \item {ciaaw\_saw\_Zn}
+    \subitem {ciaaw\_saw.h}, \hyperpage{49}
+  \item {ciaaw\_saw\_Zr}
+    \subitem {ciaaw\_saw.h}, \hyperpage{49}
+  \item {ciaaw\_version.f90}, \hyperpage{69}
+  \item {ciaaw\_version.h}, \hyperpage{51, 52}
+    \subitem {ciaaw\_get\_version}, \hyperpage{52}
+
+  \indexspace
+
+  \item {element}
+    \subitem {ciaaw\_saw\_element\_t}, \hyperpage{28}
+
+  \indexspace
+
+  \item {get\_version}
+    \subitem {ciaaw\_\_version}, \hyperpage{25}
+
+  \indexspace
+
+  \item {saw}
+    \subitem {ciaaw\_saw\_element\_t}, \hyperpage{28}
+  \item {saw\_max}
+    \subitem {ciaaw\_saw\_element\_t}, \hyperpage{28}
+  \item {saw\_min}
+    \subitem {ciaaw\_saw\_element\_t}, \hyperpage{29}
+  \item {saw\_u}
+    \subitem {ciaaw\_saw\_element\_t}, \hyperpage{29}
+  \item {symbol}
+    \subitem {ciaaw\_saw\_element\_t}, \hyperpage{29}
+
+  \indexspace
+
+  \item {z}
+    \subitem {ciaaw\_saw\_element\_t}, \hyperpage{29}
+
+\end{theindex}
