@@ -15,7 +15,7 @@ int main(void){
     elmt = ciaaw_saw_H;
     printf("%s %s\n", "Element: ", elmt.element);
     printf("%s %s\n", "Symbol: ", elmt.symbol);
-    printf("%s %d", "Z: ", elmt.z);
+    printf("%s %d\n", "Z: ", elmt.z);
     printf("%s %23.16f\n", "standard atomic weight max: ", elmt.saw_max);
     printf("%s %23.16f\n", "standard atomic weight min: ", elmt.saw_min);
     printf("%s %23.16f\n", "standard atomic weight: ", elmt.saw);
