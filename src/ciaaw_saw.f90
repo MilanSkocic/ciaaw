@@ -195,13 +195,13 @@ capi_element_t(&
 Si%z, &
 Si%saw_max, Si%saw_min, Si%saw, Si%saw_u, Si%asaw, Si%asaw_u)
 
-!> phosphorous.
+!> phosphorus.
 type(element_t), parameter, public :: P =&
-element_t("phosphorous", "P", 15, nan, nan, 30.973761998d0, 0.000000005d0, 30.974d0, 0.001d0)
-!> C API phosphorous.
+element_t("phosphorus", "P", 15, nan, nan, 30.973761998d0, 0.000000005d0, 30.974d0, 0.001d0)
+!> C API phosphorus.
 type(capi_element_t), protected, public, bind(C, name="ciaaw_saw_P") :: capi_P =&
 capi_element_t(&
-["p","h","o","s","p","h","o","r","o","u","s",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
+["p","h","o","s","p","h","o","r","u","s",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["P",c_null_char, " "," "," "," "," "," "," "], &
 P%z, &
 P%saw_max, P%saw_min, P%saw, P%saw_u, P%asaw, P%asaw_u)
