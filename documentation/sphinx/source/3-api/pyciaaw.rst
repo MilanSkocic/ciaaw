@@ -2,11 +2,19 @@
 pyciaaw
 *******
 
+.. automodule:: pyciaaw
+
 SAW (Standard atomic weights)
 ===============================
 
-All elements are available at the top level 
-of the module.
+pyciaaw.saw
+===========
 
-.. automodule:: pyciaaw.saw
+.. automodule:: pyciaaw.saw_latest
+    :members:
+
+pyciaaw.saw_2021
+================
+
+.. automodule:: pyciaaw.saw_2021
     :members:

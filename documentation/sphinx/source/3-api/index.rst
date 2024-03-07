@@ -7,3 +7,4 @@ API
 
     ciaaw.rst
     pyciaaw.rst
+    raw_data.rst
