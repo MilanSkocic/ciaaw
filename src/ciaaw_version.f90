@@ -35,13 +35,11 @@ function get_version()result(fptr)
     fptr => version_f    
 end function
 
+!> @brief Get the version
+!! @return cptr Pointer to the version string.
 function capi_get_version()bind(c,name="ciaaw_get_version")result(cptr)
-    !! Get the version.
     implicit none
-    
-    ! Returns   
     type(c_ptr) :: cptr
-        !! Pointer to version string.
 
     character(len=:), pointer :: fptr
     fptr => get_version() 

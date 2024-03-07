@@ -22,91 +22,104 @@ program generator
         integer(int32) :: n !! Number of lines.
         integer(int32) :: index_header_end !! Number of lines for the header.
         character(len=18) :: fpath !! Filepath to the raw codata constants.
-        character(len=4) :: year !! Year of release of the codata constants.
+        character(len=6) :: year !! Year of release of the codata constants.
     end type
 
+    type(ciaaw_saw_file_props) :: props
     character(len=*), parameter :: root = "../../"
     integer(int32) :: fciaaw, ffortran, fcheader, fcpython
+    integer(int32) :: i
     integer(int32) :: unit
     logical :: exist
     character(len=64) :: fpath
-    type(ciaaw_saw_file_props) :: props
+    character(len=6), parameter :: years(2) = [character(len=6) :: "2021", "latest"]
+    character(len=:), allocatable :: suffix
 
-    props = ciaaw_saw_file_props(0, 0, "./ciaaw_2021.txt", "2021")
+    do i=1, size(years)
+        suffix = "_"//trim(years(i))
 
-    print *, "Reading ciaaw file properties..."
-    call get_props(props)
-    print "(4X, A, I3)", "Number of constants: ", props%n
-    print "(4X, A, I2)", "Header Offset: ", props%index_header_end
-    print "(4X, A, A)", "fpath: ", props%fpath
-    print "(4X, A, A)", "Year: ", props%year
+        print *, '########## SAW '//years(i)//' ##########' 
+        props = ciaaw_saw_file_props(0, 0, './saw'//suffix//'.txt', years(i))
 
-    write(output_unit, "(A)", advance="NO") "Opening files..."
-    ! CIAAW SAW SOURCE
-    open(file=props%fpath, newunit=fciaaw, status="old", action="read")
-    
-    ! FORTRAN
-    fpath = root//"/src/ciaaw_saw.f90"
-    inquire(file=fpath, exist=exist)
-    if(exist)then
-        open(file=fpath, newunit=unit, status="old")
-        close(unit=unit, status="delete")
-    endif
-    open(file=fpath, newunit=ffortran, status="new", action="write")
-    
-    ! C Header
-    fpath = root//"/include/ciaaw_saw.h"
-    inquire(file=fpath, exist=exist)
-    if(exist)then
-        open(file=fpath, newunit=unit, status="old")
-        close(unit=unit, status="delete")
-    endif
-    open(file=fpath, newunit=fcheader, status="new", action="write")
-    
-    ! CPython
-    fpath = root//"pywrapper/src/pyciaaw/cpy_ciaaw_saw.c"
-    inquire(file=fpath, exist=exist)
-    if(exist)then
-        open(file=fpath, newunit=unit, status="old")
-        close(unit=unit, status="delete")
-    endif
-    open(file=fpath, newunit=fcpython, status="new", action="write")
-    write(output_unit, "(A)", advance="YES") "OK"
+        print *, "Reading ciaaw file properties..."
+        call get_props(props)
+        print "(4X, A, I3)", "Number of constants: ", props%n
+        print "(4X, A, I2)", "Header Offset: ", props%index_header_end
+        print "(4X, A, A)", "fpath: ", props%fpath
+        print "(4X, A, A)", "Year: ", props%year
 
-    write(output_unit, "(A)", advance="NO") "Generating code..."
-    call write_fortran_module_declaration(ffortran)
-    call write_C_header_declaration(fcheader)
-    call write_cpython_extension_declaration(fcpython)
-    call write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
-    call write_fortran_module_end(ffortran)
-    call write_C_header_end(fcheader)
-    call write_cpython_extension_end(fcpython)
-    write(output_unit, "(A)", advance="YES") "OK"
+        write(output_unit, "(A)", advance="NO") "Opening files..."
+        ! CIAAW SAW SOURCE
+        open(file=props%fpath, newunit=fciaaw, status="old", action="read")
+        
+        ! FORTRAN
+        fpath = root//'/src/ciaaw_saw'//suffix//'.f90'
+        inquire(file=fpath, exist=exist)
+        if(exist)then
+            open(file=fpath, newunit=unit, status="old")
+            close(unit=unit, status="delete")
+        endif
+        open(file=fpath, newunit=ffortran, status="new", action="write")
+        
+        ! C Header
+        fpath = root//'/include/ciaaw_saw'//suffix//'.h'
+        inquire(file=fpath, exist=exist)
+        if(exist)then
+            open(file=fpath, newunit=unit, status="old")
+            close(unit=unit, status="delete")
+        endif
+        open(file=fpath, newunit=fcheader, status="new", action="write")
+        
+        ! CPython
+        fpath = root//'pywrapper/src/pyciaaw/cpy_ciaaw_saw'//suffix//'.c'
+        inquire(file=fpath, exist=exist)
+        if(exist)then
+            open(file=fpath, newunit=unit, status="old")
+            close(unit=unit, status="delete")
+        endif
+        open(file=fpath, newunit=fcpython, status="new", action="write")
+        write(output_unit, "(A)", advance="YES") "OK"
 
-    close(fciaaw)
-    close(ffortran)
-    close(fcheader)
+        write(output_unit, "(A)", advance="NO") "Generating code..."
+        call write_fortran_module_declaration(ffortran, props%year)
+        call write_C_header_declaration(fcheader, props%year)
+        call write_cpython_extension_declaration(fcpython, props%year)
+        call write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
+        call write_fortran_module_end(ffortran, props%year)
+        call write_C_header_end(fcheader)
+        call write_cpython_extension_end(fcpython)
+        write(output_unit, "(A)", advance="YES") "OK"
+
+        close(fciaaw)
+        close(ffortran)
+        close(fcheader)
+        print *, '########## SAW '//years(i)//' ##########'
+    enddo
 
 contains
 
-subroutine write_fortran_module_declaration(fcode)
+subroutine write_fortran_module_declaration(fcode, year)
     !! Generate the Fortran module declaration.
     implicit none
     ! Arguments
     integer(int32), intent(in) :: fcode
         !! File unit of the Fortran module.
+    character(len=*), intent(in) :: year
+        !! Ciaaw year
 
     character(len=32) :: S_LENGTH_ELEMENT
     character(len=32) :: S_LENGTH_SYMBOL
-
+    character(len=:), allocatable :: suffix
+    
     write(S_LENGTH_ELEMENT, "(I2)") LENGTH_ELEMENT
     write(S_LENGTH_SYMBOL, "(I1)") LENGTH_SYMBOL
    
+    suffix = trim("_"//year)
     write(fcode, "(A)") "!> @file"
-    write(fcode, "(A)") "!> @brief Standard Atomic Weights Module"
+    write(fcode, "(A)") '!> @brief Standard Atomic Weights '//trim(year)//' -autogenerated'
     write(fcode, "(A)") ""
-    write(fcode, "(A)") "!> @brief Standard Atomic Weights - autogenerated."
-    write(fcode, "(A)") "module ciaaw__saw"
+    write(fcode, "(A)") '!> @brief Standard Atomic Weights '//trim(year)//' - autogenerated.'
+    write(fcode, "(A)") "module ciaaw__saw"//suffix
     write(fcode, "(A)") "use iso_fortran_env"
     write(fcode, "(A)") "use iso_c_binding"
     write(fcode, "(A)") "use ieee_arithmetic"
@@ -114,8 +127,14 @@ subroutine write_fortran_module_declaration(fcode)
     write(fcode, "(A, /)") "private"
     write(fcode, "(A)") "integer(int64), parameter :: x = 1"
     write(fcode, "(A, /)") "real(real64), parameter :: nan = transfer(huge(x), 1.0d0)"
+
+    if(year == "latest")then
+        suffix = ''
+    else
+        suffix = trim('_'//props%year)
+    endif
     write(fcode, "(A)") "!> @brief Object representing an element."
-    write(fcode, "(A)") "type, public :: element_t"
+    write(fcode, "(A)") "type, public :: element_t"//suffix
     write(fcode, "(A)") 'character(len='//trim(S_LENGTH_ELEMENT)//') :: element !< Element name.'
     write(fcode, "(A)") 'character(len='//trim(S_LENGTH_SYMBOL)//') :: symbol !< Element symbol.'
     write(fcode, "(A)") 'integer(int32) :: z !< Element atomic number.'
@@ -132,7 +151,7 @@ subroutine write_fortran_module_declaration(fcode)
     write(S_LENGTH_SYMBOL, "(I1)") LENGTH_SYMBOL+1
     
     write(fcode, "(A)") "!> @brief Object representing an element."
-    write(fcode, "(A)") "type, public, bind(C) :: capi_element_t"
+    write(fcode, "(A)") "type, public, bind(C) :: capi_element_t"//suffix
     write(fcode, "(A)") 'character(kind=c_char) :: element('//trim(S_LENGTH_ELEMENT)//') !< Element name.'
     write(fcode, "(A)") 'character(kind=c_char) :: symbol('//trim(S_LENGTH_SYMBOL)//') !< Element symbol.'
     write(fcode, "(A)") 'integer(c_int) :: z !< Element atomic number.'
@@ -146,42 +165,59 @@ subroutine write_fortran_module_declaration(fcode)
     write(fcode, "(A)") ""
 end subroutine
 
-subroutine write_fortran_module_end(fcode)
+subroutine write_fortran_module_end(fcode, year)
     !! Generate the end of the Fortran module.
     implicit none
     ! Arguments
     integer(int32), intent(in) :: fcode
         !! File unit of the Fortran module.
-    write(fcode, "(A)") "end module ciaaw__saw"
+    character(len=*), intent(in) :: year
+        !! Codata year
+    
+    character(len=:), allocatable :: suffix
+    
+    suffix = trim("_"//year)
+    write(fcode, "(A)") "end module ciaaw__saw"//suffix
 end subroutine
 
-subroutine write_C_header_declaration(fcode)
+subroutine write_C_header_declaration(fcode, year)
     !! Generate the C header declaration
     implicit none
     ! Arguments
     integer(int32), intent(in) :: fcode
         !! File unit of the C header.
+    character(len=*), intent(in) :: year
+        !! Codata year
+    
+    character(len=:), allocatable :: suffix
+    
     character(len=32) :: S_LENGTH_ELEMENT
     character(len=32) :: S_LENGTH_SYMBOL
     
     write(S_LENGTH_ELEMENT, "(I2)") LENGTH_ELEMENT+1
     write(S_LENGTH_SYMBOL, "(I1)") LENGTH_SYMBOL+1
 
+    suffix = trim("_"//year)
     write(fcode, "(A)") '/**'
     write(fcode, "(A)") '* @file'
-    write(fcode, "(A) ") '* @brief C API Standard Atomic Weights - autogenerated.'
+    write(fcode, "(A) ") '* @brief C API Standard Atomic Weights '//trim(year)//' - autogenerated.'
     write(fcode, "(A)") "*/"
     write(fcode, "(A)") ""
-    write(fcode, "(A)") '#ifndef CIAAW_SAW_H'
-    write(fcode, "(A)") '#define CIAAW_SAW_H'
+    write(fcode, "(A)") '#ifndef CIAAW_SAW_H'//suffix
+    write(fcode, "(A)") '#define CIAAW_SAW_H'//suffix
     write(fcode, "(A)") "#if _MSC_VER"
     write(fcode, "(A)") "#define ADD_IMPORT __declspec(dllimport)"
     write(fcode, "(A)") "#else"
     write(fcode, "(A)") "#define ADD_IMPORT"
     write(fcode, "(A)") "#endif"
     
+    if(year == "latest")then
+        suffix = ''
+    else
+        suffix = trim('_'//year)
+    endif
     write(fcode, "(A)") "/** @brief C API Object representing an element.*/"
-    write(fcode, "(A)") 'struct ciaaw_saw_element_t{'
+    write(fcode, "(A)") 'struct ciaaw_saw_element_t'//suffix//'{'
     write(fcode, "(4X, A)") 'char element['//trim(S_LENGTH_ELEMENT)//']; /**< Element name. */'
     write(fcode, "(4X, A)") 'char symbol['//trim(S_LENGTH_SYMBOL)//']; /**< Element symbol. */'
     write(fcode, "(4X, A)") 'int z; /**< Element atomic number. */'
@@ -206,28 +242,34 @@ subroutine write_C_header_end(fcode)
     
 end subroutine
 
-subroutine write_cpython_extension_declaration(fcode)
+subroutine write_cpython_extension_declaration(fcode, year)
     !! Generate the cpython module declaration.
     implicit none
     integer(int32), intent(in) :: fcode
         !! File unit of the Python module.
+    character(len=*), intent(in) :: year
+        !! Codata year
 
+    character(len=:), allocatable :: suffix
+
+    suffix = trim("_"//year)
     write(fcode, "(A)") "#define PY_SSIZE_T_CLEAN"
     write(fcode, "(A)") "#include <Python.h>"
-    write(fcode, "(A)") '#include "ciaaw.h"'
+    write(fcode, "(A)") '#include "ciaaw_saw'//suffix//'.h"'
     write(fcode, "(A)") ""
-    write(fcode, "(A)") 'PyDoc_STRVAR(module_docstring, "C extension for saw.");'
+    write(fcode, "(A)") 'PyDoc_STRVAR(module_docstring, "C extension for saw '//trim(year)//'.");'
     write(fcode, "(A)") ""
     write(fcode, "(A)") "static PyMethodDef myMethods[] = {{ NULL, NULL, 0, NULL }};"
     write(fcode, "(A)") ""
-    write(fcode, "(A)") 'static struct PyModuleDef saw = {PyModuleDef_HEAD_INIT, "saw", module_docstring, -1, myMethods};'
+    write(fcode, "(A)", advance='NO') 'static struct PyModuleDef saw'//suffix//' = '
+    write(fcode, "(A)") '{PyModuleDef_HEAD_INIT, "saw'//suffix//'", module_docstring, -1, myMethods};'
     write(fcode, "(A)") ""
-    write(fcode, "(A)") "PyMODINIT_FUNC PyInit_saw(void){"
+    write(fcode, "(A)") 'PyMODINIT_FUNC PyInit_saw'//suffix//'(void){'
     write(fcode, "(4X, A)") "PyObject *m;"
     write(fcode, "(4X, A)") "PyObject *d;"
     write(fcode, "(4X, A)") "PyObject *v;"
     write(fcode, "(4X, A)") "PyObject *element;"
-    write(fcode, "(4X, A)") "m = PyModule_Create(&saw);"
+    write(fcode, "(4X, A)") 'm = PyModule_Create(&saw'//suffix//');'
     write(fcode, "(4X, A)") "d = PyModule_GetDict(m);"
     write(fcode, "(A)") ""
 end subroutine
@@ -357,25 +399,34 @@ subroutine write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
     
     integer(int32) :: i, n, j, ix_trim, ix_comma, ix_rbracket
     
+    character(len=:), allocatable :: suffix
+    character(len=:), allocatable :: year_value
+
+    if(props%year == "latest")then
+        suffix = ''
+        year_value = years(1)
+    else
+        suffix = trim('_'//props%year)
+        year_value = trim(props%year)
+    endif
+    
     rewind(unit=fciaaw)
     do i=1, props%index_header_end
         read(fciaaw, "(A)") line
     end do
 
     ! fortran
-    write(ffortran, "(A)") 'integer(int32), parameter, public :: YEAR = ' // props%year // '!< Publication year.'
-    ! fortran C API
-    write(ffortran, "(A,/)") &
-    'integer(c_int), protected, public, bind(C, name="ciaaw_saw_YEAR") :: capi_YEAR = YEAR !< C API Publication year.'
+    write(ffortran, "(A)") 'integer(int32), parameter, public :: YEAR'//suffix//' = '//year_value//' !< Year of saw'
+    write(ffortran, "(A,A,/)") 'integer(c_int), protected, public, bind(C,name="YEAR'//suffix//'") ::',&
+                              'capi_YEAR'//suffix//' = YEAR'//suffix//' !< C API Year of saw'
     ! C HEADER
     write(fcheader, "(A,/)") &
-    'ADD_IMPORT extern const int ciaaw_saw_YEAR; /**< C API Publication year. */'
+    'ADD_IMPORT extern const int YEAR'//suffix//'; /**< C API Publication year. */'
     ! cpython
-    write(fcpython, "(4X, A)") "v = PyLong_FromLong(ciaaw_saw_YEAR);"
-    write(fcpython, "(4X, A)") 'PyDict_SetItemString(d, "YEAR", v);'
+    write(fcpython, "(4X, A)") 'v = PyLong_FromLong(YEAR'//suffix//');'
+    write(fcpython, "(4X, A)") 'PyDict_SetItemString(d, "YEAR'//suffix//'", v);'
     write(fcpython, "(4X, A)") "Py_INCREF(v);"
     write(fcpython, "(A)") ""
-    
 
     do i=1, props%n
         call clean_line(line)
@@ -439,21 +490,22 @@ subroutine write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
             end if
             
             ! Fortran
-            name = trim(symbol)
+            name = trim(symbol)//suffix
             write(ffortran, '(A)') '!> ' // trim(element) // "."
-            write(ffortran, "(A)") "type(element_t), parameter, public :: "//trim(name)//" =&"
-            write(ffortran, "(A)", advance='NO') 'element_t("'//trim(element)//'", '//'"'//trim(symbol)//'", '//trim(z)//", "
+            write(ffortran, "(A)") 'type(element_t'//suffix//'), parameter, public :: '//trim(name)//' =&'
+            write(ffortran, "(A)", advance='NO') 'element_t'//suffix//'("'//trim(element)//'",'
+            write(ffortran, "(A)", advance='NO') '"'//trim(symbol)//'", '//trim(z)//", "
             write(ffortran, "(A)", advance='NO') trim(saw_min)// ", "//trim(saw_max)//", "
             write(ffortran, "(A)", advance='NO') trim(adjustl(saw))//", "//trim(adjustl(saw_u))//", "
             write(ffortran, "(A)", advance='YES') trim(asaw)//", "//trim(asaw_u)//')'
 
             ! Fortran C API
-            name_capi = "capi_"//trim(symbol)
-            name_binding = 'ciaaw_saw_'//trim(symbol)
+            name_capi = "capi_"//trim(symbol)//suffix
+            name_binding = 'ciaaw_saw_'//trim(symbol)//suffix
             write(ffortran, '(A)') '!> C API ' // trim(element) // "."
-            write(ffortran, "(A)", advance="NO") 'type(capi_element_t), protected, public, '
+            write(ffortran, "(A)", advance="NO") 'type(capi_element_t'//suffix//'), protected, public, '
             write(ffortran, "(A)", advance="YES") 'bind(C, name="'//trim(name_binding)//'") :: '//trim(name_capi)//' =&'
-            write(ffortran, "(A)", advance="YES")  "capi_element_t(&"
+            write(ffortran, "(A)", advance="YES")  'capi_element_t'//suffix//'(&'
             ix_trim = len(trim(element))
             write(ffortran, "(A)", advance="NO") '['
             do j=1, ix_trim
@@ -483,12 +535,12 @@ subroutine write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
             write(ffortran, '(A)') ""
 
             ! C Header
-            name = "ciaaw_saw_"//trim(symbol)
-            write(fcheader, "(A)", advance='NO') 'ADD_IMPORT extern const struct ciaaw_saw_element_t '//trim(name)//';'
-            write(fcheader, '(A)') '/**< C API ' // trim(symbol) // ".*/"
+            name = "ciaaw_saw_"//trim(symbol)//suffix
+        write(fcheader, "(A)", advance='NO') 'ADD_IMPORT extern const struct ciaaw_saw_element_t'//suffix//' '//trim(name)//';'
+            write(fcheader, '(A)') '/**< C API '//trim(symbol)//suffix//'.*/'
 
             ! Cpython
-            name_capi = "ciaaw_saw_"//trim(symbol)
+            name_capi = "ciaaw_saw_"//trim(symbol)//suffix
             write(fcpython, "(4X, A)", advance="NO") 'element = Py_BuildValue("{'
             write(fcpython, "(A)", advance='NO') 's:s, s:s, s:i, s:d, s:d, s:d, s:d, s:d, s:d'
             write(fcpython, "(A)", advance="YES") '}",'

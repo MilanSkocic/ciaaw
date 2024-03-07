@@ -1,22 +1,22 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
-#include "ciaaw.h"
+#include "ciaaw_saw_latest.h"
 
-PyDoc_STRVAR(module_docstring, "C extension for saw.");
+PyDoc_STRVAR(module_docstring, "C extension for saw latest.");
 
 static PyMethodDef myMethods[] = {{ NULL, NULL, 0, NULL }};
 
-static struct PyModuleDef saw = {PyModuleDef_HEAD_INIT, "saw", module_docstring, -1, myMethods};
+static struct PyModuleDef saw_latest = {PyModuleDef_HEAD_INIT, "saw_latest", module_docstring, -1, myMethods};
 
-PyMODINIT_FUNC PyInit_saw(void){
+PyMODINIT_FUNC PyInit_saw_latest(void){
     PyObject *m;
     PyObject *d;
     PyObject *v;
     PyObject *element;
-    m = PyModule_Create(&saw);
+    m = PyModule_Create(&saw_latest);
     d = PyModule_GetDict(m);
 
-    v = PyLong_FromLong(ciaaw_saw_YEAR);
+    v = PyLong_FromLong(YEAR);
     PyDict_SetItemString(d, "YEAR", v);
     Py_INCREF(v);
 
