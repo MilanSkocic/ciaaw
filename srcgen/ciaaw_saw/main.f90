@@ -417,7 +417,7 @@ subroutine write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
 
     ! fortran
     write(ffortran, "(A)") 'integer(int32), parameter, public :: YEAR'//suffix//' = '//year_value//' !< Year of saw'
-    write(ffortran, "(A,A,/)") 'integer(c_int), protected, public, bind(C,name="YEAR'//suffix//'") ::',&
+    write(ffortran, "(A,A,/)") 'integer(c_int), protected, bind(C,name="YEAR'//suffix//'") ::',&
                               'capi_YEAR'//suffix//' = YEAR'//suffix//' !< C API Year of saw'
     ! C HEADER
     write(fcheader, "(A,/)") &
@@ -503,7 +503,7 @@ subroutine write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
             name_capi = "capi_"//trim(symbol)//suffix
             name_binding = 'ciaaw_saw_'//trim(symbol)//suffix
             write(ffortran, '(A)') '!> C API ' // trim(element) // "."
-            write(ffortran, "(A)", advance="NO") 'type(capi_element_t'//suffix//'), protected, public, '
+            write(ffortran, "(A)", advance="NO") 'type(capi_element_t'//suffix//'), protected, '
             write(ffortran, "(A)", advance="YES") 'bind(C, name="'//trim(name_binding)//'") :: '//trim(name_capi)//' =&'
             write(ffortran, "(A)", advance="YES")  'capi_element_t'//suffix//'(&'
             ix_trim = len(trim(element))

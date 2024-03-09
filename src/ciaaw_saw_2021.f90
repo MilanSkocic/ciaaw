@@ -39,13 +39,13 @@ real(c_double) :: asaw_u !< Abridged uncertainty standard atomic weight.
 end type
 
 integer(int32), parameter, public :: YEAR_2021 = 2021 !< Year of saw
-integer(c_int), protected, public, bind(C,name="YEAR_2021") ::capi_YEAR_2021 = YEAR_2021 !< C API Year of saw
+integer(c_int), protected, bind(C,name="YEAR_2021") ::capi_YEAR_2021 = YEAR_2021 !< C API Year of saw
 
 !> hydrogen.
 type(element_t_2021), parameter, public :: H_2021 =&
 element_t_2021("hydrogen","H", 1, 1.00784d0, 1.00811d0, 1.00798d0, 0.00008d0, 1.0080d0, 0.0002d0)
 !> C API hydrogen.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_H_2021") :: capi_H_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_H_2021") :: capi_H_2021 =&
 capi_element_t_2021(&
 ["h","y","d","r","o","g","e","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["H",c_null_char, " "," "," "," "," "," "," "], &
@@ -56,7 +56,7 @@ H_2021%saw_max, H_2021%saw_min, H_2021%saw, H_2021%saw_u, H_2021%asaw, H_2021%as
 type(element_t_2021), parameter, public :: He_2021 =&
 element_t_2021("helium","He", 2, nan, nan, 4.002602d0, 0.000002d0, 4.0026d0, 0.0001d0)
 !> C API helium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_He_2021") :: capi_He_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_He_2021") :: capi_He_2021 =&
 capi_element_t_2021(&
 ["h","e","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["H","e",c_null_char, " "," "," "," "," "," "], &
@@ -67,7 +67,7 @@ He_2021%saw_max, He_2021%saw_min, He_2021%saw, He_2021%saw_u, He_2021%asaw, He_2
 type(element_t_2021), parameter, public :: Li_2021 =&
 element_t_2021("lithium","Li", 3, 6.938d0, 6.997d0, 6.97d0, 0.02d0, 6.94d0, 0.06d0)
 !> C API lithium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Li_2021") :: capi_Li_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Li_2021") :: capi_Li_2021 =&
 capi_element_t_2021(&
 ["l","i","t","h","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["L","i",c_null_char, " "," "," "," "," "," "], &
@@ -78,7 +78,7 @@ Li_2021%saw_max, Li_2021%saw_min, Li_2021%saw, Li_2021%saw_u, Li_2021%asaw, Li_2
 type(element_t_2021), parameter, public :: Be_2021 =&
 element_t_2021("beryllium","Be", 4, nan, nan, 9.0121831d0, 0.0000005d0, 9.0122d0, 0.00001d0)
 !> C API beryllium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Be_2021") :: capi_Be_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Be_2021") :: capi_Be_2021 =&
 capi_element_t_2021(&
 ["b","e","r","y","l","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["B","e",c_null_char, " "," "," "," "," "," "], &
@@ -89,7 +89,7 @@ Be_2021%saw_max, Be_2021%saw_min, Be_2021%saw, Be_2021%saw_u, Be_2021%asaw, Be_2
 type(element_t_2021), parameter, public :: B_2021 =&
 element_t_2021("boron","B", 5, 10.806d0, 10.821d0, 10.813d0, 0.005d0, 10.81d0, 0.02d0)
 !> C API boron.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_B_2021") :: capi_B_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_B_2021") :: capi_B_2021 =&
 capi_element_t_2021(&
 ["b","o","r","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["B",c_null_char, " "," "," "," "," "," "," "], &
@@ -100,7 +100,7 @@ B_2021%saw_max, B_2021%saw_min, B_2021%saw, B_2021%saw_u, B_2021%asaw, B_2021%as
 type(element_t_2021), parameter, public :: C_2021 =&
 element_t_2021("carbon","C", 6, 12.0096d0, 12.0116d0, 12.0106d0, 0.0006d0, 12.011d0, 0.002d0)
 !> C API carbon.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_C_2021") :: capi_C_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_C_2021") :: capi_C_2021 =&
 capi_element_t_2021(&
 ["c","a","r","b","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C",c_null_char, " "," "," "," "," "," "," "], &
@@ -111,7 +111,7 @@ C_2021%saw_max, C_2021%saw_min, C_2021%saw, C_2021%saw_u, C_2021%asaw, C_2021%as
 type(element_t_2021), parameter, public :: N_2021 =&
 element_t_2021("nitrogen","N", 7, 14.00643d0, 14.00728d0, 14.0069d0, 0.0003d0, 14.007d0, 0.001d0)
 !> C API nitrogen.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_N_2021") :: capi_N_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_N_2021") :: capi_N_2021 =&
 capi_element_t_2021(&
 ["n","i","t","r","o","g","e","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["N",c_null_char, " "," "," "," "," "," "," "], &
@@ -122,7 +122,7 @@ N_2021%saw_max, N_2021%saw_min, N_2021%saw, N_2021%saw_u, N_2021%asaw, N_2021%as
 type(element_t_2021), parameter, public :: O_2021 =&
 element_t_2021("oxygen","O", 8, 15.99903d0, 15.99977d0, 15.9994d0, 0.0003d0, 15.999d0, 0.001d0)
 !> C API oxygen.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_O_2021") :: capi_O_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_O_2021") :: capi_O_2021 =&
 capi_element_t_2021(&
 ["o","x","y","g","e","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["O",c_null_char, " "," "," "," "," "," "," "], &
@@ -133,7 +133,7 @@ O_2021%saw_max, O_2021%saw_min, O_2021%saw, O_2021%saw_u, O_2021%asaw, O_2021%as
 type(element_t_2021), parameter, public :: F_2021 =&
 element_t_2021("fluorine","F", 9, nan, nan, 18.998403162d0, 0.000000005d0, 18.998d0, 0.001d0)
 !> C API fluorine.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_F_2021") :: capi_F_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_F_2021") :: capi_F_2021 =&
 capi_element_t_2021(&
 ["f","l","u","o","r","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["F",c_null_char, " "," "," "," "," "," "," "], &
@@ -144,7 +144,7 @@ F_2021%saw_max, F_2021%saw_min, F_2021%saw, F_2021%saw_u, F_2021%asaw, F_2021%as
 type(element_t_2021), parameter, public :: Ne_2021 =&
 element_t_2021("neon","Ne", 10, nan, nan, 20.1797d0, 0.0006d0, 20.180d0, 0.001d0)
 !> C API neon.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ne_2021") :: capi_Ne_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ne_2021") :: capi_Ne_2021 =&
 capi_element_t_2021(&
 ["n","e","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["N","e",c_null_char, " "," "," "," "," "," "], &
@@ -155,7 +155,7 @@ Ne_2021%saw_max, Ne_2021%saw_min, Ne_2021%saw, Ne_2021%saw_u, Ne_2021%asaw, Ne_2
 type(element_t_2021), parameter, public :: Na_2021 =&
 element_t_2021("sodium","Na", 11, nan, nan, 22.98976928d0, 0.00000002d0, 22.990d0, 0.001d0)
 !> C API sodium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Na_2021") :: capi_Na_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Na_2021") :: capi_Na_2021 =&
 capi_element_t_2021(&
 ["s","o","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["N","a",c_null_char, " "," "," "," "," "," "], &
@@ -166,7 +166,7 @@ Na_2021%saw_max, Na_2021%saw_min, Na_2021%saw, Na_2021%saw_u, Na_2021%asaw, Na_2
 type(element_t_2021), parameter, public :: Mg_2021 =&
 element_t_2021("magnesium","Mg", 12, 24.304d0, 24.307d0, 24.3055d0, 0.0009d0, 24.305d0, 0.002d0)
 !> C API magnesium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Mg_2021") :: capi_Mg_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Mg_2021") :: capi_Mg_2021 =&
 capi_element_t_2021(&
 ["m","a","g","n","e","s","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["M","g",c_null_char, " "," "," "," "," "," "], &
@@ -177,7 +177,7 @@ Mg_2021%saw_max, Mg_2021%saw_min, Mg_2021%saw, Mg_2021%saw_u, Mg_2021%asaw, Mg_2
 type(element_t_2021), parameter, public :: Al_2021 =&
 element_t_2021("aluminium","Al", 13, nan, nan, 26.9815384d0, 0.0000003d0, 26.982d0, 0.001d0)
 !> C API aluminium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Al_2021") :: capi_Al_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Al_2021") :: capi_Al_2021 =&
 capi_element_t_2021(&
 ["a","l","u","m","i","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["A","l",c_null_char, " "," "," "," "," "," "], &
@@ -188,7 +188,7 @@ Al_2021%saw_max, Al_2021%saw_min, Al_2021%saw, Al_2021%saw_u, Al_2021%asaw, Al_2
 type(element_t_2021), parameter, public :: Si_2021 =&
 element_t_2021("silicon","Si", 14, 28.084d0, 28.086d0, 28.0850d0, 0.0006d0, 28.085d0, 0.001d0)
 !> C API silicon.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Si_2021") :: capi_Si_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Si_2021") :: capi_Si_2021 =&
 capi_element_t_2021(&
 ["s","i","l","i","c","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["S","i",c_null_char, " "," "," "," "," "," "], &
@@ -199,7 +199,7 @@ Si_2021%saw_max, Si_2021%saw_min, Si_2021%saw, Si_2021%saw_u, Si_2021%asaw, Si_2
 type(element_t_2021), parameter, public :: P_2021 =&
 element_t_2021("phosphorus","P", 15, nan, nan, 30.973761998d0, 0.000000005d0, 30.974d0, 0.001d0)
 !> C API phosphorus.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_P_2021") :: capi_P_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_P_2021") :: capi_P_2021 =&
 capi_element_t_2021(&
 ["p","h","o","s","p","h","o","r","u","s",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["P",c_null_char, " "," "," "," "," "," "," "], &
@@ -210,7 +210,7 @@ P_2021%saw_max, P_2021%saw_min, P_2021%saw, P_2021%saw_u, P_2021%asaw, P_2021%as
 type(element_t_2021), parameter, public :: S_2021 =&
 element_t_2021("sulfur","S", 16, 32.059d0, 32.076d0, 32.067d0, 0.005d0, 32.06d0, 0.02d0)
 !> C API sulfur.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_S_2021") :: capi_S_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_S_2021") :: capi_S_2021 =&
 capi_element_t_2021(&
 ["s","u","l","f","u","r",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["S",c_null_char, " "," "," "," "," "," "," "], &
@@ -221,7 +221,7 @@ S_2021%saw_max, S_2021%saw_min, S_2021%saw, S_2021%saw_u, S_2021%asaw, S_2021%as
 type(element_t_2021), parameter, public :: Cl_2021 =&
 element_t_2021("chlorine","Cl", 17, 35.446d0, 35.457d0, 35.451d0, 0.004d0, 35.45d0, 0.01d0)
 !> C API chlorine.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Cl_2021") :: capi_Cl_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Cl_2021") :: capi_Cl_2021 =&
 capi_element_t_2021(&
 ["c","h","l","o","r","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","l",c_null_char, " "," "," "," "," "," "], &
@@ -232,7 +232,7 @@ Cl_2021%saw_max, Cl_2021%saw_min, Cl_2021%saw, Cl_2021%saw_u, Cl_2021%asaw, Cl_2
 type(element_t_2021), parameter, public :: Ar_2021 =&
 element_t_2021("argon","Ar", 18, 39.792d0, 39.963d0, 39.88d0, 0.05d0, 39.95d0, 0.16d0)
 !> C API argon.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ar_2021") :: capi_Ar_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ar_2021") :: capi_Ar_2021 =&
 capi_element_t_2021(&
 ["a","r","g","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["A","r",c_null_char, " "," "," "," "," "," "], &
@@ -243,7 +243,7 @@ Ar_2021%saw_max, Ar_2021%saw_min, Ar_2021%saw, Ar_2021%saw_u, Ar_2021%asaw, Ar_2
 type(element_t_2021), parameter, public :: K_2021 =&
 element_t_2021("potassium","K", 19, nan, nan, 39.0983d0, 0.0001d0, 39.098d0, 0.001d0)
 !> C API potassium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_K_2021") :: capi_K_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_K_2021") :: capi_K_2021 =&
 capi_element_t_2021(&
 ["p","o","t","a","s","s","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["K",c_null_char, " "," "," "," "," "," "," "], &
@@ -254,7 +254,7 @@ K_2021%saw_max, K_2021%saw_min, K_2021%saw, K_2021%saw_u, K_2021%asaw, K_2021%as
 type(element_t_2021), parameter, public :: Ca_2021 =&
 element_t_2021("calcium","Ca", 20, nan, nan, 40.078d0, 0.004d0, 40.078d0, 0.004d0)
 !> C API calcium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ca_2021") :: capi_Ca_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ca_2021") :: capi_Ca_2021 =&
 capi_element_t_2021(&
 ["c","a","l","c","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","a",c_null_char, " "," "," "," "," "," "], &
@@ -265,7 +265,7 @@ Ca_2021%saw_max, Ca_2021%saw_min, Ca_2021%saw, Ca_2021%saw_u, Ca_2021%asaw, Ca_2
 type(element_t_2021), parameter, public :: Sc_2021 =&
 element_t_2021("scandium","Sc", 21, nan, nan, 44.955907d0, 0.000004d0, 44.956d0, 0.001d0)
 !> C API scandium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Sc_2021") :: capi_Sc_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Sc_2021") :: capi_Sc_2021 =&
 capi_element_t_2021(&
 ["s","c","a","n","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["S","c",c_null_char, " "," "," "," "," "," "], &
@@ -276,7 +276,7 @@ Sc_2021%saw_max, Sc_2021%saw_min, Sc_2021%saw, Sc_2021%saw_u, Sc_2021%asaw, Sc_2
 type(element_t_2021), parameter, public :: Ti_2021 =&
 element_t_2021("titanium","Ti", 22, nan, nan, 47.867d0, 0.001d0, 47.867d0, 0.001d0)
 !> C API titanium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ti_2021") :: capi_Ti_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ti_2021") :: capi_Ti_2021 =&
 capi_element_t_2021(&
 ["t","i","t","a","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["T","i",c_null_char, " "," "," "," "," "," "], &
@@ -287,7 +287,7 @@ Ti_2021%saw_max, Ti_2021%saw_min, Ti_2021%saw, Ti_2021%saw_u, Ti_2021%asaw, Ti_2
 type(element_t_2021), parameter, public :: V_2021 =&
 element_t_2021("vanadium","V", 23, nan, nan, 50.9415d0, 0.0001d0, 50.942d0, 0.001d0)
 !> C API vanadium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_V_2021") :: capi_V_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_V_2021") :: capi_V_2021 =&
 capi_element_t_2021(&
 ["v","a","n","a","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["V",c_null_char, " "," "," "," "," "," "," "], &
@@ -298,7 +298,7 @@ V_2021%saw_max, V_2021%saw_min, V_2021%saw, V_2021%saw_u, V_2021%asaw, V_2021%as
 type(element_t_2021), parameter, public :: Cr_2021 =&
 element_t_2021("chromium","Cr", 24, nan, nan, 51.9961d0, 0.0006d0, 51.996d0, 0.001d0)
 !> C API chromium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Cr_2021") :: capi_Cr_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Cr_2021") :: capi_Cr_2021 =&
 capi_element_t_2021(&
 ["c","h","r","o","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","r",c_null_char, " "," "," "," "," "," "], &
@@ -309,7 +309,7 @@ Cr_2021%saw_max, Cr_2021%saw_min, Cr_2021%saw, Cr_2021%saw_u, Cr_2021%asaw, Cr_2
 type(element_t_2021), parameter, public :: Mn_2021 =&
 element_t_2021("manganese","Mn", 25, nan, nan, 54.938043d0, 0.000002d0, 54.938d0, 0.001d0)
 !> C API manganese.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Mn_2021") :: capi_Mn_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Mn_2021") :: capi_Mn_2021 =&
 capi_element_t_2021(&
 ["m","a","n","g","a","n","e","s","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["M","n",c_null_char, " "," "," "," "," "," "], &
@@ -320,7 +320,7 @@ Mn_2021%saw_max, Mn_2021%saw_min, Mn_2021%saw, Mn_2021%saw_u, Mn_2021%asaw, Mn_2
 type(element_t_2021), parameter, public :: Fe_2021 =&
 element_t_2021("iron","Fe", 26, nan, nan, 55.845d0, 0.002d0, 55.845d0, 0.002d0)
 !> C API iron.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Fe_2021") :: capi_Fe_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Fe_2021") :: capi_Fe_2021 =&
 capi_element_t_2021(&
 ["i","r","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["F","e",c_null_char, " "," "," "," "," "," "], &
@@ -331,7 +331,7 @@ Fe_2021%saw_max, Fe_2021%saw_min, Fe_2021%saw, Fe_2021%saw_u, Fe_2021%asaw, Fe_2
 type(element_t_2021), parameter, public :: Co_2021 =&
 element_t_2021("cobalt","Co", 27, nan, nan, 58.933194d0, 0.000003d0, 58.933d0, 0.001d0)
 !> C API cobalt.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Co_2021") :: capi_Co_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Co_2021") :: capi_Co_2021 =&
 capi_element_t_2021(&
 ["c","o","b","a","l","t",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","o",c_null_char, " "," "," "," "," "," "], &
@@ -342,7 +342,7 @@ Co_2021%saw_max, Co_2021%saw_min, Co_2021%saw, Co_2021%saw_u, Co_2021%asaw, Co_2
 type(element_t_2021), parameter, public :: Ni_2021 =&
 element_t_2021("nickel","Ni", 28, nan, nan, 58.6934d0, 0.0004d0, 58.693d0, 0.001d0)
 !> C API nickel.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ni_2021") :: capi_Ni_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ni_2021") :: capi_Ni_2021 =&
 capi_element_t_2021(&
 ["n","i","c","k","e","l",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["N","i",c_null_char, " "," "," "," "," "," "], &
@@ -353,7 +353,7 @@ Ni_2021%saw_max, Ni_2021%saw_min, Ni_2021%saw, Ni_2021%saw_u, Ni_2021%asaw, Ni_2
 type(element_t_2021), parameter, public :: Cu_2021 =&
 element_t_2021("copper","Cu", 29, nan, nan, 63.546d0, 0.003d0, 63.546d0, 0.003d0)
 !> C API copper.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Cu_2021") :: capi_Cu_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Cu_2021") :: capi_Cu_2021 =&
 capi_element_t_2021(&
 ["c","o","p","p","e","r",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","u",c_null_char, " "," "," "," "," "," "], &
@@ -364,7 +364,7 @@ Cu_2021%saw_max, Cu_2021%saw_min, Cu_2021%saw, Cu_2021%saw_u, Cu_2021%asaw, Cu_2
 type(element_t_2021), parameter, public :: Zn_2021 =&
 element_t_2021("zinc","Zn", 30, nan, nan, 65.38d0, 0.02d0, 65.38d0, 0.02d0)
 !> C API zinc.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Zn_2021") :: capi_Zn_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Zn_2021") :: capi_Zn_2021 =&
 capi_element_t_2021(&
 ["z","i","n","c",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["Z","n",c_null_char, " "," "," "," "," "," "], &
@@ -375,7 +375,7 @@ Zn_2021%saw_max, Zn_2021%saw_min, Zn_2021%saw, Zn_2021%saw_u, Zn_2021%asaw, Zn_2
 type(element_t_2021), parameter, public :: Ga_2021 =&
 element_t_2021("gallium","Ga", 31, nan, nan, 69.723d0, 0.001d0, 69.723d0, 0.001d0)
 !> C API gallium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ga_2021") :: capi_Ga_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ga_2021") :: capi_Ga_2021 =&
 capi_element_t_2021(&
 ["g","a","l","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["G","a",c_null_char, " "," "," "," "," "," "], &
@@ -386,7 +386,7 @@ Ga_2021%saw_max, Ga_2021%saw_min, Ga_2021%saw, Ga_2021%saw_u, Ga_2021%asaw, Ga_2
 type(element_t_2021), parameter, public :: Ge_2021 =&
 element_t_2021("germanium","Ge", 32, nan, nan, 72.630d0, 0.008d0, 72.630d0, 0.008d0)
 !> C API germanium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ge_2021") :: capi_Ge_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ge_2021") :: capi_Ge_2021 =&
 capi_element_t_2021(&
 ["g","e","r","m","a","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["G","e",c_null_char, " "," "," "," "," "," "], &
@@ -397,7 +397,7 @@ Ge_2021%saw_max, Ge_2021%saw_min, Ge_2021%saw, Ge_2021%saw_u, Ge_2021%asaw, Ge_2
 type(element_t_2021), parameter, public :: As_2021 =&
 element_t_2021("arsenic","As", 33, nan, nan, 74.921595d0, 0.000006d0, 74.922d0, 0.001d0)
 !> C API arsenic.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_As_2021") :: capi_As_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_As_2021") :: capi_As_2021 =&
 capi_element_t_2021(&
 ["a","r","s","e","n","i","c",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["A","s",c_null_char, " "," "," "," "," "," "], &
@@ -408,7 +408,7 @@ As_2021%saw_max, As_2021%saw_min, As_2021%saw, As_2021%saw_u, As_2021%asaw, As_2
 type(element_t_2021), parameter, public :: Se_2021 =&
 element_t_2021("selenium","Se", 34, nan, nan, 78.971d0, 0.008d0, 78.971d0, 0.008d0)
 !> C API selenium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Se_2021") :: capi_Se_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Se_2021") :: capi_Se_2021 =&
 capi_element_t_2021(&
 ["s","e","l","e","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["S","e",c_null_char, " "," "," "," "," "," "], &
@@ -419,7 +419,7 @@ Se_2021%saw_max, Se_2021%saw_min, Se_2021%saw, Se_2021%saw_u, Se_2021%asaw, Se_2
 type(element_t_2021), parameter, public :: Br_2021 =&
 element_t_2021("bromine","Br", 35, 79.901d0, 79.907d0, 79.904d0, 0.002d0, 79.904d0, 0.003d0)
 !> C API bromine.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Br_2021") :: capi_Br_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Br_2021") :: capi_Br_2021 =&
 capi_element_t_2021(&
 ["b","r","o","m","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["B","r",c_null_char, " "," "," "," "," "," "], &
@@ -430,7 +430,7 @@ Br_2021%saw_max, Br_2021%saw_min, Br_2021%saw, Br_2021%saw_u, Br_2021%asaw, Br_2
 type(element_t_2021), parameter, public :: Kr_2021 =&
 element_t_2021("krypton","Kr", 36, nan, nan, 83.798d0, 0.002d0, 83.798d0, 0.002d0)
 !> C API krypton.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Kr_2021") :: capi_Kr_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Kr_2021") :: capi_Kr_2021 =&
 capi_element_t_2021(&
 ["k","r","y","p","t","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["K","r",c_null_char, " "," "," "," "," "," "], &
@@ -441,7 +441,7 @@ Kr_2021%saw_max, Kr_2021%saw_min, Kr_2021%saw, Kr_2021%saw_u, Kr_2021%asaw, Kr_2
 type(element_t_2021), parameter, public :: Rb_2021 =&
 element_t_2021("rubidium","Rb", 37, nan, nan, 85.4678d0, 0.0003d0, 85.468d0, 0.001d0)
 !> C API rubidium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Rb_2021") :: capi_Rb_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Rb_2021") :: capi_Rb_2021 =&
 capi_element_t_2021(&
 ["r","u","b","i","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["R","b",c_null_char, " "," "," "," "," "," "], &
@@ -452,7 +452,7 @@ Rb_2021%saw_max, Rb_2021%saw_min, Rb_2021%saw, Rb_2021%saw_u, Rb_2021%asaw, Rb_2
 type(element_t_2021), parameter, public :: Sr_2021 =&
 element_t_2021("strontium","Sr", 38, nan, nan, 87.62d0, 0.01d0, 87.62d0, 0.01d0)
 !> C API strontium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Sr_2021") :: capi_Sr_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Sr_2021") :: capi_Sr_2021 =&
 capi_element_t_2021(&
 ["s","t","r","o","n","t","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["S","r",c_null_char, " "," "," "," "," "," "], &
@@ -463,7 +463,7 @@ Sr_2021%saw_max, Sr_2021%saw_min, Sr_2021%saw, Sr_2021%saw_u, Sr_2021%asaw, Sr_2
 type(element_t_2021), parameter, public :: Y_2021 =&
 element_t_2021("yttrium","Y", 39, nan, nan, 88.905838d0, 0.000002d0, 88.906d0, 0.001d0)
 !> C API yttrium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Y_2021") :: capi_Y_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Y_2021") :: capi_Y_2021 =&
 capi_element_t_2021(&
 ["y","t","t","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["Y",c_null_char, " "," "," "," "," "," "," "], &
@@ -474,7 +474,7 @@ Y_2021%saw_max, Y_2021%saw_min, Y_2021%saw, Y_2021%saw_u, Y_2021%asaw, Y_2021%as
 type(element_t_2021), parameter, public :: Zr_2021 =&
 element_t_2021("zirconium","Zr", 40, nan, nan, 91.224d0, 0.002d0, 91.224d0, 0.002d0)
 !> C API zirconium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Zr_2021") :: capi_Zr_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Zr_2021") :: capi_Zr_2021 =&
 capi_element_t_2021(&
 ["z","i","r","c","o","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["Z","r",c_null_char, " "," "," "," "," "," "], &
@@ -485,7 +485,7 @@ Zr_2021%saw_max, Zr_2021%saw_min, Zr_2021%saw, Zr_2021%saw_u, Zr_2021%asaw, Zr_2
 type(element_t_2021), parameter, public :: Nb_2021 =&
 element_t_2021("nobium","Nb", 41, nan, nan, 92.90637d0, 0.00001d0, 92.906d0, 0.001d0)
 !> C API nobium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Nb_2021") :: capi_Nb_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Nb_2021") :: capi_Nb_2021 =&
 capi_element_t_2021(&
 ["n","o","b","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["N","b",c_null_char, " "," "," "," "," "," "], &
@@ -496,7 +496,7 @@ Nb_2021%saw_max, Nb_2021%saw_min, Nb_2021%saw, Nb_2021%saw_u, Nb_2021%asaw, Nb_2
 type(element_t_2021), parameter, public :: Mo_2021 =&
 element_t_2021("molybdenum","Mo", 42, nan, nan, 95.95d0, 0.01d0, 95.95d0, 0.01d0)
 !> C API molybdenum.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Mo_2021") :: capi_Mo_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Mo_2021") :: capi_Mo_2021 =&
 capi_element_t_2021(&
 ["m","o","l","y","b","d","e","n","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["M","o",c_null_char, " "," "," "," "," "," "], &
@@ -507,7 +507,7 @@ Mo_2021%saw_max, Mo_2021%saw_min, Mo_2021%saw, Mo_2021%saw_u, Mo_2021%asaw, Mo_2
 type(element_t_2021), parameter, public :: Tc_2021 =&
 element_t_2021("technetium","Tc", 43, nan, nan, nan, nan, nan, nan)
 !> C API technetium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Tc_2021") :: capi_Tc_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Tc_2021") :: capi_Tc_2021 =&
 capi_element_t_2021(&
 ["t","e","c","h","n","e","t","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["T","c",c_null_char, " "," "," "," "," "," "], &
@@ -518,7 +518,7 @@ Tc_2021%saw_max, Tc_2021%saw_min, Tc_2021%saw, Tc_2021%saw_u, Tc_2021%asaw, Tc_2
 type(element_t_2021), parameter, public :: Ru_2021 =&
 element_t_2021("ruthenium","Ru", 44, nan, nan, 101.07d0, 0.02d0, 101.07d0, 0.02d0)
 !> C API ruthenium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ru_2021") :: capi_Ru_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ru_2021") :: capi_Ru_2021 =&
 capi_element_t_2021(&
 ["r","u","t","h","e","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["R","u",c_null_char, " "," "," "," "," "," "], &
@@ -529,7 +529,7 @@ Ru_2021%saw_max, Ru_2021%saw_min, Ru_2021%saw, Ru_2021%saw_u, Ru_2021%asaw, Ru_2
 type(element_t_2021), parameter, public :: Rh_2021 =&
 element_t_2021("rhodium","Rh", 45, nan, nan, 102.90549d0, 0.00002d0, 102.91d0, 0.01d0)
 !> C API rhodium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Rh_2021") :: capi_Rh_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Rh_2021") :: capi_Rh_2021 =&
 capi_element_t_2021(&
 ["r","h","o","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["R","h",c_null_char, " "," "," "," "," "," "], &
@@ -540,7 +540,7 @@ Rh_2021%saw_max, Rh_2021%saw_min, Rh_2021%saw, Rh_2021%saw_u, Rh_2021%asaw, Rh_2
 type(element_t_2021), parameter, public :: Pd_2021 =&
 element_t_2021("palladium","Pd", 46, nan, nan, 106.42d0, 0.01d0, 106.42d0, 0.01d0)
 !> C API palladium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Pd_2021") :: capi_Pd_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Pd_2021") :: capi_Pd_2021 =&
 capi_element_t_2021(&
 ["p","a","l","l","a","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["P","d",c_null_char, " "," "," "," "," "," "], &
@@ -551,7 +551,7 @@ Pd_2021%saw_max, Pd_2021%saw_min, Pd_2021%saw, Pd_2021%saw_u, Pd_2021%asaw, Pd_2
 type(element_t_2021), parameter, public :: Ag_2021 =&
 element_t_2021("silver","Ag", 47, nan, nan, 107.8682d0, 0.0002d0, 107.87d0, 0.01d0)
 !> C API silver.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ag_2021") :: capi_Ag_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ag_2021") :: capi_Ag_2021 =&
 capi_element_t_2021(&
 ["s","i","l","v","e","r",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["A","g",c_null_char, " "," "," "," "," "," "], &
@@ -562,7 +562,7 @@ Ag_2021%saw_max, Ag_2021%saw_min, Ag_2021%saw, Ag_2021%saw_u, Ag_2021%asaw, Ag_2
 type(element_t_2021), parameter, public :: Cd_2021 =&
 element_t_2021("cadmium","Cd", 48, nan, nan, 112.414d0, 0.004d0, 112.41d0, 0.01d0)
 !> C API cadmium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Cd_2021") :: capi_Cd_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Cd_2021") :: capi_Cd_2021 =&
 capi_element_t_2021(&
 ["c","a","d","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","d",c_null_char, " "," "," "," "," "," "], &
@@ -573,7 +573,7 @@ Cd_2021%saw_max, Cd_2021%saw_min, Cd_2021%saw, Cd_2021%saw_u, Cd_2021%asaw, Cd_2
 type(element_t_2021), parameter, public :: In_2021 =&
 element_t_2021("indium","In", 49, nan, nan, 114.818d0, 0.001d0, 114.82d0, 0.01d0)
 !> C API indium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_In_2021") :: capi_In_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_In_2021") :: capi_In_2021 =&
 capi_element_t_2021(&
 ["i","n","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["I","n",c_null_char, " "," "," "," "," "," "], &
@@ -584,7 +584,7 @@ In_2021%saw_max, In_2021%saw_min, In_2021%saw, In_2021%saw_u, In_2021%asaw, In_2
 type(element_t_2021), parameter, public :: Sn_2021 =&
 element_t_2021("tin","Sn", 50, nan, nan, 118.70d0, 0.007d0, 118.71d0, 0.01d0)
 !> C API tin.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Sn_2021") :: capi_Sn_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Sn_2021") :: capi_Sn_2021 =&
 capi_element_t_2021(&
 ["t","i","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["S","n",c_null_char, " "," "," "," "," "," "], &
@@ -595,7 +595,7 @@ Sn_2021%saw_max, Sn_2021%saw_min, Sn_2021%saw, Sn_2021%saw_u, Sn_2021%asaw, Sn_2
 type(element_t_2021), parameter, public :: Sb_2021 =&
 element_t_2021("antimony","Sb", 51, nan, nan, 121.760d0, 0.001d0, 121.76d0, 0.01d0)
 !> C API antimony.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Sb_2021") :: capi_Sb_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Sb_2021") :: capi_Sb_2021 =&
 capi_element_t_2021(&
 ["a","n","t","i","m","o","n","y",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["S","b",c_null_char, " "," "," "," "," "," "], &
@@ -606,7 +606,7 @@ Sb_2021%saw_max, Sb_2021%saw_min, Sb_2021%saw, Sb_2021%saw_u, Sb_2021%asaw, Sb_2
 type(element_t_2021), parameter, public :: Te_2021 =&
 element_t_2021("tellurium","Te", 52, nan, nan, 127.60d0, 0.03d0, 127.60d0, 0.03d0)
 !> C API tellurium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Te_2021") :: capi_Te_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Te_2021") :: capi_Te_2021 =&
 capi_element_t_2021(&
 ["t","e","l","l","u","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["T","e",c_null_char, " "," "," "," "," "," "], &
@@ -617,7 +617,7 @@ Te_2021%saw_max, Te_2021%saw_min, Te_2021%saw, Te_2021%saw_u, Te_2021%asaw, Te_2
 type(element_t_2021), parameter, public :: I_2021 =&
 element_t_2021("iodine","I", 53, nan, nan, 126.90447d0, 0.00003d0, 126.90d0, 0.01d0)
 !> C API iodine.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_I_2021") :: capi_I_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_I_2021") :: capi_I_2021 =&
 capi_element_t_2021(&
 ["i","o","d","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["I",c_null_char, " "," "," "," "," "," "," "], &
@@ -628,7 +628,7 @@ I_2021%saw_max, I_2021%saw_min, I_2021%saw, I_2021%saw_u, I_2021%asaw, I_2021%as
 type(element_t_2021), parameter, public :: Xe_2021 =&
 element_t_2021("xenon","Xe", 54, nan, nan, 131.293d0, 0.006d0, 131.29d0, 0.01d0)
 !> C API xenon.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Xe_2021") :: capi_Xe_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Xe_2021") :: capi_Xe_2021 =&
 capi_element_t_2021(&
 ["x","e","n","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["X","e",c_null_char, " "," "," "," "," "," "], &
@@ -639,7 +639,7 @@ Xe_2021%saw_max, Xe_2021%saw_min, Xe_2021%saw, Xe_2021%saw_u, Xe_2021%asaw, Xe_2
 type(element_t_2021), parameter, public :: Cs_2021 =&
 element_t_2021("caesium","Cs", 55, nan, nan, 132.90545196d0, 0.00000006d0, 132.91d0, 0.01d0)
 !> C API caesium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Cs_2021") :: capi_Cs_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Cs_2021") :: capi_Cs_2021 =&
 capi_element_t_2021(&
 ["c","a","e","s","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","s",c_null_char, " "," "," "," "," "," "], &
@@ -650,7 +650,7 @@ Cs_2021%saw_max, Cs_2021%saw_min, Cs_2021%saw, Cs_2021%saw_u, Cs_2021%asaw, Cs_2
 type(element_t_2021), parameter, public :: Ba_2021 =&
 element_t_2021("barium","Ba", 56, nan, nan, 137.327d0, 0.007d0, 137.33d0, 0.01d0)
 !> C API barium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ba_2021") :: capi_Ba_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ba_2021") :: capi_Ba_2021 =&
 capi_element_t_2021(&
 ["b","a","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["B","a",c_null_char, " "," "," "," "," "," "], &
@@ -661,7 +661,7 @@ Ba_2021%saw_max, Ba_2021%saw_min, Ba_2021%saw, Ba_2021%saw_u, Ba_2021%asaw, Ba_2
 type(element_t_2021), parameter, public :: La_2021 =&
 element_t_2021("lanthanum","La", 57, nan, nan, 138.90547d0, 0.00007d0, 138.91d0, 0.01d0)
 !> C API lanthanum.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_La_2021") :: capi_La_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_La_2021") :: capi_La_2021 =&
 capi_element_t_2021(&
 ["l","a","n","t","h","a","n","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["L","a",c_null_char, " "," "," "," "," "," "], &
@@ -672,7 +672,7 @@ La_2021%saw_max, La_2021%saw_min, La_2021%saw, La_2021%saw_u, La_2021%asaw, La_2
 type(element_t_2021), parameter, public :: Ce_2021 =&
 element_t_2021("cerium","Ce", 58, nan, nan, 140.116d0, 0.001d0, 140.12d0, 0.01d0)
 !> C API cerium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ce_2021") :: capi_Ce_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ce_2021") :: capi_Ce_2021 =&
 capi_element_t_2021(&
 ["c","e","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","e",c_null_char, " "," "," "," "," "," "], &
@@ -683,7 +683,7 @@ Ce_2021%saw_max, Ce_2021%saw_min, Ce_2021%saw, Ce_2021%saw_u, Ce_2021%asaw, Ce_2
 type(element_t_2021), parameter, public :: Pr_2021 =&
 element_t_2021("praseodymium","Pr", 59, nan, nan, 140.90766d0, 0.00001d0, 140.91d0, 0.01d0)
 !> C API praseodymium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Pr_2021") :: capi_Pr_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Pr_2021") :: capi_Pr_2021 =&
 capi_element_t_2021(&
 ["p","r","a","s","e","o","d","y","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "], &
 ["P","r",c_null_char, " "," "," "," "," "," "], &
@@ -694,7 +694,7 @@ Pr_2021%saw_max, Pr_2021%saw_min, Pr_2021%saw, Pr_2021%saw_u, Pr_2021%asaw, Pr_2
 type(element_t_2021), parameter, public :: Nd_2021 =&
 element_t_2021("neodymium","Nd", 60, nan, nan, 144.242d0, 0.003d0, 144.24d0, 0.01d0)
 !> C API neodymium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Nd_2021") :: capi_Nd_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Nd_2021") :: capi_Nd_2021 =&
 capi_element_t_2021(&
 ["n","e","o","d","y","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["N","d",c_null_char, " "," "," "," "," "," "], &
@@ -705,7 +705,7 @@ Nd_2021%saw_max, Nd_2021%saw_min, Nd_2021%saw, Nd_2021%saw_u, Nd_2021%asaw, Nd_2
 type(element_t_2021), parameter, public :: Pm_2021 =&
 element_t_2021("promethium","Pm", 61, nan, nan, nan, nan, nan, nan)
 !> C API promethium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Pm_2021") :: capi_Pm_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Pm_2021") :: capi_Pm_2021 =&
 capi_element_t_2021(&
 ["p","r","o","m","e","t","h","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["P","m",c_null_char, " "," "," "," "," "," "], &
@@ -716,7 +716,7 @@ Pm_2021%saw_max, Pm_2021%saw_min, Pm_2021%saw, Pm_2021%saw_u, Pm_2021%asaw, Pm_2
 type(element_t_2021), parameter, public :: Sm_2021 =&
 element_t_2021("samarium","Sm", 62, nan, nan, 150.36d0, 0.02d0, 150.36d0, 0.02d0)
 !> C API samarium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Sm_2021") :: capi_Sm_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Sm_2021") :: capi_Sm_2021 =&
 capi_element_t_2021(&
 ["s","a","m","a","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["S","m",c_null_char, " "," "," "," "," "," "], &
@@ -727,7 +727,7 @@ Sm_2021%saw_max, Sm_2021%saw_min, Sm_2021%saw, Sm_2021%saw_u, Sm_2021%asaw, Sm_2
 type(element_t_2021), parameter, public :: Eu_2021 =&
 element_t_2021("europium","Eu", 63, nan, nan, 151.964d0, 0.001d0, 151.96d0, 0.01d0)
 !> C API europium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Eu_2021") :: capi_Eu_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Eu_2021") :: capi_Eu_2021 =&
 capi_element_t_2021(&
 ["e","u","r","o","p","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["E","u",c_null_char, " "," "," "," "," "," "], &
@@ -738,7 +738,7 @@ Eu_2021%saw_max, Eu_2021%saw_min, Eu_2021%saw, Eu_2021%saw_u, Eu_2021%asaw, Eu_2
 type(element_t_2021), parameter, public :: Gd_2021 =&
 element_t_2021("gadolinium","Gd", 64, nan, nan, 157.25d0, 0.03d0, 157.25d0, 0.03d0)
 !> C API gadolinium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Gd_2021") :: capi_Gd_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Gd_2021") :: capi_Gd_2021 =&
 capi_element_t_2021(&
 ["g","a","d","o","l","i","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["G","d",c_null_char, " "," "," "," "," "," "], &
@@ -749,7 +749,7 @@ Gd_2021%saw_max, Gd_2021%saw_min, Gd_2021%saw, Gd_2021%saw_u, Gd_2021%asaw, Gd_2
 type(element_t_2021), parameter, public :: Tb_2021 =&
 element_t_2021("terbium","Tb", 65, nan, nan, 158.925354d0, 0.000007d0, 158.93d0, 0.01d0)
 !> C API terbium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Tb_2021") :: capi_Tb_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Tb_2021") :: capi_Tb_2021 =&
 capi_element_t_2021(&
 ["t","e","r","b","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["T","b",c_null_char, " "," "," "," "," "," "], &
@@ -760,7 +760,7 @@ Tb_2021%saw_max, Tb_2021%saw_min, Tb_2021%saw, Tb_2021%saw_u, Tb_2021%asaw, Tb_2
 type(element_t_2021), parameter, public :: Dy_2021 =&
 element_t_2021("dysprosium","Dy", 66, nan, nan, 162.500d0, 0.001d0, 162.50d0, 0.01d0)
 !> C API dysprosium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Dy_2021") :: capi_Dy_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Dy_2021") :: capi_Dy_2021 =&
 capi_element_t_2021(&
 ["d","y","s","p","r","o","s","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["D","y",c_null_char, " "," "," "," "," "," "], &
@@ -771,7 +771,7 @@ Dy_2021%saw_max, Dy_2021%saw_min, Dy_2021%saw, Dy_2021%saw_u, Dy_2021%asaw, Dy_2
 type(element_t_2021), parameter, public :: Ho_2021 =&
 element_t_2021("holmium","Ho", 67, nan, nan, 164.930329d0, 0.000005d0, 164.93d0, 0.01d0)
 !> C API holmium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ho_2021") :: capi_Ho_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ho_2021") :: capi_Ho_2021 =&
 capi_element_t_2021(&
 ["h","o","l","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["H","o",c_null_char, " "," "," "," "," "," "], &
@@ -782,7 +782,7 @@ Ho_2021%saw_max, Ho_2021%saw_min, Ho_2021%saw, Ho_2021%saw_u, Ho_2021%asaw, Ho_2
 type(element_t_2021), parameter, public :: Er_2021 =&
 element_t_2021("erbium","Er", 68, nan, nan, 167.259d0, 0.003d0, 167.26d0, 0.01d0)
 !> C API erbium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Er_2021") :: capi_Er_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Er_2021") :: capi_Er_2021 =&
 capi_element_t_2021(&
 ["e","r","b","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["E","r",c_null_char, " "," "," "," "," "," "], &
@@ -793,7 +793,7 @@ Er_2021%saw_max, Er_2021%saw_min, Er_2021%saw, Er_2021%saw_u, Er_2021%asaw, Er_2
 type(element_t_2021), parameter, public :: Tm_2021 =&
 element_t_2021("thulium","Tm", 69, nan, nan, 168.934219d0, 0.000005d0, 168.93d0, 0.01d0)
 !> C API thulium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Tm_2021") :: capi_Tm_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Tm_2021") :: capi_Tm_2021 =&
 capi_element_t_2021(&
 ["t","h","u","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["T","m",c_null_char, " "," "," "," "," "," "], &
@@ -804,7 +804,7 @@ Tm_2021%saw_max, Tm_2021%saw_min, Tm_2021%saw, Tm_2021%saw_u, Tm_2021%asaw, Tm_2
 type(element_t_2021), parameter, public :: Yb_2021 =&
 element_t_2021("ytterbium","Yb", 70, nan, nan, 173.045d0, 0.010d0, 173.05d0, 0.02d0)
 !> C API ytterbium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Yb_2021") :: capi_Yb_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Yb_2021") :: capi_Yb_2021 =&
 capi_element_t_2021(&
 ["y","t","t","e","r","b","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["Y","b",c_null_char, " "," "," "," "," "," "], &
@@ -815,7 +815,7 @@ Yb_2021%saw_max, Yb_2021%saw_min, Yb_2021%saw, Yb_2021%saw_u, Yb_2021%asaw, Yb_2
 type(element_t_2021), parameter, public :: Lu_2021 =&
 element_t_2021("lutetium","Lu", 71, nan, nan, 174.9668d0, 0.0001d0, 174.97d0, 0.01d0)
 !> C API lutetium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Lu_2021") :: capi_Lu_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Lu_2021") :: capi_Lu_2021 =&
 capi_element_t_2021(&
 ["l","u","t","e","t","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["L","u",c_null_char, " "," "," "," "," "," "], &
@@ -826,7 +826,7 @@ Lu_2021%saw_max, Lu_2021%saw_min, Lu_2021%saw, Lu_2021%saw_u, Lu_2021%asaw, Lu_2
 type(element_t_2021), parameter, public :: Hf_2021 =&
 element_t_2021("hafnium","Hf", 72, nan, nan, 178.486d0, 0.006d0, 178.49d0, 0.01d0)
 !> C API hafnium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Hf_2021") :: capi_Hf_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Hf_2021") :: capi_Hf_2021 =&
 capi_element_t_2021(&
 ["h","a","f","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["H","f",c_null_char, " "," "," "," "," "," "], &
@@ -837,7 +837,7 @@ Hf_2021%saw_max, Hf_2021%saw_min, Hf_2021%saw, Hf_2021%saw_u, Hf_2021%asaw, Hf_2
 type(element_t_2021), parameter, public :: Ta_2021 =&
 element_t_2021("tantalum","Ta", 73, nan, nan, 180.94788d0, 0.00002d0, 180.95d0, 0.01d0)
 !> C API tantalum.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ta_2021") :: capi_Ta_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ta_2021") :: capi_Ta_2021 =&
 capi_element_t_2021(&
 ["t","a","n","t","a","l","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["T","a",c_null_char, " "," "," "," "," "," "], &
@@ -848,7 +848,7 @@ Ta_2021%saw_max, Ta_2021%saw_min, Ta_2021%saw, Ta_2021%saw_u, Ta_2021%asaw, Ta_2
 type(element_t_2021), parameter, public :: W_2021 =&
 element_t_2021("tungsten","W", 74, nan, nan, 183.84d0, 0.01d0, 183.84d0, 0.01d0)
 !> C API tungsten.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_W_2021") :: capi_W_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_W_2021") :: capi_W_2021 =&
 capi_element_t_2021(&
 ["t","u","n","g","s","t","e","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["W",c_null_char, " "," "," "," "," "," "," "], &
@@ -859,7 +859,7 @@ W_2021%saw_max, W_2021%saw_min, W_2021%saw, W_2021%saw_u, W_2021%asaw, W_2021%as
 type(element_t_2021), parameter, public :: Re_2021 =&
 element_t_2021("rhenium","Re", 75, nan, nan, 186.207d0, 0.001d0, 186.21d0, 0.01d0)
 !> C API rhenium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Re_2021") :: capi_Re_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Re_2021") :: capi_Re_2021 =&
 capi_element_t_2021(&
 ["r","h","e","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["R","e",c_null_char, " "," "," "," "," "," "], &
@@ -870,7 +870,7 @@ Re_2021%saw_max, Re_2021%saw_min, Re_2021%saw, Re_2021%saw_u, Re_2021%asaw, Re_2
 type(element_t_2021), parameter, public :: Os_2021 =&
 element_t_2021("osmium","Os", 76, nan, nan, 190.23d0, 0.03d0, 190.23d0, 0.03d0)
 !> C API osmium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Os_2021") :: capi_Os_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Os_2021") :: capi_Os_2021 =&
 capi_element_t_2021(&
 ["o","s","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["O","s",c_null_char, " "," "," "," "," "," "], &
@@ -881,7 +881,7 @@ Os_2021%saw_max, Os_2021%saw_min, Os_2021%saw, Os_2021%saw_u, Os_2021%asaw, Os_2
 type(element_t_2021), parameter, public :: Ir_2021 =&
 element_t_2021("iridium","Ir", 77, nan, nan, 192.217d0, 0.002d0, 192.22d0, 0.01d0)
 !> C API iridium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ir_2021") :: capi_Ir_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ir_2021") :: capi_Ir_2021 =&
 capi_element_t_2021(&
 ["i","r","i","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["I","r",c_null_char, " "," "," "," "," "," "], &
@@ -892,7 +892,7 @@ Ir_2021%saw_max, Ir_2021%saw_min, Ir_2021%saw, Ir_2021%saw_u, Ir_2021%asaw, Ir_2
 type(element_t_2021), parameter, public :: Pt_2021 =&
 element_t_2021("platinum","Pt", 78, nan, nan, 195.084d0, 0.009d0, 195.08d0, 0.02d0)
 !> C API platinum.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Pt_2021") :: capi_Pt_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Pt_2021") :: capi_Pt_2021 =&
 capi_element_t_2021(&
 ["p","l","a","t","i","n","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["P","t",c_null_char, " "," "," "," "," "," "], &
@@ -903,7 +903,7 @@ Pt_2021%saw_max, Pt_2021%saw_min, Pt_2021%saw, Pt_2021%saw_u, Pt_2021%asaw, Pt_2
 type(element_t_2021), parameter, public :: Au_2021 =&
 element_t_2021("gold","Au", 79, nan, nan, 196.966570d0, 0.000004d0, 196.97d0, 0.01d0)
 !> C API gold.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Au_2021") :: capi_Au_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Au_2021") :: capi_Au_2021 =&
 capi_element_t_2021(&
 ["g","o","l","d",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["A","u",c_null_char, " "," "," "," "," "," "], &
@@ -914,7 +914,7 @@ Au_2021%saw_max, Au_2021%saw_min, Au_2021%saw, Au_2021%saw_u, Au_2021%asaw, Au_2
 type(element_t_2021), parameter, public :: Hg_2021 =&
 element_t_2021("mercury","Hg", 80, nan, nan, 200.592d0, 0.003d0, 200.59d0, 0.01d0)
 !> C API mercury.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Hg_2021") :: capi_Hg_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Hg_2021") :: capi_Hg_2021 =&
 capi_element_t_2021(&
 ["m","e","r","c","u","r","y",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["H","g",c_null_char, " "," "," "," "," "," "], &
@@ -925,7 +925,7 @@ Hg_2021%saw_max, Hg_2021%saw_min, Hg_2021%saw, Hg_2021%saw_u, Hg_2021%asaw, Hg_2
 type(element_t_2021), parameter, public :: Tl_2021 =&
 element_t_2021("thallium","Tl", 81, 204.382d0, 204.385d0, 204.3835d0, 0.0009d0, 204.38d0, 0.01d0)
 !> C API thallium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Tl_2021") :: capi_Tl_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Tl_2021") :: capi_Tl_2021 =&
 capi_element_t_2021(&
 ["t","h","a","l","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["T","l",c_null_char, " "," "," "," "," "," "], &
@@ -936,7 +936,7 @@ Tl_2021%saw_max, Tl_2021%saw_min, Tl_2021%saw, Tl_2021%saw_u, Tl_2021%asaw, Tl_2
 type(element_t_2021), parameter, public :: Pb_2021 =&
 element_t_2021("lead","Pb", 82, 206.14d0, 207.94d0, 207.0d0, 0.6d0, 207.2d0, 1.1d0)
 !> C API lead.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Pb_2021") :: capi_Pb_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Pb_2021") :: capi_Pb_2021 =&
 capi_element_t_2021(&
 ["l","e","a","d",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["P","b",c_null_char, " "," "," "," "," "," "], &
@@ -947,7 +947,7 @@ Pb_2021%saw_max, Pb_2021%saw_min, Pb_2021%saw, Pb_2021%saw_u, Pb_2021%asaw, Pb_2
 type(element_t_2021), parameter, public :: Bi_2021 =&
 element_t_2021("bismuth","Bi", 83, nan, nan, 208.98040d0, 0.00001d0, 208.98d0, 0.01d0)
 !> C API bismuth.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Bi_2021") :: capi_Bi_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Bi_2021") :: capi_Bi_2021 =&
 capi_element_t_2021(&
 ["b","i","s","m","u","t","h",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["B","i",c_null_char, " "," "," "," "," "," "], &
@@ -958,7 +958,7 @@ Bi_2021%saw_max, Bi_2021%saw_min, Bi_2021%saw, Bi_2021%saw_u, Bi_2021%asaw, Bi_2
 type(element_t_2021), parameter, public :: Po_2021 =&
 element_t_2021("polonium","Po", 84, nan, nan, nan, nan, nan, nan)
 !> C API polonium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Po_2021") :: capi_Po_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Po_2021") :: capi_Po_2021 =&
 capi_element_t_2021(&
 ["p","o","l","o","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["P","o",c_null_char, " "," "," "," "," "," "], &
@@ -969,7 +969,7 @@ Po_2021%saw_max, Po_2021%saw_min, Po_2021%saw, Po_2021%saw_u, Po_2021%asaw, Po_2
 type(element_t_2021), parameter, public :: At_2021 =&
 element_t_2021("astatine","At", 85, nan, nan, nan, nan, nan, nan)
 !> C API astatine.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_At_2021") :: capi_At_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_At_2021") :: capi_At_2021 =&
 capi_element_t_2021(&
 ["a","s","t","a","t","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["A","t",c_null_char, " "," "," "," "," "," "], &
@@ -980,7 +980,7 @@ At_2021%saw_max, At_2021%saw_min, At_2021%saw, At_2021%saw_u, At_2021%asaw, At_2
 type(element_t_2021), parameter, public :: Rn_2021 =&
 element_t_2021("radon","Rn", 86, nan, nan, nan, nan, nan, nan)
 !> C API radon.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Rn_2021") :: capi_Rn_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Rn_2021") :: capi_Rn_2021 =&
 capi_element_t_2021(&
 ["r","a","d","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["R","n",c_null_char, " "," "," "," "," "," "], &
@@ -991,7 +991,7 @@ Rn_2021%saw_max, Rn_2021%saw_min, Rn_2021%saw, Rn_2021%saw_u, Rn_2021%asaw, Rn_2
 type(element_t_2021), parameter, public :: Fr_2021 =&
 element_t_2021("francium","Fr", 87, nan, nan, nan, nan, nan, nan)
 !> C API francium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Fr_2021") :: capi_Fr_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Fr_2021") :: capi_Fr_2021 =&
 capi_element_t_2021(&
 ["f","r","a","n","c","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["F","r",c_null_char, " "," "," "," "," "," "], &
@@ -1002,7 +1002,7 @@ Fr_2021%saw_max, Fr_2021%saw_min, Fr_2021%saw, Fr_2021%saw_u, Fr_2021%asaw, Fr_2
 type(element_t_2021), parameter, public :: Ra_2021 =&
 element_t_2021("radium","Ra", 88, nan, nan, nan, nan, nan, nan)
 !> C API radium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ra_2021") :: capi_Ra_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ra_2021") :: capi_Ra_2021 =&
 capi_element_t_2021(&
 ["r","a","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["R","a",c_null_char, " "," "," "," "," "," "], &
@@ -1013,7 +1013,7 @@ Ra_2021%saw_max, Ra_2021%saw_min, Ra_2021%saw, Ra_2021%saw_u, Ra_2021%asaw, Ra_2
 type(element_t_2021), parameter, public :: Ac_2021 =&
 element_t_2021("actinium","Ac", 89, nan, nan, nan, nan, nan, nan)
 !> C API actinium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ac_2021") :: capi_Ac_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ac_2021") :: capi_Ac_2021 =&
 capi_element_t_2021(&
 ["a","c","t","i","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["A","c",c_null_char, " "," "," "," "," "," "], &
@@ -1024,7 +1024,7 @@ Ac_2021%saw_max, Ac_2021%saw_min, Ac_2021%saw, Ac_2021%saw_u, Ac_2021%asaw, Ac_2
 type(element_t_2021), parameter, public :: Th_2021 =&
 element_t_2021("thorium","Th", 90, nan, nan, 232.0377d0, 0.0004d0, 232.04d0, 0.01d0)
 !> C API thorium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Th_2021") :: capi_Th_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Th_2021") :: capi_Th_2021 =&
 capi_element_t_2021(&
 ["t","h","o","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["T","h",c_null_char, " "," "," "," "," "," "], &
@@ -1035,7 +1035,7 @@ Th_2021%saw_max, Th_2021%saw_min, Th_2021%saw, Th_2021%saw_u, Th_2021%asaw, Th_2
 type(element_t_2021), parameter, public :: Pa_2021 =&
 element_t_2021("protactinium","Pa", 91, nan, nan, 231.03588d0, 0.00001d0, 231.04d0, 0.01d0)
 !> C API protactinium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Pa_2021") :: capi_Pa_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Pa_2021") :: capi_Pa_2021 =&
 capi_element_t_2021(&
 ["p","r","o","t","a","c","t","i","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "], &
 ["P","a",c_null_char, " "," "," "," "," "," "], &
@@ -1046,7 +1046,7 @@ Pa_2021%saw_max, Pa_2021%saw_min, Pa_2021%saw, Pa_2021%saw_u, Pa_2021%asaw, Pa_2
 type(element_t_2021), parameter, public :: U_2021 =&
 element_t_2021("uranium","U", 92, nan, nan, 238.02891d0, 0.00003d0, 238.03d0, 0.01d0)
 !> C API uranium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_U_2021") :: capi_U_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_U_2021") :: capi_U_2021 =&
 capi_element_t_2021(&
 ["u","r","a","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["U",c_null_char, " "," "," "," "," "," "," "], &
@@ -1057,7 +1057,7 @@ U_2021%saw_max, U_2021%saw_min, U_2021%saw, U_2021%saw_u, U_2021%asaw, U_2021%as
 type(element_t_2021), parameter, public :: Np_2021 =&
 element_t_2021("neptunium","Np", 93, nan, nan, nan, nan, nan, nan)
 !> C API neptunium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Np_2021") :: capi_Np_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Np_2021") :: capi_Np_2021 =&
 capi_element_t_2021(&
 ["n","e","p","t","u","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["N","p",c_null_char, " "," "," "," "," "," "], &
@@ -1068,7 +1068,7 @@ Np_2021%saw_max, Np_2021%saw_min, Np_2021%saw, Np_2021%saw_u, Np_2021%asaw, Np_2
 type(element_t_2021), parameter, public :: Pu_2021 =&
 element_t_2021("plutonium","Pu", 94, nan, nan, nan, nan, nan, nan)
 !> C API plutonium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Pu_2021") :: capi_Pu_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Pu_2021") :: capi_Pu_2021 =&
 capi_element_t_2021(&
 ["p","l","u","t","o","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["P","u",c_null_char, " "," "," "," "," "," "], &
@@ -1079,7 +1079,7 @@ Pu_2021%saw_max, Pu_2021%saw_min, Pu_2021%saw, Pu_2021%saw_u, Pu_2021%asaw, Pu_2
 type(element_t_2021), parameter, public :: Am_2021 =&
 element_t_2021("americium","Am", 95, nan, nan, nan, nan, nan, nan)
 !> C API americium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Am_2021") :: capi_Am_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Am_2021") :: capi_Am_2021 =&
 capi_element_t_2021(&
 ["a","m","e","r","i","c","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["A","m",c_null_char, " "," "," "," "," "," "], &
@@ -1090,7 +1090,7 @@ Am_2021%saw_max, Am_2021%saw_min, Am_2021%saw, Am_2021%saw_u, Am_2021%asaw, Am_2
 type(element_t_2021), parameter, public :: Cm_2021 =&
 element_t_2021("curium","Cm", 96, nan, nan, nan, nan, nan, nan)
 !> C API curium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Cm_2021") :: capi_Cm_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Cm_2021") :: capi_Cm_2021 =&
 capi_element_t_2021(&
 ["c","u","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","m",c_null_char, " "," "," "," "," "," "], &
@@ -1101,7 +1101,7 @@ Cm_2021%saw_max, Cm_2021%saw_min, Cm_2021%saw, Cm_2021%saw_u, Cm_2021%asaw, Cm_2
 type(element_t_2021), parameter, public :: Bk_2021 =&
 element_t_2021("berkelium","Bk", 97, nan, nan, nan, nan, nan, nan)
 !> C API berkelium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Bk_2021") :: capi_Bk_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Bk_2021") :: capi_Bk_2021 =&
 capi_element_t_2021(&
 ["b","e","r","k","e","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["B","k",c_null_char, " "," "," "," "," "," "], &
@@ -1112,7 +1112,7 @@ Bk_2021%saw_max, Bk_2021%saw_min, Bk_2021%saw, Bk_2021%saw_u, Bk_2021%asaw, Bk_2
 type(element_t_2021), parameter, public :: Cf_2021 =&
 element_t_2021("californium","Cf", 98, nan, nan, nan, nan, nan, nan)
 !> C API californium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Cf_2021") :: capi_Cf_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Cf_2021") :: capi_Cf_2021 =&
 capi_element_t_2021(&
 ["c","a","l","i","f","o","r","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","f",c_null_char, " "," "," "," "," "," "], &
@@ -1123,7 +1123,7 @@ Cf_2021%saw_max, Cf_2021%saw_min, Cf_2021%saw, Cf_2021%saw_u, Cf_2021%asaw, Cf_2
 type(element_t_2021), parameter, public :: Es_2021 =&
 element_t_2021("einsteinium","Es", 99, nan, nan, nan, nan, nan, nan)
 !> C API einsteinium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Es_2021") :: capi_Es_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Es_2021") :: capi_Es_2021 =&
 capi_element_t_2021(&
 ["e","i","n","s","t","e","i","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["E","s",c_null_char, " "," "," "," "," "," "], &
@@ -1134,7 +1134,7 @@ Es_2021%saw_max, Es_2021%saw_min, Es_2021%saw, Es_2021%saw_u, Es_2021%asaw, Es_2
 type(element_t_2021), parameter, public :: Fm_2021 =&
 element_t_2021("fermium","Fm", 100, nan, nan, nan, nan, nan, nan)
 !> C API fermium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Fm_2021") :: capi_Fm_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Fm_2021") :: capi_Fm_2021 =&
 capi_element_t_2021(&
 ["f","e","r","m","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["F","m",c_null_char, " "," "," "," "," "," "], &
@@ -1145,7 +1145,7 @@ Fm_2021%saw_max, Fm_2021%saw_min, Fm_2021%saw, Fm_2021%saw_u, Fm_2021%asaw, Fm_2
 type(element_t_2021), parameter, public :: Md_2021 =&
 element_t_2021("mendelevium","Md", 101, nan, nan, nan, nan, nan, nan)
 !> C API mendelevium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Md_2021") :: capi_Md_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Md_2021") :: capi_Md_2021 =&
 capi_element_t_2021(&
 ["m","e","n","d","e","l","e","v","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["M","d",c_null_char, " "," "," "," "," "," "], &
@@ -1156,7 +1156,7 @@ Md_2021%saw_max, Md_2021%saw_min, Md_2021%saw, Md_2021%saw_u, Md_2021%asaw, Md_2
 type(element_t_2021), parameter, public :: No_2021 =&
 element_t_2021("nobelium","No", 102, nan, nan, nan, nan, nan, nan)
 !> C API nobelium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_No_2021") :: capi_No_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_No_2021") :: capi_No_2021 =&
 capi_element_t_2021(&
 ["n","o","b","e","l","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["N","o",c_null_char, " "," "," "," "," "," "], &
@@ -1167,7 +1167,7 @@ No_2021%saw_max, No_2021%saw_min, No_2021%saw, No_2021%saw_u, No_2021%asaw, No_2
 type(element_t_2021), parameter, public :: Lr_2021 =&
 element_t_2021("lawrencium","Lr", 103, nan, nan, nan, nan, nan, nan)
 !> C API lawrencium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Lr_2021") :: capi_Lr_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Lr_2021") :: capi_Lr_2021 =&
 capi_element_t_2021(&
 ["l","a","w","r","e","n","c","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["L","r",c_null_char, " "," "," "," "," "," "], &
@@ -1178,7 +1178,7 @@ Lr_2021%saw_max, Lr_2021%saw_min, Lr_2021%saw, Lr_2021%saw_u, Lr_2021%asaw, Lr_2
 type(element_t_2021), parameter, public :: Rf_2021 =&
 element_t_2021("rutherfordium","Rf", 104, nan, nan, nan, nan, nan, nan)
 !> C API rutherfordium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Rf_2021") :: capi_Rf_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Rf_2021") :: capi_Rf_2021 =&
 capi_element_t_2021(&
 ["r","u","t","h","e","r","f","o","r","d","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "], &
 ["R","f",c_null_char, " "," "," "," "," "," "], &
@@ -1189,7 +1189,7 @@ Rf_2021%saw_max, Rf_2021%saw_min, Rf_2021%saw, Rf_2021%saw_u, Rf_2021%asaw, Rf_2
 type(element_t_2021), parameter, public :: Db_2021 =&
 element_t_2021("dubnium","Db", 105, nan, nan, nan, nan, nan, nan)
 !> C API dubnium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Db_2021") :: capi_Db_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Db_2021") :: capi_Db_2021 =&
 capi_element_t_2021(&
 ["d","u","b","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["D","b",c_null_char, " "," "," "," "," "," "], &
@@ -1200,7 +1200,7 @@ Db_2021%saw_max, Db_2021%saw_min, Db_2021%saw, Db_2021%saw_u, Db_2021%asaw, Db_2
 type(element_t_2021), parameter, public :: Sg_2021 =&
 element_t_2021("seaborgium","Sg", 106, nan, nan, nan, nan, nan, nan)
 !> C API seaborgium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Sg_2021") :: capi_Sg_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Sg_2021") :: capi_Sg_2021 =&
 capi_element_t_2021(&
 ["s","e","a","b","o","r","g","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["S","g",c_null_char, " "," "," "," "," "," "], &
@@ -1211,7 +1211,7 @@ Sg_2021%saw_max, Sg_2021%saw_min, Sg_2021%saw, Sg_2021%saw_u, Sg_2021%asaw, Sg_2
 type(element_t_2021), parameter, public :: Bh_2021 =&
 element_t_2021("bohrium","Bh", 107, nan, nan, nan, nan, nan, nan)
 !> C API bohrium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Bh_2021") :: capi_Bh_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Bh_2021") :: capi_Bh_2021 =&
 capi_element_t_2021(&
 ["b","o","h","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["B","h",c_null_char, " "," "," "," "," "," "], &
@@ -1222,7 +1222,7 @@ Bh_2021%saw_max, Bh_2021%saw_min, Bh_2021%saw, Bh_2021%saw_u, Bh_2021%asaw, Bh_2
 type(element_t_2021), parameter, public :: Hs_2021 =&
 element_t_2021("hassium","Hs", 108, nan, nan, nan, nan, nan, nan)
 !> C API hassium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Hs_2021") :: capi_Hs_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Hs_2021") :: capi_Hs_2021 =&
 capi_element_t_2021(&
 ["h","a","s","s","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["H","s",c_null_char, " "," "," "," "," "," "], &
@@ -1233,7 +1233,7 @@ Hs_2021%saw_max, Hs_2021%saw_min, Hs_2021%saw, Hs_2021%saw_u, Hs_2021%asaw, Hs_2
 type(element_t_2021), parameter, public :: Mt_2021 =&
 element_t_2021("meitnerium","Mt", 109, nan, nan, nan, nan, nan, nan)
 !> C API meitnerium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Mt_2021") :: capi_Mt_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Mt_2021") :: capi_Mt_2021 =&
 capi_element_t_2021(&
 ["m","e","i","t","n","e","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["M","t",c_null_char, " "," "," "," "," "," "], &
@@ -1244,7 +1244,7 @@ Mt_2021%saw_max, Mt_2021%saw_min, Mt_2021%saw, Mt_2021%saw_u, Mt_2021%asaw, Mt_2
 type(element_t_2021), parameter, public :: Ds_2021 =&
 element_t_2021("darmstadtium","Ds", 110, nan, nan, nan, nan, nan, nan)
 !> C API darmstadtium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ds_2021") :: capi_Ds_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ds_2021") :: capi_Ds_2021 =&
 capi_element_t_2021(&
 ["d","a","r","m","s","t","a","d","t","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "], &
 ["D","s",c_null_char, " "," "," "," "," "," "], &
@@ -1255,7 +1255,7 @@ Ds_2021%saw_max, Ds_2021%saw_min, Ds_2021%saw, Ds_2021%saw_u, Ds_2021%asaw, Ds_2
 type(element_t_2021), parameter, public :: Rg_2021 =&
 element_t_2021("roentgenium","Rg", 111, nan, nan, nan, nan, nan, nan)
 !> C API roentgenium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Rg_2021") :: capi_Rg_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Rg_2021") :: capi_Rg_2021 =&
 capi_element_t_2021(&
 ["r","o","e","n","t","g","e","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["R","g",c_null_char, " "," "," "," "," "," "], &
@@ -1266,7 +1266,7 @@ Rg_2021%saw_max, Rg_2021%saw_min, Rg_2021%saw, Rg_2021%saw_u, Rg_2021%asaw, Rg_2
 type(element_t_2021), parameter, public :: Cn_2021 =&
 element_t_2021("copernicium","Cn", 112, nan, nan, nan, nan, nan, nan)
 !> C API copernicium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Cn_2021") :: capi_Cn_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Cn_2021") :: capi_Cn_2021 =&
 capi_element_t_2021(&
 ["c","o","p","e","r","n","i","c","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["C","n",c_null_char, " "," "," "," "," "," "], &
@@ -1277,7 +1277,7 @@ Cn_2021%saw_max, Cn_2021%saw_min, Cn_2021%saw, Cn_2021%saw_u, Cn_2021%asaw, Cn_2
 type(element_t_2021), parameter, public :: Nh_2021 =&
 element_t_2021("nihonium","Nh", 113, nan, nan, nan, nan, nan, nan)
 !> C API nihonium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Nh_2021") :: capi_Nh_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Nh_2021") :: capi_Nh_2021 =&
 capi_element_t_2021(&
 ["n","i","h","o","n","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["N","h",c_null_char, " "," "," "," "," "," "], &
@@ -1288,7 +1288,7 @@ Nh_2021%saw_max, Nh_2021%saw_min, Nh_2021%saw, Nh_2021%saw_u, Nh_2021%asaw, Nh_2
 type(element_t_2021), parameter, public :: Fl_2021 =&
 element_t_2021("flerovium","Fl", 114, nan, nan, nan, nan, nan, nan)
 !> C API flerovium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Fl_2021") :: capi_Fl_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Fl_2021") :: capi_Fl_2021 =&
 capi_element_t_2021(&
 ["f","l","e","r","o","v","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["F","l",c_null_char, " "," "," "," "," "," "], &
@@ -1299,7 +1299,7 @@ Fl_2021%saw_max, Fl_2021%saw_min, Fl_2021%saw, Fl_2021%saw_u, Fl_2021%asaw, Fl_2
 type(element_t_2021), parameter, public :: Mc_2021 =&
 element_t_2021("moscovium","Mc", 115, nan, nan, nan, nan, nan, nan)
 !> C API moscovium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Mc_2021") :: capi_Mc_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Mc_2021") :: capi_Mc_2021 =&
 capi_element_t_2021(&
 ["m","o","s","c","o","v","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["M","c",c_null_char, " "," "," "," "," "," "], &
@@ -1310,7 +1310,7 @@ Mc_2021%saw_max, Mc_2021%saw_min, Mc_2021%saw, Mc_2021%saw_u, Mc_2021%asaw, Mc_2
 type(element_t_2021), parameter, public :: Lv_2021 =&
 element_t_2021("livermorium","Lv", 116, nan, nan, nan, nan, nan, nan)
 !> C API livermorium.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Lv_2021") :: capi_Lv_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Lv_2021") :: capi_Lv_2021 =&
 capi_element_t_2021(&
 ["l","i","v","e","r","m","o","r","i","u","m",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["L","v",c_null_char, " "," "," "," "," "," "], &
@@ -1321,7 +1321,7 @@ Lv_2021%saw_max, Lv_2021%saw_min, Lv_2021%saw, Lv_2021%saw_u, Lv_2021%asaw, Lv_2
 type(element_t_2021), parameter, public :: Ts_2021 =&
 element_t_2021("tennesine","Ts", 117, nan, nan, nan, nan, nan, nan)
 !> C API tennesine.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Ts_2021") :: capi_Ts_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Ts_2021") :: capi_Ts_2021 =&
 capi_element_t_2021(&
 ["t","e","n","n","e","s","i","n","e",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["T","s",c_null_char, " "," "," "," "," "," "], &
@@ -1332,7 +1332,7 @@ Ts_2021%saw_max, Ts_2021%saw_min, Ts_2021%saw, Ts_2021%saw_u, Ts_2021%asaw, Ts_2
 type(element_t_2021), parameter, public :: Og_2021 =&
 element_t_2021("organesson","Og", 118, nan, nan, nan, nan, nan, nan)
 !> C API organesson.
-type(capi_element_t_2021), protected, public, bind(C, name="ciaaw_saw_Og_2021") :: capi_Og_2021 =&
+type(capi_element_t_2021), protected, bind(C, name="ciaaw_saw_Og_2021") :: capi_Og_2021 =&
 capi_element_t_2021(&
 ["o","r","g","a","n","e","s","s","o","n",c_null_char, " "," "," "," "," "," "," "," "," "," "," "," "," "," "], &
 ["O","g",c_null_char, " "," "," "," "," "," "], &
