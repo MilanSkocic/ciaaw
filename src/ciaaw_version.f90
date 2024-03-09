@@ -9,7 +9,7 @@ use iso_c_binding
 implicit none
 private
 
-character(len=*), parameter :: version = "0.1.0"
+character(len=*), parameter :: version = "0.2.0"
 character(len=:), allocatable, target :: version_f
 character(len=:), allocatable, target :: version_c
 
