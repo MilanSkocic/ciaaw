@@ -1,7 +1,7 @@
 !> @file
-!! @brief Version module
+!! @brief CIAAW version.
 
-!> @brief Version module.
+!> @brief CIAAW version.
 module ciaaw__version
 !! Version
 use iso_fortran_env
