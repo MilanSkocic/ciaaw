@@ -21,7 +21,7 @@ build: generator
 	fpm build --profile=$(btype)
 
 test: build
-	fpm test --profile=$(debug)
+	fpm test --profile=$(btype)
 	
 example: build
 	fpm run --profile=$(btype) --example --all

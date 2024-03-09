@@ -6,7 +6,7 @@ Add the msys2 binary (usually C:\\msys64\\usr\\bin) to the path in order to be a
 
 On Darwin, the `gcc <https://formulae.brew.sh/formula/gcc>`_ toolchain needs to be installed.
 
-Build: the configuration file will set all the environmental variables necessary for the compilation
+Build: the configuration file will set all the environment variables necessary for the compilation
 
 .. code-block:: bash
 
