@@ -7,7 +7,7 @@ class TestVersion(unittest.TestCase):
     r"""Test version."""
     def test_version(self):
         value = version.__version__
-        expected = "0.1.0"
+        expected = "0.2.0"
         self.assertEqual(value, expected)
 
 class TestYear(unittest.TestCase):
