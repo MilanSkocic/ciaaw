@@ -11,7 +11,7 @@ Introduction
 
 .. readme_inclusion_start
 
-`ciaaw` is a  Fortran library providing the standard and abreged atomic weights, the isotopic abundance
+`ciaaw` is a  Fortran library providing the standard and abriged atomic weights, the isotopic abundance
 and the isotopes standard atomic weights.
 It also provides a API for the C language. The formulas are taken from http://ciaaw.org. 
 
