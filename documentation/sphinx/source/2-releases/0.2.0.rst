@@ -5,9 +5,8 @@
 Summary
 =======
 
-* All elements from the periodic table added for the saw module.
-* They are implemented as parameter derived type.
 * Fix error in phosphorus name.
+* Possibility to have standard atomic weights for several years.
 
 
 Download
