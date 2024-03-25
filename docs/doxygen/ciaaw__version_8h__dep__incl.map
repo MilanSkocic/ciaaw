@@ -1,0 +1,8 @@
+<map id="ciaaw_version.h" name="ciaaw_version.h">
+<area shape="rect" id="Node000001" title="C API Version." alt="" coords="5,5,121,31"/>
+<area shape="rect" id="Node000002" href="$ciaaw_8h.html" title="Main C header for the CIAAW library." alt="" coords="31,153,95,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,47,48,79,51,119,60,151,55,153,45,120,43,79,51,45"/>
+<area shape="rect" id="Node000003" href="$ciaaw__saw_8h.html" title="C API Standard Atomic Weights." alt="" coords="58,79,153,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="80,43,101,77,96,80,76,46"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="93,119,72,154,68,151,89,116"/>
+</map>
