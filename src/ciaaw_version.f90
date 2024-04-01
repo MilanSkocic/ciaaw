@@ -13,19 +13,15 @@ character(len=*), parameter :: version = "0.2.0"
 character(len=:), allocatable, target :: version_f
 character(len=:), allocatable, target :: version_c
 
-public :: get_version
+public :: get_version, capi_get_version
 
 contains
 
 !> @brief Get the version
-!! @return fptr Pointer to the version string.
+!! @return fptr Fortran pointer to a string indicating the version..
 function get_version()result(fptr)
-    !! Get the version. 
     implicit none
-
-    !! Returns
     character(len=:), pointer :: fptr
-        !! Pointer to the version string.
 
     if(allocated(version_f))then
         deallocate(version_f)
@@ -36,7 +32,7 @@ function get_version()result(fptr)
 end function
 
 !> @brief Get the version
-!! @return cptr Pointer to the version string.
+!! @return cptr C pointer to a string indicating the version.
 function capi_get_version()bind(c,name="ciaaw_get_version")result(cptr)
     implicit none
     type(c_ptr) :: cptr
