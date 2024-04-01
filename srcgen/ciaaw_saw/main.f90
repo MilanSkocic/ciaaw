@@ -123,6 +123,7 @@ subroutine write_fortran_module_declaration(fcode, year)
     write(fcode, "(A)") "use iso_fortran_env"
     write(fcode, "(A)") "use iso_c_binding"
     write(fcode, "(A)") "use ieee_arithmetic"
+    write(fcode, "(A)") "use ciaaw__saw_dtypes"
     write(fcode, "(A)") "implicit none"
     write(fcode, "(A, /)") "private"
     write(fcode, "(A)") "integer(int64), parameter :: x = 1"
@@ -133,36 +134,6 @@ subroutine write_fortran_module_declaration(fcode, year)
     else
         suffix = trim('_'//props%year)
     endif
-    write(fcode, "(A)") "!> @brief Object representing an element."
-    write(fcode, "(A)") "type, public :: element_t"//suffix
-    write(fcode, "(A)") 'character(len='//trim(S_LENGTH_ELEMENT)//') :: element !< Element name.'
-    write(fcode, "(A)") 'character(len='//trim(S_LENGTH_SYMBOL)//') :: symbol !< Element symbol.'
-    write(fcode, "(A)") 'integer(int32) :: z !< Element atomic number.'
-    write(fcode, "(A)") 'real(real64) :: saw_min !< Min standard atomic weight.'
-    write(fcode, "(A)") 'real(real64) :: saw_max !< Max standard atomic weight.'
-    write(fcode, "(A)") 'real(real64) :: saw !< Value standard atomic weight.'
-    write(fcode, "(A)") 'real(real64) :: saw_u !< Uncertainty standard atomic weight.'
-    write(fcode, "(A)") 'real(real64) :: asaw !< Abridged value standard atomic weight.'
-    write(fcode, "(A)") 'real(real64) :: asaw_u !< Abridged uncertainty standard atomic weight.'
-    write(fcode, "(A)") "end type"
-    write(fcode, "(A)") ""
-    
-    write(S_LENGTH_ELEMENT, "(I2)") LENGTH_ELEMENT+1
-    write(S_LENGTH_SYMBOL, "(I1)") LENGTH_SYMBOL+1
-    
-    write(fcode, "(A)") "!> @brief Object representing an element."
-    write(fcode, "(A)") "type, public, bind(C) :: capi_element_t"//suffix
-    write(fcode, "(A)") 'character(kind=c_char) :: element('//trim(S_LENGTH_ELEMENT)//') !< Element name.'
-    write(fcode, "(A)") 'character(kind=c_char) :: symbol('//trim(S_LENGTH_SYMBOL)//') !< Element symbol.'
-    write(fcode, "(A)") 'integer(c_int) :: z !< Element atomic number.'
-    write(fcode, "(A)") 'real(c_double) :: saw_min !< Min standard atomic weight.'
-    write(fcode, "(A)") 'real(c_double) :: saw_max !< Max standard atomic weight.'
-    write(fcode, "(A)") 'real(c_double) :: saw !< Value standard atomic weight.'
-    write(fcode, "(A)") 'real(c_double) :: saw_u !< Uncertainty standard atomic weight.'
-    write(fcode, "(A)") 'real(c_double) :: asaw !< Abridged value standard atomic weight.'
-    write(fcode, "(A)") 'real(c_double) :: asaw_u !< Abridged uncertainty standard atomic weight.'
-    write(fcode, "(A)") "end type"
-    write(fcode, "(A)") ""
 end subroutine
 
 subroutine write_fortran_module_end(fcode, year)
@@ -210,24 +181,13 @@ subroutine write_C_header_declaration(fcode, year)
     write(fcode, "(A)") "#else"
     write(fcode, "(A)") "#define ADD_IMPORT"
     write(fcode, "(A)") "#endif"
+    write(fcode, "(A)") '#include "ciaaw_saw_dtypes.h"'
     
     if(year == "latest")then
         suffix = ''
     else
         suffix = trim('_'//year)
     endif
-    write(fcode, "(A)") "/** @brief C API - Object representing an element.*/"
-    write(fcode, "(A)") 'struct ciaaw_saw_element_t'//suffix//'{'
-    write(fcode, "(4X, A)") 'char element['//trim(S_LENGTH_ELEMENT)//']; /**< Element name. */'
-    write(fcode, "(4X, A)") 'char symbol['//trim(S_LENGTH_SYMBOL)//']; /**< Element symbol. */'
-    write(fcode, "(4X, A)") 'int z; /**< Element atomic number. */'
-    write(fcode, "(4X, A)") 'double saw_min; /**< Min standard atomic weight. */'
-    write(fcode, "(4X, A)") 'double saw_max; /**< Max standard atomic weight. */'
-    write(fcode, "(4X, A)") 'double saw; /**< Value standard atomic weight. */'
-    write(fcode, "(4X, A)") 'double saw_u; /**< Uncertainty standard atomic weight. */'
-    write(fcode, "(4X, A)") 'double asaw; /**< Abridged value standard atomic weight. */'
-    write(fcode, "(4X, A)") 'double asaw_u; /**< Abridged uncertainty standard atomic weight. */'
-     write(fcode, "(A)") '};'
     
 end subroutine
 
@@ -492,8 +452,8 @@ subroutine write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
             ! Fortran
             name = trim(symbol)//suffix
             write(ffortran, '(A)') '!> ' // trim(element) // "."
-            write(ffortran, "(A)") 'type(element_t'//suffix//'), parameter, public :: '//trim(name)//' =&'
-            write(ffortran, "(A)", advance='NO') 'element_t'//suffix//'("'//trim(element)//'",'
+            write(ffortran, "(A)") 'type(element_t), parameter, public :: '//trim(name)//' =&'
+            write(ffortran, "(A)", advance='NO') 'element_t'//'("'//trim(element)//'",'
             write(ffortran, "(A)", advance='NO') '"'//trim(symbol)//'", '//trim(z)//", "
             write(ffortran, "(A)", advance='NO') trim(saw_min)// ", "//trim(saw_max)//", "
             write(ffortran, "(A)", advance='NO') trim(adjustl(saw))//", "//trim(adjustl(saw_u))//", "
@@ -503,9 +463,9 @@ subroutine write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
             name_capi = "capi_"//trim(symbol)//suffix
             name_binding = 'ciaaw_saw_'//trim(symbol)//suffix
             write(ffortran, '(A)') '!> C API ' // trim(element) // "."
-            write(ffortran, "(A)", advance="NO") 'type(capi_element_t'//suffix//'), protected, public, '
+            write(ffortran, "(A)", advance="NO") 'type(capi_element_t), protected, public, '
             write(ffortran, "(A)", advance="YES") 'bind(C, name="'//trim(name_binding)//'") :: '//trim(name_capi)//' =&'
-            write(ffortran, "(A)", advance="YES")  'capi_element_t'//suffix//'(&'
+            write(ffortran, "(A)", advance="YES")  'capi_element_t'//'(&'
             ix_trim = len(trim(element))
             write(ffortran, "(A)", advance="NO") '['
             do j=1, ix_trim
@@ -536,7 +496,7 @@ subroutine write_saw_data(fciaaw, ffortran, fcheader, fcpython, props)
 
             ! C Header
             name = "ciaaw_saw_"//trim(symbol)//suffix
-        write(fcheader, "(A)", advance='NO') 'ADD_IMPORT extern const struct ciaaw_saw_element_t'//suffix//' '//trim(name)//';'
+        write(fcheader, "(A)", advance='NO') 'ADD_IMPORT extern const struct ciaaw_saw_element_t '//trim(name)//';'
             write(fcheader, '(A)') '/**< C API '//trim(symbol)//suffix//'.*/'
 
             ! Cpython

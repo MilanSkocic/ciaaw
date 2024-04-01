@@ -10,18 +10,7 @@
 #else
 #define ADD_IMPORT
 #endif
-/** @brief C API - Object representing an element.*/
-struct ciaaw_saw_element_t{
-    char element[25]; /**< Element name. */
-    char symbol[9]; /**< Element symbol. */
-    int z; /**< Element atomic number. */
-    double saw_min; /**< Min standard atomic weight. */
-    double saw_max; /**< Max standard atomic weight. */
-    double saw; /**< Value standard atomic weight. */
-    double saw_u; /**< Uncertainty standard atomic weight. */
-    double asaw; /**< Abridged value standard atomic weight. */
-    double asaw_u; /**< Abridged uncertainty standard atomic weight. */
-};
+#include "ciaaw_saw_dtypes.h"
 ADD_IMPORT extern const int YEAR; /**< C API Publication year. */
 
 ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_H;/**< C API H.*/

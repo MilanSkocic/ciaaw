@@ -6,37 +6,12 @@ module ciaaw__saw_latest
 use iso_fortran_env
 use iso_c_binding
 use ieee_arithmetic
+use ciaaw__saw_dtypes
 implicit none
 private
 
 integer(int64), parameter :: x = 1
 real(real64), parameter :: nan = transfer(huge(x), 1.0d0)
-
-!> @brief Object representing an element.
-type, public :: element_t
-character(len=24) :: element !< Element name.
-character(len=8) :: symbol !< Element symbol.
-integer(int32) :: z !< Element atomic number.
-real(real64) :: saw_min !< Min standard atomic weight.
-real(real64) :: saw_max !< Max standard atomic weight.
-real(real64) :: saw !< Value standard atomic weight.
-real(real64) :: saw_u !< Uncertainty standard atomic weight.
-real(real64) :: asaw !< Abridged value standard atomic weight.
-real(real64) :: asaw_u !< Abridged uncertainty standard atomic weight.
-end type
-
-!> @brief Object representing an element.
-type, public, bind(C) :: capi_element_t
-character(kind=c_char) :: element(25) !< Element name.
-character(kind=c_char) :: symbol(9) !< Element symbol.
-integer(c_int) :: z !< Element atomic number.
-real(c_double) :: saw_min !< Min standard atomic weight.
-real(c_double) :: saw_max !< Max standard atomic weight.
-real(c_double) :: saw !< Value standard atomic weight.
-real(c_double) :: saw_u !< Uncertainty standard atomic weight.
-real(c_double) :: asaw !< Abridged value standard atomic weight.
-real(c_double) :: asaw_u !< Abridged uncertainty standard atomic weight.
-end type
 
 integer(int32), parameter, public :: YEAR = 2021   !< Year of saw
 integer(c_int), protected, public, bind(C,name="YEAR") ::capi_YEAR = YEAR !< C API Year of saw
