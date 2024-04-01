@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief C API Standard Atomic Weights.
+ * @brief C API - Standard Atomic Weights.
  */
 
 #ifndef CIAAW_SAW_H

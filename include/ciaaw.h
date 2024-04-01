@@ -1,6 +1,6 @@
 /**
  * @file 
- * @brief Main C header for the CIAAW library.
+ * @brief C API - Main C header for the CIAAW library.
  */
 #ifndef CIAAW_H
 #define CIAAW_H

@@ -1,6 +1,6 @@
 /**
 * @file
-* @brief C API  Version
+* @brief C API - Version
 */
 
 #ifndef CIAAW_VERSION_H
