@@ -6,7 +6,7 @@ maintainer = "milan.skocic@icloud.com"
 copyright = "Copyright 2023-2024, Milan Skocic"
 description = "Standard atomic weights according to CIAAW."
 categories = ["Science", "Chemistry"]
-keywords = ["atomic weights", "molar masses", "ciaaw"]
+keywords = ["atomic weights", "molar masses", "ciaaw", "isotopes"]
 homepage = "https://milanskocic.github.io/ciaaw/index.html"
 
 [fortran]
