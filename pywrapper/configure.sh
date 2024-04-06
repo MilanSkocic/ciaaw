@@ -31,7 +31,6 @@ fi
 if [ "$PLATFORM" = "windows" ]; then
     ROOT=$ROOTWINDOWS
     EXT=".dll"
-    LIBS+=$LIBSWINDOWS
     LIBS=( "${LIBSWINDOWS[@]}" )
 fi
 
