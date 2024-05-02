@@ -123,17 +123,12 @@ subroutine write_fortran_module_declaration(fcode, year)
     write(fcode, "(A)") "use iso_fortran_env"
     write(fcode, "(A)") "use iso_c_binding"
     write(fcode, "(A)") "use ieee_arithmetic"
-    write(fcode, "(A)") "use ciaaw__saw_dtypes"
+    write(fcode, "(A)") "use ciaaw__saw_type"
     write(fcode, "(A)") "implicit none"
     write(fcode, "(A, /)") "private"
     write(fcode, "(A)") "integer(int64), parameter :: x = 1"
     write(fcode, "(A, /)") "real(real64), parameter :: nan = transfer(huge(x), 1.0d0)"
 
-    if(year == "latest")then
-        suffix = ''
-    else
-        suffix = trim('_'//props%year)
-    endif
 end subroutine
 
 subroutine write_fortran_module_end(fcode, year)
@@ -181,13 +176,7 @@ subroutine write_C_header_declaration(fcode, year)
     write(fcode, "(A)") "#else"
     write(fcode, "(A)") "#define ADD_IMPORT"
     write(fcode, "(A)") "#endif"
-    write(fcode, "(A)") '#include "ciaaw_saw_dtypes.h"'
-    
-    if(year == "latest")then
-        suffix = ''
-    else
-        suffix = trim('_'//year)
-    endif
+    write(fcode, "(A)") '#include "ciaaw_saw_type.h"'
     
 end subroutine
 
@@ -215,7 +204,7 @@ subroutine write_cpython_extension_declaration(fcode, year)
     suffix = trim("_"//year)
     write(fcode, "(A)") "#define PY_SSIZE_T_CLEAN"
     write(fcode, "(A)") "#include <Python.h>"
-    write(fcode, "(A)") '#include "ciaaw_saw'//suffix//'.h"'
+    write(fcode, "(A)") '#include "ciaaw_saw.h"'
     write(fcode, "(A)") ""
     write(fcode, "(A)") 'PyDoc_STRVAR(module_docstring, "C extension for saw '//trim(year)//'.");'
     write(fcode, "(A)") ""

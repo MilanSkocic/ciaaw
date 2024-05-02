@@ -3,8 +3,8 @@
 * @brief C API - Derived type for Standard Atomic Weights
 */
 
-#ifndef CIAAW_SAW_DTYPES_H
-#define CIAAW_SAW_DTYPES_H
+#ifndef CIAAW_SAW_TYPE_H
+#define CIAAW_SAW_TYPE_H
 
 /** @brief C API - Structure representing an element.*/
 struct ciaaw_saw_element_t{

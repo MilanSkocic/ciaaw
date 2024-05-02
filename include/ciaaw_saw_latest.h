@@ -10,7 +10,7 @@
 #else
 #define ADD_IMPORT
 #endif
-#include "ciaaw_saw_dtypes.h"
+#include "ciaaw_saw_type.h"
 ADD_IMPORT extern const int YEAR; /**< C API Publication year. */
 
 ADD_IMPORT extern const struct ciaaw_saw_element_t ciaaw_saw_H;/**< C API H.*/

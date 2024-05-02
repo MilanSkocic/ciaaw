@@ -1,6 +1,6 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
-#include "ciaaw_saw_2021.h"
+#include "ciaaw_saw.h"
 
 PyDoc_STRVAR(module_docstring, "C extension for saw 2021.");
 

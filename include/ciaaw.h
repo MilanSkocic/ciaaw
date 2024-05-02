@@ -6,7 +6,6 @@
 #define CIAAW_H
 
 #include "ciaaw_version.h"
-#include "ciaaw_saw_dtypes.h"
 #include "ciaaw_saw.h"
 
 #endif

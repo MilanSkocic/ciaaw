@@ -6,7 +6,7 @@ module ciaaw__saw_2021
 use iso_fortran_env
 use iso_c_binding
 use ieee_arithmetic
-use ciaaw__saw_dtypes
+use ciaaw__saw_type
 implicit none
 private
 

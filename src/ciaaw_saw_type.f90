@@ -2,7 +2,7 @@
 !> @brief Derived types for Standard Atomic Weights. 
 
 !> @brief Derived types for Standard Atomic Weights. 
-module ciaaw__saw_dtypes
+module ciaaw__saw_type
 use iso_fortran_env
 use iso_c_binding
 implicit none
@@ -34,4 +34,4 @@ real(c_double) :: asaw !< Abridged value standard atomic weight.
 real(c_double) :: asaw_u !< Abridged uncertainty standard atomic weight.
 end type
 
-end module ciaaw__saw_dtypes
+end module ciaaw__saw_type
