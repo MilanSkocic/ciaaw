@@ -157,12 +157,6 @@ subroutine write_C_header_declaration(fcode, year)
     
     character(len=:), allocatable :: suffix
     
-    character(len=32) :: S_LENGTH_ELEMENT
-    character(len=32) :: S_LENGTH_SYMBOL
-    
-    write(S_LENGTH_ELEMENT, "(I2)") LENGTH_ELEMENT+1
-    write(S_LENGTH_SYMBOL, "(I1)") LENGTH_SYMBOL+1
-
     suffix = trim("_"//year)
     write(fcode, "(A)") '/**'
     write(fcode, "(A)") '* @file'
@@ -230,22 +224,6 @@ subroutine write_cpython_extension_end(fcode)
         !! File unit of the Python module.
     write(fcode, "(4X, A)") "return m;"
     write(fcode, "(A)") "}"
-end subroutine
-
-subroutine convert_value_to_fortran(value)
-    !! Convert power symbol d to e for C code
-    ! Arguments
-    character(len=*), intent(inout) :: value
-        ! Value to be converted.
-    
-    ! Local vars
-    integer(int32) :: i
-
-    do i=1, len(value), 1
-        if(value(i:i) == 'e' .or. value(i:i) == 'E')then
-            value(i:i) = achar(iachar("d"))
-        end if
-    end do
 end subroutine
 
 subroutine clean_line(line)
