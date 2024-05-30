@@ -1,6 +1,6 @@
 name = "ciaaw"
-version = "0.2.0"
-license = "GPL-3.0-or-later"
+version = "0.3.0"
+license = "MIT"
 author = "Milan Skocic"
 maintainer = "milan.skocic@icloud.com"
 copyright = "Copyright 2023-2024, Milan Skocic"
@@ -36,3 +36,4 @@ name = "tester"
 main = "tester.f90"
 [test.dependencies]
 test-drive = {git="https://github.com/fortran-lang/test-drive", tag="v0.4.0"}
+stdlib = "*"
