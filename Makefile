@@ -10,7 +10,7 @@ else
 	btype=release
 endif
 
-.PHONY: build nist stdlib sources doc upload_doc
+.PHONY: build nist sources doc 
 
 all: $(LIBNAME)
 
@@ -66,14 +66,11 @@ uninstall:
 	rm -f $(install_dir)/lib/$(LIBNAME).dll.a
 	rm -f $(install_dir)/bin/$(LIBNAME).dll
 
-nist:
-	make -C nist
+data:
+	make -C data
 
-sources: nist 
+sources: data 
 	make -C src 
-
-stdlib: nist sources
-	make -C stdlib
 
 doc:
 	ford API-doc-FORD-file.md
@@ -85,6 +82,5 @@ clean:
 	make -C media clean
 	make -C nist clean
 	make -C src clean
-	make -C stdlib clean
 	fpm clean --all
 	rm -rf API-doc/*
