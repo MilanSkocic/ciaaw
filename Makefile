@@ -73,3 +73,6 @@ uninstall:
 	rm -f $(install_dir)/lib/$(LIBNAME).dll.a
 	rm -f $(install_dir)/bin/$(LIBNAME).dll
 
+.PHONY: doc
+doc:
+	ford API-doc-FORD-file.md
