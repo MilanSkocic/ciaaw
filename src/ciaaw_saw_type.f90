@@ -16,7 +16,6 @@ module ciaaw__saw_type
         real(real64) :: saw_u !! Uncertainty standard atomic weight.
         real(real64) :: asaw !! Abridged value standard atomic weight.
         real(real64) :: asaw_u !! Abridged uncertainty standard atomic weight.
-        character(len=8) :: footnote !! Footnotes.
     end type
 
     type, public, bind(C) :: capi_element_t
@@ -30,7 +29,6 @@ module ciaaw__saw_type
         real(c_double) :: saw_u !! Uncertainty standard atomic weight.
         real(c_double) :: asaw !! Abridged value standard atomic weight.
         real(c_double) :: asaw_u !! Abridged uncertainty standard atomic weight.
-        character(kind=c_char) :: footnote(8) !! Footnotes.
     end type
 
 end module ciaaw__saw_type
