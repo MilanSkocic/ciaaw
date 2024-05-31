@@ -10,7 +10,7 @@ else
 	btype=release
 endif
 
-.PHONY: build nist sources doc 
+.PHONY: build data sources doc 
 
 all: $(LIBNAME)
 
