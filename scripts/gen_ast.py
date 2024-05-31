@@ -63,7 +63,7 @@ def format_saw(line):
         saw_u_db = ceil(saw_u_db * 10**(-n*1.0))*10**(n*1.0)
 
         saw = str(round(saw_db, -n))
-        saw_u = str(saw_u_db)
+        saw_u = str(round(saw_u_db, -n))
 
     else:
         saw_max = "nan"

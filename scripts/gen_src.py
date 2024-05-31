@@ -35,9 +35,9 @@ def write_year(f, year):
 def write_constant(f, element, symbol, z, saw_min, saw_max, saw, saw_u, asaw, asaw_u, footnotes, year):
     suffix = get_suffix(year)
     
-    f.write(f"type(saw_element_type), parameter, public :: "+\
+    f.write(f"type(saw_type), parameter, public :: "+\
                 f"{symbol}{suffix} = &" + newline +\
-                f"saw_element_type(\"{element:s}\", \"{symbol:s}\", {z:s}, &" + newline+\
+                f"saw_type(\"{element:s}\", \"{symbol:s}\", {z:s}, &" + newline+\
                 f"{saw_min:s}_dp, {saw_min:s}_dp, {saw:s}_dp, {saw_u:s}_dp, &" + newline+\
                 f"{asaw:s}_dp, {asaw_u}_dp, \"{footnotes:s}\") !! {element:s}" + newline)
     
