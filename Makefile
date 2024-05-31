@@ -55,6 +55,7 @@ install_darwin:
 
 install_windows:
 	cp -f $(BUILD_DIR)/$(LIBNAME).dll.a $(install_dir)/lib
+	cp -f $(BUILD_DIR)/$(LIBNAME).dll $(install_dir)/lib
 	cp -f $(BUILD_DIR)/$(LIBNAME).dll $(install_dir)/bin
 
 uninstall:
@@ -64,6 +65,7 @@ uninstall:
 	rm -f $(install_dir)/lib/$(LIBNAME).so
 	rm -f $(install_dir)/lib/$(LIBNAME).dylib
 	rm -f $(install_dir)/lib/$(LIBNAME).dll.a
+	rm -f $(install_dir)/lib/$(LIBNAME).dll
 	rm -f $(install_dir)/bin/$(LIBNAME).dll
 
 data:
@@ -80,7 +82,7 @@ logo:
 
 clean:
 	make -C media clean
-	make -C nist clean
+	make -C data clean
 	make -C src clean
 	fpm clean --all
 	rm -rf API-doc/*

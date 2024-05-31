@@ -9,7 +9,7 @@ saw = "1.00798"
 saw_u = "8e-05"
 asaw = "1.0080"
 asaw_u = "0.0002"
-footnote = "m"
+footnotes = "m"
 
 [HELIUM]
 year = "2021"
@@ -22,7 +22,7 @@ saw = "4.002602"
 saw_u = "0.000002"
 asaw = "4.0026"
 asaw_u = "0.0001"
-footnote = "g r"
+footnotes = "g r"
 
 [LITHIUM]
 year = "2021"
@@ -35,7 +35,7 @@ saw = "6.97"
 saw_u = "0.02"
 asaw = "6.94"
 asaw_u = "0.06"
-footnote = "m"
+footnotes = "m"
 
 [BERYLLIUM]
 year = "2021"
@@ -48,7 +48,7 @@ saw = "9.0121831"
 saw_u = "0.0000005"
 asaw = "9.0122"
 asaw_u = "0.00001"
-footnote = ""
+footnotes = ""
 
 [BORON]
 year = "2021"
@@ -61,7 +61,7 @@ saw = "10.813"
 saw_u = "0.005"
 asaw = "10.81"
 asaw_u = "0.02"
-footnote = "m"
+footnotes = "m"
 
 [CARBON]
 year = "2021"
@@ -74,7 +74,7 @@ saw = "12.0106"
 saw_u = "0.0006000000000000001"
 asaw = "12.011"
 asaw_u = "0.002"
-footnote = "m"
+footnotes = "m"
 
 [NITROGEN]
 year = "2021"
@@ -87,7 +87,7 @@ saw = "14.0069"
 saw_u = "0.00030000000000000003"
 asaw = "14.007"
 asaw_u = "0.001"
-footnote = "m"
+footnotes = "m"
 
 [OXYGEN]
 year = "2021"
@@ -100,7 +100,7 @@ saw = "15.9994"
 saw_u = "0.00030000000000000003"
 asaw = "15.999"
 asaw_u = "0.001"
-footnote = "m"
+footnotes = "m"
 
 [FLUORINE]
 year = "2021"
@@ -113,7 +113,7 @@ saw = "18.998403162"
 saw_u = "0.000000005"
 asaw = "18.998"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [NEON]
 year = "2021"
@@ -126,7 +126,7 @@ saw = "20.1797"
 saw_u = "0.0006"
 asaw = "20.180"
 asaw_u = "0.001"
-footnote = "g m"
+footnotes = "g m"
 
 [SODIUM]
 year = "2021"
@@ -139,7 +139,7 @@ saw = "22.98976928"
 saw_u = "0.00000002"
 asaw = "22.990"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [MAGNESIUM]
 year = "2021"
@@ -152,7 +152,7 @@ saw = "24.3055"
 saw_u = "0.0009000000000000001"
 asaw = "24.305"
 asaw_u = "0.002"
-footnote = ""
+footnotes = ""
 
 [ALUMINIUM]
 year = "2021"
@@ -165,7 +165,7 @@ saw = "26.9815384"
 saw_u = "0.0000003"
 asaw = "26.982"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [SILICON]
 year = "2021"
@@ -178,7 +178,7 @@ saw = "28.085"
 saw_u = "0.0006000000000000001"
 asaw = "28.085"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [PHOSPHORUS]
 year = "2021"
@@ -191,7 +191,7 @@ saw = "30.973761998"
 saw_u = "0.000000005"
 asaw = "30.974"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [SULFUR]
 year = "2021"
@@ -204,7 +204,7 @@ saw = "32.067"
 saw_u = "0.005"
 asaw = "32.06"
 asaw_u = "0.02"
-footnote = ""
+footnotes = ""
 
 [CHLORINE]
 year = "2021"
@@ -217,7 +217,7 @@ saw = "35.451"
 saw_u = "0.004"
 asaw = "35.45"
 asaw_u = "0.01"
-footnote = "m"
+footnotes = "m"
 
 [ARGON]
 year = "2021"
@@ -230,7 +230,7 @@ saw = "39.88"
 saw_u = "0.05"
 asaw = "39.95"
 asaw_u = "0.16"
-footnote = ""
+footnotes = ""
 
 [POTASSIUM]
 year = "2021"
@@ -243,7 +243,7 @@ saw = "39.0983"
 saw_u = "0.0001"
 asaw = "39.098"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [CALCIUM]
 year = "2021"
@@ -256,7 +256,7 @@ saw = "40.078"
 saw_u = "0.004"
 asaw = "40.078"
 asaw_u = "0.004"
-footnote = "g"
+footnotes = "g"
 
 [SCANDIUM]
 year = "2021"
@@ -269,7 +269,7 @@ saw = "44.955907"
 saw_u = "0.000004"
 asaw = "44.956"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [TITANIUM]
 year = "2021"
@@ -282,7 +282,7 @@ saw = "47.867"
 saw_u = "0.001"
 asaw = "47.867"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [VANADIUM]
 year = "2021"
@@ -295,7 +295,7 @@ saw = "50.9415"
 saw_u = "0.0001"
 asaw = "50.942"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [CHROMIUM]
 year = "2021"
@@ -308,7 +308,7 @@ saw = "51.9961"
 saw_u = "0.0006"
 asaw = "51.996"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [MANGANESE]
 year = "2021"
@@ -321,7 +321,7 @@ saw = "54.938043"
 saw_u = "0.000002"
 asaw = "54.938"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [IRON]
 year = "2021"
@@ -334,7 +334,7 @@ saw = "55.845"
 saw_u = "0.002"
 asaw = "55.845"
 asaw_u = "0.002"
-footnote = ""
+footnotes = ""
 
 [COBALT]
 year = "2021"
@@ -347,7 +347,7 @@ saw = "58.933194"
 saw_u = "0.000003"
 asaw = "58.933"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [NICKEL]
 year = "2021"
@@ -360,7 +360,7 @@ saw = "58.6934"
 saw_u = "0.0004"
 asaw = "58.693"
 asaw_u = "0.001"
-footnote = "r"
+footnotes = "r"
 
 [COPPER]
 year = "2021"
@@ -373,7 +373,7 @@ saw = "63.546"
 saw_u = "0.003"
 asaw = "63.546"
 asaw_u = "0.003"
-footnote = "r"
+footnotes = "r"
 
 [ZINC]
 year = "2021"
@@ -386,7 +386,7 @@ saw = "65.38"
 saw_u = "0.02"
 asaw = "65.38"
 asaw_u = "0.02"
-footnote = "r"
+footnotes = "r"
 
 [GALLIUM]
 year = "2021"
@@ -399,7 +399,7 @@ saw = "69.723"
 saw_u = "0.001"
 asaw = "69.723"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [GERMANIUM]
 year = "2021"
@@ -412,7 +412,7 @@ saw = "72.630"
 saw_u = "0.008"
 asaw = "72.630"
 asaw_u = "0.008"
-footnote = ""
+footnotes = ""
 
 [ARSENIC]
 year = "2021"
@@ -425,7 +425,7 @@ saw = "74.921595"
 saw_u = "0.000006"
 asaw = "74.922"
 asaw_u = "0.001"
-footnote = "r"
+footnotes = "r"
 
 [SELENIUM]
 year = "2021"
@@ -438,7 +438,7 @@ saw = "78.971"
 saw_u = "0.008"
 asaw = "78.971"
 asaw_u = "0.008"
-footnote = ""
+footnotes = ""
 
 [BROMINE]
 year = "2021"
@@ -451,7 +451,7 @@ saw = "79.904"
 saw_u = "0.002"
 asaw = "79.904"
 asaw_u = "0.003"
-footnote = ""
+footnotes = ""
 
 [KRYPTON]
 year = "2021"
@@ -464,7 +464,7 @@ saw = "83.798"
 saw_u = "0.002"
 asaw = "83.798"
 asaw_u = "0.002"
-footnote = "g m"
+footnotes = "g m"
 
 [RUBIDIUM]
 year = "2021"
@@ -477,7 +477,7 @@ saw = "85.4678"
 saw_u = "0.0003"
 asaw = "85.468"
 asaw_u = "0.001"
-footnote = "g"
+footnotes = "g"
 
 [STRONTIUM]
 year = "2021"
@@ -490,7 +490,7 @@ saw = "87.62"
 saw_u = "0.01"
 asaw = "87.62"
 asaw_u = "0.01"
-footnote = "g r"
+footnotes = "g r"
 
 [YTTRIUM]
 year = "2021"
@@ -503,7 +503,7 @@ saw = "88.905838"
 saw_u = "0.000002"
 asaw = "88.906"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [ZIRCONIUM]
 year = "2021"
@@ -516,7 +516,7 @@ saw = "91.224"
 saw_u = "0.002"
 asaw = "91.224"
 asaw_u = "0.002"
-footnote = "g"
+footnotes = "g"
 
 [NOBIUM]
 year = "2021"
@@ -529,7 +529,7 @@ saw = "92.90637"
 saw_u = "0.00001"
 asaw = "92.906"
 asaw_u = "0.001"
-footnote = ""
+footnotes = ""
 
 [MOLYBDENUM]
 year = "2021"
@@ -542,7 +542,7 @@ saw = "95.95"
 saw_u = "0.01"
 asaw = "95.95"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [TECHNETIUM]
 year = "2021"
@@ -555,7 +555,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [RUTHENIUM]
 year = "2021"
@@ -568,7 +568,7 @@ saw = "101.07"
 saw_u = "0.02"
 asaw = "101.07"
 asaw_u = "0.02"
-footnote = "g"
+footnotes = "g"
 
 [RHODIUM]
 year = "2021"
@@ -581,7 +581,7 @@ saw = "102.90549"
 saw_u = "0.00002"
 asaw = "102.91"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [PALLADIUM]
 year = "2021"
@@ -594,7 +594,7 @@ saw = "106.42"
 saw_u = "0.01"
 asaw = "106.42"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [SILVER]
 year = "2021"
@@ -607,7 +607,7 @@ saw = "107.8682"
 saw_u = "0.0002"
 asaw = "107.87"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [CADMIUM]
 year = "2021"
@@ -620,7 +620,7 @@ saw = "112.414"
 saw_u = "0.004"
 asaw = "112.41"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [INDIUM]
 year = "2021"
@@ -633,7 +633,7 @@ saw = "114.818"
 saw_u = "0.001"
 asaw = "114.82"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [TIN]
 year = "2021"
@@ -646,7 +646,7 @@ saw = "118.70"
 saw_u = "0.007"
 asaw = "118.71"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [ANTIMONY]
 year = "2021"
@@ -659,7 +659,7 @@ saw = "121.760"
 saw_u = "0.001"
 asaw = "121.76"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [TELLURIUM]
 year = "2021"
@@ -672,7 +672,7 @@ saw = "127.60"
 saw_u = "0.03"
 asaw = "127.60"
 asaw_u = "0.03"
-footnote = "g"
+footnotes = "g"
 
 [IODINE]
 year = "2021"
@@ -685,7 +685,7 @@ saw = "126.90447"
 saw_u = "0.00003"
 asaw = "126.90"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [XENON]
 year = "2021"
@@ -698,7 +698,7 @@ saw = "131.293"
 saw_u = "0.006"
 asaw = "131.29"
 asaw_u = "0.01"
-footnote = "g m"
+footnotes = "g m"
 
 [CAESIUM]
 year = "2021"
@@ -711,7 +711,7 @@ saw = "132.90545196"
 saw_u = "0.00000006"
 asaw = "132.91"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [BARIUM]
 year = "2021"
@@ -724,7 +724,7 @@ saw = "137.327"
 saw_u = "0.007"
 asaw = "137.33"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [LANTHANUM]
 year = "2021"
@@ -737,7 +737,7 @@ saw = "138.90547"
 saw_u = "0.00007"
 asaw = "138.91"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [CERIUM]
 year = "2021"
@@ -750,7 +750,7 @@ saw = "140.116"
 saw_u = "0.001"
 asaw = "140.12"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [PRASEODYMIUM]
 year = "2021"
@@ -763,7 +763,7 @@ saw = "140.90766"
 saw_u = "0.00001"
 asaw = "140.91"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [NEODYMIUM]
 year = "2021"
@@ -776,7 +776,7 @@ saw = "144.242"
 saw_u = "0.003"
 asaw = "144.24"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [PROMETHIUM]
 year = "2021"
@@ -789,7 +789,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [SAMARIUM]
 year = "2021"
@@ -802,7 +802,7 @@ saw = "150.36"
 saw_u = "0.02"
 asaw = "150.36"
 asaw_u = "0.02"
-footnote = "g"
+footnotes = "g"
 
 [EUROPIUM]
 year = "2021"
@@ -815,7 +815,7 @@ saw = "151.964"
 saw_u = "0.001"
 asaw = "151.96"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [GADOLINIUM]
 year = "2021"
@@ -828,7 +828,7 @@ saw = "157.25"
 saw_u = "0.03"
 asaw = "157.25"
 asaw_u = "0.03"
-footnote = "g"
+footnotes = "g"
 
 [TERBIUM]
 year = "2021"
@@ -841,7 +841,7 @@ saw = "158.925354"
 saw_u = "0.000007"
 asaw = "158.93"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [DYSPROSIUM]
 year = "2021"
@@ -854,7 +854,7 @@ saw = "162.500"
 saw_u = "0.001"
 asaw = "162.50"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [HOLMIUM]
 year = "2021"
@@ -867,7 +867,7 @@ saw = "164.930329"
 saw_u = "0.000005"
 asaw = "164.93"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [ERBIUM]
 year = "2021"
@@ -880,7 +880,7 @@ saw = "167.259"
 saw_u = "0.003"
 asaw = "167.26"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [THULIUM]
 year = "2021"
@@ -893,7 +893,7 @@ saw = "168.934219"
 saw_u = "0.000005"
 asaw = "168.93"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [YTTERBIUM]
 year = "2021"
@@ -906,7 +906,7 @@ saw = "173.045"
 saw_u = "0.010"
 asaw = "173.05"
 asaw_u = "0.02"
-footnote = "g"
+footnotes = "g"
 
 [LUTETIUM]
 year = "2021"
@@ -919,7 +919,7 @@ saw = "174.9668"
 saw_u = "0.0001"
 asaw = "174.97"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [HAFNIUM]
 year = "2021"
@@ -932,7 +932,7 @@ saw = "178.486"
 saw_u = "0.006"
 asaw = "178.49"
 asaw_u = "0.01"
-footnote = "g"
+footnotes = "g"
 
 [TANTALUM]
 year = "2021"
@@ -945,7 +945,7 @@ saw = "180.94788"
 saw_u = "0.00002"
 asaw = "180.95"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [TUNGSTEN]
 year = "2021"
@@ -958,7 +958,7 @@ saw = "183.84"
 saw_u = "0.01"
 asaw = "183.84"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [RHENIUM]
 year = "2021"
@@ -971,7 +971,7 @@ saw = "186.207"
 saw_u = "0.001"
 asaw = "186.21"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [OSMIUM]
 year = "2021"
@@ -984,7 +984,7 @@ saw = "190.23"
 saw_u = "0.03"
 asaw = "190.23"
 asaw_u = "0.03"
-footnote = "g"
+footnotes = "g"
 
 [IRIDIUM]
 year = "2021"
@@ -997,7 +997,7 @@ saw = "192.217"
 saw_u = "0.002"
 asaw = "192.22"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [PLATINUM]
 year = "2021"
@@ -1010,7 +1010,7 @@ saw = "195.084"
 saw_u = "0.009"
 asaw = "195.08"
 asaw_u = "0.02"
-footnote = ""
+footnotes = ""
 
 [GOLD]
 year = "2021"
@@ -1023,7 +1023,7 @@ saw = "196.966570"
 saw_u = "0.000004"
 asaw = "196.97"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [MERCURY]
 year = "2021"
@@ -1036,7 +1036,7 @@ saw = "200.592"
 saw_u = "0.003"
 asaw = "200.59"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [THALLIUM]
 year = "2021"
@@ -1049,7 +1049,7 @@ saw = "204.3835"
 saw_u = "0.0009000000000000001"
 asaw = "204.38"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [LEAD]
 year = "2021"
@@ -1062,7 +1062,7 @@ saw = "207.0"
 saw_u = "0.6000000000000001"
 asaw = "207.2"
 asaw_u = "1.1"
-footnote = ""
+footnotes = ""
 
 [BISMUTH]
 year = "2021"
@@ -1075,7 +1075,7 @@ saw = "208.98040"
 saw_u = "0.00001"
 asaw = "208.98"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [POLONIUM]
 year = "2021"
@@ -1088,7 +1088,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [ASTATINE]
 year = "2021"
@@ -1101,7 +1101,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [RADON]
 year = "2021"
@@ -1114,7 +1114,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [FRANCIUM]
 year = "2021"
@@ -1127,7 +1127,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [RADIUM]
 year = "2021"
@@ -1140,7 +1140,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [ACTINIUM]
 year = "2021"
@@ -1153,7 +1153,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [THORIUM]
 year = "2021"
@@ -1166,7 +1166,7 @@ saw = "232.0377"
 saw_u = "0.0004"
 asaw = "232.04"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [PROTACTINIUM]
 year = "2021"
@@ -1179,7 +1179,7 @@ saw = "231.03588"
 saw_u = "0.00001"
 asaw = "231.04"
 asaw_u = "0.01"
-footnote = ""
+footnotes = ""
 
 [URANIUM]
 year = "2021"
@@ -1192,7 +1192,7 @@ saw = "238.02891"
 saw_u = "0.00003"
 asaw = "238.03"
 asaw_u = "0.01"
-footnote = "g m"
+footnotes = "g m"
 
 [NEPTUNIUM]
 year = "2021"
@@ -1205,7 +1205,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [PLUTONIUM]
 year = "2021"
@@ -1218,7 +1218,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [AMERICIUM]
 year = "2021"
@@ -1231,7 +1231,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [CURIUM]
 year = "2021"
@@ -1244,7 +1244,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [BERKELIUM]
 year = "2021"
@@ -1257,7 +1257,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [CALIFORNIUM]
 year = "2021"
@@ -1270,7 +1270,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [EINSTEINIUM]
 year = "2021"
@@ -1283,7 +1283,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [FERMIUM]
 year = "2021"
@@ -1296,7 +1296,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [MENDELEVIUM]
 year = "2021"
@@ -1309,7 +1309,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [NOBELIUM]
 year = "2021"
@@ -1322,7 +1322,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [LAWRENCIUM]
 year = "2021"
@@ -1335,7 +1335,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [RUTHERFORDIUM]
 year = "2021"
@@ -1348,7 +1348,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [DUBNIUM]
 year = "2021"
@@ -1361,7 +1361,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [SEABORGIUM]
 year = "2021"
@@ -1374,7 +1374,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [BOHRIUM]
 year = "2021"
@@ -1387,7 +1387,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [HASSIUM]
 year = "2021"
@@ -1400,7 +1400,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [MEITNERIUM]
 year = "2021"
@@ -1413,7 +1413,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [DARMSTADTIUM]
 year = "2021"
@@ -1426,7 +1426,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [ROENTGENIUM]
 year = "2021"
@@ -1439,7 +1439,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [COPERNICIUM]
 year = "2021"
@@ -1452,7 +1452,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [NIHONIUM]
 year = "2021"
@@ -1465,7 +1465,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [FLEROVIUM]
 year = "2021"
@@ -1478,7 +1478,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [MOSCOVIUM]
 year = "2021"
@@ -1491,7 +1491,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [LIVERMORIUM]
 year = "2021"
@@ -1504,7 +1504,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [TENNESINE]
 year = "2021"
@@ -1517,7 +1517,7 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""
 
 [ORGANESSON]
 year = "2021"
@@ -1530,4 +1530,4 @@ saw = "nan"
 saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
-footnote = ""
+footnotes = ""

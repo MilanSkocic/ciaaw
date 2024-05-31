@@ -27,10 +27,6 @@ library = true
 name = "example_in_f"
 main = "example_in_f.f90"
 
-[[example]]
-name = "example_in_c"
-main = "example_in_c.c"
-
 [[test]]
 name = "tester"
 main = "tester.f90"

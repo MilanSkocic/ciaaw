@@ -2,7 +2,7 @@ program example_in_f
     use ciaaw
     implicit none
 
-    type(element_t) :: elmt
+    type(saw_element_type) :: elmt
 
     print '(A)', '########### CIAAW VERSION ##########'
     print *, "version ", get_version()  

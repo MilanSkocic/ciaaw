@@ -5,7 +5,7 @@ module ciaaw__saw_type
     implicit none
     private
 
-    type, public :: element_t
+    type, public :: saw_element_type
         !! Derived type representing an element.
         character(len=24) :: element !! Element name.
         character(len=8) :: symbol !! Element symbol.
@@ -16,19 +16,7 @@ module ciaaw__saw_type
         real(real64) :: saw_u !! Uncertainty standard atomic weight.
         real(real64) :: asaw !! Abridged value standard atomic weight.
         real(real64) :: asaw_u !! Abridged uncertainty standard atomic weight.
-    end type
-
-    type, public, bind(C) :: capi_element_t
-        !! Derived type representing an element in C API.
-        character(kind=c_char) :: element(25) !! Element name.
-        character(kind=c_char) :: symbol(9) !! Element symbol.
-        integer(c_int) :: z !! Element atomic number.
-        real(c_double) :: saw_min !! Min standard atomic weight.
-        real(c_double) :: saw_max !! Max standard atomic weight.
-        real(c_double) :: saw !! Value standard atomic weight.
-        real(c_double) :: saw_u !! Uncertainty standard atomic weight.
-        real(c_double) :: asaw !! Abridged value standard atomic weight.
-        real(c_double) :: asaw_u !! Abridged uncertainty standard atomic weight.
+        character(len=8) :: footnote !! Footnotes
     end type
 
 end module ciaaw__saw_type

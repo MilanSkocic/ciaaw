@@ -114,7 +114,7 @@ def run(fpath_raw: str, fpath_ast:str)->None:
                                         "saw_u": saw_u,
                                         "asaw": asaw,
                                         "asaw_u": asaw_u,
-                                        "footnote": footnote}})
+                                        "footnotes": footnote}})
             k += 1
 
     fpath = fpath_ast
