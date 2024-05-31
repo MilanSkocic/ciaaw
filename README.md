@@ -2,7 +2,7 @@
 
 `ciaaw` is a  Fortran library providing the standard and abridged atomic weights, 
 the isotopic abundance and the isotopes' standard atomic weights.
-It also provides a API for the C language. The formulas are taken from http://ciaaw.org. 
+The formulas are taken from http://ciaaw.org. 
 
 To use `ciaaw` within your `fpm <https://github.com/fortran-lang/fpm>`_ project,
 add the following to your `fpm.toml` file:
