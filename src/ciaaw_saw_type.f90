@@ -30,7 +30,7 @@ module ciaaw__saw_type
         real(c_double) :: saw_u !! Uncertainty standard atomic weight.
         real(c_double) :: asaw !! Abridged value standard atomic weight.
         real(c_double) :: asaw_u !! Abridged uncertainty standard atomic weight.
-        character(lkind=c_char) :: footnote(8) !! Footnotes.
+        character(kind=c_char) :: footnote(8) !! Footnotes.
     end type
 
 end module ciaaw__saw_type
