@@ -81,7 +81,6 @@ logo:
 	make -C media
 
 clean:
-	make -C media clean
 	make -C data clean
 	make -C src clean
 	fpm clean --all
