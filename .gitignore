@@ -15,6 +15,7 @@
 .idea/
 bin/
 build/
+API-doc/
 docs/build/
 dist/
 .vscode/

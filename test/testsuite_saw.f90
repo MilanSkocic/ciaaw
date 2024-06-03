@@ -29,7 +29,7 @@ subroutine test_asaw(error)
     implicit none
     integer(int32), parameter :: N = 3
     type(error_type), allocatable, intent(out) :: error 
-    type(element_t) :: elements(N) = [H, C, Ne]
+    type(saw_element_type) :: elements(N) = [H, C, Ne]
     real(real64) :: expected_asaw(N) = [1.0080d0, 12.011d0, 20.180d0]
 
     integer(int32) :: i

@@ -1,12 +1,12 @@
 name = "ciaaw"
-version = "0.2.0"
-license = "GPL-3.0-or-later"
+version = "0.3.0"
+license = "MIT"
 author = "Milan Skocic"
 maintainer = "milan.skocic@icloud.com"
 copyright = "Copyright 2023-2024, Milan Skocic"
 description = "Standard atomic weights according to CIAAW."
 categories = ["Science", "Chemistry"]
-keywords = ["atomic weights", "molar masses", "ciaaw"]
+keywords = ["atomic weights", "molar masses", "ciaaw", "isotopes"]
 homepage = "https://milanskocic.github.io/ciaaw/index.html"
 
 [fortran]
@@ -27,12 +27,12 @@ library = true
 name = "example_in_f"
 main = "example_in_f.f90"
 
-[[example]]
-name = "example_in_c"
-main = "example_in_c.c"
-
 [[test]]
 name = "tester"
 main = "tester.f90"
+
+[dependencies]
+stdlib = "*"
+
 [test.dependencies]
 test-drive = {git="https://github.com/fortran-lang/test-drive", tag="v0.4.0"}

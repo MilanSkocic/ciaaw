@@ -10,21 +10,20 @@ else
 	btype=release
 endif
 
+.PHONY: build data sources doc 
+
 all: $(LIBNAME)
 
 $(LIBNAME): build copy_a shared
 
-generator:
-	make -C srcgen generator
-
-build: generator
+build: 
 	fpm build --profile=$(btype)
 
 test: build
 	fpm test --profile=$(btype)
-	
+
 example: build
-	fpm run --profile=$(btype) --example --all
+	fpm run --profile=$(btype) --example example_in_f
 
 copy_a: 
 	cp -f $(shell find ./build/gfortran* -type f -name $(LIBNAME).a) $(BUILD_DIR)
@@ -40,19 +39,13 @@ shared_darwin:
 shared_windows: 
 	$(FC) -shared $(FPM_LDFLAGS) -o $(BUILD_DIR)/$(LIBNAME).dll -Wl,--out-implib=$(BUILD_DIR)/$(LIBNAME).dll.a,--export-all-symbols,--enable-auto-import,--whole-archive $(BUILD_DIR)/$(LIBNAME).a -Wl,--no-whole-archive
 
-clean:
-	fpm clean --all
-	rm -f src/*.mod
-	make -C srcgen clean
-
 install: install_dirs install_$(PLATFORM)
 
 install_dirs: 
 	mkdir -p $(install_dir)/bin
 	mkdir -p $(install_dir)/include
 	mkdir -p $(install_dir)/lib
-	fpm install --prefix=$(install_dir)
-	cp -f ./include/*.h $(install_dir)/include
+	fpm install --prefix=$(install_dir) --profile=$(btype)
 
 install_linux: 
 	cp -f $(BUILD_DIR)/$(LIBNAME).so $(install_dir)/lib
@@ -62,6 +55,7 @@ install_darwin:
 
 install_windows:
 	cp -f $(BUILD_DIR)/$(LIBNAME).dll.a $(install_dir)/lib
+	cp -f $(BUILD_DIR)/$(LIBNAME).dll $(install_dir)/lib
 	cp -f $(BUILD_DIR)/$(LIBNAME).dll $(install_dir)/bin
 
 uninstall:
@@ -71,5 +65,23 @@ uninstall:
 	rm -f $(install_dir)/lib/$(LIBNAME).so
 	rm -f $(install_dir)/lib/$(LIBNAME).dylib
 	rm -f $(install_dir)/lib/$(LIBNAME).dll.a
+	rm -f $(install_dir)/lib/$(LIBNAME).dll
 	rm -f $(install_dir)/bin/$(LIBNAME).dll
 
+data:
+	make -C data
+
+sources: data 
+	make -C src 
+
+doc:
+	ford API-doc-FORD-file.md
+
+logo:
+	make -C media
+
+clean:
+	make -C data clean
+	make -C src clean
+	fpm clean --all
+	rm -rf API-doc/*
