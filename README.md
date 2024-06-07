@@ -23,6 +23,7 @@ Optional thin wrappers allow usage of the library from other languages, e.g.:
 gcc>=10.0
 gfortran>=10.0
 fpm>=0.7
+stdlib>=0.5
 ```
 
 # Installation
