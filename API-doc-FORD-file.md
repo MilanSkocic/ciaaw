@@ -30,6 +30,7 @@ graph_maxnodes: 250
 graph_maxdepth: 5
 coloured_edges: true
 license: by-sa
+favicon: media/ico/logo-ciaaw.ico
 ---
 
 ![Ciaaw](./media/logo-ciaaw.png)
