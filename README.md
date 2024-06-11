@@ -17,6 +17,13 @@ Optional thin wrappers allow usage of the library from other languages, e.g.:
 * [C wrapper](https://github.com/MilanSkocic/ciaaw-capi)
 * [Python wrapper](https://github.com/MilanSkocic/ciaaw-py)
 
+# Dependencies
+
+```
+gcc>=10.0
+gfortran>=10.0
+fpm>=0.7
+```
 
 # Installation
 
@@ -54,13 +61,6 @@ Uninstall
 ```
 
 
-# Dependencies
-
-```
-gcc>=10.0
-gfortran>=10.0
-fpm>=0.7
-```
 
 
 # License
