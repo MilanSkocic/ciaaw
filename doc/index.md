@@ -2,7 +2,7 @@
 title: Contributing and specs
 ---
 
-![CIAAW](../media/logo-ciaaw.png)
+![CIAAW](../media/logo.png)
 
 Standard atomic weights according to CIAAW.
 
