@@ -2,7 +2,7 @@
 title: SAW: Standard Atomic Weights
 ---
 
-# Standard Atomic Weights
+# Description
 
 The standard atomic weights (or realtive atomic mass),\(A_r(E)\), 
 are extracted from table 1 (Prohaska et al. 2022). For the elements
