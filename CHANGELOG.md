@@ -1,3 +1,10 @@
+# Version 0.4.1
+
+* Fix bug in max value for saw. 
+
+Full changelog available at [github](https://github.com/MilanSkocic/ciaaw/releases)
+
+
 # Version 0.4.0
 
 * Fix type error in tests
