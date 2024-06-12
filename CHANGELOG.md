@@ -4,6 +4,8 @@
 * Refractoring
 * Documentation update.
 
+Full changelog available at [github](https://github.com/MilanSkocic/ciaaw/releases)
+
 
 # Version 0.3.0
 
