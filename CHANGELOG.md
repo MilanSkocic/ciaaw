@@ -1,3 +1,10 @@
+# Version 0.4.0
+
+* Fix type error in tests
+* Refractoring
+* Documentation update.
+
+
 # Version 0.3.0
 
 * Code refractoring.
