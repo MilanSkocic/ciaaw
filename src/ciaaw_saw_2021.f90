@@ -10,7 +10,7 @@ integer(int32), parameter, public :: YEAR = 2021 !! Year of release.
 
 type(saw_type), parameter, public :: H = &
 saw_type("hydrogen", "H", 1, &
-1.00784_dp, 1.00784_dp, 1.00798_dp, 8e-05_dp, &
+1.00784_dp, 1.00811_dp, 1.00798_dp, 8e-05_dp, &
 1.0080_dp, 0.0002_dp, "m") !! hydrogen
 
 type(saw_type), parameter, public :: He = &
@@ -20,7 +20,7 @@ nan_dp, nan_dp, 4.002602_dp, 0.000002_dp, &
 
 type(saw_type), parameter, public :: Li = &
 saw_type("lithium", "Li", 3, &
-6.938_dp, 6.938_dp, 6.97_dp, 0.02_dp, &
+6.938_dp, 6.997_dp, 6.97_dp, 0.02_dp, &
 6.94_dp, 0.06_dp, "m") !! lithium
 
 type(saw_type), parameter, public :: Be = &
@@ -30,22 +30,22 @@ nan_dp, nan_dp, 9.0121831_dp, 0.0000005_dp, &
 
 type(saw_type), parameter, public :: B = &
 saw_type("boron", "B", 5, &
-10.806_dp, 10.806_dp, 10.813_dp, 0.005_dp, &
+10.806_dp, 10.821_dp, 10.813_dp, 0.005_dp, &
 10.81_dp, 0.02_dp, "m") !! boron
 
 type(saw_type), parameter, public :: C = &
 saw_type("carbon", "C", 6, &
-12.0096_dp, 12.0096_dp, 12.0106_dp, 0.0006_dp, &
+12.0096_dp, 12.0116_dp, 12.0106_dp, 0.0006_dp, &
 12.011_dp, 0.002_dp, "m") !! carbon
 
 type(saw_type), parameter, public :: N = &
 saw_type("nitrogen", "N", 7, &
-14.00643_dp, 14.00643_dp, 14.0069_dp, 0.0003_dp, &
+14.00643_dp, 14.00728_dp, 14.0069_dp, 0.0003_dp, &
 14.007_dp, 0.001_dp, "m") !! nitrogen
 
 type(saw_type), parameter, public :: O = &
 saw_type("oxygen", "O", 8, &
-15.99903_dp, 15.99903_dp, 15.9994_dp, 0.0003_dp, &
+15.99903_dp, 15.99977_dp, 15.9994_dp, 0.0003_dp, &
 15.999_dp, 0.001_dp, "m") !! oxygen
 
 type(saw_type), parameter, public :: F = &
@@ -65,7 +65,7 @@ nan_dp, nan_dp, 22.98976928_dp, 0.00000002_dp, &
 
 type(saw_type), parameter, public :: Mg = &
 saw_type("magnesium", "Mg", 12, &
-24.304_dp, 24.304_dp, 24.3055_dp, 0.0009_dp, &
+24.304_dp, 24.307_dp, 24.3055_dp, 0.0009_dp, &
 24.305_dp, 0.002_dp, "") !! magnesium
 
 type(saw_type), parameter, public :: Al = &
@@ -75,7 +75,7 @@ nan_dp, nan_dp, 26.9815384_dp, 0.0000003_dp, &
 
 type(saw_type), parameter, public :: Si = &
 saw_type("silicon", "Si", 14, &
-28.084_dp, 28.084_dp, 28.085_dp, 0.0006_dp, &
+28.084_dp, 28.086_dp, 28.085_dp, 0.0006_dp, &
 28.085_dp, 0.001_dp, "") !! silicon
 
 type(saw_type), parameter, public :: P = &
@@ -85,17 +85,17 @@ nan_dp, nan_dp, 30.973761998_dp, 0.000000005_dp, &
 
 type(saw_type), parameter, public :: S = &
 saw_type("sulfur", "S", 16, &
-32.059_dp, 32.059_dp, 32.067_dp, 0.005_dp, &
+32.059_dp, 32.076_dp, 32.067_dp, 0.005_dp, &
 32.06_dp, 0.02_dp, "") !! sulfur
 
 type(saw_type), parameter, public :: Cl = &
 saw_type("chlorine", "Cl", 17, &
-35.446_dp, 35.446_dp, 35.451_dp, 0.004_dp, &
+35.446_dp, 35.457_dp, 35.451_dp, 0.004_dp, &
 35.45_dp, 0.01_dp, "m") !! chlorine
 
 type(saw_type), parameter, public :: Ar = &
 saw_type("argon", "Ar", 18, &
-39.792_dp, 39.792_dp, 39.88_dp, 0.05_dp, &
+39.792_dp, 39.963_dp, 39.88_dp, 0.05_dp, &
 39.95_dp, 0.16_dp, "") !! argon
 
 type(saw_type), parameter, public :: K = &
@@ -180,7 +180,7 @@ nan_dp, nan_dp, 78.971_dp, 0.008_dp, &
 
 type(saw_type), parameter, public :: Br = &
 saw_type("bromine", "Br", 35, &
-79.901_dp, 79.901_dp, 79.904_dp, 0.002_dp, &
+79.901_dp, 79.907_dp, 79.904_dp, 0.002_dp, &
 79.904_dp, 0.003_dp, "") !! bromine
 
 type(saw_type), parameter, public :: Kr = &
@@ -410,12 +410,12 @@ nan_dp, nan_dp, 200.592_dp, 0.003_dp, &
 
 type(saw_type), parameter, public :: Tl = &
 saw_type("thallium", "Tl", 81, &
-204.382_dp, 204.382_dp, 204.3835_dp, 0.0009_dp, &
+204.382_dp, 204.385_dp, 204.3835_dp, 0.0009_dp, &
 204.38_dp, 0.01_dp, "") !! thallium
 
 type(saw_type), parameter, public :: Pb = &
 saw_type("lead", "Pb", 82, &
-206.14_dp, 206.14_dp, 207.0_dp, 0.6_dp, &
+206.14_dp, 207.94_dp, 207.0_dp, 0.6_dp, &
 207.2_dp, 1.1_dp, "") !! lead
 
 type(saw_type), parameter, public :: Bi = &

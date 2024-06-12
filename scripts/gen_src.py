@@ -38,7 +38,7 @@ def write_constant(f, element, symbol, z, saw_min, saw_max, saw, saw_u, asaw, as
     f.write(f"type(saw_type), parameter, public :: "+\
                 f"{symbol}{suffix} = &" + newline +\
                 f"saw_type(\"{element:s}\", \"{symbol:s}\", {z:s}, &" + newline+\
-                f"{saw_min:s}_dp, {saw_min:s}_dp, {saw:s}_dp, {saw_u:s}_dp, &" + newline+\
+                f"{saw_min:s}_dp, {saw_max:s}_dp, {saw:s}_dp, {saw_u:s}_dp, &" + newline+\
                 f"{asaw:s}_dp, {asaw_u}_dp, \"{footnotes:s}\") !! {element:s}" + newline)
     
     f.write(newline)
