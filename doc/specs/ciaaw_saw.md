@@ -8,7 +8,7 @@ The module [[ciaaw__saw_2021(module)]] is automatically generated with a simple 
 
 The latest standard atomic weights were released in 2021 by the [ciaaw](https://www.ciaaw.org).
 All the values for the atomic weights are provided as double precision reals in a derived type
-[[ciaaw_saw_type(module):saw_type(type)]].
+[[ciaaw__saw_type(module):saw_type(type)]].
 
 The standard atomic weights (or realtive atomic mass),\(A_r(E)\), 
 are extracted from table 1 [Prohaska et al. 2022](../references.html). For the elements
