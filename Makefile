@@ -10,7 +10,9 @@ else
 	btype=release
 endif
 
-.PHONY: build data sources doc 
+SRC_FYPP=$(wildcard ./src/*.fypp)
+
+.PHONY: build nist stdlib sources doc
 
 all: $(LIBNAME)
 
@@ -59,8 +61,8 @@ install_windows:
 	cp -f $(BUILD_DIR)/$(LIBNAME).dll $(install_dir)/bin
 
 uninstall:
-	rm -f $(install_dir)/include/$(HEADER_PREFIX)*.h
-	rm -f $(install_dir)/include/$(HEADER_PREFIX)*.mod
+	rm -f $(install_dir)/include/$(NAME)*.h
+	rm -f $(install_dir)/include/$(NAME)*.mod
 	rm -f $(install_dir)/lib/$(LIBNAME).a
 	rm -f $(install_dir)/lib/$(LIBNAME).so
 	rm -f $(install_dir)/lib/$(LIBNAME).dylib
@@ -68,11 +70,14 @@ uninstall:
 	rm -f $(install_dir)/lib/$(LIBNAME).dll
 	rm -f $(install_dir)/bin/$(LIBNAME).dll
 
-data:
-	make -C data
+nist:
+	make -C nist
 
-sources: data 
+sources: nist 
 	make -C src 
+
+stdlib: nist sources
+	make -C stdlib
 
 doc:
 	ford API-doc-FORD-file.md
@@ -81,7 +86,8 @@ logo:
 	make -C media
 
 clean:
-	make -C data clean
+	make -C nist clean
 	make -C src clean
+	make -C stdlib clean
 	fpm clean --all
 	rm -rf API-doc/*
