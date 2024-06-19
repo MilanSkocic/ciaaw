@@ -12,7 +12,7 @@ endif
 
 SRC_FYPP=$(wildcard ./src/*.fypp)
 
-.PHONY: build nist stdlib sources doc
+.PHONY: build data stdlib sources doc
 
 all: $(LIBNAME)
 
@@ -70,24 +70,32 @@ uninstall:
 	rm -f $(install_dir)/lib/$(LIBNAME).dll
 	rm -f $(install_dir)/bin/$(LIBNAME).dll
 
-nist:
-	make -C nist
+data:
+	make -C data
 
-sources: nist 
+sources: data 
 	make -C src 
 
-stdlib: nist sources
-	make -C stdlib
+headers: sources
+	make -C include
+
+cpython: sources
+	make -C py/src/pycodata
 
 doc:
 	ford API-doc-FORD-file.md
+
+docs:
+	rm -rf docs/*
+	cp -rf API-doc/* docs/
 
 logo:
 	make -C media
 
 clean:
-	make -C nist clean
+	make -C data clean
 	make -C src clean
-	make -C stdlib clean
+	make -C include clean
+	make -C py clean
 	fpm clean --all
 	rm -rf API-doc/*

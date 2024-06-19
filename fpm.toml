@@ -25,7 +25,7 @@ library = true
 
 [[example]]
 name = "example_in_f"
-main = "example_in_f.f90"
+main = "example.f90"
 
 [[test]]
 name = "tester"
