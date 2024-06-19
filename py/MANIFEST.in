@@ -3,6 +3,6 @@ include LICENSE
 include VERSION
 include pyproject.toml
 include setup.py
-include src/pycodata/*.c
-include src/pycodata/*.h
+include src/pyciaaw/*.c
+include src/pyciaaw/*.h
 
