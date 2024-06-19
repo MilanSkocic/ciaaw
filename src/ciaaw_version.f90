@@ -3,7 +3,7 @@ module ciaaw__version
     implicit none
     private
 
-    character(len=*), parameter :: version = "0.4.1"
+    character(len=*), parameter :: version = "0.4.2"
     character(len=:), allocatable, target :: version_f
     character(len=:), allocatable, target :: version_c
 

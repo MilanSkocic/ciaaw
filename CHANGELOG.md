@@ -1,3 +1,14 @@
+# Version 0.4.2 
+
+* Refractoring.
+* Documentation update.
+* Merge back C API and Python wrapper.
+
+Full changelog available at [github](https://github.com/MilanSkocic/ciaaw/releases)
+
+
+**Not released yet**
+
 # Version 0.4.1
 
 * Fix bug in max value for saw. 
