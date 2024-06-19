@@ -14,10 +14,6 @@ add the following to your `fpm.toml` file:
     iapws = { git="https://github.com/MilanSkocic/ciaaw.git" }
 ```
 
-Optional thin wrappers allow usage of the library from other languages, e.g.:
-
-* [C wrapper](https://github.com/MilanSkocic/ciaaw-capi)
-* [Python wrapper](https://github.com/MilanSkocic/ciaaw-py)
 
 # Dependencies
 
