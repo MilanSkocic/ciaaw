@@ -5,3 +5,4 @@ title: Specifications (specs)
 This is an index/directory of the specifications (specs) for each module.
 
 - [saw](ciaaw_saw.html)
+- [C API](./capi.html) - Prototypes for C language.
