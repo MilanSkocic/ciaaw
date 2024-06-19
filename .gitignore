@@ -37,6 +37,6 @@ __pycache__
 .DS_Store
 
 py/wheelhouse/
-py/src/pycodata/bin/
-py/src/pycodata/include/
-py/src/pycodata/lib/
+py/src/pyciaaw/bin/
+py/src/pyciaaw/include/
+py/src/pyciaaw/lib/
