@@ -12,7 +12,7 @@ endif
 
 SRC_FYPP=$(wildcard ./src/*.fypp)
 
-.PHONY: build data stdlib sources doc
+.PHONY: build data stdlib sources doc docs
 
 all: $(LIBNAME)
 
