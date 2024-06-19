@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LIBNAME="libcodata"
-NAME="codata"
+LIBNAME="libciaaw"
+NAME="ciaaw"
 PYNAME="py$NAME"
 PY_SRC="./src/$PYNAME"
 

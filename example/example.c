@@ -6,13 +6,13 @@
 
 int main(void){
 
-    struct cciaaw_saw_type elmt;
+    struct ciaaw_saw_type elmt;
 
     printf("%s\n", "########## CIAAW VERSION ##########");
-    printf("version %s\n", cciaaw_get_version());
+    printf("version %s\n", ciaaw_get_version());
     
     printf("%s\n", "########## CIAAW SAW ##########");
-    elmt = cciaaw_saw_H;
+    elmt = ciaaw_saw_H;
     printf("%s %s\n", "Element: ", elmt.element);
     printf("%s %s\n", "Symbol: ", elmt.symbol);
     printf("%s %d\n", "Z: ", elmt.z);
@@ -24,7 +24,7 @@ int main(void){
     printf("%s %23.16f\n", "abredged standard atomic weight uncertainty: ", elmt.asaw_u);
     printf("%s\n", "");
 
-    elmt = cciaaw_saw_F;
+    elmt = ciaaw_saw_F;
     printf("%s %s\n", "Element: ", elmt.element);
     printf("%s %s\n", "Symbol: ", elmt.symbol);
     printf("%s %d\n", "Z: ", elmt.z);
