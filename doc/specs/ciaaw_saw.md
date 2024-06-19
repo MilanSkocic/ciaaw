@@ -27,6 +27,6 @@ See [codata](https://milanskocic.github.io/codata-docs/) for physical constants.
 # Example
 
 ```Fortran
-{!./example/example_in_f.f90!}
+{!./example/example.f90!}
 
 ```
