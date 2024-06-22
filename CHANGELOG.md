@@ -7,8 +7,6 @@
 Full changelog available at [github](https://github.com/MilanSkocic/ciaaw/releases)
 
 
-**Not released yet**
-
 # Version 0.4.1
 
 * Fix bug in max value for saw. 
