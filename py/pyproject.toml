@@ -16,7 +16,7 @@ classifiers=["Development Status :: 5 - Production/Stable",
 
 [project.urls]
 Documentation = "https://milanskocic.github.io/ciaaw/index.html"
-Source = "https://github.com/MilanSkocic/ciaawindex.html"
+Source = "https://github.com/MilanSkocic/ciaaw/index.html"
 
 [tool.setuptools]
 include-package-data = false
