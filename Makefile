@@ -12,7 +12,7 @@ endif
 
 SRC_FYPP=$(wildcard ./src/*.fypp)
 
-.PHONY: build data stdlib sources doc docs
+.PHONY: build data stdlib sources doc docs clean logo
 
 all: $(LIBNAME)
 
@@ -101,3 +101,7 @@ clean:
 	make -C py clean
 	fpm clean --all
 	rm -rf API-doc/*
+
+py: $(LIBNAME)
+	make install prefix=py/$(PY_SRC)
+	make -C py
