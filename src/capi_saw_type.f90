@@ -1,4 +1,4 @@
-module capi__saw_type
+module ciaaw__capi_saw_type
     !! Ciaaw saw type: C API.
     use iso_c_binding, only: c_char, c_double, c_int
     implicit none
@@ -18,4 +18,4 @@ module capi__saw_type
         character(kind=c_char) :: footnotes(9) !! Footnotes
     end type
 
-end module capi__saw_type
+end module ciaaw__capi_saw_type
