@@ -22,7 +22,7 @@ $$ u(A_r(E)) = \frac{b-a}{2\sqrt{3}} $$
 The standard atomic weights are a dimensionless quantity and thus they need to be multiplied by 
 the molar mass constant \(M_u=1.00000000105 \pm 0.00000000031 g.mol^{-1}\) 
 in order to get the value in \(g.mol^{-1}\). 
-See [codata](https://milanskocic.github.io/codata-docs/) for physical constants.
+See [codata](https://milanskocic.github.io/codata/) for physical constants.
 
 # Example
 
