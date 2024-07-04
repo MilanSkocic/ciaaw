@@ -19,11 +19,13 @@ pip install pyciaaw
 # Usage
 
 ```python
+import pyciaaw
+
 print("########## CIAAW VERSION ##########")
 print("version ", pyciaaw.__version__)
 
 print("########## CIAAW SAW ##########")
-elmt = pyciaaw.saw.H
+elmt = pyciaaw.H
 print("Element: ", elmt["element"])
 print("Symbol: ", elmt["symbol"])
 print("Z: ", elmt["z"])
@@ -35,7 +37,7 @@ print("abredged standard atomic weight: ", elmt["asaw"])
 print("abredged standard atomic weight uncertainty: ", elmt["asaw_u"])
 print()
 
-elmt = pyciaaw.saw.F
+elmt = pyciaaw.F
 print("Element: ", elmt["element"])
 print("Symbol: ", elmt["symbol"])
 print("Z: ", elmt["z"])
