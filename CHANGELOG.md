@@ -1,3 +1,11 @@
+# Version 0.4.3 
+
+* Refractoring.
+* Documentation update.
+
+Full changelog available at [github](https://github.com/MilanSkocic/ciaaw/releases)
+
+
 # Version 0.4.2 
 
 * Refractoring.
