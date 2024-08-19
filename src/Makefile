@@ -1,6 +1,6 @@
 PY=python
-GEN=../scripts/gen_src.py
-GEN_CAPI=../scripts/gen_capi.py
+GEN=../scripts/saw/gen_src.py
+GEN_CAPI=../scripts/saw/gen_capi.py
 
 AST_DIR=../data
 SRC_DIR=.

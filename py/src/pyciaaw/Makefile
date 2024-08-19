@@ -1,5 +1,5 @@
 PY=python
-GEN=../../../scripts/gen_cpython.py
+GEN=../../../scripts/saw/gen_cpython.py
 
 AST_DIR=../../../data
 

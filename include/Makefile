@@ -1,6 +1,6 @@
 PY=python
-GEN=../scripts/gen_headers.py
-CONC=../scripts/gen_header.py
+GEN=../scripts/saw/gen_headers.py
+CONC=../scripts/saw/gen_header.py
 
 AST_DIR=../data
 
