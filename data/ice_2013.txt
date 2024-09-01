@@ -4,6 +4,7 @@ The column 6  in table 1 is taken for the value and the uncertainty of isotopic 
 1         11        21        31        41        51        61        
 z         symbol    A         value               uncertainty
 ----------------------------------------------------------------------
-1         H         1         0.99984426
-1         H         2         0.99984426 
-2         He        3         0.000001343
+1         H         1         0.99984426          5e-8                
+1         H         2         0.99984426          5e-8                
+2         He        3         0.000001343         13e-9               
+2         He        4         0.999998657         13e-9
