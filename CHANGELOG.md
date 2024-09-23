@@ -1,3 +1,16 @@
+# Version 0.5.0
+
+* API break: 
+   * Data for standard atomic weights are no directly accessed.
+   * SAW and ICE are stored in derived types for each elements.
+   * Each element is stored in a table.
+   * Element properties are now accessed through getters.
+* Doc update.
+
+
+**Not released**
+
+
 # Version 0.4.3 
 
 * Refractoring.
