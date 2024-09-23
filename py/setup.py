@@ -114,8 +114,8 @@ if __name__ == "__main__":
                         library_dirs=library_dirs,
                         runtime_library_dirs=runtime_library_dirs,
                         extra_objects=extra_objects)
-    mod_saw_2021 = Extension(name="pyciaaw.saw_2021",
-                        sources=["./src/pyciaaw/cpy_ciaaw_saw_2021.c"],
+    mod_saw_2021 = Extension(name="pyciaaw.ciaaw",
+                        sources=["./src/pyciaaw/cpy_ciaaw.c"],
                         libraries=libraries,
                         library_dirs=library_dirs,
                         runtime_library_dirs=runtime_library_dirs,

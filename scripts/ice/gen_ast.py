@@ -75,7 +75,7 @@ def run(fpath_raw: str, fpath_ast:str)->None:
                 ulist.append(format_uncertainty(line))
                 alist.append(format_A(line))
                 z = format_z(line)
-                toml.update({symbol.upper(): {"z": z,
+                toml.update({symbol: {"z": z,
                                               "A": alist,
                                             "value": vlist, 
                                             "uncertainty": ulist}})

@@ -97,8 +97,6 @@ logo:
 clean:
 	make -C data clean
 	make -C src clean
-	make -C include clean
-	make -C py clean
 	fpm clean --all
 	rm -rf API-doc/*
 

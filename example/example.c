@@ -4,36 +4,20 @@
 #include "ciaaw.h"
 
 
+
 int main(void){
 
-    struct ciaaw_saw_type elmt;
+    char s[9] = "";
 
     printf("%s\n", "########## CIAAW VERSION ##########");
     printf("version %s\n", ciaaw_get_version());
     
-    printf("%s\n", "########## CIAAW SAW ##########");
-    elmt = ciaaw_saw_H;
-    printf("%s %s\n", "Element: ", elmt.element);
-    printf("%s %s\n", "Symbol: ", elmt.symbol);
-    printf("%s %d\n", "Z: ", elmt.z);
-    printf("%s %23.16f\n", "standard atomic weight max: ", elmt.saw_max);
-    printf("%s %23.16f\n", "standard atomic weight min: ", elmt.saw_min);
-    printf("%s %23.16f\n", "standard atomic weight: ", elmt.saw);
-    printf("%s %23.16f\n", "standard atomic weight uncertainty: ", elmt.saw_u);
-    printf("%s %23.16f\n", "abredged standard atomic weight: ", elmt.asaw);
-    printf("%s %23.16f\n", "abredged standard atomic weight uncertainty: ", elmt.asaw_u);
+    printf("%s\n", "########## CIAAW SAW - get by atomic number z ##########");
+    printf("%s %10.5f", "Abridged Standard Atomic Weight: ", ciaaw_get_asaw(1));
+    //printf("%s %10.5f", "Uncertainty for Abridged Standard Atomic Weight: ", get_asaw_u(1));
+
     printf("%s\n", "");
 
-    elmt = ciaaw_saw_F;
-    printf("%s %s\n", "Element: ", elmt.element);
-    printf("%s %s\n", "Symbol: ", elmt.symbol);
-    printf("%s %d\n", "Z: ", elmt.z);
-    printf("%s %23.16f\n", "standard atomic weight max: ", elmt.saw_max);
-    printf("%s %23.16f\n", "standard atomic weight min: ", elmt.saw_min);
-    printf("%s %23.16f\n", "standard atomic weight: ", elmt.saw);
-    printf("%s %23.16f\n", "standard atomic weight uncertainty: ", elmt.saw_u);
-    printf("%s %23.16f\n", "abredged standard atomic weight: ", elmt.asaw);
-    printf("%s %23.16f\n", "abredged standard atomic weight uncertainty: ", elmt.asaw_u);
 
     return EXIT_SUCCESS;
 }

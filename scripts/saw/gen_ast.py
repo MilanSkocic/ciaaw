@@ -49,25 +49,32 @@ def format_saw(line):
     
     compute = False
     if ("[" in saw) and ("]" in  saw):
-        compute = True
+        compute = False
         saw_min, saw_max = saw.replace("[","").replace("]", "").split(",")
-    
-    if compute:
-        saw_max_db = float(saw_max)
-        saw_min_db = float(saw_min)
-
-        saw_db = (saw_max_db + saw_min_db)/2.0
-        saw_u_db = (saw_max_db - saw_min_db)/(2.0*sqrt(3.0))
-        
-        n = floor(log10(saw_u_db))
-        saw_u_db = ceil(saw_u_db * 10**(-n*1.0))*10**(n*1.0)
-
-        saw = str(round(saw_db, -n))
-        saw_u = str(round(saw_u_db, -n))
-
+        saw = "nan"
     else:
         saw_max = "nan"
         saw_min = "nan"
+    
+#    if compute:
+#        saw_max_db = float(saw_max)
+#        saw_min_db = float(saw_min)
+#
+#        saw_db = (saw_max_db + saw_min_db)/2.0
+#        saw_u_db = (saw_max_db - saw_min_db)/(2.0*sqrt(3.0))
+#        
+#        n = floor(log10(saw_u_db))
+#        saw_u_db = ceil(saw_u_db * 10**(-n*1.0))*10**(n*1.0)
+#
+#        saw = str(round(saw_db, -n))
+#        saw_u = str(round(saw_u_db, -n))
+
+#    else:
+#        saw_max = "nan"
+#        saw_min = "nan"
+
+    if len(saw_u) == 0:
+        saw_u = "nan"
 
     return saw_max, saw_min, saw, saw_u
 
@@ -113,8 +120,7 @@ def run(fpath_raw: str, fpath_ast:str)->None:
                                         "saw": saw,
                                         "saw_u": saw_u,
                                         "asaw": asaw,
-                                        "asaw_u": asaw_u,
-                                        "footnotes": footnote}})
+                                        "asaw_u": asaw_u}})
             k += 1
 
     fpath = fpath_ast
