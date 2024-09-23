@@ -8,9 +8,17 @@ module ciaaw__pte
     implicit none
     private
     
-    type(element_type), parameter :: pt(2) = [&
-    element_type("hydrogen", "H", 1, H_saw, H_ice),&
-    element_type("helium", "He", 2, He_saw, He_ice)&
+    type(element_type), parameter :: pt(10) = [&
+    element_type("hydrogen",    "H",      1,    H_saw,     H_ice),&
+    element_type("helium",      "He",     2,    He_saw,    He_ice),&
+    element_type("lithium",     "Li",     3,    Li_saw,    Li_ice),&
+    element_type("beryllium",   "Be",     4,    Be_saw,    He_ice),&
+    element_type("boron",       "B",      5,    B_saw,     He_ice),&
+    element_type("carbon",      "C",      6,    C_saw,     He_ice),&
+    element_type("nitrogen",    "N",      7,    N_saw,     He_ice),&
+    element_type("oxygen",      "O",      8,    O_saw,     He_ice),&
+    element_type("fluorine",    "F",      9,    F_saw,     He_ice),&
+    element_type("Neon",        "Ne",    10,    F_saw,     He_ice)&
     ]
 
     public :: get_asaw, get_asaw_u    
