@@ -10,8 +10,8 @@ PyDoc_STRVAR(get_asaw_doc,
 "Get the abridged standard atomic weight. Returns -1 if not found.");
 
 
-static PyObject *get_asaw(PyObject *self, PyObject *args){
 
+static PyObject *get_asaw(PyObject *self, PyObject *args){
     int z;
     double res;
     
@@ -21,14 +21,15 @@ static PyObject *get_asaw(PyObject *self, PyObject *args){
     }
 
     res = ciaaw_get_asaw(z);
-
+    
     return Py_BuildValue("d", res);
 }
 
 
 
-static PyMethodDef myMethods[] = {  {"get_asaw", (PyCFunction) get_asaw, METH_VARARGS, get_asaw_doc},
-                                    { NULL, NULL, 0, NULL }};
+static PyMethodDef myMethods[] = {  
+    {"get_asaw", (PyCFunction) get_asaw, METH_VARARGS, get_asaw_doc},
+    { NULL, NULL, 0, NULL }};
 
 static struct PyModuleDef ciaaw = {PyModuleDef_HEAD_INIT, "ciaaw", module_docstring, -1, myMethods};
 

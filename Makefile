@@ -12,7 +12,7 @@ endif
 
 SRC_FYPP=$(wildcard ./src/*.fypp)
 
-.PHONY: build data stdlib sources doc docs clean logo
+.PHONY: build data sources doc docs clean logo
 
 all: $(LIBNAME)
 
@@ -78,12 +78,6 @@ data:
 sources: data 
 	make -C src 
 
-headers: sources
-	make -C include
-
-cpython: sources
-	make -C py/src/pyciaaw
-
 doc:
 	ford API-doc-FORD-file.md
 
@@ -97,6 +91,7 @@ logo:
 clean:
 	make -C data clean
 	make -C src clean
+	make -C py clean
 	fpm clean --all
 	rm -rf API-doc/*
 

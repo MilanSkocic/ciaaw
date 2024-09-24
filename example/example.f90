@@ -15,5 +15,4 @@ program example_in_f
     s = "He"
     print '(A, F10.5)', 'Abridged Standard Atomic Weight: ', get_asaw_by_symbol(s)
 
-
 end program
