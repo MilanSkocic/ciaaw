@@ -8,7 +8,7 @@ module ciaaw__pte
     implicit none
     private
     
-    type(element_type), parameter :: pt(18) = [&
+    type(element_type), parameter :: pt(36) = [&
     element_type("hydrogen",    "H",      1,    H_saw,     H_ice),&
     element_type("helium",      "He",     2,    He_saw,    He_ice),&
 
@@ -28,11 +28,32 @@ module ciaaw__pte
     element_type("phosphorus",  "P",     15,    P_saw,     He_ice),&
     element_type("sulfur",      "S",     16,    S_saw,     He_ice),&
     element_type("chlorine",    "Cl",    17,    Cl_saw,    He_ice),&
-    element_type("argon",       "Ar",    18,    Ar_saw,    He_ice)&
+    element_type("argon",       "Ar",    18,    Ar_saw,    He_ice),&
+    
+    element_type("potassium",   "K",     19,    K_saw,     He_ice),&
+    element_type("calcium",     "Ca",    20,    Ca_saw,    He_ice),&
+    element_type("scandium",    "Sc",    21,    Sc_saw,    He_ice),&
+    element_type("titanium",    "Ti",    22,    Ti_saw,    He_ice),&
+    element_type("vanadium",    "V",     23,    V_saw,     He_ice),&
+    element_type("chromium",    "Cr",    24,    Cr_saw,    He_ice),&
+    element_type("manganese",   "Mn",    25,    Mn_saw,    He_ice),&
+    element_type("iron",        "Fe",    26,    Fe_saw,    He_ice),&
+    element_type("cobalt",      "Co",    27,    Co_saw,    He_ice),&
+    element_type("nickel",      "Ni",    28,    Ni_saw,    He_ice),&
+    element_type("copper",      "Cu",    29,    Cu_saw,    He_ice),&
+    element_type("zinc",        "Zn",    30,    Zn_saw,    He_ice),&
+    element_type("gallium",     "Ga",    31,    Ga_saw,    He_ice),&
+    element_type("germanium",   "Ge",    32,    Ge_saw,    He_ice),&
+    element_type("arsenic",     "As",    33,    As_saw,    He_ice),&
+    element_type("selenium",    "Se",    34,    Se_saw,    He_ice),&
+    element_type("bromine",     "Br",    35,    Br_saw,    He_ice),&
+    element_type("krypton",     "Kr",    36,    Kr_saw,    He_ice)&
     ]
-
+    
+    public :: element_type
     public :: get_asaw, get_asaw_u    
     public :: get_asaw_by_symbol
+    public :: print_periodic_table
 
 contains
 
@@ -70,6 +91,19 @@ function get_z_by_symbol(s)result(res)
     end do
 
 end function
+
+subroutine print_periodic_table()
+    !! Print periodic table.
+    integer(int32) :: i
+
+    do i=1, size(pt)
+        print "(A25, A3)", pt(i)%element, pt(i)%symbol
+        print "(2F10.5)", pt(i)%saw%asaw, pt(i)%saw%asaw_u
+        print *, ""
+
+    end do
+
+end subroutine
 
 function get_saw(z, s, name)result(res)
     !! 

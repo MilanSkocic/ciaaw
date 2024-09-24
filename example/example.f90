@@ -7,6 +7,8 @@ program example_in_f
     print '(A)', '########### CIAAW VERSION ##########'
     print *, "version ", get_version()  
 
+    call print_periodic_table()
+
     print '(A)', '########### CIAAW SAW - get by atomic number z ##########'
     print '(A, F10.5)', 'Abridged Standard Atomic Weight: ', get_asaw(1)
     print '(A, F10.5)', 'Uncertainty for Abridged Standard Atomic Weight: ', get_asaw_u(1)
