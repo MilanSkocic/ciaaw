@@ -1,4 +1,4 @@
-module ciaaw__getters
+module ciaaw__api
     !! Getters
     use ciaaw__common
     use ciaaw__types, only: element_type
