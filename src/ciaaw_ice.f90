@@ -47,4 +47,32 @@ nan_dp, nan_dp, nan_dp,&
 nan_dp, nan_dp, nan_dp &
 ], shape=[3, 10])))
 
+type(ice_type), parameter, public :: Be_ice = &
+ice_type(1,transpose(reshape([&
+9.0_dp,1.00000_dp,0.0000_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp &
+], shape=[3, 10])))
+
+type(ice_type), parameter, public :: B_ice = &
+ice_type(2,transpose(reshape([&
+10.0_dp,0.1982_dp,2e-4_dp,&
+11.0_dp,0.8018_dp,2e-4_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp,&
+nan_dp, nan_dp, nan_dp &
+], shape=[3, 10])))
+
 end module ciaaw__ice
