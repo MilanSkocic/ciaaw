@@ -46,11 +46,24 @@ end function
 
 subroutine print_periodic_table()
     !! Print periodic table.
-    integer(int32) :: i
+    integer(int32) :: i,j
+    
+    character(len=10) :: v, u
+
 
     do i=1, size(pt)
-        print "(A25, A3)", pt(i)%element, pt(i)%symbol
-        print "(2F10.5)", pt(i)%saw%asaw, pt(i)%saw%asaw_u
+        print "(A, A)", pt(i)%symbol, "(" // trim(pt(i)%element) // ")"
+        
+        print *, "STANDARD ATOMIC WEIGHTS" 
+        write(v, "(F10.5)") pt(i)%saw%asaw
+        write(u, "(F10.5)") pt(i)%saw%asaw_u
+        print "(2A10)", adjustl(v), adjustl(u)
+        
+        print *, "ISOTOPIC COMPOSITIONS" 
+        do j=1, pt(i)%ice%n
+            print "(F3.0, 4X, ES12.5, 4X, ES12.5)", pt(i)%ice%values(j,:)
+        enddo
+
         print *, ""
 
     end do
