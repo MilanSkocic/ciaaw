@@ -1,13 +1,13 @@
 PY=python
 GEN=../scripts/saw/gen_src.py
 GEN_ICE=../scripts/ice/gen_src.py
-GEN_CAPI=../scripts/saw/gen_capi.py
+GEN_PTE=../scripts/pte/gen_src.py
 
 AST_DIR=../data
 SRC_DIR=.
 
 AST_SRC=$(wildcard $(AST_DIR)/*.toml)
-F_MODULE = ciaaw_saw.f90  ciaaw_ice.f90
+F_MODULE = ciaaw_saw.f90  ciaaw_ice.f90 ciaaw_pte.f90
 SRC_FYPP=$(wildcard *.fypp)
 SRC_FYPP_F90=$(patsubst %.fypp, %.f90, $(SRC_FYPP))
 
@@ -21,8 +21,8 @@ ciaaw_saw.f90: $(AST_DIR)/saw_2021.toml
 ciaaw_ice.f90: $(AST_DIR)/ice_2013.toml
 	$(PY) $(GEN_ICE) $< $@
 
-#capi_saw_2021.f90: $(AST_DIR)/saw_2021.toml
-#	$(PY) $(GEN_CAPI) $< $@
+ciaaw_pte.f90: $(AST_DIR)/saw_2021.toml
+	$(PY) $(GEN_PTE) $< $@
 
 %.f90: %.fypp
 	fypp -I ../include $< $@
