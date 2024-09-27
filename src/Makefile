@@ -21,8 +21,8 @@ ciaaw_saw.f90: $(AST_DIR)/saw_2021.toml
 ciaaw_ice.f90: $(AST_DIR)/ice_2013.toml
 	$(PY) $(GEN_ICE) $< $@
 
-ciaaw_pte.f90: $(AST_DIR)/saw_2021.toml
-	$(PY) $(GEN_PTE) $< $@
+ciaaw_pte.f90: $(AST_DIR)/saw_2021.toml $(AST_DIR)/ice_2013.toml
+	$(PY) $(GEN_PTE) $^ $@
 
 %.f90: %.fypp
 	fypp -I ../include $< $@

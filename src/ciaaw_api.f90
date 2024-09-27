@@ -3,6 +3,7 @@ module ciaaw__api
     use ciaaw__common
     use ciaaw__types, only: element_type
     use ciaaw__pte, only: pt
+    private
 
     public :: get_asaw, get_asaw_u    
     public :: get_asaw_by_symbol
@@ -48,22 +49,41 @@ subroutine print_periodic_table()
     !! Print periodic table.
     integer(int32) :: i,j
     
-    character(len=10) :: v, u
+    character(len=20) :: v, u, w
 
+    character(len=15) :: header(3)
+    character(len=15) :: ice_headers(3)
+
+    header = [character(len=20) :: "", "", ""]
+    ice_headers = [character(len=15) :: "A", "C /%", "dC /%"]
 
     do i=1, size(pt)
-        print "(A, A)", pt(i)%symbol, "(" // trim(pt(i)%element) // ")"
+        print "(A)", "======================================================================"
+        header(1) = pt(i)%symbol
+        header(2) = pt(i)%element
+        write(v, "(I3)") pt(i)%z
+        header(3) = "z=" // v
+        print "(3A15)", header
+        print "(A)", "======================================================================"
         
-        print *, "STANDARD ATOMIC WEIGHTS" 
+        print "(A)", "STANDARD ATOMIC WEIGHTS" 
         write(v, "(F10.5)") pt(i)%saw%asaw
         write(u, "(F10.5)") pt(i)%saw%asaw_u
-        print "(2A10)", adjustl(v), adjustl(u)
+        print "(A4, A10, A, A10)", "M = ", adjustl(v), "+/-", adjustl(u)
         
-        print *, "ISOTOPIC COMPOSITIONS" 
+        print "(A)", "----------------------------------------------------------------------"
+        
+        print "(A)", "ISOTOPIC COMPOSITIONS" 
+        print "(3A15)", ice_headers 
         do j=1, pt(i)%ice%n
-            print "(F3.0, 4X, ES12.5, 4X, ES12.5)", pt(i)%ice%values(j,:)
+            write(w, "(I3)") nint(pt(i)%ice%values(j,1))
+            write(v, "(ES12.5)") pt(i)%ice%values(j,2)
+            write(u, "(ES12.5)") pt(i)%ice%values(j,3)
+            print "(3A15)", adjustl(w), adjustl(v), adjustl(u) 
         enddo
+        print "(A)", "======================================================================"
 
+        print *, ""
         print *, ""
 
     end do

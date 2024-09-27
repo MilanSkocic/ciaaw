@@ -32,4 +32,20 @@ module ciaaw__types
         type(ice_type) :: ice         !! Isotopic composition of the element
     end type
 
+    
+    type(ice_type), parameter, public :: ice_nan = &
+    ice_type(0,transpose(reshape([&
+    nan_dp, nan_dp, nan_dp,&
+    nan_dp, nan_dp, nan_dp,&
+    nan_dp, nan_dp, nan_dp,&
+    nan_dp, nan_dp, nan_dp,&
+    nan_dp, nan_dp, nan_dp,&
+    nan_dp, nan_dp, nan_dp,&
+    nan_dp, nan_dp, nan_dp,&
+    nan_dp, nan_dp, nan_dp,&
+    nan_dp, nan_dp, nan_dp,&
+    nan_dp, nan_dp, nan_dp &
+    ], shape=[3, 10])))
+
+
 end module ciaaw__types

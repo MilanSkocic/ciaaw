@@ -111,7 +111,7 @@ def run(fpath_raw: str, fpath_ast:str)->None:
                 asaw_u = format_asaw_u(line)
                 footnote = format_notes(line)
 
-                toml.update({element.upper(): {"year": year, 
+                toml.update({symbol: {"year": year, 
                                         "element": element,
                                         "symbol": symbol,
                                         "z": z,

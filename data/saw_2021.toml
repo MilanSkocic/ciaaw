@@ -1,4 +1,4 @@
-[HYDROGEN]
+[H]
 year = "2021"
 element = "hydrogen"
 symbol = "H"
@@ -10,7 +10,7 @@ saw_u = "nan"
 asaw = "1.0080"
 asaw_u = "0.0002"
 
-[HELIUM]
+[He]
 year = "2021"
 element = "helium"
 symbol = "He"
@@ -22,7 +22,7 @@ saw_u = "0.000002"
 asaw = "4.0026"
 asaw_u = "0.0001"
 
-[LITHIUM]
+[Li]
 year = "2021"
 element = "lithium"
 symbol = "Li"
@@ -34,7 +34,7 @@ saw_u = "nan"
 asaw = "6.94"
 asaw_u = "0.06"
 
-[BERYLLIUM]
+[Be]
 year = "2021"
 element = "beryllium"
 symbol = "Be"
@@ -46,7 +46,7 @@ saw_u = "0.0000005"
 asaw = "9.0122"
 asaw_u = "0.00001"
 
-[BORON]
+[B]
 year = "2021"
 element = "boron"
 symbol = "B"
@@ -58,7 +58,7 @@ saw_u = "nan"
 asaw = "10.81"
 asaw_u = "0.02"
 
-[CARBON]
+[C]
 year = "2021"
 element = "carbon"
 symbol = "C"
@@ -70,7 +70,7 @@ saw_u = "nan"
 asaw = "12.011"
 asaw_u = "0.002"
 
-[NITROGEN]
+[N]
 year = "2021"
 element = "nitrogen"
 symbol = "N"
@@ -82,7 +82,7 @@ saw_u = "nan"
 asaw = "14.007"
 asaw_u = "0.001"
 
-[OXYGEN]
+[O]
 year = "2021"
 element = "oxygen"
 symbol = "O"
@@ -94,7 +94,7 @@ saw_u = "nan"
 asaw = "15.999"
 asaw_u = "0.001"
 
-[FLUORINE]
+[F]
 year = "2021"
 element = "fluorine"
 symbol = "F"
@@ -106,7 +106,7 @@ saw_u = "0.000000005"
 asaw = "18.998"
 asaw_u = "0.001"
 
-[NEON]
+[Ne]
 year = "2021"
 element = "neon"
 symbol = "Ne"
@@ -118,7 +118,7 @@ saw_u = "0.0006"
 asaw = "20.180"
 asaw_u = "0.001"
 
-[SODIUM]
+[Na]
 year = "2021"
 element = "sodium"
 symbol = "Na"
@@ -130,7 +130,7 @@ saw_u = "0.00000002"
 asaw = "22.990"
 asaw_u = "0.001"
 
-[MAGNESIUM]
+[Mg]
 year = "2021"
 element = "magnesium"
 symbol = "Mg"
@@ -142,7 +142,7 @@ saw_u = "nan"
 asaw = "24.305"
 asaw_u = "0.002"
 
-[ALUMINIUM]
+[Al]
 year = "2021"
 element = "aluminium"
 symbol = "Al"
@@ -154,7 +154,7 @@ saw_u = "0.0000003"
 asaw = "26.982"
 asaw_u = "0.001"
 
-[SILICON]
+[Si]
 year = "2021"
 element = "silicon"
 symbol = "Si"
@@ -166,7 +166,7 @@ saw_u = "nan"
 asaw = "28.085"
 asaw_u = "0.001"
 
-[PHOSPHORUS]
+[P]
 year = "2021"
 element = "phosphorus"
 symbol = "P"
@@ -178,7 +178,7 @@ saw_u = "0.000000005"
 asaw = "30.974"
 asaw_u = "0.001"
 
-[SULFUR]
+[S]
 year = "2021"
 element = "sulfur"
 symbol = "S"
@@ -190,7 +190,7 @@ saw_u = "nan"
 asaw = "32.06"
 asaw_u = "0.02"
 
-[CHLORINE]
+[Cl]
 year = "2021"
 element = "chlorine"
 symbol = "Cl"
@@ -202,7 +202,7 @@ saw_u = "nan"
 asaw = "35.45"
 asaw_u = "0.01"
 
-[ARGON]
+[Ar]
 year = "2021"
 element = "argon"
 symbol = "Ar"
@@ -214,7 +214,7 @@ saw_u = "nan"
 asaw = "39.95"
 asaw_u = "0.16"
 
-[POTASSIUM]
+[K]
 year = "2021"
 element = "potassium"
 symbol = "K"
@@ -226,7 +226,7 @@ saw_u = "0.0001"
 asaw = "39.098"
 asaw_u = "0.001"
 
-[CALCIUM]
+[Ca]
 year = "2021"
 element = "calcium"
 symbol = "Ca"
@@ -238,7 +238,7 @@ saw_u = "0.004"
 asaw = "40.078"
 asaw_u = "0.004"
 
-[SCANDIUM]
+[Sc]
 year = "2021"
 element = "scandium"
 symbol = "Sc"
@@ -250,7 +250,7 @@ saw_u = "0.000004"
 asaw = "44.956"
 asaw_u = "0.001"
 
-[TITANIUM]
+[Ti]
 year = "2021"
 element = "titanium"
 symbol = "Ti"
@@ -262,7 +262,7 @@ saw_u = "0.001"
 asaw = "47.867"
 asaw_u = "0.001"
 
-[VANADIUM]
+[V]
 year = "2021"
 element = "vanadium"
 symbol = "V"
@@ -274,7 +274,7 @@ saw_u = "0.0001"
 asaw = "50.942"
 asaw_u = "0.001"
 
-[CHROMIUM]
+[Cr]
 year = "2021"
 element = "chromium"
 symbol = "Cr"
@@ -286,7 +286,7 @@ saw_u = "0.0006"
 asaw = "51.996"
 asaw_u = "0.001"
 
-[MANGANESE]
+[Mn]
 year = "2021"
 element = "manganese"
 symbol = "Mn"
@@ -298,7 +298,7 @@ saw_u = "0.000002"
 asaw = "54.938"
 asaw_u = "0.001"
 
-[IRON]
+[Fe]
 year = "2021"
 element = "iron"
 symbol = "Fe"
@@ -310,7 +310,7 @@ saw_u = "0.002"
 asaw = "55.845"
 asaw_u = "0.002"
 
-[COBALT]
+[Co]
 year = "2021"
 element = "cobalt"
 symbol = "Co"
@@ -322,7 +322,7 @@ saw_u = "0.000003"
 asaw = "58.933"
 asaw_u = "0.001"
 
-[NICKEL]
+[Ni]
 year = "2021"
 element = "nickel"
 symbol = "Ni"
@@ -334,7 +334,7 @@ saw_u = "0.0004"
 asaw = "58.693"
 asaw_u = "0.001"
 
-[COPPER]
+[Cu]
 year = "2021"
 element = "copper"
 symbol = "Cu"
@@ -346,7 +346,7 @@ saw_u = "0.003"
 asaw = "63.546"
 asaw_u = "0.003"
 
-[ZINC]
+[Zn]
 year = "2021"
 element = "zinc"
 symbol = "Zn"
@@ -358,7 +358,7 @@ saw_u = "0.02"
 asaw = "65.38"
 asaw_u = "0.02"
 
-[GALLIUM]
+[Ga]
 year = "2021"
 element = "gallium"
 symbol = "Ga"
@@ -370,7 +370,7 @@ saw_u = "0.001"
 asaw = "69.723"
 asaw_u = "0.001"
 
-[GERMANIUM]
+[Ge]
 year = "2021"
 element = "germanium"
 symbol = "Ge"
@@ -382,7 +382,7 @@ saw_u = "0.008"
 asaw = "72.630"
 asaw_u = "0.008"
 
-[ARSENIC]
+[As]
 year = "2021"
 element = "arsenic"
 symbol = "As"
@@ -394,7 +394,7 @@ saw_u = "0.000006"
 asaw = "74.922"
 asaw_u = "0.001"
 
-[SELENIUM]
+[Se]
 year = "2021"
 element = "selenium"
 symbol = "Se"
@@ -406,7 +406,7 @@ saw_u = "0.008"
 asaw = "78.971"
 asaw_u = "0.008"
 
-[BROMINE]
+[Br]
 year = "2021"
 element = "bromine"
 symbol = "Br"
@@ -418,7 +418,7 @@ saw_u = "nan"
 asaw = "79.904"
 asaw_u = "0.003"
 
-[KRYPTON]
+[Kr]
 year = "2021"
 element = "krypton"
 symbol = "Kr"
@@ -430,7 +430,7 @@ saw_u = "0.002"
 asaw = "83.798"
 asaw_u = "0.002"
 
-[RUBIDIUM]
+[Rb]
 year = "2021"
 element = "rubidium"
 symbol = "Rb"
@@ -442,7 +442,7 @@ saw_u = "0.0003"
 asaw = "85.468"
 asaw_u = "0.001"
 
-[STRONTIUM]
+[Sr]
 year = "2021"
 element = "strontium"
 symbol = "Sr"
@@ -454,7 +454,7 @@ saw_u = "0.01"
 asaw = "87.62"
 asaw_u = "0.01"
 
-[YTTRIUM]
+[Y]
 year = "2021"
 element = "yttrium"
 symbol = "Y"
@@ -466,7 +466,7 @@ saw_u = "0.000002"
 asaw = "88.906"
 asaw_u = "0.001"
 
-[ZIRCONIUM]
+[Zr]
 year = "2021"
 element = "zirconium"
 symbol = "Zr"
@@ -478,7 +478,7 @@ saw_u = "0.002"
 asaw = "91.224"
 asaw_u = "0.002"
 
-[NOBIUM]
+[Nb]
 year = "2021"
 element = "nobium"
 symbol = "Nb"
@@ -490,7 +490,7 @@ saw_u = "0.00001"
 asaw = "92.906"
 asaw_u = "0.001"
 
-[MOLYBDENUM]
+[Mo]
 year = "2021"
 element = "molybdenum"
 symbol = "Mo"
@@ -502,7 +502,7 @@ saw_u = "0.01"
 asaw = "95.95"
 asaw_u = "0.01"
 
-[TECHNETIUM]
+[Tc]
 year = "2021"
 element = "technetium"
 symbol = "Tc"
@@ -514,7 +514,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[RUTHENIUM]
+[Ru]
 year = "2021"
 element = "ruthenium"
 symbol = "Ru"
@@ -526,7 +526,7 @@ saw_u = "0.02"
 asaw = "101.07"
 asaw_u = "0.02"
 
-[RHODIUM]
+[Rh]
 year = "2021"
 element = "rhodium"
 symbol = "Rh"
@@ -538,7 +538,7 @@ saw_u = "0.00002"
 asaw = "102.91"
 asaw_u = "0.01"
 
-[PALLADIUM]
+[Pd]
 year = "2021"
 element = "palladium"
 symbol = "Pd"
@@ -550,7 +550,7 @@ saw_u = "0.01"
 asaw = "106.42"
 asaw_u = "0.01"
 
-[SILVER]
+[Ag]
 year = "2021"
 element = "silver"
 symbol = "Ag"
@@ -562,7 +562,7 @@ saw_u = "0.0002"
 asaw = "107.87"
 asaw_u = "0.01"
 
-[CADMIUM]
+[Cd]
 year = "2021"
 element = "cadmium"
 symbol = "Cd"
@@ -574,7 +574,7 @@ saw_u = "0.004"
 asaw = "112.41"
 asaw_u = "0.01"
 
-[INDIUM]
+[In]
 year = "2021"
 element = "indium"
 symbol = "In"
@@ -586,7 +586,7 @@ saw_u = "0.001"
 asaw = "114.82"
 asaw_u = "0.01"
 
-[TIN]
+[Sn]
 year = "2021"
 element = "tin"
 symbol = "Sn"
@@ -598,7 +598,7 @@ saw_u = "0.007"
 asaw = "118.71"
 asaw_u = "0.01"
 
-[ANTIMONY]
+[Sb]
 year = "2021"
 element = "antimony"
 symbol = "Sb"
@@ -610,7 +610,7 @@ saw_u = "0.001"
 asaw = "121.76"
 asaw_u = "0.01"
 
-[TELLURIUM]
+[Te]
 year = "2021"
 element = "tellurium"
 symbol = "Te"
@@ -622,7 +622,7 @@ saw_u = "0.03"
 asaw = "127.60"
 asaw_u = "0.03"
 
-[IODINE]
+[I]
 year = "2021"
 element = "iodine"
 symbol = "I"
@@ -634,7 +634,7 @@ saw_u = "0.00003"
 asaw = "126.90"
 asaw_u = "0.01"
 
-[XENON]
+[Xe]
 year = "2021"
 element = "xenon"
 symbol = "Xe"
@@ -646,7 +646,7 @@ saw_u = "0.006"
 asaw = "131.29"
 asaw_u = "0.01"
 
-[CAESIUM]
+[Cs]
 year = "2021"
 element = "caesium"
 symbol = "Cs"
@@ -658,7 +658,7 @@ saw_u = "0.00000006"
 asaw = "132.91"
 asaw_u = "0.01"
 
-[BARIUM]
+[Ba]
 year = "2021"
 element = "barium"
 symbol = "Ba"
@@ -670,7 +670,7 @@ saw_u = "0.007"
 asaw = "137.33"
 asaw_u = "0.01"
 
-[LANTHANUM]
+[La]
 year = "2021"
 element = "lanthanum"
 symbol = "La"
@@ -682,7 +682,7 @@ saw_u = "0.00007"
 asaw = "138.91"
 asaw_u = "0.01"
 
-[CERIUM]
+[Ce]
 year = "2021"
 element = "cerium"
 symbol = "Ce"
@@ -694,7 +694,7 @@ saw_u = "0.001"
 asaw = "140.12"
 asaw_u = "0.01"
 
-[PRASEODYMIUM]
+[Pr]
 year = "2021"
 element = "praseodymium"
 symbol = "Pr"
@@ -706,7 +706,7 @@ saw_u = "0.00001"
 asaw = "140.91"
 asaw_u = "0.01"
 
-[NEODYMIUM]
+[Nd]
 year = "2021"
 element = "neodymium"
 symbol = "Nd"
@@ -718,7 +718,7 @@ saw_u = "0.003"
 asaw = "144.24"
 asaw_u = "0.01"
 
-[PROMETHIUM]
+[Pm]
 year = "2021"
 element = "promethium"
 symbol = "Pm"
@@ -730,7 +730,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[SAMARIUM]
+[Sm]
 year = "2021"
 element = "samarium"
 symbol = "Sm"
@@ -742,7 +742,7 @@ saw_u = "0.02"
 asaw = "150.36"
 asaw_u = "0.02"
 
-[EUROPIUM]
+[Eu]
 year = "2021"
 element = "europium"
 symbol = "Eu"
@@ -754,7 +754,7 @@ saw_u = "0.001"
 asaw = "151.96"
 asaw_u = "0.01"
 
-[GADOLINIUM]
+[Gd]
 year = "2021"
 element = "gadolinium"
 symbol = "Gd"
@@ -766,7 +766,7 @@ saw_u = "0.03"
 asaw = "157.25"
 asaw_u = "0.03"
 
-[TERBIUM]
+[Tb]
 year = "2021"
 element = "terbium"
 symbol = "Tb"
@@ -778,7 +778,7 @@ saw_u = "0.000007"
 asaw = "158.93"
 asaw_u = "0.01"
 
-[DYSPROSIUM]
+[Dy]
 year = "2021"
 element = "dysprosium"
 symbol = "Dy"
@@ -790,7 +790,7 @@ saw_u = "0.001"
 asaw = "162.50"
 asaw_u = "0.01"
 
-[HOLMIUM]
+[Ho]
 year = "2021"
 element = "holmium"
 symbol = "Ho"
@@ -802,7 +802,7 @@ saw_u = "0.000005"
 asaw = "164.93"
 asaw_u = "0.01"
 
-[ERBIUM]
+[Er]
 year = "2021"
 element = "erbium"
 symbol = "Er"
@@ -814,7 +814,7 @@ saw_u = "0.003"
 asaw = "167.26"
 asaw_u = "0.01"
 
-[THULIUM]
+[Tm]
 year = "2021"
 element = "thulium"
 symbol = "Tm"
@@ -826,7 +826,7 @@ saw_u = "0.000005"
 asaw = "168.93"
 asaw_u = "0.01"
 
-[YTTERBIUM]
+[Yb]
 year = "2021"
 element = "ytterbium"
 symbol = "Yb"
@@ -838,7 +838,7 @@ saw_u = "0.010"
 asaw = "173.05"
 asaw_u = "0.02"
 
-[LUTETIUM]
+[Lu]
 year = "2021"
 element = "lutetium"
 symbol = "Lu"
@@ -850,7 +850,7 @@ saw_u = "0.0001"
 asaw = "174.97"
 asaw_u = "0.01"
 
-[HAFNIUM]
+[Hf]
 year = "2021"
 element = "hafnium"
 symbol = "Hf"
@@ -862,7 +862,7 @@ saw_u = "0.006"
 asaw = "178.49"
 asaw_u = "0.01"
 
-[TANTALUM]
+[Ta]
 year = "2021"
 element = "tantalum"
 symbol = "Ta"
@@ -874,7 +874,7 @@ saw_u = "0.00002"
 asaw = "180.95"
 asaw_u = "0.01"
 
-[TUNGSTEN]
+[W]
 year = "2021"
 element = "tungsten"
 symbol = "W"
@@ -886,7 +886,7 @@ saw_u = "0.01"
 asaw = "183.84"
 asaw_u = "0.01"
 
-[RHENIUM]
+[Re]
 year = "2021"
 element = "rhenium"
 symbol = "Re"
@@ -898,7 +898,7 @@ saw_u = "0.001"
 asaw = "186.21"
 asaw_u = "0.01"
 
-[OSMIUM]
+[Os]
 year = "2021"
 element = "osmium"
 symbol = "Os"
@@ -910,7 +910,7 @@ saw_u = "0.03"
 asaw = "190.23"
 asaw_u = "0.03"
 
-[IRIDIUM]
+[Ir]
 year = "2021"
 element = "iridium"
 symbol = "Ir"
@@ -922,7 +922,7 @@ saw_u = "0.002"
 asaw = "192.22"
 asaw_u = "0.01"
 
-[PLATINUM]
+[Pt]
 year = "2021"
 element = "platinum"
 symbol = "Pt"
@@ -934,7 +934,7 @@ saw_u = "0.009"
 asaw = "195.08"
 asaw_u = "0.02"
 
-[GOLD]
+[Au]
 year = "2021"
 element = "gold"
 symbol = "Au"
@@ -946,7 +946,7 @@ saw_u = "0.000004"
 asaw = "196.97"
 asaw_u = "0.01"
 
-[MERCURY]
+[Hg]
 year = "2021"
 element = "mercury"
 symbol = "Hg"
@@ -958,7 +958,7 @@ saw_u = "0.003"
 asaw = "200.59"
 asaw_u = "0.01"
 
-[THALLIUM]
+[Tl]
 year = "2021"
 element = "thallium"
 symbol = "Tl"
@@ -970,7 +970,7 @@ saw_u = "nan"
 asaw = "204.38"
 asaw_u = "0.01"
 
-[LEAD]
+[Pb]
 year = "2021"
 element = "lead"
 symbol = "Pb"
@@ -982,7 +982,7 @@ saw_u = "nan"
 asaw = "207.2"
 asaw_u = "1.1"
 
-[BISMUTH]
+[Bi]
 year = "2021"
 element = "bismuth"
 symbol = "Bi"
@@ -994,7 +994,7 @@ saw_u = "0.00001"
 asaw = "208.98"
 asaw_u = "0.01"
 
-[POLONIUM]
+[Po]
 year = "2021"
 element = "polonium"
 symbol = "Po"
@@ -1006,7 +1006,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[ASTATINE]
+[At]
 year = "2021"
 element = "astatine"
 symbol = "At"
@@ -1018,7 +1018,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[RADON]
+[Rn]
 year = "2021"
 element = "radon"
 symbol = "Rn"
@@ -1030,7 +1030,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[FRANCIUM]
+[Fr]
 year = "2021"
 element = "francium"
 symbol = "Fr"
@@ -1042,7 +1042,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[RADIUM]
+[Ra]
 year = "2021"
 element = "radium"
 symbol = "Ra"
@@ -1054,7 +1054,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[ACTINIUM]
+[Ac]
 year = "2021"
 element = "actinium"
 symbol = "Ac"
@@ -1066,7 +1066,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[THORIUM]
+[Th]
 year = "2021"
 element = "thorium"
 symbol = "Th"
@@ -1078,7 +1078,7 @@ saw_u = "0.0004"
 asaw = "232.04"
 asaw_u = "0.01"
 
-[PROTACTINIUM]
+[Pa]
 year = "2021"
 element = "protactinium"
 symbol = "Pa"
@@ -1090,7 +1090,7 @@ saw_u = "0.00001"
 asaw = "231.04"
 asaw_u = "0.01"
 
-[URANIUM]
+[U]
 year = "2021"
 element = "uranium"
 symbol = "U"
@@ -1102,7 +1102,7 @@ saw_u = "0.00003"
 asaw = "238.03"
 asaw_u = "0.01"
 
-[NEPTUNIUM]
+[Np]
 year = "2021"
 element = "neptunium"
 symbol = "Np"
@@ -1114,7 +1114,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[PLUTONIUM]
+[Pu]
 year = "2021"
 element = "plutonium"
 symbol = "Pu"
@@ -1126,7 +1126,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[AMERICIUM]
+[Am]
 year = "2021"
 element = "americium"
 symbol = "Am"
@@ -1138,7 +1138,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[CURIUM]
+[Cm]
 year = "2021"
 element = "curium"
 symbol = "Cm"
@@ -1150,7 +1150,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[BERKELIUM]
+[Bk]
 year = "2021"
 element = "berkelium"
 symbol = "Bk"
@@ -1162,7 +1162,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[CALIFORNIUM]
+[Cf]
 year = "2021"
 element = "californium"
 symbol = "Cf"
@@ -1174,7 +1174,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[EINSTEINIUM]
+[Es]
 year = "2021"
 element = "einsteinium"
 symbol = "Es"
@@ -1186,7 +1186,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[FERMIUM]
+[Fm]
 year = "2021"
 element = "fermium"
 symbol = "Fm"
@@ -1198,7 +1198,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[MENDELEVIUM]
+[Md]
 year = "2021"
 element = "mendelevium"
 symbol = "Md"
@@ -1210,7 +1210,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[NOBELIUM]
+[No]
 year = "2021"
 element = "nobelium"
 symbol = "No"
@@ -1222,7 +1222,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[LAWRENCIUM]
+[Lr]
 year = "2021"
 element = "lawrencium"
 symbol = "Lr"
@@ -1234,7 +1234,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[RUTHERFORDIUM]
+[Rf]
 year = "2021"
 element = "rutherfordium"
 symbol = "Rf"
@@ -1246,7 +1246,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[DUBNIUM]
+[Db]
 year = "2021"
 element = "dubnium"
 symbol = "Db"
@@ -1258,7 +1258,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[SEABORGIUM]
+[Sg]
 year = "2021"
 element = "seaborgium"
 symbol = "Sg"
@@ -1270,7 +1270,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[BOHRIUM]
+[Bh]
 year = "2021"
 element = "bohrium"
 symbol = "Bh"
@@ -1282,7 +1282,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[HASSIUM]
+[Hs]
 year = "2021"
 element = "hassium"
 symbol = "Hs"
@@ -1294,7 +1294,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[MEITNERIUM]
+[Mt]
 year = "2021"
 element = "meitnerium"
 symbol = "Mt"
@@ -1306,7 +1306,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[DARMSTADTIUM]
+[Ds]
 year = "2021"
 element = "darmstadtium"
 symbol = "Ds"
@@ -1318,7 +1318,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[ROENTGENIUM]
+[Rg]
 year = "2021"
 element = "roentgenium"
 symbol = "Rg"
@@ -1330,7 +1330,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[COPERNICIUM]
+[Cn]
 year = "2021"
 element = "copernicium"
 symbol = "Cn"
@@ -1342,7 +1342,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[NIHONIUM]
+[Nh]
 year = "2021"
 element = "nihonium"
 symbol = "Nh"
@@ -1354,7 +1354,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[FLEROVIUM]
+[Fl]
 year = "2021"
 element = "flerovium"
 symbol = "Fl"
@@ -1366,7 +1366,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[MOSCOVIUM]
+[Mc]
 year = "2021"
 element = "moscovium"
 symbol = "Mc"
@@ -1378,7 +1378,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[LIVERMORIUM]
+[Lv]
 year = "2021"
 element = "livermorium"
 symbol = "Lv"
@@ -1390,7 +1390,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[TENNESINE]
+[Ts]
 year = "2021"
 element = "tennesine"
 symbol = "Ts"
@@ -1402,7 +1402,7 @@ saw_u = "nan"
 asaw = "nan"
 asaw_u = "nan"
 
-[ORGANESSON]
+[Og]
 year = "2021"
 element = "organesson"
 symbol = "Og"
