@@ -7,14 +7,10 @@ program example_in_f
     print '(A)', '########### CIAAW VERSION ##########'
     print *, "version ", get_version()  
 
-    call print_periodic_table()
-
-    print '(A)', '########### CIAAW SAW - get by atomic number z ##########'
-    print '(A, F10.5)', 'Abridged Standard Atomic Weight: ', get_asaw(1)
-    print '(A, F10.5)', 'Uncertainty for Abridged Standard Atomic Weight: ', get_asaw_u(1)
-    
-    print '(A)', '########### CIAAW SAW - get by symbol ##########'
-    s = "He"
-    print '(A, F10.5)', 'Abridged Standard Atomic Weight: ', get_asaw_by_symbol(s)
+    print '(A)', '########### CIAAW SAW ##########'
+    print '(A, F10.5)', 'Abridged Standard Atomic Weight: ', get_saw("H", abridged=.true.)
+    print '(A, F10.5)', 'Uncertainty for Abridged Standard Atomic Weight: ', get_saw("H", uncertainty=.true.)
+    print '(A, F10.5)', 'Standard Atomic Weight: ', get_saw("H", abridged = .false.)
+    print '(A, F10.5)', 'Uncertainty for Standard Atomic Weight: ', get_saw("H", abridged = .false., uncertainty = .true.)
 
 end program

@@ -1,12 +1,12 @@
 module ciaaw__api
     !! Getters
+    use ieee_arithmetic, only: ieee_value, ieee_quiet_nan, ieee_is_nan
     use ciaaw__common
     use ciaaw__types, only: element_type
     use ciaaw__pte, only: pt
     private
 
-    public :: get_asaw, get_asaw_u    
-    public :: get_asaw_by_symbol
+    public :: get_saw    
     public :: print_periodic_table
 
 contains
@@ -44,6 +44,7 @@ function get_z_by_symbol(s)result(res)
     end do
 
 end function
+
 
 subroutine print_periodic_table()
     !! Print periodic table.
@@ -90,71 +91,65 @@ subroutine print_periodic_table()
 
 end subroutine
 
-function get_saw(z, s, name)result(res)
-    !! 
 
-    integer(int32), intent(in), optional :: z
-    character(len=*), intent(in), optional :: s
-    character(len=*), intent(in), optional :: name
+function get_saw(s, abridged, uncertainty)result(res)
+    !! Get the standard atomic weight. By default the abridged value is provided.
+    !! If the non abridged value is desired, set abridged to false.
+    !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
 
-    real(dp) :: res
-    integer(int32) :: z2
+    character(len=*), intent(in) :: s                 !! Element symbol.
+    logical, intent(in), optional :: abridged         !! Flag for returning the abridged standard atomic weight. Default to TRUE.
+    logical, intent(in), optional :: uncertainty      !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+
+    real(dp) :: res, saw_max, saw_min, saw, saw_u
+    integer(int32) :: z, n
     
-    if(present(s))then
-         z2 = get_z_by_symbol(s)
-    else if(present(z))then
-         z2 = z
-    endif
-
-    res = pt(z2)%saw%saw 
-
-end function
-
-! BY INDEX
-function get_asaw(z)result(res)
-    !! Get abridged standard atomic value by atomic number z.
-    !! Returns -1 if the element is not found.
-    integer(int32), intent(in) :: z
-
-    real(dp) :: res 
-
-    if(is_in_pt(z)) then
-        res = pt(z)%saw%asaw
-    else
-        res = -1.0_dp
-    end if
-end function
-
-function get_asaw_u(z)result(res)
-    !! Get the uncertainty for the abridged standard atomic value by atomic number z.
-    !! Returns -1 if the element is not found.
-    integer(int32), intent(in) :: z
-
-    real(dp) :: res 
-
-    if(is_in_pt(z)) then
-        res = pt(z)%saw%asaw_u
-    else
-        res = -1.0_dp
-    end if
-end function
-
-
-! BY SYMBOL
-function get_asaw_by_symbol(s)result(res)
-    !! Get abridged standard atomic value by the symbol.
-    !! Returns -1 if the element is not found.
-    character(len=*), intent(in) :: s
-
-    real(dp) :: res
-
-    integer(int32) :: z
-
+    logical :: v, u
+    
+    v = optval(abridged, .true.)
+    u = optval(uncertainty, .false.)
+        
     z = get_z_by_symbol(s)
-
-    if(z > 0) then
-        res = get_asaw(z)
+    
+    if(z>0)then
+        if(v .eqv. .true.)then
+            if(u .eqv. .true.)then
+                res = pt(z)%saw%asaw_u
+            else
+                res = pt(z)%saw%asaw
+            end if
+        else
+            if((pt(z)%saw%saw == -1.0_dp) .and. (pt(z)%saw%saw_max > 0.0_dp) .and. (pt(z)%saw%saw_min > 0.0_dp))then
+                
+                saw_max = pt(z)%saw%saw_max
+                saw_min = pt(z)%saw%saw_min
+                
+                saw = (saw_max + saw_min) / 2.0_dp
+                saw_u = (saw_max - saw_min)/(2.0_dp*sqrt(3.0_dp))
+                
+                n = floor(log10(saw_u))
+                
+                saw_u = ceiling(saw_u * 10.0_dp**(-n))*10.0_dp**n
+                saw = nint(saw * 10.0_dp**(-n)) * 10.0_dp**n
+                
+                if(u .eqv. .true.)then
+                    res = saw_u
+                else
+                    res = saw
+                end if
+            else
+                if(u .eqv. .true.)then
+                    res = pt(z)%saw%saw_u
+                else
+                    res = pt(z)%saw%saw
+                end if 
+            end if 
+        end if
     end if
+
+    if(res < 0.0_dp)then
+        res = ieee_value(1.0_dp, ieee_quiet_nan)
+    endif
 
 end function
 

@@ -5,9 +5,10 @@
 #else
 #define ADD_IMPORT
 #endif
+#include <stdbool.h>
 
 extern char* ciaaw_get_version(void);
 
-extern double ciaaw_get_asaw(int z);
+extern double ciaaw_get_saw(char *s, size_t n, bool abridged, bool uncertainty);
 
 #endif

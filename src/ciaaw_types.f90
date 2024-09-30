@@ -35,16 +35,16 @@ module ciaaw__types
     
     type(ice_type), parameter, public :: ice_nan = &
     ice_type(0,transpose(reshape([&
-    nan_dp, nan_dp, nan_dp,&
-    nan_dp, nan_dp, nan_dp,&
-    nan_dp, nan_dp, nan_dp,&
-    nan_dp, nan_dp, nan_dp,&
-    nan_dp, nan_dp, nan_dp,&
-    nan_dp, nan_dp, nan_dp,&
-    nan_dp, nan_dp, nan_dp,&
-    nan_dp, nan_dp, nan_dp,&
-    nan_dp, nan_dp, nan_dp,&
-    nan_dp, nan_dp, nan_dp &
+    -1.0_dp, -1.0_dp, -1.0_dp,&
+    -1.0_dp, -1.0_dp, -1.0_dp,&
+    -1.0_dp, -1.0_dp, -1.0_dp,&
+    -1.0_dp, -1.0_dp, -1.0_dp,&
+    -1.0_dp, -1.0_dp, -1.0_dp,&
+    -1.0_dp, -1.0_dp, -1.0_dp,&
+    -1.0_dp, -1.0_dp, -1.0_dp,&
+    -1.0_dp, -1.0_dp, -1.0_dp,&
+    -1.0_dp, -1.0_dp, -1.0_dp,&
+    -1.0_dp, -1.0_dp, -1.0_dp &
     ], shape=[3, 10])))
 
 

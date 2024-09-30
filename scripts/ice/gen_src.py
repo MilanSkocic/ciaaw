@@ -31,9 +31,9 @@ def write_constant(f, symbol, A, value, uncertainty):
 
     while (k<=NROWS):
         if k == NROWS:
-            f.write(f"nan_dp, nan_dp, nan_dp &"+newline)
+            f.write(f"-1.0_dp, -1.0_dp, -1.0_dp &"+newline)
         else:
-            f.write(f"nan_dp, nan_dp, nan_dp,&"+newline)
+            f.write(f"-1.0_dp, -1.0_dp, -1.0_dp,&"+newline)
         k += 1
     
     f.write(f"], shape=[3, {NROWS:d}])))"+newline)

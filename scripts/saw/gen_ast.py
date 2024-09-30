@@ -46,15 +46,15 @@ def format_saw(line):
     saw = line[i-1:j].rstrip()
     i, j = cix_saw_u
     saw_u = line[i-1:j].rstrip()
-    
+
     compute = False
     if ("[" in saw) and ("]" in  saw):
         compute = False
         saw_min, saw_max = saw.replace("[","").replace("]", "").split(",")
-        saw = "nan"
+        saw = "-1.0"
     else:
-        saw_max = "nan"
-        saw_min = "nan"
+        saw_max = "-1.0"
+        saw_min = "-1.0"
     
 #    if compute:
 #        saw_max_db = float(saw_max)
@@ -74,17 +74,32 @@ def format_saw(line):
 #        saw_min = "nan"
 
     if len(saw_u) == 0:
-        saw_u = "nan"
+        saw_u = "-1.0"
+
+    if saw == "nan":
+        saw = "-1.0"
+    if saw_u == "nan":
+        saw_u = "-1.0"
+    if saw_max == "nan":
+        saw_max = "-1.0"
+    if saw_min == "nan":
+        saw_min = "-1.0"
 
     return saw_max, saw_min, saw, saw_u
 
 def format_asaw(line):
     i, j = cix_asaw
-    return line[i-1:j].rstrip()
+    asaw = line[i-1:j].rstrip()
+    if asaw == "nan":
+        asaw = "-1.0"
+    return asaw
  
 def format_asaw_u(line):
     i, j = cix_asaw_u
-    return line[i-1:j].rstrip()
+    asaw_u = line[i-1:j].rstrip()
+    if asaw_u == "nan":
+        asaw_u = "-1.0"
+    return asaw_u
 
 def format_notes(line):
     i, j = cix_footnote
