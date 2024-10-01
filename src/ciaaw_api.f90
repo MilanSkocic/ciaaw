@@ -92,28 +92,28 @@ subroutine print_periodic_table()
 end subroutine
 
 
-function get_saw(s, abridged, uncertainty)result(res)
+function get_saw(s, a, u)result(res)
     !! Get the standard atomic weight. By default the abridged value is provided.
     !! If the non abridged value is desired, set abridged to false.
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
 
-    character(len=*), intent(in) :: s                 !! Element symbol.
-    logical, intent(in), optional :: abridged         !! Flag for returning the abridged standard atomic weight. Default to TRUE.
-    logical, intent(in), optional :: uncertainty      !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+    character(len=*), intent(in) :: s       !! Element symbol.
+    logical, intent(in), optional :: a      !! Flag for returning the abridged standard atomic weight. Default to TRUE.
+    logical, intent(in), optional :: u      !! Flag for returning the uncertainty instead of the value. Default to FALSE.
 
     real(dp) :: res, saw_max, saw_min, saw, saw_u
     integer(int32) :: z, n
     
-    logical :: v, u
+    logical :: a2, u2
     
-    v = optval(abridged, .true.)
-    u = optval(uncertainty, .false.)
+    a2 = optval(a, .true.)
+    u2 = optval(u, .false.)
         
     z = get_z_by_symbol(s)
     
     if(z>0)then
-        if(v .eqv. .true.)then
-            if(u .eqv. .true.)then
+        if(a2 .eqv. .true.)then
+            if(u2 .eqv. .true.)then
                 res = pt(z)%saw%asaw_u
             else
                 res = pt(z)%saw%asaw
@@ -132,13 +132,13 @@ function get_saw(s, abridged, uncertainty)result(res)
                 saw_u = ceiling(saw_u * 10.0_dp**(-n))*10.0_dp**n
                 saw = nint(saw * 10.0_dp**(-n)) * 10.0_dp**n
                 
-                if(u .eqv. .true.)then
+                if(u2 .eqv. .true.)then
                     res = saw_u
                 else
                     res = saw
                 end if
             else
-                if(u .eqv. .true.)then
+                if(u2 .eqv. .true.)then
                     res = pt(z)%saw%saw_u
                 else
                     res = pt(z)%saw%saw
