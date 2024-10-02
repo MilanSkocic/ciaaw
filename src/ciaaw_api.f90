@@ -92,14 +92,14 @@ subroutine print_periodic_table()
 end subroutine
 
 
-function get_saw(s, a, u)result(res)
+function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight. By default the abridged value is provided.
     !! If the non abridged value is desired, set abridged to false.
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
 
-    character(len=*), intent(in) :: s       !! Element symbol.
-    logical, intent(in), optional :: a      !! Flag for returning the abridged standard atomic weight. Default to TRUE.
-    logical, intent(in), optional :: u      !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+    character(len=*), intent(in) :: s              !! Element symbol.
+    logical, intent(in), optional :: abridged      !! Flag for returning the abridged standard atomic weight. Default to TRUE.
+    logical, intent(in), optional :: uncertainty   !! Flag for returning the uncertainty instead of the value. Default to FALSE.
 
     real(dp) :: res, saw_max, saw_min, saw, saw_u
     integer(int32) :: z, n

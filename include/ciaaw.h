@@ -9,6 +9,6 @@
 
 extern char* ciaaw_get_version(void);
 
-extern double ciaaw_get_saw(char *s, size_t n, bool a, bool u);
+extern double ciaaw_get_saw(char *s, size_t n, bool abridged, bool uncertainty);
 
 #endif
