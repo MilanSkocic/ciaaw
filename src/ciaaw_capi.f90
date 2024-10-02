@@ -1,5 +1,6 @@
 module ciaaw__capi
     !! C API.
+    !! See [specs](../page/specs/capi.html)
     use iso_c_binding, only: c_ptr, c_null_char, c_loc, c_double, c_int, c_bool, c_f_pointer
     use ciaaw__api
     use ciaaw__version, only: get_version

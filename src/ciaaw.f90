@@ -3,5 +3,4 @@ module ciaaw
     use ciaaw__version
     use ciaaw__api
     use ciaaw__capi
-
 end module
