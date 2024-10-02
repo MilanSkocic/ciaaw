@@ -106,8 +106,8 @@ function get_saw(s, abridged, uncertainty)result(res)
     
     logical :: a2, u2
     
-    a2 = optval(a, .true.)
-    u2 = optval(u, .false.)
+    a2 = optval(abridged, .true.)
+    u2 = optval(uncertainty, .false.)
         
     z = get_z_by_symbol(s)
     
