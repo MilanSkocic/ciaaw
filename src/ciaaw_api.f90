@@ -1,12 +1,12 @@
 module ciaaw__api
-    !! Getters
+    !! API
     use ieee_arithmetic, only: ieee_value, ieee_quiet_nan, ieee_is_nan
     use ciaaw__common
     use ciaaw__types, only: element_type
     use ciaaw__pte, only: pt
     private
 
-    public :: get_saw    
+    public :: get_saw, get_ice   
     public :: print_periodic_table
 
 contains
@@ -42,7 +42,6 @@ function get_z_by_symbol(s)result(res)
             exit 
         endif
     end do
-
 end function
 
 
@@ -96,16 +95,22 @@ function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight. By default the abridged value is provided.
     !! If the non abridged value is desired, set abridged to false.
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-
+    !! Returns NaN if provided symbol is incorrect.
+    
+    ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
     logical, intent(in), optional :: abridged      !! Flag for returning the abridged standard atomic weight. Default to TRUE.
     logical, intent(in), optional :: uncertainty   !! Flag for returning the uncertainty instead of the value. Default to FALSE.
 
-    real(dp) :: res, saw_max, saw_min, saw, saw_u
+    ! Returns
+    real(dp) :: res
+
+    ! Variables
+    real(dp) :: saw_max, saw_min, saw, saw_u
     integer(int32) :: z, n
-    
     logical :: a2, u2
-    
+   
+
     a2 = optval(abridged, .true.)
     u2 = optval(uncertainty, .false.)
         
@@ -153,5 +158,44 @@ function get_saw(s, abridged, uncertainty)result(res)
 
 end function
 
+
+function get_ice(s, A, uncertainty)result(res)
+    !! Get isotopic composition of the element for the mass number A. 
+    !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
+    !! Returns NaN if provided symbol or A are incorrect.
+    
+    ! Arguments
+    character(len=*), intent(in) :: s              !! Element symbol.
+    integer(int32), intent(in) :: A                !! Mass number.
+    logical, intent(in), optional :: uncertainty   !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+
+    ! Returns
+    real(dp) :: res
+    
+    ! Variables
+    real(dp) :: A_double
+    integer(int32) :: i, z
+    logical :: u2
+   
+
+    u2 = optval(uncertainty, .false.)
+    z = get_z_by_symbol(s)
+    A_double = real(A, dp)
+    
+    res = ieee_value(1.0_dp, ieee_quiet_nan)
+
+    if(z>0)then
+        do i=1, pt(z)%ice%n
+            if(pt(z)%ice%values(i, 1) == A_double)then
+                if(u2 .eqv. .true.)then
+                    res = pt(z)%ice%values(i, 3)
+                else
+                    res = pt(z)%ice%values(i, 2)
+                endif
+                exit
+            endif
+        end do
+    endif
+end function
 
 end module
