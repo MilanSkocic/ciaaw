@@ -1,5 +1,6 @@
 module ciaaw__api
     !! API
+    !! See [specs](../page/specs/ciaaw_api.html)
     use ieee_arithmetic, only: ieee_value, ieee_quiet_nan, ieee_is_nan
     use ciaaw__common
     use ciaaw__types, only: element_type
