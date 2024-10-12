@@ -2,8 +2,6 @@
 title: SAW: Standard Atomic Weights
 ---
 
-# Description
-
 The module [[ciaaw__saw(module)]] is automatically generated with a simple parser written in Python.
 
 The latest standard atomic weights were released in 2021 by the [ciaaw](https://www.ciaaw.org).
@@ -24,9 +22,3 @@ the molar mass constant \(M_u=1.00000000105 \pm 0.00000000031 g.mol^{-1}\)
 in order to get the value in \(g.mol^{-1}\). 
 See [codata](https://milanskocic.github.io/codata/) for physical constants.
 
-# Example
-
-```Fortran
-{!./example/example.f90!}
-
-```
