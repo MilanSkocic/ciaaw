@@ -6,6 +6,12 @@ The formulas are taken from http://ciaaw.org.
 C API allows usage from C, or can be used as a basis for other wrappers.
 Python wrapper allows easy usage from Python.
 
+What have been implemented:
+
+- [x] SAW: Standard Atomic Weights.
+- [-] ICE: Isotopic Composition of the Element. 
+- [ ] NAW: Nuclides Atomic Weight
+
 To use `ciaaw` within your [fpm](https://github.com/fortran-lang/fpm) project,
 add the following to your `fpm.toml` file:
 
