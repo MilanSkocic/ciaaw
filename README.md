@@ -8,9 +8,9 @@ Python wrapper allows easy usage from Python.
 
 What have been implemented:
 
-[x] SAW: Standard Atomic Weights.
-[ ] ICE: Isotopic Composition of the Element (ongoing)
-[ ] NAW: Nuclides Atomic Weight.
+- [x] SAW: Standard Atomic Weights.
+- [ ] ICE: Isotopic Composition of the Element (ongoing)
+- [ ] NAW: Nuclides Atomic Weight.
 
 To use `ciaaw` within your [fpm](https://github.com/fortran-lang/fpm) project,
 add the following to your `fpm.toml` file:
