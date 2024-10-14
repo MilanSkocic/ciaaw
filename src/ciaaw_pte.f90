@@ -22,10 +22,10 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("sodium",            "Na",      11,        Na_saw,    Na_ice    ),&
  element_type("magnesium",         "Mg",      12,        Mg_saw,    Mg_ice    ),&
  element_type("aluminium",         "Al",      13,        Al_saw,    Al_ice    ),&
- element_type("silicon",           "Si",      14,        Si_saw,    ice_nan   ),&
- element_type("phosphorus",        "P",       15,        P_saw,     ice_nan   ),&
- element_type("sulfur",            "S",       16,        S_saw,     ice_nan   ),&
- element_type("chlorine",          "Cl",      17,        Cl_saw,    ice_nan   ),&
+ element_type("silicon",           "Si",      14,        Si_saw,    Si_ice    ),&
+ element_type("phosphorus",        "P",       15,        P_saw,     P_ice     ),&
+ element_type("sulfur",            "S",       16,        S_saw,     S_ice     ),&
+ element_type("chlorine",          "Cl",      17,        Cl_saw,    Cl_ice    ),&
  element_type("argon",             "Ar",      18,        Ar_saw,    ice_nan   ),&
  element_type("potassium",         "K",       19,        K_saw,     ice_nan   ),&
  element_type("calcium",           "Ca",      20,        Ca_saw,    ice_nan   ),&
