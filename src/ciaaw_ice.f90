@@ -243,4 +243,88 @@ ice_type(2,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 10])))
 
+type(ice_type), parameter, public :: Ar_ice = &
+ice_type(3,transpose(reshape([&
+36.0_dp,0.0033361_dp,35e-7_dp,&
+38.0_dp,0.0006289_dp,12e-7_dp,&
+40.0_dp,0.9960350_dp,42e-7_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
+type(ice_type), parameter, public :: K_ice = &
+ice_type(3,transpose(reshape([&
+39.0_dp,0.932581_dp,29e-6_dp,&
+40.0_dp,0.0001167_dp,4e-7_dp,&
+41.0_dp,0.067302_dp,29e-6_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
+type(ice_type), parameter, public :: Ca_ice = &
+ice_type(6,transpose(reshape([&
+40.0_dp,0.96941_dp,6e-5_dp,&
+42.0_dp,0.00647_dp,3e-5_dp,&
+43.0_dp,0.00135_dp,2e-5_dp,&
+44.0_dp,0.02086_dp,4e-5_dp,&
+46.0_dp,0.00004_dp,1e-5_dp,&
+48.0_dp,0.00187_dp,1e-5_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
+type(ice_type), parameter, public :: Sc_ice = &
+ice_type(1,transpose(reshape([&
+45.0_dp,1.0000_dp,0.0000_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
+type(ice_type), parameter, public :: Ti_ice = &
+ice_type(5,transpose(reshape([&
+46.0_dp,0.08249_dp,21e-5_dp,&
+47.0_dp,0.07437_dp,14e-5_dp,&
+48.0_dp,0.73720_dp,20e-5_dp,&
+49.0_dp,0.05409_dp,10e-5_dp,&
+50.0_dp,0.05185_dp,13e-5_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
+type(ice_type), parameter, public :: V_ice = &
+ice_type(2,transpose(reshape([&
+50.0_dp,0.002497_dp,6e-6_dp,&
+51.0_dp,0.997503_dp,6e-6_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
 end module ciaaw__ice

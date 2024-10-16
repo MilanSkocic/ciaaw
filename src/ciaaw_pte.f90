@@ -26,12 +26,12 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("phosphorus",        "P",       15,        P_saw,     P_ice     ),&
  element_type("sulfur",            "S",       16,        S_saw,     S_ice     ),&
  element_type("chlorine",          "Cl",      17,        Cl_saw,    Cl_ice    ),&
- element_type("argon",             "Ar",      18,        Ar_saw,    ice_nan   ),&
- element_type("potassium",         "K",       19,        K_saw,     ice_nan   ),&
- element_type("calcium",           "Ca",      20,        Ca_saw,    ice_nan   ),&
- element_type("scandium",          "Sc",      21,        Sc_saw,    ice_nan   ),&
- element_type("titanium",          "Ti",      22,        Ti_saw,    ice_nan   ),&
- element_type("vanadium",          "V",       23,        V_saw,     ice_nan   ),&
+ element_type("argon",             "Ar",      18,        Ar_saw,    Ar_ice    ),&
+ element_type("potassium",         "K",       19,        K_saw,     K_ice     ),&
+ element_type("calcium",           "Ca",      20,        Ca_saw,    Ca_ice    ),&
+ element_type("scandium",          "Sc",      21,        Sc_saw,    Sc_ice    ),&
+ element_type("titanium",          "Ti",      22,        Ti_saw,    Ti_ice    ),&
+ element_type("vanadium",          "V",       23,        V_saw,     V_ice     ),&
  element_type("chromium",          "Cr",      24,        Cr_saw,    ice_nan   ),&
  element_type("manganese",         "Mn",      25,        Mn_saw,    ice_nan   ),&
  element_type("iron",              "Fe",      26,        Fe_saw,    ice_nan   ),&
