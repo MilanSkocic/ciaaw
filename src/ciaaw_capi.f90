@@ -9,7 +9,7 @@ module ciaaw__capi
 
     character(len=:), allocatable, target :: version_c
 
-    public :: capi_get_version, capi_get_saw
+    public :: capi_get_version, capi_get_saw, capi_get_nice
 
 contains
 
@@ -72,7 +72,7 @@ end function
 
 function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)
     !! C API.
-    !! Get isotopic composition of the element for the mass number A. 
+    !! Get the isotopic composition of the element for the mass number A. 
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
     !! Returns NaN if provided symbol or A are incorrect.
     
@@ -101,6 +101,34 @@ function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(r
     f_uncertainty = logical(uncertainty)
 
     res = get_ice(fs, A, f_uncertainty)
+
+end function
+
+
+function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)
+    !! C API.
+    !! Get the number of isotopes in ICE.
+    !! Returns -1 if the provided symbol is incorrect.
+
+    ! Arguments
+    type(c_ptr), intent(in), value :: s                    !! Element symbol.
+    integer(c_int), intent(in), value :: n        !! Size of the symbol string.
+
+    ! Returns
+    integer(c_int) :: res
+
+    ! Variables
+    integer(c_int) :: i
+    character, pointer, dimension(:) :: c2f_s
+    character(len=n) :: fs
+    
+    call c_f_pointer(s, c2f_s, shape=[n])
+
+    do i=1, n
+        fs(i:i) = c2f_s(i)
+    enddo
+
+    res = get_nice(fs)
 
 end function
 
