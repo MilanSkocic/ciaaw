@@ -3,11 +3,13 @@ module ciaaw__api
     !! See [specs](../page/specs/ciaaw_api.html)
     use ieee_arithmetic, only: ieee_value, ieee_quiet_nan, ieee_is_nan
     use ciaaw__common
-    use ciaaw__types, only: element_type
+    use ciaaw__types, only: element_type, ice_nan
     use ciaaw__pte, only: pt
     private
+    
+    real(dp), allocatable, target :: n_ice_out(:,:)
 
-    public :: get_saw, get_ice, get_nice
+    public :: get_saw, get_ice, get_nice, get_ice_values
     public :: print_periodic_table
 
 contains
@@ -221,5 +223,37 @@ function get_nice(s)result(res)
         res = -1
     endif
 end function
+
+
+function get_ice_values(s)result(res)
+    !! Get the number of isotopes in ICE.
+    !! Returns -1 if the provided symbol is incorrect.
+
+    ! Arguments
+    character(len=*), intent(in) :: s             !! Element symbol.
+
+    ! Returns
+    real(dp), pointer :: res(:,:)
+
+    ! Variables
+    integer(int32) :: z
+
+    z = get_z_by_symbol(s)
+
+    if(allocated(n_ice_out))then
+        deallocate(n_ice_out)
+    end if
+
+    if(z>0)then
+        allocate(n_ice_out(pt(z)%ice%n, 3))
+        n_ice_out(:,:) = pt(z)%ice%values(1:pt(z)%ice%n,:)
+    else
+        allocate(n_ice_out(1,3))
+        n_ice_out(1,:) = ice_nan%values(1,:)
+    endif
+
+    res => n_ice_out
+
+end function 
 
 end module
