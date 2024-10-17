@@ -40,11 +40,11 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("copper",            "Cu",      29,        Cu_saw,    Cu_ice    ),&
  element_type("zinc",              "Zn",      30,        Zn_saw,    Zn_ice    ),&
  element_type("gallium",           "Ga",      31,        Ga_saw,    Ga_ice    ),&
- element_type("germanium",         "Ge",      32,        Ge_saw,    ice_nan   ),&
- element_type("arsenic",           "As",      33,        As_saw,    ice_nan   ),&
- element_type("selenium",          "Se",      34,        Se_saw,    ice_nan   ),&
- element_type("bromine",           "Br",      35,        Br_saw,    ice_nan   ),&
- element_type("krypton",           "Kr",      36,        Kr_saw,    ice_nan   ),&
+ element_type("germanium",         "Ge",      32,        Ge_saw,    Ge_ice    ),&
+ element_type("arsenic",           "As",      33,        As_saw,    As_ice    ),&
+ element_type("selenium",          "Se",      34,        Se_saw,    Se_ice    ),&
+ element_type("bromine",           "Br",      35,        Br_saw,    Br_ice    ),&
+ element_type("krypton",           "Kr",      36,        Kr_saw,    Kr_ice    ),&
  element_type("rubidium",          "Rb",      37,        Rb_saw,    ice_nan   ),&
  element_type("strontium",         "Sr",      38,        Sr_saw,    ice_nan   ),&
  element_type("yttrium",           "Y",       39,        Y_saw,     ice_nan   ),&

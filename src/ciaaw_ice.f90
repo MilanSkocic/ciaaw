@@ -439,4 +439,74 @@ ice_type(2,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 10])))
 
+type(ice_type), parameter, public :: Ge_ice = &
+ice_type(5,transpose(reshape([&
+70.0_dp,0.20526_dp,46e-5_dp,&
+72.0_dp,0.27446_dp,15e-5_dp,&
+73.0_dp,0.07760_dp,25e-5_dp,&
+74.0_dp,0.36523_dp,63e-5_dp,&
+76.0_dp,0.07745_dp,35e-5_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
+type(ice_type), parameter, public :: As_ice = &
+ice_type(1,transpose(reshape([&
+75.0_dp,1.0000_dp,0.0000_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
+type(ice_type), parameter, public :: Se_ice = &
+ice_type(6,transpose(reshape([&
+74.0_dp,0.00863_dp,3e-5_dp,&
+76.0_dp,0.09220_dp,6e-5_dp,&
+77.0_dp,0.07594_dp,4e-5_dp,&
+78.0_dp,0.23685_dp,14e-5_dp,&
+80.0_dp,0.49813_dp,16e-5_dp,&
+82.0_dp,0.08825_dp,8e-5_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
+type(ice_type), parameter, public :: Br_ice = &
+ice_type(2,transpose(reshape([&
+79.0_dp,0.50686_dp,25e-5_dp,&
+81.0_dp,0.49314_dp,36e-5_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
+type(ice_type), parameter, public :: Kr_ice = &
+ice_type(6,transpose(reshape([&
+78.0_dp,0.0035518_dp,32e-7_dp,&
+80.0_dp,0.0228560_dp,96e-7_dp,&
+82.0_dp,0.115930_dp,62e-6_dp,&
+83.0_dp,0.114996_dp,58e-6_dp,&
+84.0_dp,0.569877_dp,58e-6_dp,&
+86.0_dp,0.172790_dp,32e-6_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp,&
+-1.0_dp, -1.0_dp, -1.0_dp &
+], shape=[3, 10])))
+
 end module ciaaw__ice
