@@ -7,7 +7,7 @@ module ciaaw__api
     use ciaaw__pte, only: pt
     private
 
-    public :: get_saw, get_ice   
+    public :: get_saw, get_ice, get_nice
     public :: print_periodic_table
 
 contains
@@ -196,6 +196,29 @@ function get_ice(s, A, uncertainty)result(res)
                 exit
             endif
         end do
+    endif
+end function
+
+
+function get_nice(s)result(res)
+    !! Get the number of isotopes in ICE.
+    !! Returns -1 if the provided symbol is incorrect.
+
+    ! Arguments
+    character(len=*), intent(in) :: s             !! Element symbol.
+
+    ! Returns
+    integer(int32) :: res
+
+    ! Variables
+    integer(int32) :: z
+
+    z = get_z_by_symbol(s)
+
+    if(z>0)then
+        res = pt(z)%ice%n
+    else
+        res = -1
     endif
 end function
 
