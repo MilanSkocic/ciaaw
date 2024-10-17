@@ -19,6 +19,7 @@ program example_in_f
     print '(A10, F10.5)', 'U SAW =  ', get_saw("H", abridged = .false., uncertainty = .true.)
     
     print '(A)', '########### CIAAW ICE ##########'
+    print '(A, I3)',        'N ICE H   = ', get_nice("H")
     print '(A12, F12.6)',   'ICE H 1   = ', get_ice("H", A=1)
     print '(A12, ES23.16)', 'U ICE H 1 = ', get_ice("H", A=1, uncertainty=.true.)
     print '(A12, F12.6)',   'ICE H 2   = ', get_ice("H", A=2)
