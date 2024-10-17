@@ -32,14 +32,14 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("scandium",          "Sc",      21,        Sc_saw,    Sc_ice    ),&
  element_type("titanium",          "Ti",      22,        Ti_saw,    Ti_ice    ),&
  element_type("vanadium",          "V",       23,        V_saw,     V_ice     ),&
- element_type("chromium",          "Cr",      24,        Cr_saw,    ice_nan   ),&
- element_type("manganese",         "Mn",      25,        Mn_saw,    ice_nan   ),&
- element_type("iron",              "Fe",      26,        Fe_saw,    ice_nan   ),&
- element_type("cobalt",            "Co",      27,        Co_saw,    ice_nan   ),&
- element_type("nickel",            "Ni",      28,        Ni_saw,    ice_nan   ),&
- element_type("copper",            "Cu",      29,        Cu_saw,    ice_nan   ),&
- element_type("zinc",              "Zn",      30,        Zn_saw,    ice_nan   ),&
- element_type("gallium",           "Ga",      31,        Ga_saw,    ice_nan   ),&
+ element_type("chromium",          "Cr",      24,        Cr_saw,    Cr_ice    ),&
+ element_type("manganese",         "Mn",      25,        Mn_saw,    Mn_ice    ),&
+ element_type("iron",              "Fe",      26,        Fe_saw,    Fe_ice    ),&
+ element_type("cobalt",            "Co",      27,        Co_saw,    Co_ice    ),&
+ element_type("nickel",            "Ni",      28,        Ni_saw,    Ni_ice    ),&
+ element_type("copper",            "Cu",      29,        Cu_saw,    Cu_ice    ),&
+ element_type("zinc",              "Zn",      30,        Zn_saw,    Zn_ice    ),&
+ element_type("gallium",           "Ga",      31,        Ga_saw,    Ga_ice    ),&
  element_type("germanium",         "Ge",      32,        Ge_saw,    ice_nan   ),&
  element_type("arsenic",           "As",      33,        As_saw,    ice_nan   ),&
  element_type("selenium",          "Se",      34,        Se_saw,    ice_nan   ),&
