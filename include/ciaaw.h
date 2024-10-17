@@ -11,5 +11,6 @@ extern char* ciaaw_get_version(void);
 
 extern double ciaaw_get_saw(char *s, int n, bool abridged, bool uncertainty);
 extern double ciaaw_get_ice(char *s, int n, int A, bool uncertainty);
+extern int ciaaw_get_nice(char *s, int n);
 
 #endif
