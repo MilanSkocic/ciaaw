@@ -27,7 +27,6 @@ add the following to your `fpm.toml` file:
 gcc>=10.0
 gfortran>=10.0
 fpm>=0.7
-fypp>=3.0
 stdlib>=0.5
 ```
 
