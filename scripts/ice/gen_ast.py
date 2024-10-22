@@ -36,7 +36,10 @@ def format_z(line: str)->str:
 
 def format_A(line: str)->str:
     i, j = cix_A  
-    return line[i-1:j].rstrip()
+    value = line[i-1:j].rstrip()
+    if value.lower() == "nan":
+        value = "0"
+    return value
 
 def format_value(line):
     i, j = cix_value 

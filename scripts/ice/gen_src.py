@@ -19,15 +19,19 @@ def write_module_start(f):
 
 def write_constant(f, symbol, A, value, uncertainty):
     
-    n = len(A)
+    if A[0] == "0":
+        n = 0
+    else:
+        n = len(A)
 
     f.write(f"type(ice_type), parameter, public :: {symbol}_ice = &"+newline)
     f.write(f"ice_type({n:d},transpose(reshape([&" + newline)
     
     k = 1
-    for ai, ci, ui in zip(A, value, uncertainty):
-        f.write(f"{ai:s}.0_dp,{ci:s}_dp,{ui:s}_dp,&"+newline)
-        k += 1
+    if n > 0:
+        for ai, ci, ui in zip(A, value, uncertainty):
+            f.write(f"{ai:s}.0_dp,{ci:s}_dp,{ui:s}_dp,&"+newline)
+            k += 1
 
     while (k<=NROWS):
         if k == NROWS:
