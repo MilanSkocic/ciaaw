@@ -24,5 +24,8 @@ program example_in_f
     print '(A12, ES23.16)', 'U ICE H 1 = ', get_ice("H", A=1, uncertainty=.true.)
     print '(A12, F12.6)',   'ICE H 2   = ', get_ice("H", A=2)
     print '(A12, ES23.16)', 'U ICE H 2 = ', get_ice("H", A=2, uncertainty=.true.)
+    
+    print '(A10, F10.5)', 'ASAW   = ', get_saw("Tc", abridged=.true.)
+    print '(A, I3)',        'N ICE Tc   = ', get_nice("Tc")
 
 end program

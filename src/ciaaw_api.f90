@@ -98,7 +98,7 @@ function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight. By default the abridged value is provided.
     !! If the non abridged value is desired, set abridged to false.
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if provided symbol is incorrect.
+    !! Returns NaN if provided symbol is incorrect or -1 if the element does not have a standard atomic weight.
     
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
@@ -118,6 +118,8 @@ function get_saw(s, abridged, uncertainty)result(res)
     u2 = optval(uncertainty, .false.)
         
     z = get_z_by_symbol(s)
+    
+    res = ieee_value(1.0_dp, ieee_quiet_nan)
     
     if(z>0)then
         if(a2 .eqv. .true.)then
@@ -154,11 +156,6 @@ function get_saw(s, abridged, uncertainty)result(res)
             end if 
         end if
     end if
-
-    if(res < 0.0_dp)then
-        res = ieee_value(1.0_dp, ieee_quiet_nan)
-    endif
-
 end function
 
 
@@ -177,7 +174,7 @@ function get_ice(s, A, uncertainty)result(res)
     
     ! Variables
     real(dp) :: A_double
-    integer(int32) :: i, z
+    integer(int32) :: i, z, col, row
     logical :: u2
    
 
@@ -187,18 +184,23 @@ function get_ice(s, A, uncertainty)result(res)
     
     res = ieee_value(1.0_dp, ieee_quiet_nan)
 
-    if(z>0)then
+    if(u2 .eqv. .true.)then
+        col = 3
+    else
+        col = 1
+    endif
+
+    row = 1
+
+    if((z>0) .and. (pt(z)%ice%n > 0))then
         do i=1, pt(z)%ice%n
             if(pt(z)%ice%values(i, 1) == A_double)then
-                if(u2 .eqv. .true.)then
-                    res = pt(z)%ice%values(i, 3)
-                else
-                    res = pt(z)%ice%values(i, 2)
-                endif
+                row = i
                 exit
             endif
         end do
     endif
+    res = pt(z)%ice%values(row, col)
 end function
 
 
