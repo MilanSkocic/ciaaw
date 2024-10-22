@@ -50,10 +50,10 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("yttrium",           "Y",       39,        Y_saw,     Y_ice     ),&
  element_type("zirconium",         "Zr",      40,        Zr_saw,    Zr_ice    ),&
  element_type("nobium",            "Nb",      41,        Nb_saw,    Nb_ice    ),&
- element_type("molybdenum",        "Mo",      42,        Mo_saw,    ice_nan   ),&
- element_type("technetium",        "Tc",      43,        Tc_saw,    ice_nan   ),&
+ element_type("molybdenum",        "Mo",      42,        Mo_saw,    Mo_ice    ),&
+ element_type("technetium",        "Tc",      43,        Tc_saw,    Tc_ice    ),&
  element_type("ruthenium",         "Ru",      44,        Ru_saw,    ice_nan   ),&
- element_type("rhodium",           "Rh",      45,        Rh_saw,    ice_nan   ),&
+ element_type("rhodium",           "Rh",      45,        Rh_saw,    Rh_ice    ),&
  element_type("palladium",         "Pd",      46,        Pd_saw,    ice_nan   ),&
  element_type("silver",            "Ag",      47,        Ag_saw,    ice_nan   ),&
  element_type("cadmium",           "Cd",      48,        Cd_saw,    ice_nan   ),&
