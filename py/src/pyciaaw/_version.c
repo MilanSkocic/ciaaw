@@ -6,13 +6,13 @@
 PyDoc_STRVAR(module_docstring, "C extension for ciaaw version.");
 
 static PyMethodDef myMethods[] = {{ NULL, NULL, 0, NULL }};
-static struct PyModuleDef version= {PyModuleDef_HEAD_INIT, "version", module_docstring, -1, myMethods};
+static struct PyModuleDef _version= {PyModuleDef_HEAD_INIT, "_version", module_docstring, -1, myMethods};
 
-PyMODINIT_FUNC PyInit_version(void){
+PyMODINIT_FUNC PyInit__version(void){
     PyObject *m;
     PyObject *d;
     PyObject *v;
-    m = PyModule_Create(&version);
+    m = PyModule_Create(&_version);
     d = PyModule_GetDict(m);
     v = PyUnicode_FromFormat("%s", ciaaw_get_version());
     PyDict_SetItemString(d, "__version__", v);

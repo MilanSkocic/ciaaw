@@ -80,10 +80,10 @@ static PyMethodDef myMethods[] = {
     {"get_nice", (PyCFunction) get_nice, METH_VARARGS                , get_nice_doc},
     { NULL, NULL, 0, NULL }};
 
-static struct PyModuleDef ciaaw = {PyModuleDef_HEAD_INIT, "ciaaw", module_docstring, -1, myMethods};
+static struct PyModuleDef _ciaaw = {PyModuleDef_HEAD_INIT, "_ciaaw", module_docstring, -1, myMethods};
 
 
 
-PyMODINIT_FUNC PyInit_ciaaw(void){
-     return PyModule_Create(&ciaaw);
+PyMODINIT_FUNC PyInit__ciaaw(void){
+     return PyModule_Create(&_ciaaw);
 }
