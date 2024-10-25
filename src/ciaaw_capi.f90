@@ -39,7 +39,7 @@ function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")r
     !! Get the standard atomic weight. By default the abridged value is provided.
     !! If the non abridged value is desired, set abridged to false.
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if provided symbol is incorrect.
+    !! Returns NaN if provided symbol is incorrect or -1 if the element does not have a standard atomic weight.
 
     ! Arguments
     type(c_ptr), intent(in), value :: s               !! Symbol.
@@ -74,7 +74,7 @@ function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(r
     !! C API.
     !! Get the isotopic composition of the element for the mass number A. 
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if provided symbol or A are incorrect.
+    !! Returns NaN if provided symbol or A are incorrect or -1 if the element does not have an ICE.
     
     ! Arguments
     type(c_ptr), intent(in), value :: s                    !! Element symbol.

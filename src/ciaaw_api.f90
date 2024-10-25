@@ -162,7 +162,7 @@ end function
 function get_ice(s, A, uncertainty)result(res)
     !! Get the isotopic composition of the element for the mass number A. 
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if provided symbol or A are incorrect.
+    !! Returns NaN if provided symbol or A are incorrect or -1 if the element does not have an ICE.
     
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
