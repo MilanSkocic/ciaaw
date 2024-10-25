@@ -187,7 +187,7 @@ function get_ice(s, A, uncertainty)result(res)
     if(u2 .eqv. .true.)then
         col = 3
     else
-        col = 1
+        col = 2
     endif
 
     row = 1
