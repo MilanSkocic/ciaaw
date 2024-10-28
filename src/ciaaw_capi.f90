@@ -80,7 +80,7 @@ function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(r
     type(c_ptr), intent(in), value :: s                    !! Element symbol.
     integer(c_int), intent(in), value :: n                 !! Size of the symbol string.
     integer(c_int), intent(in), value :: A                 !! Mass number.
-    logical(c_bool), intent(in), value :: uncertainty   !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+    logical(c_bool), intent(in), value :: uncertainty      !! Flag for returning the uncertainty instead of the value. Default to FALSE.
 
     ! Returns
     real(c_double) :: res
