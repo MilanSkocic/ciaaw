@@ -1,6 +1,7 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <stdbool.h>
+#include <string.h>
 #include "ciaaw.h"
 
 
@@ -22,38 +23,39 @@ PyDoc_STRVAR(get_nice_doc,
 
 
 
-static PyObject *get_saw(PyObject *self, PyObject *args, PyObject *kwargs){
-    char *s;
-    bool abridged, uncertainty;
-    double res;
-    static char *kwlist[] = {"s", "abridged", "uncertainty", NULL};
-
-    abridged = true;
-    uncertainty = false;
     
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,  "s|pp", kwlist, &s, &abridged, &uncertainty)){
+    char *s;
+    bool abridged;
+    bool uncertainty;
+    int size;
+    double res;
+
+    if (!PyArg_ParseTuple(args, "spp", &s, &abridged, &uncertainty)){
         return NULL;
     }
-    res = ciaaw_get_saw(s, strlen(s), abridged, uncertainty);
+    printf("string = %s\n", s);
+    
+    size = strlen(s);
+    res = ciaaw_get_saw(s, size, abridged, uncertainty);
     
     return Py_BuildValue("d", res);
 }
 
 
 
-static PyObject *get_ice(PyObject *self, PyObject *args, PyObject *kwargs){
+static PyObject *get_ice(PyObject *self, PyObject *args){
+    
     char *s;
     int A;
+    int size;
     bool uncertainty;
     double res;
-    static char *kwlist[] = {"s", "A", "uncertainty", NULL};
 
-    uncertainty = false;
-    
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,  "si|p", kwlist, &s, &A, &uncertainty)){
+    if (!PyArg_ParseTuple(args, "sip", &s, &A, &uncertainty)){
         return NULL;
     }
-    res = ciaaw_get_ice(s, strlen(s), A, uncertainty);
+    size = strlen(s);
+    res = ciaaw_get_ice(s, size, A, uncertainty);
     
     return Py_BuildValue("d", res);
 }
@@ -61,13 +63,16 @@ static PyObject *get_ice(PyObject *self, PyObject *args, PyObject *kwargs){
 
 
 static PyObject *get_nice(PyObject *self, PyObject *args){
+    
     char *s;
+    int size;
     int res;
 
     if (!PyArg_ParseTuple(args, "s", &s)){
         return NULL;
     }
-    res = ciaaw_get_nice(s, strlen(s));
+    size = strlen(s);
+    res = ciaaw_get_nice(s, size);
 
     return Py_BuildValue("i", res);
 }
@@ -75,9 +80,8 @@ static PyObject *get_nice(PyObject *self, PyObject *args){
 
 
 static PyMethodDef myMethods[] = {  
-    {"get_saw",  (PyCFunction) get_saw,  METH_VARARGS | METH_KEYWORDS, get_saw_doc},
-    {"get_ice",  (PyCFunction) get_ice,  METH_VARARGS | METH_KEYWORDS, get_ice_doc},
-    {"get_nice", (PyCFunction) get_nice, METH_VARARGS                , get_nice_doc},
+    {"get_ice",  (PyCFunction) get_ice,  METH_VARARGS, get_ice_doc},
+    {"get_nice", (PyCFunction) get_nice, METH_VARARGS, get_nice_doc},
     { NULL, NULL, 0, NULL }};
 
 static struct PyModuleDef _ciaaw = {PyModuleDef_HEAD_INIT, "_ciaaw", module_docstring, -1, myMethods};
