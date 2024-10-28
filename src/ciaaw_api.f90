@@ -190,8 +190,7 @@ function get_ice(s, A, uncertainty)result(res)
         col = 2
     endif
 
-    row = 1
-
+    row = 0
     if((z>0) .and. (pt(z)%ice%n > 0))then
         do i=1, pt(z)%ice%n
             if(pt(z)%ice%values(i, 1) == A_double)then
@@ -200,7 +199,9 @@ function get_ice(s, A, uncertainty)result(res)
             endif
         end do
     endif
-    res = pt(z)%ice%values(row, col)
+    if(row > 0)then
+        res = pt(z)%ice%values(row, col)
+    endif
 end function
 
 
