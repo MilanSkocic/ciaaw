@@ -22,7 +22,7 @@ PyDoc_STRVAR(get_nice_doc,
 
 
 
-
+static PyObject *get_saw(PyObject *self, PyObject *args){
     
     char *s;
     bool abridged;
@@ -33,8 +33,6 @@ PyDoc_STRVAR(get_nice_doc,
     if (!PyArg_ParseTuple(args, "spp", &s, &abridged, &uncertainty)){
         return NULL;
     }
-    printf("string = %s\n", s);
-    
     size = strlen(s);
     res = ciaaw_get_saw(s, size, abridged, uncertainty);
     
@@ -80,6 +78,7 @@ static PyObject *get_nice(PyObject *self, PyObject *args){
 
 
 static PyMethodDef myMethods[] = {  
+    {"get_saw",  (PyCFunction) get_saw,  METH_VARARGS, get_saw_doc},
     {"get_ice",  (PyCFunction) get_ice,  METH_VARARGS, get_ice_doc},
     {"get_nice", (PyCFunction) get_nice, METH_VARARGS, get_nice_doc},
     { NULL, NULL, 0, NULL }};
