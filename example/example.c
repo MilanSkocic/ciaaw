@@ -29,5 +29,8 @@ int main(void){
     printf("%s %12.6f\n", "ICE H 2      = ", ciaaw_get_ice("H", 1, 2, false)); 
     printf("%s %23.16e\n", "U ICE H 2   = ", ciaaw_get_ice("H", 1, 2, true)); 
 
+    printf("%s %10.5f\n", "ASAW    = ", ciaaw_get_saw("Tc", 2, true, false));
+    printf("%s %d\n",     "N ICE Tc      = ", ciaaw_get_nice("Tc", 2));
+
     return EXIT_SUCCESS;
     }
