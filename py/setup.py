@@ -108,17 +108,11 @@ with open("./VERSION", "r") as f:
 
 if __name__ == "__main__":
 
-    mod_version = Extension(name="pyciaaw._version",
-                        sources=["./src/pyciaaw/_version.c"],
-                        libraries=libraries,
-                        library_dirs=library_dirs,
-                        runtime_library_dirs=runtime_library_dirs,
-                        extra_objects=extra_objects)
-    mod_saw_2021 = Extension(name="pyciaaw._ciaaw",
+    mod_ciaaw = Extension(name="pyciaaw._ciaaw",
                         sources=["./src/pyciaaw/_ciaaw.c"],
                         libraries=libraries,
                         library_dirs=library_dirs,
                         runtime_library_dirs=runtime_library_dirs,
                         extra_objects=extra_objects)
     setup(version=version,
-            ext_modules=[mod_version, mod_saw_2021])
+            ext_modules=[mod_ciaaw])
