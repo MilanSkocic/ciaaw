@@ -18,7 +18,7 @@ pip install pyciaaw
 
 # Usage
 
-[Example in python](https://milanskocic.github.io/iapws/page/examples.html#python).
+[Example in python](https://milanskocic.github.io/ciaaw/page/examples.html#python).
 
 
 # License
