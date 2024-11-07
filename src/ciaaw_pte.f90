@@ -55,8 +55,8 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("ruthenium",         "Ru",      44,        Ru_saw,    Ru_ice    ),&
  element_type("rhodium",           "Rh",      45,        Rh_saw,    Rh_ice    ),&
  element_type("palladium",         "Pd",      46,        Pd_saw,    Pd_ice    ),&
- element_type("silver",            "Ag",      47,        Ag_saw,    ice_nan   ),&
- element_type("cadmium",           "Cd",      48,        Cd_saw,    ice_nan   ),&
+ element_type("silver",            "Ag",      47,        Ag_saw,    Ag_ice    ),&
+ element_type("cadmium",           "Cd",      48,        Cd_saw,    Cd_ice    ),&
  element_type("indium",            "In",      49,        In_saw,    ice_nan   ),&
  element_type("tin",               "Sn",      50,        Sn_saw,    ice_nan   ),&
  element_type("antimony",          "Sb",      51,        Sb_saw,    ice_nan   ),&
