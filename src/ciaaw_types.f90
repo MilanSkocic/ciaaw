@@ -6,6 +6,7 @@ module ciaaw__types
     private
 
     integer(int32), parameter :: NROWS_ICE = 10
+    integer(int32), parameter :: NROWS_NAW = 50
 
     type, public :: saw_type
         !! Derived type representing the standard atomic weight of an element.
@@ -22,6 +23,12 @@ module ciaaw__types
         integer(int32) :: n                       !! Number of isotopic compositions
         real(dp) :: values(NROWS_ICE, 3)          !! Mass numbers, Abundance, Uncertainty
     end type
+    
+    type, public :: naw_type
+        !! Derived type reprensenting the nuclide's atomic weights.
+        integer(int32) :: n                       !! Number of atomic weights
+        real(dp) :: values(NROWS_NAW, 3)          !! Mass numbers, Atomic weight, Uncertainty
+    end type
 
     type, public :: element_type 
         !! Derived type representing an element.
@@ -30,6 +37,7 @@ module ciaaw__types
         integer(int32) :: z           !! Element atomic number.
         type(saw_type) :: saw         !! Standard atomic weights   
         type(ice_type) :: ice         !! Isotopic composition of the element
+        type(naw_type) :: naw         !! Atomic weight of the nuclide
     end type
 
     
