@@ -12,7 +12,7 @@ def write_module_start(f, n):
     f.write("    use ciaaw__types" + newline)
     f.write("    use ciaaw__saw" + newline)
     f.write("    use ciaaw__ice" + newline)
-    f.write("    use ciaaw__ice" + newline)
+    f.write("    use ciaaw__naw" + newline)
     f.write("    private"+newline)
     f.write(newline)
     f.write(f"type(element_type), parameter, public :: pt({n:d}) = [&"+newline)
@@ -23,16 +23,17 @@ def write_constant(f, element, symbol, z, last, has_ice):
     s = f"\"{symbol:s}\"" + ","
     z_ = f"{z:s}" + ","
     saw = f"{symbol:s}_saw" + ","
+    naw = f"{symbol:s}_naw"
 
     if has_ice:
-        ice = f"{symbol:s}_ice"
+        ice = f"{symbol:s}_ice" + ","
     else:
-        ice = f"ice_nan"
+        ice = f"ice_nan" + ","
     
     if last:
-        f.write(f" element_type({e:20s} {s:10s} {z_:10s} {saw:10s} {ice:10s})&" + newline)
+        f.write(f" element_type({e:20s} {s:10s} {z_:10s} {saw:10s} {ice:10s} {naw:10})&" + newline)
     else:
-        f.write(f" element_type({e:20s} {s:10s} {z_:10s} {saw:10s} {ice:10s}),&" + newline)
+        f.write(f" element_type({e:20s} {s:10s} {z_:10s} {saw:10s} {ice:10s} {naw:10s}),&" + newline)
     
 
 def write_module_end(f):
@@ -72,6 +73,7 @@ def run(fpath_ast_saw: str, fpath_ast_ice: str, fpath_code: str)->None:
     write_module_end(fcode)
 
     fast_saw.close()
+    fast_ice.close()
     fcode.close()
 
 
