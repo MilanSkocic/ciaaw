@@ -3,6 +3,7 @@ program tester
     use testdrive, only: run_testsuite, new_testsuite, testsuite_type
     use testsuite_saw, only: collect_suite_saw
     use testsuite_ice, only: collect_suite_ice
+    use testsuite_naw, only: collect_suite_naw
     implicit none
     type(testsuite_type), allocatable :: testsuites(:)
     character(len=*), parameter :: fmt = '("#", *(1x, a))'
@@ -11,7 +12,8 @@ program tester
     stat = 0
 
     testsuites = [new_testsuite("SAW", collect_suite_saw), &
-                  new_testsuite("ICE", collect_suite_ice)]
+                  new_testsuite("ICE", collect_suite_ice), &
+                  new_testsuite("NAW", collect_suite_naw)]
 
     do is = 1, size(testsuites)
         write(error_unit, fmt) "Testing:", testsuites(is)%name

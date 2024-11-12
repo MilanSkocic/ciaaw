@@ -9,12 +9,13 @@ module ciaaw__api
     
     real(dp), allocatable, target :: n_ice_out(:,:)
 
-    public :: get_saw, get_ice, get_nice, get_ice_values
+    public :: get_saw, get_ice, get_nice, get_ice_values, get_naw
     public :: print_periodic_table
 
 contains
 
-! Base search functions
+
+! Base search functions ---------------
 function is_in_pt(z)result(res)
     !! Check if the atomic number z is in the periodic table
     integer(int32), intent(in) :: z
@@ -90,10 +91,12 @@ subroutine print_periodic_table()
         print *, ""
 
     end do
-
 end subroutine
+!-------------------------------------
 
 
+
+! SAW --------------------------
 function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight. By default the abridged value is provided.
     !! If the non abridged value is desired, set abridged to false.
@@ -157,10 +160,13 @@ function get_saw(s, abridged, uncertainty)result(res)
         end if
     end if
 end function
+! ------------------------------
 
 
+
+! ICE --------------------------
 function get_ice(s, A, uncertainty)result(res)
-    !! Get the isotopic composition of the element for the mass number A. 
+    !! Get the isotopic composition of the element s for the mass number A. 
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
     !! Returns NaN if provided symbol or A are incorrect or -1 if the element does not have an ICE.
     
@@ -204,7 +210,6 @@ function get_ice(s, A, uncertainty)result(res)
     endif
 end function
 
-
 function get_nice(s)result(res)
     !! Get the number of isotopes in ICE.
     !! Returns -1 if the provided symbol is incorrect.
@@ -226,7 +231,6 @@ function get_nice(s)result(res)
         res = -1
     endif
 end function
-
 
 function get_ice_values(s)result(res)
     !! Get the number of isotopes in ICE.
@@ -256,7 +260,57 @@ function get_ice_values(s)result(res)
     endif
 
     res => n_ice_out
-
 end function 
+! ------------------------------
+
+
+
+! NAW --------------------------
+function get_naw(s, A, uncertainty)result(res)
+    !! Get the atomic weight of the nuclide s for the mass number A. 
+    !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
+    !! Returns NaN if provided symbol or A are incorrect 
+    !! or -1 if the element does not have an NAW.
+    
+    ! Arguments
+    character(len=*), intent(in) :: s              !! Element symbol.
+    integer(int32), intent(in) :: A                !! Mass number.
+    logical, intent(in), optional :: uncertainty   !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+
+    ! Returns
+    real(dp) :: res
+    
+    ! Variables
+    real(dp) :: A_double
+    integer(int32) :: i, z, col, row
+    logical :: u2
+   
+
+    u2 = optval(uncertainty, .false.)
+    z = get_z_by_symbol(s)
+    A_double = real(A, dp)
+    
+    res = ieee_value(1.0_dp, ieee_quiet_nan)
+
+    if(u2 .eqv. .true.)then
+        col = 3
+    else
+        col = 2
+    endif
+
+    row = 0
+    if((z>0) .and. (pt(z)%naw%n > 0))then
+        do i=1, pt(z)%naw%n
+            if(pt(z)%naw%values(i, 1) == A_double)then
+                row = i
+                exit
+            endif
+        end do
+    endif
+    if(row > 0)then
+        res = pt(z)%naw%values(row, col)
+    endif
+end function
+!-------------------------------
 
 end module

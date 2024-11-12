@@ -1,5 +1,5 @@
 module testsuite_ice
-    !! Test saw
+    !! Test ice
     use iso_fortran_env
     use testdrive, only : new_unittest, unittest_type, error_type, check
     use stdlib_kinds, only: dp, int32
@@ -19,7 +19,6 @@ end subroutine
 
 
 subroutine test_ice(error)
-    implicit none
     integer(int32), parameter :: N = 3
     type(error_type), allocatable, intent(out) :: error 
     character(len=2) :: elmt(3) = [character(len=2) :: "H", "C", "Ne"]
@@ -39,9 +38,7 @@ end subroutine
 
 
 subroutine test_nice(error)
-    
     type(error_type), allocatable, intent(out) :: error 
-
 
     integer(int32), parameter :: N = 3
     integer(int32) :: i, value, expected
@@ -55,7 +52,6 @@ subroutine test_nice(error)
         call check(error, value, expected)
         if (allocated(error)) return
     end do
-
 end subroutine
 
 end module

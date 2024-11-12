@@ -9,7 +9,7 @@ module ciaaw__capi
 
     character(len=:), allocatable, target :: version_c
 
-    public :: capi_get_version, capi_get_saw, capi_get_nice
+    public :: capi_get_version, capi_get_saw, capi_get_nice, capi_get_naw
 
 contains
 
@@ -31,6 +31,7 @@ function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
     version_c = fptr // c_null_char
     cptr = c_loc(version_c)
 end function
+
 
 
 ! SAW
@@ -70,6 +71,8 @@ function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")r
 end function
 
 
+
+! ICE
 function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)
     !! C API.
     !! Get the isotopic composition of the element for the mass number A. 
@@ -101,9 +104,7 @@ function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(r
     f_uncertainty = logical(uncertainty)
 
     res = get_ice(fs, A, f_uncertainty)
-
 end function
-
 
 function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)
     !! C API.
@@ -129,7 +130,43 @@ function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)
     enddo
 
     res = get_nice(fs)
+end function
 
+
+
+! NAW
+function capi_get_naw(s, n, A, uncertainty)bind(C, name="ciaaw_get_naw")result(res)
+    !! C API.
+    !! Get the atomic weight of the nuclide s for the mass number A. 
+    !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
+    !! Returns NaN if provided symbol or A are incorrect or 
+    !! -1 if the element does not have an NAW.
+    
+    ! Arguments
+    type(c_ptr), intent(in), value :: s                    !! Element symbol.
+    integer(c_int), intent(in), value :: n                 !! Size of the symbol string.
+    integer(c_int), intent(in), value :: A                 !! Mass number.
+    logical(c_bool), intent(in), value :: uncertainty      !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+
+    ! Returns
+    real(c_double) :: res
+    
+    ! Variables
+    integer(c_int) :: i
+    character, pointer, dimension(:) :: c2f_s
+    character(len=n) :: fs
+    logical :: f_uncertainty
+
+    
+    call c_f_pointer(s, c2f_s, shape=[n])
+    
+    do i=1, n
+        fs(i:i) = c2f_s(i)
+    enddo
+
+    f_uncertainty = logical(uncertainty)
+
+    res = get_naw(fs, A, f_uncertainty)
 end function
 
 end module ciaaw__capi
