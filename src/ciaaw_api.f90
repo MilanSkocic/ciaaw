@@ -7,13 +7,33 @@ module ciaaw__api
     use ciaaw__pte, only: pt
     private
     
+    character(len=*), parameter :: version = "0.4.3"
+    character(len=:), allocatable, target :: version_f
+    character(len=:), allocatable, target :: version_c
+    
     real(dp), allocatable, target :: n_ice_out(:,:)
 
     public :: get_saw, get_ice, get_nice, get_ice_values, get_naw
     public :: print_periodic_table
+    public :: get_version
 
 contains
 
+! VERSION -----------------------------
+function get_version()result(fptr)
+    !! Get the version
+    implicit none
+    character(len=:), pointer :: fptr
+        !! Fortran pointer to a string indicating the version..
+
+    if(allocated(version_f))then
+        deallocate(version_f)
+    endif
+    allocate(character(len=len(version)) :: version_f)
+    version_f = version
+    fptr => version_f    
+end function
+! -------------------------------------
 
 ! Base search functions ---------------
 function is_in_pt(z)result(res)
