@@ -2,13 +2,19 @@
 title: API
 ---
 
-The modules [[ciaaw__saw(module)]], [[ciaaw__ice(module)]] and  [[ciaaw__pte(module)]] are
+The modules [[ciaaw__saw(module)]], [[ciaaw__ice(module)]], [[ciaaw_naw(module)]] and  [[ciaaw__pte(module)]] are
 automatically generated with a simple parser written in Python.
 
 The latest isotopic compositions were released in 2013 by the [ciaaw](https://www.ciaaw.org).
 All the values for the compositions are provided as double precision reals in a derived type
 [[ciaaw__types(module):ice_type(type)]].
 The isotopic compositions of the element, are extracted from table 1 [Meija et al. 2013](../references.html). 
+
+The latest atomic weights for nuclides were released in 2020 by [ciaaw](https://www.ciaaw.org)
+from [Huang et al. 2021](../references.html).
+All the values for the nuclide atomic weights are provided as double precision reals in derived type
+[[ciaaw__types(module):ice_type(type)]]. 
+
 
 The latest standard atomic weights were released in 2021 by the [ciaaw](https://www.ciaaw.org).
 All the values for the atomic weights are provided as double precision reals in a derived type
