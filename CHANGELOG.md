@@ -5,6 +5,7 @@
     * SAW and ICE are stored in derived types for each elements.
     * Each element is stored in a table.
     * Element properties are now accessed through getters.
+* Add NAW.
 * Doc update.
 
 
