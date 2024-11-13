@@ -2,7 +2,7 @@
 title: API
 ---
 
-The modules [[ciaaw__saw(module)]], [[ciaaw__ice(module)]], [[ciaaw_naw(module)]] and  [[ciaaw__pte(module)]] are
+The modules [[ciaaw__saw(module)]], [[ciaaw__ice(module)]], [[ciaaw__naw(module)]] and  [[ciaaw__pte(module)]] are
 automatically generated with a simple parser written in Python.
 
 The latest isotopic compositions were released in 2013 by the [ciaaw](https://www.ciaaw.org).
