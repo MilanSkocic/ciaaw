@@ -13,7 +13,7 @@ The isotopic compositions of the element, are extracted from table 1 [Meija et a
 The latest atomic weights for nuclides were released in 2020 by [ciaaw](https://www.ciaaw.org)
 from [Huang et al. 2021](../references.html).
 All the values for the nuclide atomic weights are provided as double precision reals in derived type
-[[ciaaw__types(module):ice_type(type)]]. 
+[[ciaaw__types(module):naw_type(type)]]. 
 
 
 The latest standard atomic weights were released in 2021 by the [ciaaw](https://www.ciaaw.org).
@@ -35,11 +35,13 @@ in order to get the value in \(g.mol^{-1}\).
 See [codata](https://milanskocic.github.io/codata/) for physical constants.
 
 All elements from the module [[ciaaw__pte(module)]] are directly accessible. 
-The data for the standard atomic weights [[ciaaw__saw(module)]] and the isotopic compositions [[ciaaw__ice(module)]] of the elements 
-are also directly accessible. 
+The data for the standard atomic weights [[ciaaw__saw(module)]], the isotopic compositions [[ciaaw__ice(module)]] of the elements
+and the nuclide atomic weights [[ciaaw__naw(module)]] are also directly accessible 
+through the [[ciaaw__types(module):element_type(type)]]. 
 Nonetheless, convenient getters are available for accessing the desired data for an elements
 without having to access to whole periodic table [[ciaaw__pte(module):pt]]
 
 * [[ciaaw__api(module):get_saw(function)]]
 * [[ciaaw__api(module):get_ice(function)]]
 * [[ciaaw__api(module):get_nice(function)]]
+* [[ciaaw__api(module):get_naw(function)]]
