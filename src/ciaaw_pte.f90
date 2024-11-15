@@ -57,13 +57,13 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("palladium",         "Pd",      46,        Pd_saw,    Pd_ice,    Pd_naw    ),&
  element_type("silver",            "Ag",      47,        Ag_saw,    Ag_ice,    Ag_naw    ),&
  element_type("cadmium",           "Cd",      48,        Cd_saw,    Cd_ice,    Cd_naw    ),&
- element_type("indium",            "In",      49,        In_saw,    ice_nan,   In_naw    ),&
- element_type("tin",               "Sn",      50,        Sn_saw,    ice_nan,   Sn_naw    ),&
- element_type("antimony",          "Sb",      51,        Sb_saw,    ice_nan,   Sb_naw    ),&
- element_type("tellurium",         "Te",      52,        Te_saw,    ice_nan,   Te_naw    ),&
- element_type("iodine",            "I",       53,        I_saw,     ice_nan,   I_naw     ),&
- element_type("xenon",             "Xe",      54,        Xe_saw,    ice_nan,   Xe_naw    ),&
- element_type("caesium",           "Cs",      55,        Cs_saw,    ice_nan,   Cs_naw    ),&
+ element_type("indium",            "In",      49,        In_saw,    In_ice,    In_naw    ),&
+ element_type("tin",               "Sn",      50,        Sn_saw,    Sn_ice,    Sn_naw    ),&
+ element_type("antimony",          "Sb",      51,        Sb_saw,    Sb_ice,    Sb_naw    ),&
+ element_type("tellurium",         "Te",      52,        Te_saw,    Te_ice,    Te_naw    ),&
+ element_type("iodine",            "I",       53,        I_saw,     I_ice,     I_naw     ),&
+ element_type("xenon",             "Xe",      54,        Xe_saw,    Xe_ice,    Xe_naw    ),&
+ element_type("caesium",           "Cs",      55,        Cs_saw,    Cs_ice,    Cs_naw    ),&
  element_type("barium",            "Ba",      56,        Ba_saw,    ice_nan,   Ba_naw    ),&
  element_type("lanthanum",         "La",      57,        La_saw,    ice_nan,   La_naw    ),&
  element_type("cerium",            "Ce",      58,        Ce_saw,    ice_nan,   Ce_naw    ),&
