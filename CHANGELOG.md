@@ -2,10 +2,9 @@
 
 * API break: 
     * Data for standard atomic weights are no directly accessed.
-    * SAW and ICE are stored in derived types for each elements.
-    * Each element is stored in a table.
+    * SAW, ICE and NAW are stored in derived types for each elements.
+    * Each element is stored in a periodic table.
     * Element properties are now accessed through getters.
-* Add NAW.
 * Doc update.
 
 
