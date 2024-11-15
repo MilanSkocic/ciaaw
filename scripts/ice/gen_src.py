@@ -29,8 +29,11 @@ def write_constant(f, symbol, A, value, uncertainty):
     
     k = 1
     if n > 0:
-        for ai, ci, ui in zip(A, value, uncertainty):
-            f.write(f"{ai:s}.0_dp,{ci:s}_dp,{ui:s}_dp,&"+newline)
+        for ix, (ai, ci, ui) in enumerate(zip(A, value, uncertainty)):
+            if (ix+1) == NROWS: 
+                f.write(f"{ai:s}.0_dp,{ci:s}_dp,{ui:s}_dp&"+newline)
+            else:
+                f.write(f"{ai:s}.0_dp,{ci:s}_dp,{ui:s}_dp,&"+newline)
             k += 1
 
     while (k<=NROWS):

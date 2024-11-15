@@ -702,7 +702,7 @@ ice_type(10,transpose(reshape([&
 119.0_dp,0.08585_dp,13e-5_dp,&
 120.0_dp,0.32593_dp,20e-5_dp,&
 122.0_dp,0.04629_dp,9e-5_dp,&
-124.0_dp,0.05789_dp,17e-5_dp,&
+124.0_dp,0.05789_dp,17e-5_dp&
 ], shape=[3, 10])))
 
 type(ice_type), parameter, public :: Sb_ice = &
