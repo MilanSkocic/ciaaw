@@ -16,6 +16,7 @@
 bin/
 build/
 docs/build/
+sphinx/_build
 dist/
 local/
 API-doc/
