@@ -23,8 +23,7 @@ contains
 function get_version()result(fptr)
     !! Get the version
     implicit none
-    character(len=:), pointer :: fptr
-        !! Fortran pointer to a string indicating the version..
+    character(len=:), pointer :: fptr    !! Fortran pointer to a string indicating the version..
 
     if(allocated(version_f))then
         deallocate(version_f)
@@ -38,7 +37,7 @@ end function
 ! Base search functions ---------------
 function is_in_pt(z)result(res)
     !! Check if the atomic number z is in the periodic table
-    integer(int32), intent(in) :: z
+    integer(int32), intent(in) :: z  !! Atomic number
     logical :: res
     
     if((z<1) .or. (z>size(pt))) then
@@ -51,8 +50,8 @@ end function
 function get_z_by_symbol(s)result(res)
     !! Get the atomic number z of the element defined by the symbol s.
     !! Returns -1 if the element is not found.
-    character(len=*), intent(in) :: s
-    integer(int32) :: res
+    character(len=*), intent(in) :: s    !! Element symbol
+    integer(int32) :: res                !! Atomic number
 
     integer(int32) :: i
     type(element_type) :: elmt
