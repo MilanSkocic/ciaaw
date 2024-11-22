@@ -70,8 +70,8 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("praseodymium",      "Pr",      59,        Pr_saw,    Pr_ice,    Pr_naw    ),&
  element_type("neodymium",         "Nd",      60,        Nd_saw,    Nd_ice,    Nd_naw    ),&
  element_type("promethium",        "Pm",      61,        Pm_saw,    Pm_ice,    Pm_naw    ),&
- element_type("samarium",          "Sm",      62,        Sm_saw,    ice_nan,   Sm_naw    ),&
- element_type("europium",          "Eu",      63,        Eu_saw,    ice_nan,   Eu_naw    ),&
+ element_type("samarium",          "Sm",      62,        Sm_saw,    Sm_ice,    Sm_naw    ),&
+ element_type("europium",          "Eu",      63,        Eu_saw,    Eu_ice,    Eu_naw    ),&
  element_type("gadolinium",        "Gd",      64,        Gd_saw,    ice_nan,   Gd_naw    ),&
  element_type("terbium",           "Tb",      65,        Tb_saw,    ice_nan,   Tb_naw    ),&
  element_type("dysprosium",        "Dy",      66,        Dy_saw,    ice_nan,   Dy_naw    ),&
