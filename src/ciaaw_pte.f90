@@ -64,12 +64,12 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("iodine",            "I",       53,        I_saw,     I_ice,     I_naw     ),&
  element_type("xenon",             "Xe",      54,        Xe_saw,    Xe_ice,    Xe_naw    ),&
  element_type("caesium",           "Cs",      55,        Cs_saw,    Cs_ice,    Cs_naw    ),&
- element_type("barium",            "Ba",      56,        Ba_saw,    ice_nan,   Ba_naw    ),&
- element_type("lanthanum",         "La",      57,        La_saw,    ice_nan,   La_naw    ),&
- element_type("cerium",            "Ce",      58,        Ce_saw,    ice_nan,   Ce_naw    ),&
- element_type("praseodymium",      "Pr",      59,        Pr_saw,    ice_nan,   Pr_naw    ),&
- element_type("neodymium",         "Nd",      60,        Nd_saw,    ice_nan,   Nd_naw    ),&
- element_type("promethium",        "Pm",      61,        Pm_saw,    ice_nan,   Pm_naw    ),&
+ element_type("barium",            "Ba",      56,        Ba_saw,    Ba_ice,    Ba_naw    ),&
+ element_type("lanthanum",         "La",      57,        La_saw,    La_ice,    La_naw    ),&
+ element_type("cerium",            "Ce",      58,        Ce_saw,    Ce_ice,    Ce_naw    ),&
+ element_type("praseodymium",      "Pr",      59,        Pr_saw,    Pr_ice,    Pr_naw    ),&
+ element_type("neodymium",         "Nd",      60,        Nd_saw,    Nd_ice,    Nd_naw    ),&
+ element_type("promethium",        "Pm",      61,        Pm_saw,    Pm_ice,    Pm_naw    ),&
  element_type("samarium",          "Sm",      62,        Sm_saw,    ice_nan,   Sm_naw    ),&
  element_type("europium",          "Eu",      63,        Eu_saw,    ice_nan,   Eu_naw    ),&
  element_type("gadolinium",        "Gd",      64,        Gd_saw,    ice_nan,   Gd_naw    ),&
