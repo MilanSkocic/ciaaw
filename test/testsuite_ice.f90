@@ -14,7 +14,8 @@ contains
 subroutine collect_suite_ice(testsuite)
   type(unittest_type), allocatable, intent(out) :: testsuite(:)
   testsuite = [new_unittest("ICE", test_ice),&
-               new_unittest("N ICE", test_nice)]
+               new_unittest("N ICE", test_nice),&
+               new_unittest("ICE SUM", test_ice_sum)]
 end subroutine
 
 
@@ -52,6 +53,36 @@ subroutine test_nice(error)
         call check(error, value, expected)
         if (allocated(error)) return
     end do
+end subroutine
+
+
+subroutine test_ice_sum(error)
+    type(error_type), allocatable, intent(out) :: error 
+
+    integer(int32), parameter :: N = 3
+    integer(int32) :: i, j, nice
+    real(dp) :: value, expected
+    
+    expected = 1.0_dp
+    do i=1, 63
+        nice = pt(i)%ice%n
+        value = 0.0_dp
+        select case (trim(pt(i)%symbol))
+            case ("Tc")
+                expected = 0.0_dp
+            case ("Pm")
+                expected = 0.0_dp
+            case default
+                expected = 1.0_dp
+        end select
+        do j=1, nice
+            value = value + pt(i)%ice%values(j,2)
+        end do
+        value = nint(value * 1d3) * 1d-3
+        call check(error, value, expected)
+        if (allocated(error)) return
+    end do
+
 end subroutine
 
 end module
