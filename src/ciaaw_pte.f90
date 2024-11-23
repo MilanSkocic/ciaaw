@@ -72,17 +72,17 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("promethium",        "Pm",      61,        Pm_saw,    Pm_ice,    Pm_naw    ),&
  element_type("samarium",          "Sm",      62,        Sm_saw,    Sm_ice,    Sm_naw    ),&
  element_type("europium",          "Eu",      63,        Eu_saw,    Eu_ice,    Eu_naw    ),&
- element_type("gadolinium",        "Gd",      64,        Gd_saw,    ice_nan,   Gd_naw    ),&
- element_type("terbium",           "Tb",      65,        Tb_saw,    ice_nan,   Tb_naw    ),&
- element_type("dysprosium",        "Dy",      66,        Dy_saw,    ice_nan,   Dy_naw    ),&
- element_type("holmium",           "Ho",      67,        Ho_saw,    ice_nan,   Ho_naw    ),&
- element_type("erbium",            "Er",      68,        Er_saw,    ice_nan,   Er_naw    ),&
- element_type("thulium",           "Tm",      69,        Tm_saw,    ice_nan,   Tm_naw    ),&
- element_type("ytterbium",         "Yb",      70,        Yb_saw,    ice_nan,   Yb_naw    ),&
- element_type("lutetium",          "Lu",      71,        Lu_saw,    ice_nan,   Lu_naw    ),&
- element_type("hafnium",           "Hf",      72,        Hf_saw,    ice_nan,   Hf_naw    ),&
- element_type("tantalum",          "Ta",      73,        Ta_saw,    ice_nan,   Ta_naw    ),&
- element_type("tungsten",          "W",       74,        W_saw,     ice_nan,   W_naw     ),&
+ element_type("gadolinium",        "Gd",      64,        Gd_saw,    Gd_ice,    Gd_naw    ),&
+ element_type("terbium",           "Tb",      65,        Tb_saw,    Tb_ice,    Tb_naw    ),&
+ element_type("dysprosium",        "Dy",      66,        Dy_saw,    Dy_ice,    Dy_naw    ),&
+ element_type("holmium",           "Ho",      67,        Ho_saw,    Ho_ice,    Ho_naw    ),&
+ element_type("erbium",            "Er",      68,        Er_saw,    Er_ice,    Er_naw    ),&
+ element_type("thulium",           "Tm",      69,        Tm_saw,    Tm_ice,    Tm_naw    ),&
+ element_type("ytterbium",         "Yb",      70,        Yb_saw,    Yb_ice,    Yb_naw    ),&
+ element_type("lutetium",          "Lu",      71,        Lu_saw,    Lu_ice,    Lu_naw    ),&
+ element_type("hafnium",           "Hf",      72,        Hf_saw,    Hf_ice,    Hf_naw    ),&
+ element_type("tantalum",          "Ta",      73,        Ta_saw,    Ta_ice,    Ta_naw    ),&
+ element_type("tungsten",          "W",       74,        W_saw,     W_ice,     W_naw     ),&
  element_type("rhenium",           "Re",      75,        Re_saw,    ice_nan,   Re_naw    ),&
  element_type("osmium",            "Os",      76,        Os_saw,    ice_nan,   Os_naw    ),&
  element_type("iridium",           "Ir",      77,        Ir_saw,    ice_nan,   Ir_naw    ),&
