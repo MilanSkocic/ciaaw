@@ -53,5 +53,6 @@ echo "BUILD DIR=" $BUILD_DIR
 echo "INCLUDE_DIR=" $INCLUDE_DIR
 
 echo "##### COMPILERS #####"
+export FC CC
 echo "* FC=" $FC
 echo "* CC=" $CC
