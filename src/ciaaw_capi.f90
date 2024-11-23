@@ -2,13 +2,14 @@ module ciaaw__capi
     !! C API.
     !! See [specs](../page/specs/capi.html)
     use iso_c_binding, only: c_ptr, c_null_char, c_loc, c_double, c_int, c_bool, c_f_pointer
+    use ciaaw__common
     use ciaaw__api
     implicit none
     private
 
     character(len=:), allocatable, target :: version_c
 
-    public :: capi_get_version, capi_get_saw, capi_get_nice, capi_get_naw
+    public :: capi_get_version, capi_get_saw, capi_get_nice, capi_get_naw, capi_get_ice_values
 
 contains
 
@@ -121,6 +122,34 @@ function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)
     enddo
 
     res = get_nice(fs)
+end function
+
+function capi_get_ice_values(s, n)bind(C, name="ciaaw_get_ice_values")result(res)
+    !! C API for [[ciaaw__api(module):get_ice_values(function)]]
+    
+    ! Arguments
+    type(c_ptr), intent(in), value :: s           !! Element symbol.
+    integer(c_int), intent(in), value :: n        !! Size of the symbol string.
+
+    ! Returns
+    type(c_ptr) :: res
+
+    ! Variables
+    integer(c_int) :: i
+    character, pointer, dimension(:) :: c2f_s
+    character(len=n) :: fs
+    real(dp), pointer, contiguous :: fptr(:,:)
+    
+    call c_f_pointer(s, c2f_s, shape=[n])
+
+    do i=1, n
+        fs(i:i) = c2f_s(i)
+    enddo
+
+    fptr => get_ice_values(fs)
+
+    res = c_loc(fptr)
+
 end function
 ! --------------------------------------------------
 
