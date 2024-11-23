@@ -1,3 +1,5 @@
+# ---------------------------------------------------------------------
+# CONFIGURATION
 ifneq ($(prefix), )
 	install_dir=$(prefix)
 else
@@ -10,14 +12,51 @@ else
 	btype=release
 endif
 
-SRC_FYPP=$(wildcard ./src/*.fypp)
+PY=python
+GEN=./scripts/saw/gen_src.py
+GEN_ICE=./scripts/ice/gen_src.py
+GEN_NAW=./scripts/naw/gen_src.py
+GEN_PTE=./scripts/pte/gen_src.py
 
+SRC_FYPP=$(wildcard *.fypp)
+SRC_FYPP_F90=$(patsubst %.fypp, %.f90, $(SRC_FYPP))
+F_MODULE = ./src/ciaaw_saw.f90  ./src/ciaaw_ice.f90 ./src/ciaaw_naw.f90 ./src/ciaaw_pte.f90
+# ---------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------
+# TARGETS
 .PHONY: build data sources doc docs clean logo
 
 all: $(LIBNAME)
 
 $(LIBNAME): build copy_a shared
+# ---------------------------------------------------------------------
 
+
+# ---------------------------------------------------------------------
+# SOURCES
+sources: $(SRC_FYPP_F90) $(F_MODULE)
+	
+./src/ciaaw_saw.f90: ./data/saw_2021.toml
+	$(PY) $(GEN) $< $@
+
+./src/ciaaw_ice.f90: ./data/ice_2013.toml
+	$(PY) $(GEN_ICE) $< $@
+
+./src/ciaaw_naw.f90: ./data/naw_2020.toml
+	$(PY) $(GEN_NAW) $< $@
+
+./src/ciaaw_pte.f90: ./data/saw_2021.toml ./data/ice_2013.toml
+	$(PY) $(GEN_PTE) $^ $@
+
+./src/%.f90: ./src/%.fypp
+	fypp -I ../include $< $@
+# ---------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------
+# COMPILATION
 build: 
 	fpm build --profile=$(btype)
 
@@ -27,7 +66,11 @@ test: build
 example: build
 	fpm run --profile=$(btype) --example example_in_f
 	fpm run --profile=$(btype) --example example_in_c
+# ---------------------------------------------------------------------
 
+
+# ---------------------------------------------------------------------
+# LINKING - STATIC and DYNAMIC LIBS
 copy_a: 
 	cp -f $(shell find ./build/gfortran* -type f -name $(LIBNAME).a) $(BUILD_DIR)
 
@@ -41,7 +84,11 @@ shared_darwin:
 
 shared_windows: 
 	$(FC) -shared $(FPM_LDFLAGS) -o $(BUILD_DIR)/$(LIBNAME).dll -Wl,--out-implib=$(BUILD_DIR)/$(LIBNAME).dll.a,--export-all-symbols,--enable-auto-import,--whole-archive $(BUILD_DIR)/$(LIBNAME).a -Wl,--no-whole-archive
+# ---------------------------------------------------------------------
 
+
+# ---------------------------------------------------------------------
+# INSTALLATION 
 install: install_dirs install_$(PLATFORM)
 
 install_dirs: 
@@ -71,13 +118,11 @@ uninstall:
 	rm -f $(install_dir)/lib/$(LIBNAME).dll.a
 	rm -f $(install_dir)/lib/$(LIBNAME).dll
 	rm -f $(install_dir)/bin/$(LIBNAME).dll
+# ---------------------------------------------------------------------
 
-data:
-	make -C data
 
-sources: data 
-	make -C src 
-
+# ---------------------------------------------------------------------
+# OTHERS
 doc:
 	ford API-doc-FORD-file.md
 
@@ -90,7 +135,7 @@ logo:
 
 clean:
 	make -C data clean
-	make -C src clean
+	rm -rf $(F_MODULE) $(SRC_FYPP_F90)
 	make -C py clean
 	fpm clean --all
 	rm -rf API-doc/*
@@ -98,3 +143,4 @@ clean:
 py: $(LIBNAME)
 	make install prefix=py/src/py$(NAME)
 	make -C py
+# ---------------------------------------------------------------------
