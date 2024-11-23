@@ -1,0 +1,9 @@
+    n = ciaaw_get_nice("H", 1);
+    m = 3;
+    p = ciaaw_get_ice_values("H", 1);
+    for(j=0;j<m;j++){
+        for(i=0;i<n; i++){
+        printf("%e ", *(p+j*n+i));
+        }
+        printf("\n");
+    }
