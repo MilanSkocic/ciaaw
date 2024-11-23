@@ -9,6 +9,8 @@ ifeq ($(PLATFORM), darwin)
 	PY=python
 endif
 
+PYNAME=py$(NAME)
+PY_SRC=./src/$(PYNAME)
 SETUP=setup.py pyproject.toml
 
 all: python3.9 python3.10 python3.11 python3.12 python3.13
