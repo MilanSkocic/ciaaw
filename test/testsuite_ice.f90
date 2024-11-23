@@ -64,7 +64,7 @@ subroutine test_ice_sum(error)
     real(dp) :: value, expected
     
     expected = 1.0_dp
-    do i=1, 63
+    do i=1, 73
         nice = pt(i)%ice%n
         value = 0.0_dp
         select case (trim(pt(i)%symbol))
