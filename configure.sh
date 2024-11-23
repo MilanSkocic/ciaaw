@@ -2,11 +2,10 @@
 
 LIBNAME="libciaaw"
 NAME="ciaaw"
-PYNAME="py$NAME"
-PY_SRC="./src/$PYNAME"
 
 # environment variables
 FC=gfortran
+CC=gcc
 BUILD_DIR="./build"
 INCLUDE_DIR="./include"
 FPM_FFLAGS="-std=f2008 -pedantic -Wall -Wextra"
@@ -34,36 +33,25 @@ fi
 cp -f VERSION ./py/VERSION
 cp -f LICENSE ./py/LICENSE
 
-export LIBNAME
-echo "LIBNAME=" $LIBNAME
 
-export NAME
+echo "##### COMMON SETTINGS #####"
+export LIBNAME NAME PLATFORM
+echo "LIBNAME=" $LIBNAME
 echo "NAME=" $NAME
 
-export PLATFORM
+echo "##### FPM SETTINGS #####"
+export FPM_FFLAGS FPM_CFLAGS FPM_LDFLAGS
 echo "PLATFORM=" $PLATFORM
-
-export FPM_FFLAGS
 echo "FPM_FFLAGS=" $FPM_FFLAGS
-
-export FPM_CFLAGS
 echo "FPM_CFLAGS=" $FPM_CFLAGS
-
-export FPM_LDFLAGS
 echo "FPM_LDFLAGS=" $FPM_LDFLAGS
 
-export DEFAULT_INSTALL_DIR
+echo "##### INSTALLATION SETTINGS #####"
+export DEFAULT_INSTALL_DIR BUILD_DIR INCLUDE_DIR EXT
 echo "DEFAULT INSTALL DIR=" $DEFAULT_INSTALL_DIR
-
-export BUILD_DIR
 echo "BUILD DIR=" $BUILD_DIR
-
-export INCLUDE_DIR
 echo "INCLUDE_DIR=" $INCLUDE_DIR
 
-export PY_SRC
-echo "PY_SRC=" $PY_SRC
-
-export FC
-echo "FC=" $FC
-
+echo "##### COMPILERS #####"
+echo "* FC=" $FC
+echo "* CC=" $CC

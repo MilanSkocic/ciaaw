@@ -96,5 +96,5 @@ clean:
 	rm -rf API-doc/*
 
 py: $(LIBNAME)
-	make install prefix=py/$(PY_SRC)
+	make install prefix=py/src/py$(NAME)
 	make -C py
