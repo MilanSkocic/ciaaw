@@ -252,8 +252,8 @@ function get_nice(s)result(res)
 end function
 
 function get_ice_values(s)result(res)
-    !! Get the number of isotopes in ICE.
-    !! Returns -1 if the provided symbol is incorrect.
+    !! Get the (n, 3) values array. See [[ciaaw__types(module):ice_type(type)]].
+    !! Returns a null pointer if the provided symbol is incorrect.
 
     ! Arguments
     character(len=*), intent(in) :: s             !! Element symbol.
@@ -265,6 +265,7 @@ function get_ice_values(s)result(res)
     integer(int32) :: z
 
     z = get_z_by_symbol(s)
+    res => null()
 
     if(allocated(n_ice_out))then
         deallocate(n_ice_out)
@@ -273,12 +274,13 @@ function get_ice_values(s)result(res)
     if(z>0)then
         allocate(n_ice_out(pt(z)%ice%n, 3))
         n_ice_out(:,:) = pt(z)%ice%values(1:pt(z)%ice%n,:)
+        res => n_ice_out
     else
         allocate(n_ice_out(1,3))
         n_ice_out(1,:) = ice_nan%values(1,:)
+        res => null()
     endif
 
-    res => n_ice_out
 end function 
 ! ------------------------------
 
