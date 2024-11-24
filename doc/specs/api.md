@@ -5,17 +5,6 @@ title: API
 The modules [[ciaaw__saw(module)]], [[ciaaw__ice(module)]], [[ciaaw__naw(module)]] and  [[ciaaw__pte(module)]] are
 automatically generated with a simple parser written in Python.
 
-The latest isotopic compositions were released in 2013 by the [ciaaw](https://www.ciaaw.org).
-All the values for the compositions are provided as double precision reals in a derived type
-[[ciaaw__types(module):ice_type(type)]].
-The isotopic compositions of the element, are extracted from table 1 [Meija et al. 2013](../references.html). 
-
-The latest atomic weights for nuclides were released in 2020 by [ciaaw](https://www.ciaaw.org)
-from [Huang et al. 2021](../references.html).
-All the values for the nuclide atomic weights are provided as double precision reals in derived type
-[[ciaaw__types(module):naw_type(type)]]. 
-
-
 The latest standard atomic weights were released in 2021 by the [ciaaw](https://www.ciaaw.org).
 All the values for the atomic weights are provided as double precision reals in a derived type
 [[ciaaw__types(module):saw_type(type)]].
@@ -33,6 +22,16 @@ The standard atomic weights are a dimensionless quantity and thus they need to b
 the molar mass constant \(M_u=1.00000000105 \pm 0.00000000031 g.mol^{-1}\) 
 in order to get the value in \(g.mol^{-1}\). 
 See [codata](https://milanskocic.github.io/codata/) for physical constants.
+
+The latest isotopic compositions were released in 2013 by the [ciaaw](https://www.ciaaw.org).
+All the values for the compositions are provided as double precision reals in a derived type
+[[ciaaw__types(module):ice_type(type)]].
+The isotopic compositions of the element, are extracted from table 1 [Meija et al. 2013](../references.html). 
+
+The latest atomic weights for nuclides were released in 2020 by [ciaaw](https://www.ciaaw.org)
+from [Huang et al. 2021](../references.html).
+All the values for the nuclide atomic weights are provided as double precision reals in derived type
+[[ciaaw__types(module):naw_type(type)]]. 
 
 All elements from the module [[ciaaw__pte(module)]] are directly accessible. 
 The data for the standard atomic weights [[ciaaw__saw(module)]], the isotopic compositions [[ciaaw__ice(module)]] of the elements
