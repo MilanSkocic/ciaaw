@@ -55,6 +55,12 @@ def generate_data(iupac_clean: str, saw_toml: str)->None:
     fdata = open(iupac_clean, "w")
 
     z, nuclide, A, value, uncertainty, year = ("z", "nuclide", "A", "mass", "uncertainty", "Year/link")
+    fdata.write("123456789_"*8 + "\n")
+    n = 10
+    for i in range(80):
+        if i%n == 0:
+            fdata.write(str(i+1) + " "*(n-len(str(i+1))))
+    fdata.write("\n")
     fdata.write(f"{z:10s}{nuclide:10s}{A:10s}{value:20s}{uncertainty:20s}{year:10s}\n")
     fdata.write("-"*80+"\n")
     
