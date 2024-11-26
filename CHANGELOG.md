@@ -7,8 +7,7 @@
     * Element properties are now accessed through getters.
 * Doc update.
 
-
-**Not released**
+Full changelog available at [github](https://github.com/MilanSkocic/ciaaw/releases)
 
 
 # Version 0.4.3 
