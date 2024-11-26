@@ -62,3 +62,25 @@ def get_ice(s:str, A:int, uncertainty: bool=False):
         Returns NaN if provided symbol or A are incorrect or -1 if the element does not have an ICE.
     """
     return _ciaaw.get_ice(str(s), int(A), bool(uncertainty))
+
+
+def get_naw(s:str, A:int, uncertainty: bool=False):
+    r"""
+    Get the nuclide atomic weight of the element for the mass number A. 
+
+    Parameters
+    ----------
+    s: str
+        Element symbol.
+    A: int
+        Mass number.
+    uncertainty: bool, optional
+        Flag to get the uncertainty instead of the value. Default to False.
+
+    Returns
+    -------
+    ice: float
+        Nuclide atolic weight.
+        Returns NaN if provided symbol or A are incorrect or -1 if the element does not have an ICE.
+    """
+    return _ciaaw.get_naw(str(s), int(A), bool(uncertainty))
