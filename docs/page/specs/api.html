@@ -10,7 +10,7 @@
     <meta name="author" content="Milan Skocic" >
     <link rel="icon" href="../../favicon.png">
 
-    <title>Specifications (specs) &ndash; ciaaw</title>
+    <title>API &ndash; ciaaw</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -63,7 +63,7 @@
 
     <div class="container">
   <div class="row">
-    <h1>Specifications (specs)</h1>
+    <h1>API</h1>
     <div class="container p-2 mb-4 bg-light border rounded-3">
       <div class="row align-items-center justify-content-between">
         <div class="col">
@@ -74,7 +74,8 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-end mb-0">
                 <li class="breadcrumb-item"><a href='../index.html'>Contributing and specs</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Specifications (specs)</li>
+                <li class="breadcrumb-item"><a href='index.html'>Specifications (specs)</a></li>
+              <li class="breadcrumb-item active" aria-current="page">API</li>
             </ol>
           </nav>
         </div>
@@ -96,9 +97,9 @@
               <a class="nav-link" href="../examples.html">Examples</a>
               <a class="nav-link" href="../license.html">License</a>
               <a class="nav-link" href="../references.html">References</a>
-              <a class="nav-link active disabled" href="index.html">Specifications (specs)</a>
+              <a class="nav-link" href="index.html">Specifications (specs)</a>
                 <nav class="nav nav-pills flex-column">
-                                <a class="nav-link" href="api.html">API</a>
+                                <a class="nav-link active disabled" href="api.html">API</a>
               <a class="nav-link" href="capi.html">C API</a>
 
                 </nav>
@@ -107,10 +108,44 @@
       </div>
 
     <div class="col-9" id='text'>
-      <p>This is an index/directory of the specifications (specs) for each module.</p>
+      <p>The modules <a href="../../module/ciaaw__saw.html">ciaaw__saw</a>, <a href="../../module/ciaaw__ice.html">ciaaw__ice</a>, <a href="../../module/ciaaw__naw.html">ciaaw__naw</a> and  <a href="../../module/ciaaw__pte.html">ciaaw__pte</a> are
+automatically generated with a simple parser written in Python.</p>
+<p>The latest standard atomic weights were released in 2021 by the <a href="https://www.ciaaw.org">ciaaw</a>.
+All the values for the atomic weights are provided as double precision reals in a derived type
+<a href="../../type/saw_type.html">saw_type</a>.</p>
+<p>The standard atomic weights (or realtive atomic mass),<script type="math/tex">A_r(E)</script>, 
+are extracted from table 1 <a href="../references.html">Prohaska et al. 2022</a>. For the elements
+that feature an interval for the standard atomic weight, the mean value and the uncertainty are computed
+using formulas defined in <a href="../references.html">Van der Veen et al. 2021</a>.</p>
+<p>
+<script type="math/tex; mode=display"> A_r(E) = \frac{a+b}{2} </script>
+</p>
+<p>
+<script type="math/tex; mode=display"> u(A_r(E)) = \frac{b-a}{2\sqrt{3}} </script>
+</p>
+<p>The standard atomic weights are a dimensionless quantity and thus they need to be multiplied by 
+the molar mass constant <script type="math/tex">M_u=1.00000000105 \pm 0.00000000031 g.mol^{-1}</script> 
+in order to get the value in <script type="math/tex">g.mol^{-1}</script>. 
+See <a href="https://milanskocic.github.io/codata/">codata</a> for physical constants.</p>
+<p>The latest isotopic compositions were released in 2013 by the <a href="https://www.ciaaw.org">ciaaw</a>.
+All the values for the compositions are provided as double precision reals in a derived type
+<a href="../../type/ice_type.html">ice_type</a>.
+The isotopic compositions of the element, are extracted from table 1 <a href="../references.html">Meija et al. 2013</a>. </p>
+<p>The latest atomic weights for nuclides were released in 2020 by <a href="https://www.ciaaw.org">ciaaw</a>
+from <a href="../references.html">Huang et al. 2021</a>.
+All the values for the nuclide atomic weights are provided as double precision reals in derived type
+<a href="../../type/naw_type.html">naw_type</a>. </p>
+<p>All elements from the module <a href="../../module/ciaaw__pte.html">ciaaw__pte</a> are directly accessible. 
+The data for the standard atomic weights <a href="../../module/ciaaw__saw.html">ciaaw__saw</a>, the isotopic compositions <a href="../../module/ciaaw__ice.html">ciaaw__ice</a> of the elements
+and the nuclide atomic weights <a href="../../module/ciaaw__naw.html">ciaaw__naw</a> are also directly accessible 
+through the <a href="../../type/element_type.html">element_type</a>. 
+Nonetheless, convenient getters are available for accessing the desired data for an elements
+without having to access to whole periodic table <a href="../../module/ciaaw__pte.html#variable-pt">pt</a></p>
 <ul>
-<li><a href="api.html">API</a></li>
-<li><a href="./capi.html">C API</a> - Prototypes for C language.</li>
+<li><a href="../../proc/get_saw.html">get_saw</a></li>
+<li><a href="../../proc/get_ice.html">get_ice</a></li>
+<li><a href="../../proc/get_nice.html">get_nice</a></li>
+<li><a href="../../proc/get_naw.html">get_naw</a></li>
 </ul>
     </div>
   </div>
