@@ -64,13 +64,25 @@ subroutine test_ice_sum(error)
     real(dp) :: value, expected
     
     expected = 1.0_dp
-    do i=1, 73
+    do i=1, 92
         nice = pt(i)%ice%n
         value = 0.0_dp
         select case (trim(pt(i)%symbol))
             case ("Tc")
                 expected = 0.0_dp
             case ("Pm")
+                expected = 0.0_dp
+            case ("Po")
+                expected = 0.0_dp
+            case ("At")
+                expected = 0.0_dp
+            case ("Rn")
+                expected = 0.0_dp
+            case ("Fr")
+                expected = 0.0_dp
+            case ("Ra")
+                expected = 0.0_dp
+            case ("Ac")
                 expected = 0.0_dp
             case default
                 expected = 1.0_dp
