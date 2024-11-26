@@ -13,19 +13,22 @@ program example_in_f
     print *, "version ", get_version()  
 
     print '(A)', '########### CIAAW SAW ##########'
-    print '(A10, F10.5)', 'ASAW   = ', get_saw("H", abridged=.true.)
-    print '(A10, F10.5)', 'U ASAW = ', get_saw("H", uncertainty=.true.)
-    print '(A10, F10.5)', 'SAW    = ', get_saw("H", abridged = .false.)
-    print '(A10, F10.5)', 'U SAW =  ', get_saw("H", abridged = .false., uncertainty = .true.)
+    print '(A10, F10.5)', 'ASAW H   = ', get_saw("H", abridged=.true.)
+    print '(A10, F10.5)', 'U ASAW H = ', get_saw("H", uncertainty=.true.)
+    print '(A10, F10.5)', 'SAW H    = ', get_saw("H", abridged = .false.)
+    print '(A10, F10.5)', 'U SAW H  =  ', get_saw("H", abridged = .false., uncertainty = .true.)
+    print '(A10, F10.5)', 'ASAW T   = ', get_saw("Tc", abridged=.true.)
     
     print '(A)', '########### CIAAW ICE ##########'
-    print '(A, I3)',        'N ICE H   = ', get_nice("H")
-    print '(A12, F12.6)',   'ICE H 1   = ', get_ice("H", A=1)
-    print '(A12, ES23.16)', 'U ICE H 1 = ', get_ice("H", A=1, uncertainty=.true.)
-    print '(A12, F12.6)',   'ICE H 2   = ', get_ice("H", A=2)
-    print '(A12, ES23.16)', 'U ICE H 2 = ', get_ice("H", A=2, uncertainty=.true.)
-    
-    print '(A10, F10.5)', 'ASAW   = ', get_saw("Tc", abridged=.true.)
+    print '(A, I3)',        'N ICE H    = ', get_nice("H")
+    print '(A12, F12.6)',   'ICE H 1    = ', get_ice("H", A=1)
+    print '(A12, ES23.16)', 'U ICE H 1  = ', get_ice("H", A=1, uncertainty=.true.)
+    print '(A12, F12.6)',   'ICE H 2    = ', get_ice("H", A=2)
+    print '(A12, ES23.16)', 'U ICE H 2  = ', get_ice("H", A=2, uncertainty=.true.)
     print '(A, I3)',        'N ICE Tc   = ', get_nice("Tc")
+    
+    print '(A)', '########### CIAAW NAW ##########'
+    print '(A12, F12.6)',   'NAW H 2     = ', get_naw("H", A=2)
+    print '(A12, ES23.16)',   'U NAW H 2   = ', get_naw("H", A=2, uncertainty=.true.)
 
 end program
