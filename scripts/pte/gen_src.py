@@ -63,7 +63,7 @@ def run(fpath_ast_saw: str, fpath_ast_ice: str, fpath_code: str)->None:
         else:
             last = False
 
-        if var not  in ast_ice.keys():
+        if var not in ast_ice.keys():
             has_ice = False
         else:
             has_ice = True

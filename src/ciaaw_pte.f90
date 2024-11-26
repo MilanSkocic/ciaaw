@@ -83,24 +83,24 @@ type(element_type), parameter, public :: pt(118) = [&
  element_type("hafnium",           "Hf",      72,        Hf_saw,    Hf_ice,    Hf_naw    ),&
  element_type("tantalum",          "Ta",      73,        Ta_saw,    Ta_ice,    Ta_naw    ),&
  element_type("tungsten",          "W",       74,        W_saw,     W_ice,     W_naw     ),&
- element_type("rhenium",           "Re",      75,        Re_saw,    ice_nan,   Re_naw    ),&
- element_type("osmium",            "Os",      76,        Os_saw,    ice_nan,   Os_naw    ),&
- element_type("iridium",           "Ir",      77,        Ir_saw,    ice_nan,   Ir_naw    ),&
- element_type("platinum",          "Pt",      78,        Pt_saw,    ice_nan,   Pt_naw    ),&
- element_type("gold",              "Au",      79,        Au_saw,    ice_nan,   Au_naw    ),&
- element_type("mercury",           "Hg",      80,        Hg_saw,    ice_nan,   Hg_naw    ),&
- element_type("thallium",          "Tl",      81,        Tl_saw,    ice_nan,   Tl_naw    ),&
- element_type("lead",              "Pb",      82,        Pb_saw,    ice_nan,   Pb_naw    ),&
- element_type("bismuth",           "Bi",      83,        Bi_saw,    ice_nan,   Bi_naw    ),&
- element_type("polonium",          "Po",      84,        Po_saw,    ice_nan,   Po_naw    ),&
- element_type("astatine",          "At",      85,        At_saw,    ice_nan,   At_naw    ),&
- element_type("radon",             "Rn",      86,        Rn_saw,    ice_nan,   Rn_naw    ),&
- element_type("francium",          "Fr",      87,        Fr_saw,    ice_nan,   Fr_naw    ),&
- element_type("radium",            "Ra",      88,        Ra_saw,    ice_nan,   Ra_naw    ),&
- element_type("actinium",          "Ac",      89,        Ac_saw,    ice_nan,   Ac_naw    ),&
- element_type("thorium",           "Th",      90,        Th_saw,    ice_nan,   Th_naw    ),&
- element_type("protactinium",      "Pa",      91,        Pa_saw,    ice_nan,   Pa_naw    ),&
- element_type("uranium",           "U",       92,        U_saw,     ice_nan,   U_naw     ),&
+ element_type("rhenium",           "Re",      75,        Re_saw,    Re_ice,    Re_naw    ),&
+ element_type("osmium",            "Os",      76,        Os_saw,    Os_ice,    Os_naw    ),&
+ element_type("iridium",           "Ir",      77,        Ir_saw,    Ir_ice,    Ir_naw    ),&
+ element_type("platinum",          "Pt",      78,        Pt_saw,    Pt_ice,    Pt_naw    ),&
+ element_type("gold",              "Au",      79,        Au_saw,    Au_ice,    Au_naw    ),&
+ element_type("mercury",           "Hg",      80,        Hg_saw,    Hg_ice,    Hg_naw    ),&
+ element_type("thallium",          "Tl",      81,        Tl_saw,    Tl_ice,    Tl_naw    ),&
+ element_type("lead",              "Pb",      82,        Pb_saw,    Pb_ice,    Pb_naw    ),&
+ element_type("bismuth",           "Bi",      83,        Bi_saw,    Bi_ice,    Bi_naw    ),&
+ element_type("polonium",          "Po",      84,        Po_saw,    Po_ice,    Po_naw    ),&
+ element_type("astatine",          "At",      85,        At_saw,    At_ice,    At_naw    ),&
+ element_type("radon",             "Rn",      86,        Rn_saw,    Rn_ice,    Rn_naw    ),&
+ element_type("francium",          "Fr",      87,        Fr_saw,    Fr_ice,    Fr_naw    ),&
+ element_type("radium",            "Ra",      88,        Ra_saw,    Ra_ice,    Ra_naw    ),&
+ element_type("actinium",          "Ac",      89,        Ac_saw,    Ac_ice,    Ac_naw    ),&
+ element_type("thorium",           "Th",      90,        Th_saw,    Th_ice,    Th_naw    ),&
+ element_type("protactinium",      "Pa",      91,        Pa_saw,    Pa_ice,    Pa_naw    ),&
+ element_type("uranium",           "U",       92,        U_saw,     U_ice,     U_naw     ),&
  element_type("neptunium",         "Np",      93,        Np_saw,    ice_nan,   Np_naw    ),&
  element_type("plutonium",         "Pu",      94,        Pu_saw,    ice_nan,   Pu_naw    ),&
  element_type("americium",         "Am",      95,        Am_saw,    ice_nan,   Am_naw    ),&
