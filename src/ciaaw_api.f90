@@ -13,7 +13,9 @@ module ciaaw__api
     
     real(dp), allocatable, target :: n_ice_out(:,:)
 
-    public :: get_saw, get_ice, get_nice, get_ice_values, get_naw
+    public :: get_saw
+    public :: get_ice, get_nice, get_ice_values
+    public :: get_naw
     public :: print_periodic_table
     public :: get_version
 
