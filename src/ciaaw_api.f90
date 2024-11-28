@@ -78,25 +78,27 @@ subroutine print_periodic_table()
 
     character(len=15) :: header(3)
     character(len=15) :: ice_headers(3)
+    character(len=15) :: naw_headers(3)
 
     header = [character(len=20) :: "", "", ""]
     ice_headers = [character(len=15) :: "A", "C /%", "dC /%"]
+    naw_headers = [character(len=15) :: "A", "M", "dM"]
 
     do i=1, size(pt)
-        print "(A)", "======================================================================"
+        print "(A)", "============================================="
         header(1) = pt(i)%symbol
         header(2) = pt(i)%element
         write(v, "(I3)") pt(i)%z
         header(3) = "z=" // v
         print "(3A15)", header
-        print "(A)", "======================================================================"
+        print "(A)", "---------------------------------------------"
         
         print "(A)", "STANDARD ATOMIC WEIGHTS" 
         write(v, "(F10.5)") pt(i)%saw%asaw
         write(u, "(F10.5)") pt(i)%saw%asaw_u
         print "(A4, A10, A, A10)", "M = ", adjustl(v), "+/-", adjustl(u)
         
-        print "(A)", "----------------------------------------------------------------------"
+        print "(A)", "---------------------------------------------"
         
         print "(A)", "ISOTOPIC COMPOSITIONS" 
         print "(3A15)", ice_headers 
@@ -106,7 +108,17 @@ subroutine print_periodic_table()
             write(u, "(ES12.5)") pt(i)%ice%values(j,3)
             print "(3A15)", adjustl(w), adjustl(v), adjustl(u) 
         enddo
-        print "(A)", "======================================================================"
+        print "(A)", "---------------------------------------------"
+        
+        print "(A)", "NUCLIDE ATOMIC WEIGHTS" 
+        print "(3A15)", naw_headers
+        do j=1, pt(i)%naw%n
+            write(w, "(I3)") nint(pt(i)%naw%values(j,1))
+            write(v, "(ES12.5)") pt(i)%naw%values(j,2)
+            write(u, "(ES12.5)") pt(i)%naw%values(j,3)
+            print "(3A15)", adjustl(w), adjustl(v), adjustl(u) 
+        enddo
+        print "(A)", "============================================="
 
         print *, ""
         print *, ""
