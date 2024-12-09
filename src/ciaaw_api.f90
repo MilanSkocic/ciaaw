@@ -21,7 +21,8 @@ module ciaaw__api
 
 contains
 
-! VERSION -----------------------------
+! ------------------------------ -----------------------------------------------
+! VERSION
 function get_version()result(fptr)
     !! Get the version
     implicit none
@@ -34,9 +35,10 @@ function get_version()result(fptr)
     version_f = version
     fptr => version_f    
 end function
-! -------------------------------------
+! ------------------------------------------------------------------------------
 
-! Base search functions ---------------
+! ------------------------------------------------------------------------------
+! Base search functions 
 function is_in_pt(z)result(res)
     !! Check if the atomic number z is in the periodic table
     integer(int32), intent(in) :: z  !! Atomic number
@@ -125,11 +127,11 @@ subroutine print_periodic_table()
 
     end do
 end subroutine
-!-------------------------------------
+!-------------------------------------------------------------------------------
 
 
-
-! SAW --------------------------
+! ------------------------------------------------------------------------------
+! SAW 
 function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight. By default the abridged value is provided.
     !! If the non abridged value is desired, set abridged to false.
@@ -193,11 +195,11 @@ function get_saw(s, abridged, uncertainty)result(res)
         end if
     end if
 end function
-! ------------------------------
+! ------------------------------------------------------------------------------
 
 
-
-! ICE --------------------------
+! ------------------------------------------------------------------------------
+! ICE
 function get_ice(s, A, uncertainty)result(res)
     !! Get the isotopic composition of the element s for the mass number A. 
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
@@ -296,11 +298,12 @@ function get_ice_values(s)result(res)
     endif
 
 end function 
-! ------------------------------
+! ------------------------------------------------------------------------------
 
 
 
-! NAW --------------------------
+! ------------------------------------------------------------------------------
+! NAW
 function get_naw(s, A, uncertainty)result(res)
     !! Get the atomic weight of the nuclide s for the mass number A. 
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
@@ -346,6 +349,6 @@ function get_naw(s, A, uncertainty)result(res)
         res = pt(z)%naw%values(row, col)
     endif
 end function
-!-------------------------------
+!-------------------------------------------------------------------------------
 
 end module
