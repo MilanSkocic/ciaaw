@@ -9,7 +9,6 @@ module ciaaw__api
     
     character(len=*), parameter :: version = "0.5.0"
     character(len=:), allocatable, target :: version_f
-    character(len=:), allocatable, target :: version_c
     
     real(dp), allocatable, target :: n_ice_out(:,:)
 
