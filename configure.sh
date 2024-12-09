@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LIBNAME="libciaaw"
 NAME="ciaaw"
+LIBNAME="libciaaw"
 
 # environment variables
 FC=gfortran
@@ -15,6 +15,7 @@ DEFAULT_INSTALL_DIR="$HOME/.local"
 PLATFORM="linux"
 EXT=".so"
 
+echo -n "Detecting platform..."
 if [[ "$OSTYPE" == "msys" ]]; then
     DEFAULT_INSTALL_DIR="${APPDATA//\\//}/local"
     PLATFORM="windows"
@@ -29,30 +30,37 @@ if [[ "$OSTYPE" == "darwin"* ]];then
     EXT=".dylib"
     LIBS=( "${LIBSDARWIN[@]}" )
 fi
+echo "OK"
 
-cp -f VERSION ./py/VERSION
-cp -f LICENSE ./py/LICENSE
 
+echo -n "Exporting the ENV variables..."
+export LIBNAME NAME PLATFORM
+export FPM_FFLAGS FPM_CFLAGS FPM_LDFLAGS
+export DEFAULT_INSTALL_DIR BUILD_DIR INCLUDE_DIR EXT
+export FC CC
+echo "OK"
 
 echo "##### COMMON SETTINGS #####"
-export LIBNAME NAME PLATFORM
 echo "* LIBNAME=" $LIBNAME
 echo "* NAME=" $NAME
 
 echo "##### FPM SETTINGS #####"
-export FPM_FFLAGS FPM_CFLAGS FPM_LDFLAGS
 echo "* PLATFORM=" $PLATFORM
 echo "* FPM_FFLAGS=" $FPM_FFLAGS
 echo "* FPM_CFLAGS=" $FPM_CFLAGS
 echo "* FPM_LDFLAGS=" $FPM_LDFLAGS
 
 echo "##### INSTALLATION SETTINGS #####"
-export DEFAULT_INSTALL_DIR BUILD_DIR INCLUDE_DIR EXT
 echo "* DEFAULT INSTALL DIR=" $DEFAULT_INSTALL_DIR
 echo "* BUILD DIR=" $BUILD_DIR
 echo "* INCLUDE_DIR=" $INCLUDE_DIR
 
 echo "##### COMPILERS #####"
-export FC CC
 echo "* FC=" $FC
 echo "* CC=" $CC
+
+
+echo -n "Copying VERSION and LICENSE to py..."
+cp -f VERSION ./py/VERSION
+cp -f LICENSE ./py/LICENSE
+echo "OK"
