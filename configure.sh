@@ -2,6 +2,8 @@
 
 NAME="ciaaw"
 LIBNAME="libciaaw"
+PYNAME="py$NAME"
+PY_SRC="./src/$PYNAME"
 
 # environment variables
 FC=gfortran
@@ -34,7 +36,7 @@ echo "OK"
 
 
 echo -n "Exporting the ENV variables..."
-export LIBNAME NAME PLATFORM
+export LIBNAME NAME PLATFORM PYNAME PY_SRC
 export FPM_FFLAGS FPM_CFLAGS FPM_LDFLAGS
 export DEFAULT_INSTALL_DIR BUILD_DIR INCLUDE_DIR EXT
 export FC CC
@@ -54,6 +56,10 @@ echo "##### INSTALLATION SETTINGS #####"
 echo "* DEFAULT INSTALL DIR=" $DEFAULT_INSTALL_DIR
 echo "* BUILD DIR=" $BUILD_DIR
 echo "* INCLUDE_DIR=" $INCLUDE_DIR
+
+echo "##### PYTHON SETTINGS #####"
+echo "PYTHON SRC=" $PY_SRC
+echo "PYNAME=" $PYNAME
 
 echo "##### COMPILERS #####"
 echo "* FC=" $FC
