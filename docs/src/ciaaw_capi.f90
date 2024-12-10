@@ -13,8 +13,8 @@ module ciaaw__capi
 
 contains
 
-
-! VERSION ----------------------------------------------------------------
+! ------------------------------------------------------------------------------
+! VERSION 
 function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
     !! C API for [[ciaaw__api(module):get_version(function)]].
     
@@ -32,10 +32,11 @@ function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
     version_c = fptr // c_null_char
     cptr = c_loc(version_c)
 end function
-! ------------------------------------------------------------------------
+! ------------------------------------------------------------------------------
 
 
-! SAW -------------------------------------------------
+! ------------------------------------------------------------------------------
+! SAW
 function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")result(res)
     !! C API for [[ciaaw__api(module):get_saw(function)]].
 
@@ -66,10 +67,11 @@ function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")r
 
     res = get_saw(fs, f_abridged, f_uncertainty)
 end function
-! -----------------------------------------------
+! ------------------------------------------------------------------------------
 
 
-! ICE ----------------------------------------------
+! ------------------------------------------------------------------------------
+! ICE 
 function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)
     !! C API for [[ciaaw__api(module):get_ice(function)]]
     
@@ -151,11 +153,11 @@ function capi_get_ice_values(s, n)bind(C, name="ciaaw_get_ice_values")result(res
     res = c_loc(fptr)
 
 end function
-! --------------------------------------------------
+! ------------------------------------------------------------------------------
 
 
-
-! NAW ------------------------------------------------------------------------------
+! ------------------------------------------------------------------------------
+! NAW 
 function capi_get_naw(s, n, A, uncertainty)bind(C, name="ciaaw_get_naw")result(res)
     !! C API for [[ciaaw__api(module):get_naw(function)]]
     

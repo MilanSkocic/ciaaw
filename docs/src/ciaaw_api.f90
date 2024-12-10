@@ -9,17 +9,19 @@ module ciaaw__api
     
     character(len=*), parameter :: version = "0.5.0"
     character(len=:), allocatable, target :: version_f
-    character(len=:), allocatable, target :: version_c
     
     real(dp), allocatable, target :: n_ice_out(:,:)
 
-    public :: get_saw, get_ice, get_nice, get_ice_values, get_naw
+    public :: get_saw
+    public :: get_ice, get_nice, get_ice_values
+    public :: get_naw
     public :: print_periodic_table
     public :: get_version
 
 contains
 
-! VERSION -----------------------------
+! ------------------------------ -----------------------------------------------
+! VERSION
 function get_version()result(fptr)
     !! Get the version
     implicit none
@@ -32,9 +34,10 @@ function get_version()result(fptr)
     version_f = version
     fptr => version_f    
 end function
-! -------------------------------------
+! ------------------------------------------------------------------------------
 
-! Base search functions ---------------
+! ------------------------------------------------------------------------------
+! Base search functions 
 function is_in_pt(z)result(res)
     !! Check if the atomic number z is in the periodic table
     integer(int32), intent(in) :: z  !! Atomic number
@@ -76,25 +79,27 @@ subroutine print_periodic_table()
 
     character(len=15) :: header(3)
     character(len=15) :: ice_headers(3)
+    character(len=15) :: naw_headers(3)
 
     header = [character(len=20) :: "", "", ""]
     ice_headers = [character(len=15) :: "A", "C /%", "dC /%"]
+    naw_headers = [character(len=15) :: "A", "M", "dM"]
 
     do i=1, size(pt)
-        print "(A)", "======================================================================"
+        print "(A)", "============================================="
         header(1) = pt(i)%symbol
         header(2) = pt(i)%element
         write(v, "(I3)") pt(i)%z
         header(3) = "z=" // v
         print "(3A15)", header
-        print "(A)", "======================================================================"
+        print "(A)", "---------------------------------------------"
         
         print "(A)", "STANDARD ATOMIC WEIGHTS" 
         write(v, "(F10.5)") pt(i)%saw%asaw
         write(u, "(F10.5)") pt(i)%saw%asaw_u
         print "(A4, A10, A, A10)", "M = ", adjustl(v), "+/-", adjustl(u)
         
-        print "(A)", "----------------------------------------------------------------------"
+        print "(A)", "---------------------------------------------"
         
         print "(A)", "ISOTOPIC COMPOSITIONS" 
         print "(3A15)", ice_headers 
@@ -104,18 +109,28 @@ subroutine print_periodic_table()
             write(u, "(ES12.5)") pt(i)%ice%values(j,3)
             print "(3A15)", adjustl(w), adjustl(v), adjustl(u) 
         enddo
-        print "(A)", "======================================================================"
+        print "(A)", "---------------------------------------------"
+        
+        print "(A)", "NUCLIDE ATOMIC WEIGHTS" 
+        print "(3A15)", naw_headers
+        do j=1, pt(i)%naw%n
+            write(w, "(I3)") nint(pt(i)%naw%values(j,1))
+            write(v, "(ES12.5)") pt(i)%naw%values(j,2)
+            write(u, "(ES12.5)") pt(i)%naw%values(j,3)
+            print "(3A15)", adjustl(w), adjustl(v), adjustl(u) 
+        enddo
+        print "(A)", "============================================="
 
         print *, ""
         print *, ""
 
     end do
 end subroutine
-!-------------------------------------
+!-------------------------------------------------------------------------------
 
 
-
-! SAW --------------------------
+! ------------------------------------------------------------------------------
+! SAW 
 function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight. By default the abridged value is provided.
     !! If the non abridged value is desired, set abridged to false.
@@ -179,11 +194,11 @@ function get_saw(s, abridged, uncertainty)result(res)
         end if
     end if
 end function
-! ------------------------------
+! ------------------------------------------------------------------------------
 
 
-
-! ICE --------------------------
+! ------------------------------------------------------------------------------
+! ICE
 function get_ice(s, A, uncertainty)result(res)
     !! Get the isotopic composition of the element s for the mass number A. 
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
@@ -282,11 +297,12 @@ function get_ice_values(s)result(res)
     endif
 
 end function 
-! ------------------------------
+! ------------------------------------------------------------------------------
 
 
 
-! NAW --------------------------
+! ------------------------------------------------------------------------------
+! NAW
 function get_naw(s, A, uncertainty)result(res)
     !! Get the atomic weight of the nuclide s for the mass number A. 
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
@@ -332,6 +348,6 @@ function get_naw(s, A, uncertainty)result(res)
         res = pt(z)%naw%values(row, col)
     endif
 end function
-!-------------------------------
+!-------------------------------------------------------------------------------
 
 end module
