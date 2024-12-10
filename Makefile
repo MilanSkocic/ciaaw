@@ -130,13 +130,8 @@ docs:
 	rm -rf docs/*
 	cp -rf API-doc/* docs/
 
-logo:
-	make -C media
-
 clean:
-	make -C data clean
 	rm -rf $(F_MODULE) $(SRC_FYPP_F90)
-	make -C py clean
 	fpm clean --all
 	rm -rf API-doc/*
 
