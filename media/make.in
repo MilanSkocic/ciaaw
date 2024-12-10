@@ -6,7 +6,7 @@ ICO_FOLDER=./
 TEX=pdflatex
 TEX_OPTIONS=-output-directory=$(BUILD_FOLDER) -interaction=batchmode
 
-CONVERT=magick convert
+CONVERT=convert
 CONVERT_DENSITY=-density 300
 CONVERT_RESIZE=
 

@@ -13,3 +13,4 @@ $(ICO_FOLDER)/%.ico: $(PNG_FOLDER)/%.png
 
 clean:
 	rm -rf $(BUILD_FOLDER)/*
+	rm -rf logo.*
