@@ -25,7 +25,7 @@ all: package test
 
 # ---------------------------------------------------------------------
 # COMPILATION
-package: python3.13 python3.12 python3.11 python3.10 python3.9
+package: python3.9 python3.10 python3.11 python3.12 python3.13
 
 python3.13: $(SETUP)
 	@echo "########### PYTHON 3.13 ##########"
@@ -59,7 +59,7 @@ python3.9: $(SETUP)
 	$(PY)3.9 -m build --no-isolation --wheel
 	@echo "#################################"
 
-test: test3.13 test3.12 test3.10 test3.9
+test: test3.9 test3.10 test3.11 test3.12 test3.13
 
 test3.13: 
 	$(PY)3.13 -m pytest -v
