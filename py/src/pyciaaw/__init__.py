@@ -1,6 +1,10 @@
-"""Standard Atomic Weights and Isotopes.
+"""
+SAW: Standard Atomic Weights.
 
-Standard Atomic Weights: the lattest values for are from 2021.
+ICE: Isotopic Compositions of the element.
+
+NAW: Nuclide's Atomic Weights.
+
 
 """
 from .ciaaw import __version__
