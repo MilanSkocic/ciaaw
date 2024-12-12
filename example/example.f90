@@ -21,14 +21,16 @@ program example_in_f
     
     print '(A)', '########### CIAAW ICE ##########'
     print '(A, I3)',        'N ICE H    = ', get_nice("H")
-    print '(A12, F12.6)',   'ICE H 1    = ', get_ice("H", A=1)
-    print '(A12, ES23.16)', 'U ICE H 1  = ', get_ice("H", A=1, uncertainty=.true.)
-    print '(A12, F12.6)',   'ICE H 2    = ', get_ice("H", A=2)
-    print '(A12, ES23.16)', 'U ICE H 2  = ', get_ice("H", A=2, uncertainty=.true.)
+    print '(A, F12.6)',   'ICE H 1    = ', get_ice("H", A=1)
+    print '(A, ES23.16)', 'U ICE H 1  = ', get_ice("H", A=1, uncertainty=.true.)
+    print '(A, F12.6)',   'ICE H 2    = ', get_ice("H", A=2)
+    print '(A, ES23.16)', 'U ICE H 2  = ', get_ice("H", A=2, uncertainty=.true.)
     print '(A, I3)',        'N ICE Tc   = ', get_nice("Tc")
+    print '(A, I3)',        'N ICE C    = ', get_nice("C")
     
     print '(A)', '########### CIAAW NAW ##########'
-    print '(A12, F12.6)',   'NAW H 2     = ', get_naw("H", A=2)
-    print '(A12, ES23.16)',   'U NAW H 2   = ', get_naw("H", A=2, uncertainty=.true.)
+    print '(A, ES23.16)',   'NAW H 2     = ', get_naw("H", A=2)
+    print '(A, ES23.16)',   'U NAW H 2   = ', get_naw("H", A=2, uncertainty=.true.)
+    print '(A, I3)',          'N NAW Tc    = ', get_nnaw("Tc")
 
 end program

@@ -13,7 +13,8 @@ contains
     
 subroutine collect_suite_naw(testsuite)
   type(unittest_type), allocatable, intent(out) :: testsuite(:)
-  testsuite = [new_unittest("NAW", test_naw)]
+  testsuite = [new_unittest("NAW", test_naw), &
+               new_unittest("N NAW", test_naw)]
 end subroutine
 
 
@@ -35,5 +36,21 @@ subroutine test_naw(error)
     end do
 end subroutine
 
+subroutine test_nnaw(error)
+    type(error_type), allocatable, intent(out) :: error 
+
+    integer(int32), parameter :: N = 3
+    integer(int32) :: i, value, expected
+    
+    character(len=2) :: elmt(3) = [character(len=2) :: "H", "C", "Ne"]
+    integer(int32) :: expected_n(N) = [7, 16, 20]
+
+    do i=1, N
+        value = get_nnaw(elmt(i))
+        expected = expected_n(i)
+        call check(error, value, expected)
+        if (allocated(error)) return
+    end do
+end subroutine
 
 end module

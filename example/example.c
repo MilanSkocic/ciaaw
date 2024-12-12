@@ -30,10 +30,12 @@ int main(void){
     printf("%s %12.6f\n", "ICE H 2      = ", ciaaw_get_ice("H", 1, 2, false)); 
     printf("%s %23.16e\n","U ICE H 2    = ", ciaaw_get_ice("H", 1, 2, true)); 
     printf("%s %d\n",     "N ICE Tc     = ", ciaaw_get_nice("Tc", 2));
+    printf("%s %d\n",     "N ICE C      = ", ciaaw_get_nice("C", 1));
 
     printf("%s\n", "########## CIAAW NAW ##########");
-    printf("%s %12.6f\n", "NAW H 2      = ", ciaaw_get_naw("H", 1, 2, false)); 
-    printf("%s %23.16e\n","U NAW H 2    = ", ciaaw_get_naw("H", 1, 2, true)); 
+    printf("%s %23.16f\n", "NAW H 2      = ", ciaaw_get_naw("H", 1, 2, false)); 
+    printf("%s %23.16e\n", "U NAW H 2    = ", ciaaw_get_naw("H", 1, 2, true)); 
+    printf("%s %d\n",      "N NAW Tc     = ", ciaaw_get_nnaw("Tc", 2));
 
     return EXIT_SUCCESS;
     }

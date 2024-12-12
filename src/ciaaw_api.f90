@@ -12,11 +12,11 @@ module ciaaw__api
     
     real(dp), allocatable, target :: n_ice_out(:,:)
 
-    public :: get_saw
-    public :: get_ice, get_nice, get_ice_values
-    public :: get_naw
-    public :: print_periodic_table
     public :: get_version
+    public :: get_saw
+    public :: get_ice, get_nice
+    public :: get_naw, get_nnaw
+    public :: get_ice_values
 
 contains
 
@@ -346,6 +346,28 @@ function get_naw(s, A, uncertainty)result(res)
     endif
     if(row > 0)then
         res = pt(z)%naw%values(row, col)
+    endif
+end function
+
+function get_nnaw(s)result(res)
+    !! Get the number of nuclides in NAW.
+    !! Returns -1 if the provided symbol is incorrect.
+
+    ! Arguments
+    character(len=*), intent(in) :: s             !! Element symbol.
+
+    ! Returns
+    integer(int32) :: res
+
+    ! Variables
+    integer(int32) :: z
+
+    z = get_z_by_symbol(s)
+
+    if(z>0)then
+        res = pt(z)%naw%n
+    else
+        res = -1
     endif
 end function
 !-------------------------------------------------------------------------------
