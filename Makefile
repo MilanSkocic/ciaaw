@@ -12,7 +12,6 @@ else
 	btype=release
 endif
 
-PY=python
 GEN=./scripts/saw/gen_src.py
 GEN_ICE=./scripts/ice/gen_src.py
 GEN_NAW=./scripts/naw/gen_src.py

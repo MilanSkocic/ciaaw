@@ -1,13 +1,14 @@
 #!/bin/bash
 
 NAME="ciaaw"
-LIBNAME="libciaaw"
+LIBNAME="lib$NAME"
 PYNAME="py$NAME"
 PY_SRC="./src/$PYNAME"
 
 # environment variables
 FC=gfortran
 CC=gcc
+PY=python
 BUILD_DIR="./build"
 INCLUDE_DIR="./include"
 FPM_FFLAGS="-std=f2008 -pedantic -Wall -Wextra"
@@ -17,8 +18,10 @@ DEFAULT_INSTALL_DIR="$HOME/.local"
 PLATFORM="linux"
 EXT=".so"
 
+
 echo -n "Detecting platform..."
 if [[ "$OSTYPE" == "msys" ]]; then
+    PY="py -"
     DEFAULT_INSTALL_DIR="${APPDATA//\\//}/local"
     PLATFORM="windows"
     ROOT=$ROOTWINDOWS
@@ -34,20 +37,29 @@ if [[ "$OSTYPE" == "darwin"* ]];then
 fi
 echo "OK"
 
-
-echo -n "Exporting the ENV variables..."
-export LIBNAME NAME PLATFORM PYNAME PY_SRC
-export FPM_FFLAGS FPM_CFLAGS FPM_LDFLAGS
-export DEFAULT_INSTALL_DIR BUILD_DIR INCLUDE_DIR EXT
-export FC CC
+echo -n "Exporting env variables..."
+export LIBNAME
+export NAME
+export PLATFORM
+export FPM_FFLAGS
+export FPM_CFLAGS
+export FPM_LDFLAGS
+export DEFAULT_INSTALL_DIR
+export BUILD_DIR
+export INCLUDE_DIR
+export PY_SRC
+export FC
+export CC
+export PY
+export EXT
 echo "OK"
 
 echo "##### COMMON SETTINGS #####"
 echo "* LIBNAME=" $LIBNAME
 echo "* NAME=" $NAME
+echo "* PLATFORM=" $PLATFORM
 
 echo "##### FPM SETTINGS #####"
-echo "* PLATFORM=" $PLATFORM
 echo "* FPM_FFLAGS=" $FPM_FFLAGS
 echo "* FPM_CFLAGS=" $FPM_CFLAGS
 echo "* FPM_LDFLAGS=" $FPM_LDFLAGS
@@ -58,15 +70,15 @@ echo "* BUILD DIR=" $BUILD_DIR
 echo "* INCLUDE_DIR=" $INCLUDE_DIR
 
 echo "##### PYTHON SETTINGS #####"
-echo "PYTHON SRC=" $PY_SRC
-echo "PYNAME=" $PYNAME
+echo "* PY_SRC=" $PY_SRC
 
 echo "##### COMPILERS #####"
 echo "* FC=" $FC
 echo "* CC=" $CC
+echo "* PY=" $PY
 
 
-echo -n "Copying VERSION and LICENSE to py..."
+echo -n "Copying version and license for python..."
 cp -f VERSION ./py/VERSION
 cp -f LICENSE ./py/LICENSE
 echo "OK"
