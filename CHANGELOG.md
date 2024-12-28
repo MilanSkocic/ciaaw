@@ -1,3 +1,10 @@
+# Version 0.5.1
+
+* Code refactoring.
+* Documentation update.
+
+**Not released**
+
 # Version 0.5.0
 
 * API break: 
@@ -45,7 +52,7 @@ Full changelog available at [github](https://github.com/MilanSkocic/ciaaw/releas
 
 # Version 0.3.0
 
-* Code refractoring.
+* Code refactoring.
 * Move C API and Python wrapper to their own repositories.
 * Improve documentatinon.
 
