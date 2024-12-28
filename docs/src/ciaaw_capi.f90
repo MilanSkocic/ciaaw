@@ -9,7 +9,11 @@ module ciaaw__capi
 
     character(len=:), allocatable, target :: version_c
 
-    public :: capi_get_version, capi_get_saw, capi_get_nice, capi_get_naw, capi_get_ice_values
+    public :: capi_get_version
+    public :: capi_get_saw
+    public :: capi_get_ice, capi_get_nice
+    public :: capi_get_naw, capi_get_nnaw
+    public :: capi_get_ice_values
 
 contains
 
@@ -186,6 +190,30 @@ function capi_get_naw(s, n, A, uncertainty)bind(C, name="ciaaw_get_naw")result(r
     f_uncertainty = logical(uncertainty)
 
     res = get_naw(fs, A, f_uncertainty)
+end function
+
+function capi_get_nnaw(s,n)bind(C, name="ciaaw_get_nnaw")result(res)
+    !! C API for [[ciaaw__api(module):get_nnaw(function)]]
+
+    ! Arguments
+    type(c_ptr), intent(in), value :: s           !! Element symbol.
+    integer(c_int), intent(in), value :: n        !! Size of the symbol string.
+
+    ! Returns
+    integer(c_int) :: res
+
+    ! Variables
+    integer(c_int) :: i
+    character, pointer, dimension(:) :: c2f_s
+    character(len=n) :: fs
+    
+    call c_f_pointer(s, c2f_s, shape=[n])
+
+    do i=1, n
+        fs(i:i) = c2f_s(i)
+    enddo
+
+    res = get_nnaw(fs)
 end function
 ! ------------------------------------------------------------------------------
 

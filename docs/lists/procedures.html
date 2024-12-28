@@ -70,6 +70,12 @@
 			 <thead><tr><th>Procedure</th><th>Location</th><th>Procedure Type</th><th>Description</th></tr></thead>
 			 <tbody>
 			   <tr>
+                 <td><a href='../proc/capi_get_ice.html'>capi_get_ice</a></td>
+                 <td><a href='../module/ciaaw__capi.html'>ciaaw__capi</a></td>
+                 <td>Function</td>
+                 <td><p>C API for <a href="../proc/get_ice.html">get_ice</a></p></td>
+               </tr>
+			   <tr>
                  <td><a href='../proc/capi_get_ice_values.html'>capi_get_ice_values</a></td>
                  <td><a href='../module/ciaaw__capi.html'>ciaaw__capi</a></td>
                  <td>Function</td>
@@ -86,6 +92,12 @@
                  <td><a href='../module/ciaaw__capi.html'>ciaaw__capi</a></td>
                  <td>Function</td>
                  <td><p>C API for <a href="../proc/get_nice.html">get_nice</a></p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/capi_get_nnaw.html'>capi_get_nnaw</a></td>
+                 <td><a href='../module/ciaaw__capi.html'>ciaaw__capi</a></td>
+                 <td>Function</td>
+                 <td><p>C API for <a href="../proc/get_nnaw.html">get_nnaw</a></p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/capi_get_saw.html'>capi_get_saw</a></td>
@@ -105,7 +117,7 @@
                  <td>Function</td>
                  <td><p>Get the isotopic composition of the element s for the mass number A. 
 The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-Returns NaN if provided symbol or A are incorrect or -1 if the element does not have an ICE.</p></td>
+Returns NaN if the provided symbol or A are incorrect or -1 if the element does not have an ICE.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/get_ice_values.html'>get_ice_values</a></td>
@@ -131,25 +143,26 @@ or -1 if the element does not have an NAW.</p></td>
 Returns -1 if the provided symbol is incorrect.</p></td>
                </tr>
 			   <tr>
+                 <td><a href='../proc/get_nnaw.html'>get_nnaw</a></td>
+                 <td><a href='../module/ciaaw__api.html'>ciaaw__api</a></td>
+                 <td>Function</td>
+                 <td><p>Get the number of nuclides in NAW.
+Returns -1 if the provided symbol is incorrect.</p></td>
+               </tr>
+			   <tr>
                  <td><a href='../proc/get_saw.html'>get_saw</a></td>
                  <td><a href='../module/ciaaw__api.html'>ciaaw__api</a></td>
                  <td>Function</td>
                  <td><p>Get the standard atomic weight. By default the abridged value is provided.
 If the non abridged value is desired, set abridged to false.
 The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-Returns NaN if provided symbol is incorrect or -1 if the element does not have a standard atomic weight.</p></td>
+Returns NaN if provided symbol is incorrect or -1 if the element does not have a SAW.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/get_version.html'>get_version</a></td>
                  <td><a href='../module/ciaaw__api.html'>ciaaw__api</a></td>
                  <td>Function</td>
                  <td><p>Get the version</p></td>
-               </tr>
-			   <tr>
-                 <td><a href='../proc/print_periodic_table.html'>print_periodic_table</a></td>
-                 <td><a href='../module/ciaaw__api.html'>ciaaw__api</a></td>
-                 <td>Subroutine</td>
-                 <td><p>Print periodic table.</p></td>
                </tr>
 			 </tbody></table>
              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -163,167 +176,197 @@ Returns NaN if provided symbol is incorrect or -1 if the element does not have a
 <g id="call~~graph~~CallGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 280)">
 <title>call~~graph~~CallGraph</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-280 339,-280 339,4 -4,4"/>
-<!-- proc~capi_get_ice_values -->
+<!-- proc~capi_get_ice -->
 <g id="call~~graph~~CallGraph_node1" class="node">
+<title>proc~capi_get_ice</title>
+<g id="a_call~~graph~~CallGraph_node1"><a xlink:href="../proc/capi_get_ice.html" xlink:title="capi_get_ice">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="98.5,-108 19.5,-108 19.5,-84 98.5,-84 98.5,-108"/>
+<text text-anchor="middle" x="59" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_ice</text>
+</a>
+</g>
+</g>
+<!-- proc~get_ice -->
+<g id="call~~graph~~CallGraph_node8" class="node">
+<title>proc~get_ice</title>
+<g id="a_call~~graph~~CallGraph_node8"><a xlink:href="../proc/get_ice.html" xlink:title="get_ice">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="226.5,-108 172.5,-108 172.5,-84 226.5,-84 226.5,-108"/>
+<text text-anchor="middle" x="199.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_ice</text>
+</a>
+</g>
+</g>
+<!-- proc~capi_get_ice&#45;&gt;proc~get_ice -->
+<g id="call~~graph~~CallGraph_edge1" class="edge">
+<title>proc~capi_get_ice&#45;&gt;proc~get_ice</title>
+<path fill="none" stroke="#ff0000" d="M98.58,-96C118.53,-96 142.73,-96 162.32,-96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="162.38,-99.5 172.38,-96 162.38,-92.5 162.38,-99.5"/>
+</g>
+<!-- proc~capi_get_ice_values -->
+<g id="call~~graph~~CallGraph_node2" class="node">
 <title>proc~capi_get_ice_values</title>
-<g id="a_call~~graph~~CallGraph_node1"><a xlink:href="../proc/capi_get_ice_values.html" xlink:title="capi_get_ice_values">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="118,-24 0,-24 0,0 118,0 118,-24"/>
-<text text-anchor="middle" x="59" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_ice_values</text>
+<g id="a_call~~graph~~CallGraph_node2"><a xlink:href="../proc/capi_get_ice_values.html" xlink:title="capi_get_ice_values">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="118,-150 0,-150 0,-126 118,-126 118,-150"/>
+<text text-anchor="middle" x="59" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_ice_values</text>
 </a>
 </g>
 </g>
 <!-- proc~get_ice_values -->
-<g id="call~~graph~~CallGraph_node7" class="node">
+<g id="call~~graph~~CallGraph_node9" class="node">
 <title>proc~get_ice_values</title>
-<g id="a_call~~graph~~CallGraph_node7"><a xlink:href="../proc/get_ice_values.html" xlink:title="get_ice_values">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="245,-24 154,-24 154,0 245,0 245,-24"/>
-<text text-anchor="middle" x="199.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_ice_values</text>
+<g id="a_call~~graph~~CallGraph_node9"><a xlink:href="../proc/get_ice_values.html" xlink:title="get_ice_values">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="245,-150 154,-150 154,-126 245,-126 245,-150"/>
+<text text-anchor="middle" x="199.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_ice_values</text>
 </a>
 </g>
 </g>
 <!-- proc~capi_get_ice_values&#45;&gt;proc~get_ice_values -->
-<g id="call~~graph~~CallGraph_edge1" class="edge">
+<g id="call~~graph~~CallGraph_edge2" class="edge">
 <title>proc~capi_get_ice_values&#45;&gt;proc~get_ice_values</title>
-<path fill="none" stroke="#ff0000" d="M118.34,-12C126.65,-12 135.18,-12 143.44,-12"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="143.7,-15.5 153.7,-12 143.7,-8.5 143.7,-15.5"/>
+<path fill="none" stroke="#ff6d00" d="M118.34,-138C126.65,-138 135.18,-138 143.44,-138"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="143.7,-141.5 153.7,-138 143.7,-134.5 143.7,-141.5"/>
 </g>
 <!-- proc~capi_get_naw -->
-<g id="call~~graph~~CallGraph_node2" class="node">
+<g id="call~~graph~~CallGraph_node3" class="node">
 <title>proc~capi_get_naw</title>
-<g id="a_call~~graph~~CallGraph_node2"><a xlink:href="../proc/capi_get_naw.html" xlink:title="capi_get_naw">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="101.5,-150 16.5,-150 16.5,-126 101.5,-126 101.5,-150"/>
-<text text-anchor="middle" x="59" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_naw</text>
+<g id="a_call~~graph~~CallGraph_node3"><a xlink:href="../proc/capi_get_naw.html" xlink:title="capi_get_naw">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="101.5,-66 16.5,-66 16.5,-42 101.5,-42 101.5,-66"/>
+<text text-anchor="middle" x="59" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_naw</text>
 </a>
 </g>
 </g>
 <!-- proc~get_naw -->
-<g id="call~~graph~~CallGraph_node8" class="node">
+<g id="call~~graph~~CallGraph_node10" class="node">
 <title>proc~get_naw</title>
-<g id="a_call~~graph~~CallGraph_node8"><a xlink:href="../proc/get_naw.html" xlink:title="get_naw">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="228,-150 171,-150 171,-126 228,-126 228,-150"/>
-<text text-anchor="middle" x="199.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_naw</text>
+<g id="a_call~~graph~~CallGraph_node10"><a xlink:href="../proc/get_naw.html" xlink:title="get_naw">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="228,-66 171,-66 171,-42 228,-42 228,-66"/>
+<text text-anchor="middle" x="199.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_naw</text>
 </a>
 </g>
 </g>
 <!-- proc~capi_get_naw&#45;&gt;proc~get_naw -->
-<g id="call~~graph~~CallGraph_edge2" class="edge">
+<g id="call~~graph~~CallGraph_edge3" class="edge">
 <title>proc~capi_get_naw&#45;&gt;proc~get_naw</title>
-<path fill="none" stroke="#ff7f00" d="M101.55,-138C120.43,-138 142.58,-138 160.95,-138"/>
-<polygon fill="#ff7f00" stroke="#ff7f00" points="160.99,-141.5 170.99,-138 160.99,-134.5 160.99,-141.5"/>
+<path fill="none" stroke="#ffda00" d="M101.55,-54C120.43,-54 142.58,-54 160.95,-54"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="160.99,-57.5 170.99,-54 160.99,-50.5 160.99,-57.5"/>
 </g>
 <!-- proc~capi_get_nice -->
-<g id="call~~graph~~CallGraph_node3" class="node">
+<g id="call~~graph~~CallGraph_node4" class="node">
 <title>proc~capi_get_nice</title>
-<g id="a_call~~graph~~CallGraph_node3"><a xlink:href="../proc/capi_get_nice.html" xlink:title="capi_get_nice">
+<g id="a_call~~graph~~CallGraph_node4"><a xlink:href="../proc/capi_get_nice.html" xlink:title="capi_get_nice">
 <polygon fill="#d94e8f" stroke="#d94e8f" points="101.5,-192 16.5,-192 16.5,-168 101.5,-168 101.5,-192"/>
 <text text-anchor="middle" x="59" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_nice</text>
 </a>
 </g>
 </g>
 <!-- proc~get_nice -->
-<g id="call~~graph~~CallGraph_node9" class="node">
+<g id="call~~graph~~CallGraph_node11" class="node">
 <title>proc~get_nice</title>
-<g id="a_call~~graph~~CallGraph_node9"><a xlink:href="../proc/get_nice.html" xlink:title="get_nice">
+<g id="a_call~~graph~~CallGraph_node11"><a xlink:href="../proc/get_nice.html" xlink:title="get_nice">
 <polygon fill="#d94e8f" stroke="#d94e8f" points="228.5,-192 170.5,-192 170.5,-168 228.5,-168 228.5,-192"/>
 <text text-anchor="middle" x="199.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_nice</text>
 </a>
 </g>
 </g>
 <!-- proc~capi_get_nice&#45;&gt;proc~get_nice -->
-<g id="call~~graph~~CallGraph_edge3" class="edge">
+<g id="call~~graph~~CallGraph_edge4" class="edge">
 <title>proc~capi_get_nice&#45;&gt;proc~get_nice</title>
-<path fill="none" stroke="#ffff00" d="M101.55,-180C120.07,-180 141.75,-180 159.91,-180"/>
-<polygon fill="#ffff00" stroke="#ffff00" points="160.14,-183.5 170.14,-180 160.14,-176.5 160.14,-183.5"/>
+<path fill="none" stroke="#b6ff00" d="M101.55,-180C120.07,-180 141.75,-180 159.91,-180"/>
+<polygon fill="#b6ff00" stroke="#b6ff00" points="160.14,-183.5 170.14,-180 160.14,-176.5 160.14,-183.5"/>
+</g>
+<!-- proc~capi_get_nnaw -->
+<g id="call~~graph~~CallGraph_node5" class="node">
+<title>proc~capi_get_nnaw</title>
+<g id="a_call~~graph~~CallGraph_node5"><a xlink:href="../proc/capi_get_nnaw.html" xlink:title="capi_get_nnaw">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="104.5,-234 13.5,-234 13.5,-210 104.5,-210 104.5,-234"/>
+<text text-anchor="middle" x="59" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_nnaw</text>
+</a>
+</g>
+</g>
+<!-- proc~get_nnaw -->
+<g id="call~~graph~~CallGraph_node12" class="node">
+<title>proc~get_nnaw</title>
+<g id="a_call~~graph~~CallGraph_node12"><a xlink:href="../proc/get_nnaw.html" xlink:title="get_nnaw">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="231.5,-234 167.5,-234 167.5,-210 231.5,-210 231.5,-234"/>
+<text text-anchor="middle" x="199.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_nnaw</text>
+</a>
+</g>
+</g>
+<!-- proc~capi_get_nnaw&#45;&gt;proc~get_nnaw -->
+<g id="call~~graph~~CallGraph_edge5" class="edge">
+<title>proc~capi_get_nnaw&#45;&gt;proc~get_nnaw</title>
+<path fill="none" stroke="#48ff00" d="M104.58,-222C121.32,-222 140.27,-222 156.74,-222"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="157.16,-225.5 167.16,-222 157.16,-218.5 157.16,-225.5"/>
 </g>
 <!-- proc~capi_get_saw -->
-<g id="call~~graph~~CallGraph_node4" class="node">
+<g id="call~~graph~~CallGraph_node6" class="node">
 <title>proc~capi_get_saw</title>
-<g id="a_call~~graph~~CallGraph_node4"><a xlink:href="../proc/capi_get_saw.html" xlink:title="capi_get_saw">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="100.5,-66 17.5,-66 17.5,-42 100.5,-42 100.5,-66"/>
-<text text-anchor="middle" x="59" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_saw</text>
+<g id="a_call~~graph~~CallGraph_node6"><a xlink:href="../proc/capi_get_saw.html" xlink:title="capi_get_saw">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="100.5,-24 17.5,-24 17.5,0 100.5,0 100.5,-24"/>
+<text text-anchor="middle" x="59" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_saw</text>
 </a>
 </g>
 </g>
 <!-- proc~get_saw -->
-<g id="call~~graph~~CallGraph_node10" class="node">
+<g id="call~~graph~~CallGraph_node13" class="node">
 <title>proc~get_saw</title>
-<g id="a_call~~graph~~CallGraph_node10"><a xlink:href="../proc/get_saw.html" xlink:title="get_saw">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="227,-66 172,-66 172,-42 227,-42 227,-66"/>
-<text text-anchor="middle" x="199.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_saw</text>
+<g id="a_call~~graph~~CallGraph_node13"><a xlink:href="../proc/get_saw.html" xlink:title="get_saw">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="227,-24 172,-24 172,0 227,0 227,-24"/>
+<text text-anchor="middle" x="199.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_saw</text>
 </a>
 </g>
 </g>
 <!-- proc~capi_get_saw&#45;&gt;proc~get_saw -->
-<g id="call~~graph~~CallGraph_edge4" class="edge">
+<g id="call~~graph~~CallGraph_edge6" class="edge">
 <title>proc~capi_get_saw&#45;&gt;proc~get_saw</title>
-<path fill="none" stroke="#7fff00" d="M100.81,-54C120.11,-54 142.97,-54 161.73,-54"/>
-<polygon fill="#7fff00" stroke="#7fff00" points="161.96,-57.5 171.96,-54 161.96,-50.5 161.96,-57.5"/>
+<path fill="none" stroke="#00ff24" d="M100.81,-12C120.11,-12 142.97,-12 161.73,-12"/>
+<polygon fill="#00ff24" stroke="#00ff24" points="161.96,-15.5 171.96,-12 161.96,-8.5 161.96,-15.5"/>
 </g>
 <!-- proc~capi_get_version -->
-<g id="call~~graph~~CallGraph_node5" class="node">
+<g id="call~~graph~~CallGraph_node7" class="node">
 <title>proc~capi_get_version</title>
-<g id="a_call~~graph~~CallGraph_node5"><a xlink:href="../proc/capi_get_version.html" xlink:title="capi_get_version">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="110,-234 8,-234 8,-210 110,-210 110,-234"/>
-<text text-anchor="middle" x="59" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_version</text>
+<g id="a_call~~graph~~CallGraph_node7"><a xlink:href="../proc/capi_get_version.html" xlink:title="capi_get_version">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="110,-276 8,-276 8,-252 110,-252 110,-276"/>
+<text text-anchor="middle" x="59" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">capi_get_version</text>
 </a>
 </g>
 </g>
 <!-- proc~get_version -->
-<g id="call~~graph~~CallGraph_node11" class="node">
+<g id="call~~graph~~CallGraph_node14" class="node">
 <title>proc~get_version</title>
-<g id="a_call~~graph~~CallGraph_node11"><a xlink:href="../proc/get_version.html" xlink:title="get_version">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="236.5,-234 162.5,-234 162.5,-210 236.5,-210 236.5,-234"/>
-<text text-anchor="middle" x="199.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_version</text>
+<g id="a_call~~graph~~CallGraph_node14"><a xlink:href="../proc/get_version.html" xlink:title="get_version">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="236.5,-276 162.5,-276 162.5,-252 236.5,-252 236.5,-276"/>
+<text text-anchor="middle" x="199.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_version</text>
 </a>
 </g>
 </g>
 <!-- proc~capi_get_version&#45;&gt;proc~get_version -->
-<g id="call~~graph~~CallGraph_edge5" class="edge">
+<g id="call~~graph~~CallGraph_edge7" class="edge">
 <title>proc~capi_get_version&#45;&gt;proc~get_version</title>
-<path fill="none" stroke="#00ff00" d="M110,-222C123.83,-222 138.78,-222 152.38,-222"/>
-<polygon fill="#00ff00" stroke="#00ff00" points="152.47,-225.5 162.47,-222 152.47,-218.5 152.47,-225.5"/>
-</g>
-<!-- proc~get_ice -->
-<g id="call~~graph~~CallGraph_node6" class="node">
-<title>proc~get_ice</title>
-<g id="a_call~~graph~~CallGraph_node6"><a xlink:href="../proc/get_ice.html" xlink:title="get_ice">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="226.5,-108 172.5,-108 172.5,-84 226.5,-84 226.5,-108"/>
-<text text-anchor="middle" x="199.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_ice</text>
-</a>
-</g>
+<path fill="none" stroke="#00ff91" d="M110,-264C123.83,-264 138.78,-264 152.38,-264"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="152.47,-267.5 162.47,-264 152.47,-260.5 152.47,-267.5"/>
 </g>
 <!-- optval -->
-<g id="call~~graph~~CallGraph_node13" class="node">
+<g id="call~~graph~~CallGraph_node15" class="node">
 <title>optval</title>
-<polygon fill="#777777" stroke="#777777" points="335,-108 281,-108 281,-84 335,-84 335,-108"/>
-<text text-anchor="middle" x="308" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">optval</text>
+<polygon fill="#777777" stroke="#777777" points="335,-66 281,-66 281,-42 335,-42 335,-66"/>
+<text text-anchor="middle" x="308" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">optval</text>
 </g>
 <!-- proc~get_ice&#45;&gt;optval -->
-<g id="call~~graph~~CallGraph_edge6" class="edge">
+<g id="call~~graph~~CallGraph_edge8" class="edge">
 <title>proc~get_ice&#45;&gt;optval</title>
-<path fill="none" stroke="#00ff7f" d="M226.55,-96C239.83,-96 256.2,-96 270.69,-96"/>
-<polygon fill="#00ff7f" stroke="#00ff7f" points="270.85,-99.5 280.85,-96 270.85,-92.5 270.85,-99.5"/>
+<path fill="none" stroke="#00ffff" d="M226.55,-85.73C240.09,-80.39 256.83,-73.78 271.54,-67.99"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="272.83,-71.24 280.85,-64.31 270.26,-64.73 272.83,-71.24"/>
 </g>
 <!-- proc~get_naw&#45;&gt;optval -->
-<g id="call~~graph~~CallGraph_edge7" class="edge">
+<g id="call~~graph~~CallGraph_edge9" class="edge">
 <title>proc~get_naw&#45;&gt;optval</title>
-<path fill="none" stroke="#007fff" d="M228.2,-127.07C241.42,-121.86 257.4,-115.56 271.5,-110"/>
-<polygon fill="#007fff" stroke="#007fff" points="272.88,-113.22 280.9,-106.29 270.31,-106.71 272.88,-113.22"/>
+<path fill="none" stroke="#0024ff" d="M228.2,-54C241.17,-54 256.78,-54 270.68,-54"/>
+<polygon fill="#0024ff" stroke="#0024ff" points="270.9,-57.5 280.9,-54 270.9,-50.5 270.9,-57.5"/>
 </g>
 <!-- proc~get_saw&#45;&gt;optval -->
-<g id="call~~graph~~CallGraph_edge8" class="edge">
+<g id="call~~graph~~CallGraph_edge10" class="edge">
 <title>proc~get_saw&#45;&gt;optval</title>
-<path fill="none" stroke="#7f00ff" d="M227.1,-64.49C240.42,-69.74 256.73,-76.17 271.13,-81.85"/>
-<polygon fill="#7f00ff" stroke="#7f00ff" points="270.15,-85.23 280.74,-85.64 272.72,-78.72 270.15,-85.23"/>
-</g>
-<!-- proc~print_periodic_table -->
-<g id="call~~graph~~CallGraph_node12" class="node">
-<title>proc~print_periodic_table</title>
-<g id="a_call~~graph~~CallGraph_node12"><a xlink:href="../proc/print_periodic_table.html" xlink:title="print_periodic_table">
-<polygon fill="#d9534f" stroke="#d9534f" points="118,-276 0,-276 0,-252 118,-252 118,-276"/>
-<text text-anchor="middle" x="59" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">print_periodic_table</text>
-</a>
-</g>
+<path fill="none" stroke="#ff00da" d="M227.1,-22.49C240.42,-27.74 256.73,-34.17 271.13,-39.85"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="270.15,-43.23 280.74,-43.64 272.72,-36.72 270.15,-43.23"/>
 </g>
 </g>
 </svg>
@@ -423,7 +466,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-12-10T07:16:50.723644             </p>
+ on 2024-12-28T06:43:38.599375             </p>
           </div>
         </div>
         <br>

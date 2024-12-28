@@ -1,22 +1,25 @@
 module ciaaw__api
     !! API
-    !! See [specs](../page/specs/ciaaw_api.html)
+    !! See [specs](../page/specs/api.html)
     use ieee_arithmetic, only: ieee_value, ieee_quiet_nan, ieee_is_nan
+    use ciaaw__version
     use ciaaw__common
-    use ciaaw__types, only: element_type, ice_nan
-    use ciaaw__pte, only: pt
+    use ciaaw__types
+    use ciaaw__pte
     private
     
-    character(len=*), parameter :: version = "0.5.0"
     character(len=:), allocatable, target :: version_f
     
     real(dp), allocatable, target :: n_ice_out(:,:)
+    
+    public:: pt
+    public:: element_type, saw_type, ice_type, naw_type
 
-    public :: get_saw
-    public :: get_ice, get_nice, get_ice_values
-    public :: get_naw
-    public :: print_periodic_table
     public :: get_version
+    public :: get_saw
+    public :: get_ice, get_nice
+    public :: get_naw, get_nnaw
+    public :: get_ice_values
 
 contains
 
@@ -135,7 +138,7 @@ function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight. By default the abridged value is provided.
     !! If the non abridged value is desired, set abridged to false.
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if provided symbol is incorrect or -1 if the element does not have a standard atomic weight.
+    !! Returns NaN if provided symbol is incorrect or -1 if the element does not have a SAW.
     
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
@@ -202,7 +205,7 @@ end function
 function get_ice(s, A, uncertainty)result(res)
     !! Get the isotopic composition of the element s for the mass number A. 
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if provided symbol or A are incorrect or -1 if the element does not have an ICE.
+    !! Returns NaN if the provided symbol or A are incorrect or -1 if the element does not have an ICE.
     
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
@@ -346,6 +349,28 @@ function get_naw(s, A, uncertainty)result(res)
     endif
     if(row > 0)then
         res = pt(z)%naw%values(row, col)
+    endif
+end function
+
+function get_nnaw(s)result(res)
+    !! Get the number of nuclides in NAW.
+    !! Returns -1 if the provided symbol is incorrect.
+
+    ! Arguments
+    character(len=*), intent(in) :: s             !! Element symbol.
+
+    ! Returns
+    integer(int32) :: res
+
+    ! Variables
+    integer(int32) :: z
+
+    z = get_z_by_symbol(s)
+
+    if(z>0)then
+        res = pt(z)%naw%n
+    else
+        res = -1
     endif
 end function
 !-------------------------------------------------------------------------------
