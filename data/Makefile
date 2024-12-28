@@ -1,4 +1,3 @@
-PY=python
 GEN_AST_SAW=../scripts/saw/gen_ast.py
 GEN_AST_ICE=../scripts/ice/gen_ast.py
 GEN_AST_NAW=../scripts/naw/gen_ast.py
