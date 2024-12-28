@@ -8,6 +8,7 @@
     // ASAW = Abridged Standard Atomic Weight
     // SAW  = Standard Atomic Weight
     // ICE  = Isotopic Composition of the Element
+    // NAW  = Nuclide Atomic Weight
     // U    = Uncertainty
 
 int main(void){

@@ -7,6 +7,7 @@ program example_in_f
     ! ASAW = Abridged Standard Atomic Weight
     ! SAW  = Standard Atomic Weight
     ! ICE  = Isotopic Composition of the Element
+    ! NAW  = Nuclide Atomic Weight
     ! U    = Uncertainty
 
     print '(A)', '########### CIAAW VERSION ##########'
