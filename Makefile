@@ -38,16 +38,16 @@ $(LIBNAME): build copy_a shared
 sources: $(SRC_FYPP_F90) $(F_MODULE)
 	
 ./src/ciaaw_saw.f90: ./data/saw_2021.toml
-	$(PY) $(GEN) $< $@
+	$(PYGEN) $(GEN) $< $@
 
 ./src/ciaaw_ice.f90: ./data/ice_2013.toml
-	$(PY) $(GEN_ICE) $< $@
+	$(PYGEN) $(GEN_ICE) $< $@
 
 ./src/ciaaw_naw.f90: ./data/naw_2020.toml
-	$(PY) $(GEN_NAW) $< $@
+	$(PYGEN) $(GEN_NAW) $< $@
 
 ./src/ciaaw_pte.f90: ./data/saw_2021.toml ./data/ice_2013.toml
-	$(PY) $(GEN_PTE) $^ $@
+	$(PYGEN) $(GEN_PTE) $^ $@
 
 ./src/%.f90: ./src/%.fypp
 	fypp -I ../include $< $@
@@ -133,8 +133,4 @@ clean:
 	rm -rf $(F_MODULE) $(SRC_FYPP_F90)
 	fpm clean --all
 	rm -rf API-doc/*
-
-py: $(LIBNAME)
-	make install prefix=py/src/py$(NAME)
-	make -C py
 # ---------------------------------------------------------------------

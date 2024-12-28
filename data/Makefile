@@ -20,16 +20,16 @@ IUPAC_CLEAN_SRC = naw_2020.txt
 all: $(AST_SAW_SRC) $(AST_ICE_SRC) $(IUPAC_CLEAN_SRC) $(AST_NAW_SRC)
 
 saw_2021.toml: saw_2021.txt
-	$(PY) $(GEN_AST_SAW) $< $@
+	$(PYGEN) $(GEN_AST_SAW) $< $@
 
 ice_2013.toml: ice_2013.txt
-	$(PY) $(GEN_AST_ICE) $< $@
+	$(PYGEN) $(GEN_AST_ICE) $< $@
 
 naw_2020.toml: naw_2020.txt
-	$(PY) $(GEN_AST_NAW) $< $@
+	$(PYGEN) $(GEN_AST_NAW) $< $@
 
 naw_2020.txt: IUPAC-atomic-masses.csv saw_2021.toml
-	$(PY) $(FORMAT_NAW) $^ $@
+	$(PYGEN) $(FORMAT_NAW) $^ $@
 
 clean:
 	rm -f *.toml
