@@ -135,7 +135,7 @@ function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight. By default the abridged value is provided.
     !! If the non abridged value is desired, set abridged to false.
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if provided symbol is incorrect or -1 if the element does not have a standard atomic weight.
+    !! Returns NaN if provided symbol is incorrect or -1 if the element does not have a SAW.
     
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
@@ -202,7 +202,7 @@ end function
 function get_ice(s, A, uncertainty)result(res)
     !! Get the isotopic composition of the element s for the mass number A. 
     !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if provided symbol or A are incorrect or -1 if the element does not have an ICE.
+    !! Returns NaN if the provided symbol or A are incorrect or -1 if the element does not have an ICE.
     
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
