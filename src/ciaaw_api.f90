@@ -2,12 +2,12 @@ module ciaaw__api
     !! API
     !! See [specs](../page/specs/api.html)
     use ieee_arithmetic, only: ieee_value, ieee_quiet_nan, ieee_is_nan
+    use ciaaw__version, only: version
     use ciaaw__common
     use ciaaw__types, only: element_type, ice_nan
     use ciaaw__pte, only: pt
     private
     
-    character(len=*), parameter :: version = "0.5.0"
     character(len=:), allocatable, target :: version_f
     
     real(dp), allocatable, target :: n_ice_out(:,:)
