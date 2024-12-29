@@ -3,7 +3,7 @@
 * Code refactoring.
 * Documentation update.
 
-**Not released**
+[Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
 
 # 0.5.0
 
