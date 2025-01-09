@@ -4,6 +4,7 @@ module testsuite_ice
     use testdrive, only : new_unittest, unittest_type, error_type, check
     use stdlib_kinds, only: dp, int32
     use ciaaw
+    use ciaaw__pte
     implicit none
     private
     
