@@ -13,7 +13,7 @@ module ciaaw__capi
     public :: capi_get_saw
     public :: capi_get_ice, capi_get_nice
     public :: capi_get_naw, capi_get_nnaw
-    public :: capi_get_ice_values
+    ! public :: capi_get_ice_values
 
 contains
 
@@ -130,33 +130,33 @@ function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)
     res = get_nice(fs)
 end function
 
-function capi_get_ice_values(s, n)bind(C, name="ciaaw_get_ice_values")result(res)
-    !! C API for [[ciaaw__api(module):get_ice_values(function)]]
+! function capi_get_ice_values(s, n)bind(C, name="ciaaw_get_ice_values")result(res)
+!     !! C API for [[ciaaw__api(module):get_ice_values(function)]]
     
-    ! Arguments
-    type(c_ptr), intent(in), value :: s           !! Element symbol.
-    integer(c_int), intent(in), value :: n        !! Size of the symbol string.
+!     ! Arguments
+!     type(c_ptr), intent(in), value :: s           !! Element symbol.
+!     integer(c_int), intent(in), value :: n        !! Size of the symbol string.
 
-    ! Returns
-    type(c_ptr) :: res
+!     ! Returns
+!     type(c_ptr) :: res
 
-    ! Variables
-    integer(c_int) :: i
-    character, pointer, dimension(:) :: c2f_s
-    character(len=n) :: fs
-    real(dp), pointer, contiguous :: fptr(:,:)
+!     ! Variables
+!     integer(c_int) :: i
+!     character, pointer, dimension(:) :: c2f_s
+!     character(len=n) :: fs
+!     real(dp), pointer, contiguous :: fptr(:,:)
     
-    call c_f_pointer(s, c2f_s, shape=[n])
+!     call c_f_pointer(s, c2f_s, shape=[n])
 
-    do i=1, n
-        fs(i:i) = c2f_s(i)
-    enddo
+!     do i=1, n
+!         fs(i:i) = c2f_s(i)
+!     enddo
 
-    fptr => get_ice_values(fs)
+!     fptr => get_ice_values(fs)
 
-    res = c_loc(fptr)
+!     res = c_loc(fptr)
 
-end function
+! end function
 ! ------------------------------------------------------------------------------
 
 

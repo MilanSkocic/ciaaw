@@ -12,14 +12,11 @@ module ciaaw__api
     
     real(dp), allocatable, target :: n_ice_out(:,:)
     
-    public:: pt
-    public:: element_type, saw_type, ice_type, naw_type
-
     public :: get_version
     public :: get_saw
     public :: get_ice, get_nice
     public :: get_naw, get_nnaw
-    public :: get_ice_values
+    ! public :: get_ice_values
 
 contains
 
@@ -269,37 +266,37 @@ function get_nice(s)result(res)
     endif
 end function
 
-function get_ice_values(s)result(res)
-    !! Get the (n, 3) values array. See [[ciaaw__types(module):ice_type(type)]].
-    !! Returns a null pointer if the provided symbol is incorrect.
+! function get_ice_values(s)result(res)
+!     !! Get the (n, 3) values array. See [[ciaaw__types(module):ice_type(type)]].
+!     !! Returns a null pointer if the provided symbol is incorrect.
 
-    ! Arguments
-    character(len=*), intent(in) :: s             !! Element symbol.
+!     ! Arguments
+!     character(len=*), intent(in) :: s             !! Element symbol.
 
-    ! Returns
-    real(dp), pointer :: res(:,:)
+!     ! Returns
+!     real(dp), pointer :: res(:,:)
 
-    ! Variables
-    integer(int32) :: z
+!     ! Variables
+!     integer(int32) :: z
 
-    z = get_z_by_symbol(s)
-    res => null()
+!     z = get_z_by_symbol(s)
+!     res => null()
 
-    if(allocated(n_ice_out))then
-        deallocate(n_ice_out)
-    end if
+!     if(allocated(n_ice_out))then
+!         deallocate(n_ice_out)
+!     end if
 
-    if(z>0)then
-        allocate(n_ice_out(pt(z)%ice%n, 3))
-        n_ice_out(:,:) = pt(z)%ice%values(1:pt(z)%ice%n,:)
-        res => n_ice_out
-    else
-        allocate(n_ice_out(1,3))
-        n_ice_out(1,:) = ice_nan%values(1,:)
-        res => null()
-    endif
+!     if(z>0)then
+!         allocate(n_ice_out(pt(z)%ice%n, 3))
+!         n_ice_out(:,:) = pt(z)%ice%values(1:pt(z)%ice%n,:)
+!         res => n_ice_out
+!     else
+!         allocate(n_ice_out(1,3))
+!         n_ice_out(1,:) = ice_nan%values(1,:)
+!         res => null()
+!     endif
 
-end function 
+! end function 
 ! ------------------------------------------------------------------------------
 
 
