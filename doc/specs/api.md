@@ -7,12 +7,7 @@ title: API
 The modules [[ciaaw__saw(module)]], [[ciaaw__ice(module)]], [[ciaaw__naw(module)]] and  [[ciaaw__pte(module)]] are
 automatically generated with a simple script written in Python.
 
-All elements from the periodic table [[ciaaw__pte(module):pt]] are directly accessible. 
-The data for the standard atomic weights [[ciaaw__saw(module)]], the isotopic compositions [[ciaaw__ice(module)]] of the elements
-and the nuclide atomic weights [[ciaaw__naw(module)]] are also directly accessible 
-through the [[ciaaw__types(module):element_type(type)]]. 
-
-Nonetheless, convenient getters are available for accessing the desired data for an elements
+The API defines convenient getters are available for accessing the desired data for an elements
 without having to access to whole periodic table [[ciaaw__pte(module):pt]]
 
 * [[ciaaw__api(module):get_saw(function)]]
