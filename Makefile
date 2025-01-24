@@ -25,7 +25,7 @@ F_MODULE = ./src/ciaaw_saw.f90  ./src/ciaaw_ice.f90 ./src/ciaaw_naw.f90 ./src/ci
 
 # ---------------------------------------------------------------------
 # TARGETS
-.PHONY: build data sources doc docs clean logo
+.PHONY: build data sources references doc docs clean logo
 
 all: $(LIBNAME)
 
@@ -122,7 +122,10 @@ uninstall:
 
 # ---------------------------------------------------------------------
 # OTHERS
-doc:
+references:
+	pandoc -t markdown_strict --citeproc --csl ase.csl _REFERENCES.md -o REFERENCES.md
+
+doc: references
 	ford API-doc-FORD-file.md
 
 docs:
