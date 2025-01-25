@@ -52,6 +52,7 @@ end function
 
 function get_z_by_symbol(s)result(res)
     !! Get the atomic number z of the element defined by the symbol s.
+    !!
     !! Returns -1 if the element is not found.
     character(len=*), intent(in) :: s    !! Element symbol
     integer(int32) :: res                !! Atomic number
@@ -132,10 +133,9 @@ end subroutine
 ! ------------------------------------------------------------------------------
 ! SAW 
 function get_saw(s, abridged, uncertainty)result(res)
-    !! Get the standard atomic weight. By default the abridged value is provided.
-    !! If the non abridged value is desired, set abridged to false.
-    !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if provided symbol is incorrect or -1 if the element does not have a SAW.
+    !! Get the standard atomic weight for the element s.
+    !!
+    !! Returns NaN if the provided element is incorrect or -1 if the element does not have a SAW.
     
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
@@ -201,8 +201,8 @@ end function
 ! ICE
 function get_ice(s, A, uncertainty)result(res)
     !! Get the isotopic composition of the element s for the mass number A. 
-    !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if the provided symbol or A are incorrect or -1 if the element does not have an ICE.
+    !! 
+    !! Returns NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
     
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
@@ -245,8 +245,9 @@ function get_ice(s, A, uncertainty)result(res)
 end function
 
 function get_nice(s)result(res)
-    !! Get the number of isotopes in ICE.
-    !! Returns -1 if the provided symbol is incorrect.
+    !! Get the number of isotopes in ICE of the element s.
+    !!
+    !! Returns -1 if the provided element is incorrect.
 
     ! Arguments
     character(len=*), intent(in) :: s             !! Element symbol.
@@ -305,9 +306,8 @@ end function
 ! NAW
 function get_naw(s, A, uncertainty)result(res)
     !! Get the atomic weight of the nuclide s for the mass number A. 
-    !! The uncertainty instead of the value can be retrieved if the uncertainty is set to true.
-    !! Returns NaN if provided symbol or A are incorrect 
-    !! or -1 if the element does not have an NAW.
+    !!
+    !! Returns NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
     
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
@@ -350,8 +350,9 @@ function get_naw(s, A, uncertainty)result(res)
 end function
 
 function get_nnaw(s)result(res)
-    !! Get the number of nuclides in NAW.
-    !! Returns -1 if the provided symbol is incorrect.
+    !! Get the number of nuclides in NAW of the element s.
+    !! 
+    !! Returns -1 if the provided element is incorrect.
 
     ! Arguments
     character(len=*), intent(in) :: s             !! Element symbol.
