@@ -6,19 +6,19 @@
 PyDoc_STRVAR(module_docstring, "C extension for ciaaw.");
 
 PyDoc_STRVAR(get_saw_doc, 
-"get_saw(s: str, abridged: bool, uncertainty: bool) -> float \n\n"
+"get_saw(s: str, abridged: bool, uncertainty: bool) -> float \n\n");
 
 PyDoc_STRVAR(get_ice_doc, 
-"get_ice(s: str, A: int, uncertainty: bool) -> float \n\n"
+"get_ice(s: str, A: int, uncertainty: bool) -> float \n\n");
 
 PyDoc_STRVAR(get_nice_doc,
-"get_nice(s: str) -> int \n\n"
+"get_nice(s: str) -> int \n\n");
 
 PyDoc_STRVAR(get_naw_doc, 
-"get_naw(s: str, A: int, uncertainty: bool) -> float \n\n"
+"get_naw(s: str, A: int, uncertainty: bool) -> float \n\n");
  
 PyDoc_STRVAR(get_nnaw_doc,
-"get_nnaw(s: str) -> int \n\n"
+"get_nnaw(s: str) -> int \n\n");
 
 
 static PyObject *get_saw(PyObject *self, PyObject *args){
