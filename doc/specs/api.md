@@ -14,6 +14,7 @@ without having to access to whole periodic table [[ciaaw__pte(module):pt]]
 * [[ciaaw__api(module):get_ice(function)]]
 * [[ciaaw__api(module):get_nice(function)]]
 * [[ciaaw__api(module):get_naw(function)]]
+* [[ciaaw__api(module):get_nnaw(function)]]
 
 # SAW: Standard Atomic Weights
 
