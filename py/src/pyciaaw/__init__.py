@@ -33,7 +33,6 @@ def get_ice(s:str, A:int, uncertainty: bool=False):
     r"""
     Get the isotopic composition of the element s for the mass number A. 
 
-
     Parameters
     ----------
     s: str
