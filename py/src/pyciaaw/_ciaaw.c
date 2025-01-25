@@ -7,23 +7,18 @@ PyDoc_STRVAR(module_docstring, "C extension for ciaaw.");
 
 PyDoc_STRVAR(get_saw_doc, 
 "get_saw(s: str, abridged: bool, uncertainty: bool) -> float \n\n"
-"Get the abridged standard atomic weight. Returns NaN if provided symbol is incorrect or -1 if the element does not have a SAW.");
 
 PyDoc_STRVAR(get_ice_doc, 
 "get_ice(s: str, A: int, uncertainty: bool) -> float \n\n"
-"Get isotopic composition of the element for the mass number A. Returns NaN if the provided symbol or A are incorrect or -1 if the element does not have an ICE.");
 
 PyDoc_STRVAR(get_nice_doc,
 "get_nice(s: str) -> int \n\n"
-"Get the number of isotopes in ICE. Returns -1 if the provided symbol is incorrect.");
 
 PyDoc_STRVAR(get_naw_doc, 
 "get_naw(s: str, A: int, uncertainty: bool) -> float \n\n"
-"Get the nuclide atomic weight of the element for the mass number A. Returns NaN if provided symbol or A are incorrect or -1 if the element does not have an NAW.");
  
 PyDoc_STRVAR(get_nnaw_doc,
 "get_nnaw(s: str) -> int \n\n"
-"Get the number of nuclides in NAW. Returns -1 if the provided symbol is incorrect.");
 
 
 static PyObject *get_saw(PyObject *self, PyObject *args){
