@@ -4,7 +4,8 @@ title: APIs
 
 ![CIAAW](../media/logo.png)
 
-Standard atomic weights according to CIAAW.
+Standard and abridged atomic weights, isotopic abundances and 
+nuclides' standard atomic weights according to [CIAAW](https://www.ciaaw.org).
 
 
 # Fortran API
