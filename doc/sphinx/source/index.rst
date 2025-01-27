@@ -6,7 +6,7 @@
 CIAAW
 =====
 
-.. image:: ../media/logo.png
+.. image:: ../../media/logo.png
   :width: 400
   :alt: Alternative text
    
@@ -17,5 +17,6 @@ Standard atomic weights, isotopic compositions and nuclide's atomic weights.
    :maxdepth: 2
    :caption: Contents:
 
-   readme/index
+   getting_started/index
    api/index
+   references/index.rst

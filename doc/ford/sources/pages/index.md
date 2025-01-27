@@ -57,31 +57,3 @@ from [Huang et al. 2021](../references.html).
 All the values for the nuclide atomic weights are provided as double precision reals in derived type
 [[ciaaw__types(module):naw_type(type)]]. 
 
-
-```fortran
-{!example/example.f90!}
-```
-
-
-
-# C API
-The prototypes of the C API are defined as shown below.
-
-```c
-{!include/ciaaw.h!}
-
-```
-
-```C
-{!example/example.c!}
-```
-
-
-
-# Python wrapper
-
-The getters defined in [Fortran API](#fortran-api) are available at the top level.
-
-```python
-{!example/example.py!}
-```

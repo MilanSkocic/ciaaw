@@ -7,6 +7,6 @@ APIs
    :caption: API
    :hidden:
 
-   fcode.rst  
-   capi.rst
-   pycode.rst
+   fortran.rst  
+   c.rst
+   python.rst

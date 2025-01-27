@@ -24,9 +24,11 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.mathjax',
     'myst_parser',
+    'sphinxcontrib.bibtex',
     'fspx',
 ]
-
+bibtex_bibfiles = ["./references/references.bib"]
+bibtex_default_style = 'unsrt'
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 

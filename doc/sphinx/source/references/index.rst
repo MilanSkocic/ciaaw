@@ -1,5 +1,5 @@
 ############
-Introduction
+Bibliography
 ############
 
 
@@ -7,5 +7,4 @@ Introduction
    :caption: Contents
    :hidden:
 
-   readme.rst  
-   changelog.rst
+   references.rst  
