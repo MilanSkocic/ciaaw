@@ -123,11 +123,13 @@ uninstall:
 # ---------------------------------------------------------------------
 # OTHERS
 doc: 
-	ford API-doc-FORD-file.md
+	make -C doc ford	
+	make -C doc html
+	make -C doc copy
 
 docs:
 	rm -rf docs/*
-	cp -rf API-doc/* docs/
+	cp -rf doc/sphinx/build/html/* docs/
 
 clean:
 	rm -rf $(F_MODULE) $(SRC_FYPP_F90)
