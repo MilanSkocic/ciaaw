@@ -47,7 +47,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Examples
 ```Python
-r"""Example in python"""
+r"""EXAMPLE IN PYTHON"""
 import sys
 sys.path.insert(0, "../py/src/")
 import pyciaaw

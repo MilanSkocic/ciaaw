@@ -122,10 +122,7 @@ uninstall:
 
 # ---------------------------------------------------------------------
 # OTHERS
-references:
-	pandoc -t markdown_strict --citeproc --csl ase.csl _REFERENCES.md -o REFERENCES.md
-
-doc: references
+doc: 
 	ford API-doc-FORD-file.md
 
 docs:
