@@ -11,7 +11,7 @@ src_dir: ./src
 include: ./include
 media_dir: ./media
 page_dir: ./doc
-output_dir: API-doc
+output_dir: sphinx/_build/html/ford
 exclude_dir: ./example
              ./test
 display: public

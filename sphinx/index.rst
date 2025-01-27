@@ -6,11 +6,16 @@
 CIAAW
 =====
 
-Standard atomic weights, isotopic compositions and nuclide atomic weights.
+.. image:: ../media/logo.png
+  :width: 400
+  :alt: Alternative text
+   
+Standard atomic weights, isotopic compositions and nuclide's atomic weights.
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   readme/index
    api/index

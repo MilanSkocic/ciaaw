@@ -1,10 +1,12 @@
-=====================
-API Reference
-=====================
+####
+APIs
+####
+
 
 .. toctree::
-   :caption: API Reference
+   :caption: API
    :hidden:
 
    fcode.rst  
+   capi.rst
    pycode.rst
