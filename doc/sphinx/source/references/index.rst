@@ -4,7 +4,6 @@ Bibliography
 
 
 .. toctree::
-   :caption: Contents
-   :hidden:
+   :maxdepth: 1
 
    references.rst  

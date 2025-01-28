@@ -4,8 +4,7 @@ Getting Started
 
 
 .. toctree::
-   :caption: Contents
-   :hidden:
+   :maxdepth: 1
 
    readme.rst  
    examples.rst

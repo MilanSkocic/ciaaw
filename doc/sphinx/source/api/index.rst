@@ -4,9 +4,10 @@ APIs
 
 
 .. toctree::
-   :caption: API
-   :hidden:
+   :maxdepth: 1
 
    fortran.rst  
    c.rst
    python.rst
+
+

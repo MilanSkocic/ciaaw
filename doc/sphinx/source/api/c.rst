@@ -2,5 +2,5 @@
 C API
 *****
 
-.. literalinclude:: ../../../include/ciaaw.h
+.. literalinclude:: ../../../../include/ciaaw.h
    :language: C

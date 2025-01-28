@@ -1,6 +1,6 @@
 ---
 project: ciaaw
-summary: Fortran library providing the standard atomic weights according to CIAAW.
+summary: Standard atomic weights, isotopic compositions and nuclide's atomic weights.
 project_github: https://github.com/MilanSkocic/ciaaw
 project_download: https://github.com/MilanSkocic/ciaaw/releases
 project_website: https://milanskocic.github.io/ciaaw/index.html

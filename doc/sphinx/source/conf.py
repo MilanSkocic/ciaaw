@@ -4,7 +4,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../py/src/'))
+sys.path.insert(0, os.path.abspath('../../../py/src/'))
 import pyciaaw
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -13,7 +13,7 @@ import pyciaaw
 
 project = 'ciaaw'
 copyright = '2025, M. Skocic'
-author = 'M. Skocic'
+author = 'Milan Skocic'
 release = pyciaaw.__version__
 
 # -- General configuration ---------------------------------------------------
