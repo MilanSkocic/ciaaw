@@ -10,10 +10,9 @@ github: https://github.com/MilanSkocic
 src_dir: ../../../src
 include: ../../../include
 media_dir: ../../../media
-page_dir: ./pages/
 output_dir: ../build/
-exclude_dir: ./example
-             ./test
+exclude_dir: ../../../example
+             ../../../test
 display: public
          protected
 source: true
@@ -33,4 +32,4 @@ license: by-sa
 favicon: ../../../media/logo.ico
 ---
 
-![Ciaaw](../../../media/logo.png)
+[Back to the main documentation](../api/fortran.html)
