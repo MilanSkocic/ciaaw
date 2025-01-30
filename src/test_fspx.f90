@@ -38,6 +38,19 @@ subroutine test_2(a, b)
 
 end subroutine
 
+real(real64) function test_3(a)result(res)
+    !! Function docstring.
+    !!
+    !! The specified result for the function appears as an argument.
+    !! Multi-line docstring does not seem to be recognized.
+
+    
+    ! Arguments
+    real(real64), intent(in) :: a !! Argument for the function
+
+
+    test_f3 = a + 1
+end function
 
 end module
 
