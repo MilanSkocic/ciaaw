@@ -22,6 +22,5 @@ The API defines convenient getters are available for accessing the desired data 
 * `get_nnaw`
 
 
-.. .. autofortran:: ../src/ciaaw.f90
+.. autofortran:: ../../../src/test_fspx.f90
 
-.. .. autofortran:: ../src/ciaaw_api.f90
