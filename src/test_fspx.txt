@@ -1,15 +1,22 @@
 module test_fspx
     !! Module documentation
-    use iso_fortran_env
+    use iso_fortran_env, only: dp => real64, real64
     implicit none
 
     real(real64), parameter :: P1 = 1.0_real64 !! Parameter docstring
 
 
+    type :: dtype
+        !! Derived type representing the standard atomic weight of an element.
+
+        real(dp) :: saw_min !! Min standard atomic weight.
+    end type
+
+
 contains
 
 pure function test_1(a)result(res)
-    !! Function docstring.
+    !! Function docstring. :math:`\alpha`
     !!
     !! The specified result for the function appears as an argument.
     !! Multi-line docstring does not seem to be recognized.
@@ -48,8 +55,11 @@ real(real64) function test_3(a)result(res)
     ! Arguments
     real(real64), intent(in) :: a !! Argument for the function
 
+    ! local variable
+    real(dp) :: i
 
-    test_f3 = a + 1
+
+    res = a + 1
 end function
 
 end module
