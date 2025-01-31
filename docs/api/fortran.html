@@ -326,58 +326,136 @@
                   
   <section id="fortran">
 <h1>Fortran<a class="headerlink" href="#fortran" title="Link to this heading">#</a></h1>
-<p>The Fortran documentation is generated with <a class="reference external" href="../ford/index.html">FORD</a>.</p>
-<p>The modules</p>
-<ul class="simple">
-<li><p><cite>ciaaw__saw</cite></p></li>
-<li><p><cite>ciaaw__ice</cite></p></li>
-<li><p><cite>ciaaw__naw</cite></p></li>
-<li><p><cite>ciaaw__pte</cite></p></li>
-</ul>
-<p>are automatically generated with a simple script written in Python.</p>
-<p>The API defines convenient getters are available for accessing the desired data for an element:</p>
-<ul class="simple">
-<li><p><cite>get_saw</cite></p></li>
-<li><p><cite>get_ice</cite></p></li>
-<li><p><cite>get_nice</cite></p></li>
-<li><p><cite>get_naw</cite></p></li>
-<li><p><cite>get_nnaw</cite></p></li>
-</ul>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Link to this heading">#</a></h2>
 <section id="fortran-api">
 <dl>
 <dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">module</span> <span class="pre">test_fspx</span></span></dt>
-<dd><p>Module documentation</p>
+<span class="sig-name descname"><span class="pre">module</span> <span class="pre">ciaaw__api</span></span></dt>
+<dd><p>API</p>
 <span class="math notranslate nohighlight">\(\)</span></dd></dl>
 
 <dl>
 <dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">subroutine</span> <span class="pre">test_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">b</span></em>, <em class="sig-param"><span class="pre">local_i</span></em>, <em class="sig-param"><span class="pre">s</span></em><span class="sig-paren">)</span></dt>
-<dd><p>docstring</p>
+<span class="sig-name descname"><span class="pre">subroutine</span> <span class="pre">print_periodic_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Print periodic table.</p>
 <dl class="simple">
-<dt>a: real(real64), intent(in)</dt><dd><p>Argument a</p>
-</dd>
-<dt>b: real(real64), intent(out)</dt><dd><p>Argument b</p>
-</dd>
-<dt>local_i: real(real64)</dt><dd><p>Appears as argument even if it is a local variable</p>
-</dd>
-<dt>s: character(len=25)</dt><dd><p>local string</p>
+</dl>
+<span class="math notranslate nohighlight">\(\)</span></dd></dl>
+
+<dl>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">fptr</span></span></span></dt>
+<dd><p>Get the version</p>
+<dl class="simple">
+<dt>fptr: character(len=:), pointer</dt><dd><p>Fortran pointer to a string indicating the version..</p>
 </dd>
 </dl>
 <span class="math notranslate nohighlight">\(\)</span></dd></dl>
 
 <dl>
 <dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">pure</span> <span class="pre">function</span> <span class="pre">test_1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">res</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Function docstring.  The specified result for the function appears as an argument. Multi-line docstring does not seem to be recognized.</p>
+<span class="sig-name descname"><span class="pre">function</span> <span class="pre">is_in_pt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">z</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
+<dd><p>Check if the atomic number z is in the periodic table</p>
 <dl class="simple">
-<dt>a: real(real64), intent(in)</dt><dd><p>Argument for the function</p>
+<dt>z: integer(int32), intent(in)</dt><dd><p>Atomic number</p>
 </dd>
-<dt>res: real(real64)</dt><dd><p>Returned value</p>
+<dt>res: logical</dt><dd><p>None</p>
 </dd>
 </dl>
 <span class="math notranslate nohighlight">\(\)</span></dd></dl>
 
+<dl>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_z_by_symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
+<dd><p>Get the atomic number z of the element defined by the symbol s. </p>
+<p> Returns -1 if the element is not found.</p>
+<dl class="simple">
+<dt>s: character(len=*), intent(in)</dt><dd><p>Element symbol</p>
+</dd>
+<dt>res: integer(int32)</dt><dd><p>Atomic number</p>
+</dd>
+</dl>
+<span class="math notranslate nohighlight">\(\)</span></dd></dl>
+
+<dl>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_saw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">abridged</span></em>, <em class="sig-param"><span class="pre">uncertainty</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
+<dd><p>Get the standard atomic weight for the element s. </p>
+<p> Returns NaN if the provided element is incorrect or -1 if the element does not have a SAW.</p>
+<dl class="simple">
+<dt>s: character(len=*), intent(in)</dt><dd><p>Element symbol.</p>
+</dd>
+<dt>abridged: logical, intent(in), optional</dt><dd><p>Flag for returning the abridged standard atomic weight. Default to TRUE.</p>
+</dd>
+<dt>uncertainty: logical, intent(in), optional</dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
+</dd>
+<dt>res: real(dp)</dt><dd><p>None</p>
+</dd>
+</dl>
+<span class="math notranslate nohighlight">\(\)</span></dd></dl>
+
+<dl>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_ice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">A</span></em>, <em class="sig-param"><span class="pre">uncertainty</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
+<dd><p>Get the isotopic composition of the element s for the mass number A. </p>
+<p> Returns NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.</p>
+<dl class="simple">
+<dt>s: character(len=*), intent(in)</dt><dd><p>Element symbol.</p>
+</dd>
+<dt>A: integer(int32), intent(in)</dt><dd><p>Mass number.</p>
+</dd>
+<dt>uncertainty: logical, intent(in), optional</dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
+</dd>
+<dt>res: real(dp)</dt><dd><p>None</p>
+</dd>
+</dl>
+<span class="math notranslate nohighlight">\(\)</span></dd></dl>
+
+<dl>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_nice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
+<dd><p>Get the number of isotopes in ICE of the element s. </p>
+<p> Returns -1 if the provided element is incorrect.</p>
+<dl class="simple">
+<dt>s: character(len=*), intent(in)</dt><dd><p>Element symbol.</p>
+</dd>
+<dt>res: integer(int32)</dt><dd><p>None</p>
+</dd>
+</dl>
+<span class="math notranslate nohighlight">\(\)</span></dd></dl>
+
+<dl>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_naw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">A</span></em>, <em class="sig-param"><span class="pre">uncertainty</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
+<dd><p>Get the atomic weight of the nuclide s for the mass number A. </p>
+<p> Returns NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.</p>
+<dl class="simple">
+<dt>s: character(len=*), intent(in)</dt><dd><p>Element symbol.</p>
+</dd>
+<dt>A: integer(int32), intent(in)</dt><dd><p>Mass number.</p>
+</dd>
+<dt>uncertainty: logical, intent(in), optional</dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
+</dd>
+<dt>res: real(dp)</dt><dd><p>None</p>
+</dd>
+</dl>
+<span class="math notranslate nohighlight">\(\)</span></dd></dl>
+
+<dl>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_nnaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
+<dd><p>Get the number of nuclides in NAW of the element s. </p>
+<p> Returns -1 if the provided element is incorrect.</p>
+<dl class="simple">
+<dt>s: character(len=*), intent(in)</dt><dd><p>Element symbol.</p>
+</dd>
+<dt>res: integer(int32)</dt><dd><p>None</p>
+</dd>
+</dl>
+<span class="math notranslate nohighlight">\(\)</span></dd></dl>
+
+</section>
 </section>
 </section>
 
@@ -428,10 +506,13 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-api"><dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">module</span> <span class="pre">test_fspx</span></span></dt>
-<dd><p>Module documentation</p>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-api"><dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">module</span> <span class="pre">ciaaw__api</span></span></dt>
+<dd><p>API</p>
 <span class="math notranslate nohighlight">\(\)</span></dd></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
