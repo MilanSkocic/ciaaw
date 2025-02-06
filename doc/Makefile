@@ -1,6 +1,6 @@
 .PHONY: ford html pdf clean copy
 
-all: pdf html copy
+all: pdf html
 	
 pdf:
 	make -C sphinx latexpdf

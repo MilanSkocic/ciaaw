@@ -122,8 +122,8 @@ uninstall:
 
 # ---------------------------------------------------------------------
 # OTHERS
-doc: 
-	make -C doc html
+doc:
+	make -C doc
 
 docs:
 	rm -rf docs/*
