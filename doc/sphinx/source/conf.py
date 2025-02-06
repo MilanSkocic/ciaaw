@@ -25,6 +25,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'myst_parser',
     'sphinxcontrib.bibtex',
+    'numpydoc',
     'fspx',
 ]
 bibtex_bibfiles = ["./references/references.bib"]
@@ -39,6 +40,17 @@ fspx_docstring_character = "!!"
 
 html_theme = 'pydata_sphinx_theme'
 #html_static_path = ['_static']
+
+html_theme_options = {
+    "icon_links": [
+        {
+            "name": "GitHub", 
+            "url": "https://github.com/MilanSkocic/ciaaw",
+            "icon": "fa-brands fa-square-github",
+            "type": "fontawesome",
+        },
+   ]
+}
 
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
