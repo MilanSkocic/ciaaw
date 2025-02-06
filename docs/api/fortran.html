@@ -337,43 +337,10 @@
 
 <dl>
 <dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">subroutine</span> <span class="pre">print_periodic_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Print periodic table.</p>
-<dl class="simple">
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
 <span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">fptr</span></span></span></dt>
 <dd><p>Get the version</p>
 <dl class="simple">
 <dt>fptr: character(len=:), pointer</dt><dd><p>Fortran pointer to a string indicating the version..</p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">is_in_pt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">z</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p>Check if the atomic number z is in the periodic table</p>
-<dl class="simple">
-<dt>z: integer(int32), intent(in)</dt><dd><p>Atomic number</p>
-</dd>
-<dt>res: logical</dt><dd><p>None</p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_z_by_symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p>Get the atomic number z of the element defined by the symbol s. </p>
-<p> Returns -1 if the element is not found.</p>
-<dl class="simple">
-<dt>s: character(len=*), intent(in)</dt><dd><p>Element symbol</p>
-</dd>
-<dt>res: integer(int32)</dt><dd><p>Atomic number</p>
 </dd>
 </dl>
 <span class="math notranslate nohighlight">\(\)</span></dd></dl>
@@ -414,19 +381,6 @@
 
 <dl>
 <dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_nice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p>Get the number of isotopes in ICE of the element s. </p>
-<p> Returns -1 if the provided element is incorrect.</p>
-<dl class="simple">
-<dt>s: character(len=*), intent(in)</dt><dd><p>Element symbol.</p>
-</dd>
-<dt>res: integer(int32)</dt><dd><p>None</p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
 <span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_naw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">A</span></em>, <em class="sig-param"><span class="pre">uncertainty</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
 <dd><p>Get the atomic weight of the nuclide s for the mass number A. </p>
 <p> Returns NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.</p>
@@ -438,19 +392,6 @@
 <dt>uncertainty: logical, intent(in), optional</dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
 </dd>
 <dt>res: real(dp)</dt><dd><p>None</p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_nnaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p>Get the number of nuclides in NAW of the element s. </p>
-<p> Returns -1 if the provided element is incorrect.</p>
-<dl class="simple">
-<dt>s: character(len=*), intent(in)</dt><dd><p>Element symbol.</p>
-</dd>
-<dt>res: integer(int32)</dt><dd><p>None</p>
 </dd>
 </dl>
 <span class="math notranslate nohighlight">\(\)</span></dd></dl>

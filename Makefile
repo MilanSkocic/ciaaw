@@ -123,9 +123,7 @@ uninstall:
 # ---------------------------------------------------------------------
 # OTHERS
 doc: 
-	make -C doc ford	
 	make -C doc html
-	make -C doc copy
 
 docs:
 	rm -rf docs/*
