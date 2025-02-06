@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python &#8212; ciaaw 0.5.1dev0 documentation</title>
+    <title>Python &#8212; ciaaw 0.5.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=32c3b161"></script>
+    <script src="../_static/documentation_options.js?v=1dd76d02"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/python';</script>
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">ciaaw 0.5.1dev0 documentation</p>
+    <p class="title logo__title">ciaaw 0.5.0 documentation</p>
   
 </a></div>
     
@@ -170,6 +170,22 @@
   <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
   <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
 </button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/MilanSkocic/ciaaw" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
       
     </div>
     
@@ -255,6 +271,22 @@
   <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
 </button></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/MilanSkocic/ciaaw" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -332,112 +364,106 @@
 <dt class="sig sig-object py" id="pyciaaw.get_ice">
 <span class="sig-name descname"><span class="pre">get_ice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyciaaw.get_ice" title="Link to this definition">#</a></dt>
 <dd><p>Get the isotopic composition of the element s for the mass number A.</p>
-<section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
-<dl class="simple">
-<dt>s: str</dt><dd><p>Element symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s: str</strong></dt><dd><p>Element symbol.</p>
 </dd>
-<dt>A: int</dt><dd><p>Mass number.</p>
+<dt><strong>A: int</strong></dt><dd><p>Mass number.</p>
 </dd>
-<dt>uncertainty: bool, optional</dt><dd><p>Flag to get the uncertainty instead of the value. Default to False.</p>
+<dt><strong>uncertainty: bool, optional</strong></dt><dd><p>Flag to get the uncertainty instead of the value. Default to False.</p>
 </dd>
 </dl>
-</section>
-<section id="returns">
-<h2>Returns<a class="headerlink" href="#returns" title="Link to this heading">#</a></h2>
-<dl class="simple">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt>ice: float</dt><dd><p>Returns NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyciaaw.get_naw">
 <span class="sig-name descname"><span class="pre">get_naw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyciaaw.get_naw" title="Link to this definition">#</a></dt>
 <dd><p>Get the atomic weight of the nuclide s for the mass number A.</p>
-<section id="id1">
-<h2>Parameters<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<dl class="simple">
-<dt>s: str</dt><dd><p>Element symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s: str</strong></dt><dd><p>Element symbol.</p>
 </dd>
-<dt>A: int</dt><dd><p>Mass number.</p>
+<dt><strong>A: int</strong></dt><dd><p>Mass number.</p>
 </dd>
-<dt>uncertainty: bool, optional</dt><dd><p>Flag to get the uncertainty instead of the value. Default to False.</p>
+<dt><strong>uncertainty: bool, optional</strong></dt><dd><p>Flag to get the uncertainty instead of the value. Default to False.</p>
 </dd>
 </dl>
-</section>
-<section id="id2">
-<h2>Returns<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<dl class="simple">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt>naw: float</dt><dd><p>Returns NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyciaaw.get_nice">
 <span class="sig-name descname"><span class="pre">get_nice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyciaaw.get_nice" title="Link to this definition">#</a></dt>
 <dd><p>Get the number of isotopes in ICE of the element s.</p>
-<section id="id3">
-<h2>Parameters<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<dl class="simple">
-<dt>s: str</dt><dd><p>Element symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s: str</strong></dt><dd><p>Element symbol.</p>
 </dd>
 </dl>
-</section>
-<section id="id4">
-<h2>Returns<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<dl class="simple">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt>nice: int</dt><dd><p>Returns -1 if the provided element is incorrect.</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyciaaw.get_nnaw">
 <span class="sig-name descname"><span class="pre">get_nnaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyciaaw.get_nnaw" title="Link to this definition">#</a></dt>
 <dd><p>Get the number of nuclides in NAW of the element s.</p>
-<section id="id5">
-<h2>Parameters<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<dl class="simple">
-<dt>s: str</dt><dd><p>Element symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s: str</strong></dt><dd><p>Element symbol.</p>
 </dd>
 </dl>
-</section>
-<section id="id6">
-<h2>Returns<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<dl class="simple">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt>nnaw: int</dt><dd><p>Returns -1 if the provided element is incorrect.</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyciaaw.get_saw">
 <span class="sig-name descname"><span class="pre">get_saw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abridged</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyciaaw.get_saw" title="Link to this definition">#</a></dt>
 <dd><p>Get the standard atomic weight of the element s.</p>
-<section id="id7">
-<h2>Parameters<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<dl class="simple">
-<dt>s: str</dt><dd><p>Element symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s: str</strong></dt><dd><p>Element symbol.</p>
 </dd>
-<dt>abridged: bool, optional</dt><dd><p>Flag for the abridged value. Default to True.</p>
+<dt><strong>abridged: bool, optional</strong></dt><dd><p>Flag for the abridged value. Default to True.</p>
 </dd>
-<dt>uncertainty: bool, optional</dt><dd><p>Flag to get the uncertainty instead of the value. Default to False.</p>
-</dd>
-</dl>
-</section>
-<section id="id8">
-<h2>Returns:<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
-<dl class="simple">
-<dt>saw: float</dt><dd><p>Returns NaN if the provided element is incorrect or -1 if the element does not have a standard atomic weight.</p>
+<dt><strong>uncertainty: bool, optional</strong></dt><dd><p>Flag to get the uncertainty instead of the value. Default to False.</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
