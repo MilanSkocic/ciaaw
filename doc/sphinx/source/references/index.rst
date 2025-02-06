@@ -1,9 +1,12 @@
-############
-Bibliography
-############
+.. only:: html
+
+    ############
+    Bibliography
+    ############
 
 
-.. toctree::
-   :maxdepth: 1
+    .. toctree::
+       :maxdepth: 1
 
-   references.rst  
+.. bibliography::
+   :all:
