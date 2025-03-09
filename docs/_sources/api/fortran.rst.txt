@@ -12,6 +12,7 @@ API
 
 .. autofortran:: ../../../src/ciaaw_api.f90
 
-
-.. .. autofortran:: ../../../src/ciaaw_capi.f90
+C Bindings
+==========
+.. autofortran:: ../../../src/ciaaw_capi.f90
 
