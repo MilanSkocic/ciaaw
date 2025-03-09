@@ -1,3 +1,11 @@
+# 0.5.2
+
+* Switch documentation to `sphinx` with `fspx` (development version).
+  * `fspx` uses Ford as a backend.
+* Drop Ford documentation output
+
+[Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
+
 # 0.5.1
 
 * Code refactoring.
