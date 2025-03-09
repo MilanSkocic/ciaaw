@@ -33,7 +33,7 @@ bibtex_default_style = 'unsrt'
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-fspx_docstring_character = "!!"
+# fspx_docstring_character = ""
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
