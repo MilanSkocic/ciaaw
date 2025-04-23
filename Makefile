@@ -123,7 +123,7 @@ uninstall:
 # ---------------------------------------------------------------------
 # OTHERS
 doc:
-	make -C doc
+	make -C doc/sphinx/ html
 
 docs:
 	rm -rf docs/*
