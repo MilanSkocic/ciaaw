@@ -129,8 +129,11 @@ docs:
 	rm -rf docs/*
 	cp -rf doc/sphinx/build/html/* docs/
 
+logo:
+	make -C media
+
 clean:
 	rm -rf $(F_MODULE) $(SRC_FYPP_F90)
 	fpm clean --all
-	rm -rf API-doc/*
+	rm -rf doc/sphinx/build/
 # ---------------------------------------------------------------------
