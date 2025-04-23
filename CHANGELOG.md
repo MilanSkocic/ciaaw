@@ -1,3 +1,10 @@
+# 0.5.3
+
+* Switch to UCRT64 for Windows binaries.
+* Update Fortran standard to `-std=f2018`.
+
+**Not released**
+
 # 0.5.2
 
 * Switch documentation to `sphinx` with `fspx` (development version).
