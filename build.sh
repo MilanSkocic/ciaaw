@@ -48,6 +48,7 @@ echo ""
 echo "BUILD PYTHON WRAPPER"
 make -C py
 cd ./py
+mkdir -p dist
 if [[ $PLATFORM == "linux" ]]; then
     cp ./wheelhouse/*.whl ./dist/
 fi
