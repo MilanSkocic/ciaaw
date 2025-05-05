@@ -135,5 +135,5 @@ logo:
 clean:
 	rm -rf $(F_MODULE) $(SRC_FYPP_F90)
 	fpm clean --all
-	rm -rf doc/sphinx/build/
+	make -C doc clean
 # ---------------------------------------------------------------------
