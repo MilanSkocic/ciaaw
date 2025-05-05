@@ -1,6 +1,5 @@
 module ciaaw__capi
     !! C API.
-    !! See [specs](../page/specs/capi.html)
     use iso_c_binding, only: c_ptr, c_null_char, c_loc, c_double, c_int, c_bool, c_f_pointer
     use ciaaw__common
     use ciaaw__api
@@ -20,7 +19,7 @@ contains
 ! ------------------------------------------------------------------------------
 ! VERSION 
 function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
-    !! C API for [[ciaaw__api(module):get_version(function)]].
+    !! C API.
     
     type(c_ptr) :: cptr                   !! C pointer to a string indicating the version.
 
@@ -42,7 +41,7 @@ end function
 ! ------------------------------------------------------------------------------
 ! SAW
 function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")result(res)
-    !! C API for [[ciaaw__api(module):get_saw(function)]].
+    !! C API.
 
     ! Arguments
     type(c_ptr), intent(in), value :: s               !! Symbol.
@@ -77,7 +76,7 @@ end function
 ! ------------------------------------------------------------------------------
 ! ICE 
 function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)
-    !! C API for [[ciaaw__api(module):get_ice(function)]]
+    !! C API.
     
     ! Arguments
     type(c_ptr), intent(in), value :: s                    !! Element symbol.
@@ -107,7 +106,7 @@ function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(r
 end function
 
 function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)
-    !! C API for [[ciaaw__api(module):get_nice(function)]]
+    !! C API.
 
     ! Arguments
     type(c_ptr), intent(in), value :: s           !! Element symbol.
@@ -163,7 +162,7 @@ end function
 ! ------------------------------------------------------------------------------
 ! NAW 
 function capi_get_naw(s, n, A, uncertainty)bind(C, name="ciaaw_get_naw")result(res)
-    !! C API for [[ciaaw__api(module):get_naw(function)]]
+    !! C API.
     
     ! Arguments
     type(c_ptr), intent(in), value :: s                    !! Element symbol.
@@ -193,7 +192,7 @@ function capi_get_naw(s, n, A, uncertainty)bind(C, name="ciaaw_get_naw")result(r
 end function
 
 function capi_get_nnaw(s,n)bind(C, name="ciaaw_get_nnaw")result(res)
-    !! C API for [[ciaaw__api(module):get_nnaw(function)]]
+    !! C API.
 
     ! Arguments
     type(c_ptr), intent(in), value :: s           !! Element symbol.
