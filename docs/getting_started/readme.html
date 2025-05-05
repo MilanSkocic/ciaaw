@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
   -->
   <noscript>
     <style>
@@ -27,16 +27,16 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../_static/documentation_options.js?v=1352c9ac"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
@@ -307,14 +307,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -377,17 +372,17 @@ Python wrapper allows easy usage from Python.</p>
 </ul>
 <p>To use <code class="docutils literal notranslate"><span class="pre">ciaaw</span></code> within your <a class="reference external" href="https://github.com/fortran-lang/fpm">fpm</a> project,
 add the following to your <code class="docutils literal notranslate"><span class="pre">fpm.toml</span></code> file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="n">dependencies</span><span class="p">]</span>
-    <span class="n">iapws</span> <span class="o">=</span> <span class="p">{</span> <span class="n">git</span><span class="o">=</span><span class="s2">&quot;https://github.com/MilanSkocic/ciaaw.git&quot;</span> <span class="p">}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    [dependencies]
+    iapws = { git=&quot;https://github.com/MilanSkocic/ciaaw.git&quot; }
 </pre></div>
 </div>
 </section>
 <section id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">&gt;=</span><span class="mf">10.0</span>
-<span class="n">gfortran</span><span class="o">&gt;=</span><span class="mf">10.0</span>
-<span class="n">fpm</span><span class="o">&gt;=</span><span class="mf">0.8</span>
-<span class="n">stdlib</span><span class="o">&gt;=</span><span class="mf">0.5</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gcc&gt;=10.0
+gfortran&gt;=10.0
+fpm&gt;=0.8
+stdlib&gt;=0.5
 </pre></div>
 </div>
 </section>
@@ -400,12 +395,12 @@ Add the msys2 binary (usually C:\msys64\usr\bin) to the path in order to be able
 <li><p>On Darwin, the <a class="reference external" href="https://formulae.brew.sh/formula/gcc">gcc</a> toolchain needs to be installed.</p></li>
 </ul>
 <p>Build: the configuration file will set all the environment variables necessary for the compilation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">configure</span><span class="o">.</span><span class="n">sh</span>
-    <span class="o">.</span> <span class="o">./</span><span class="n">configure</span><span class="o">.</span><span class="n">sh</span>
-    <span class="n">make</span>
-    <span class="n">make</span> <span class="n">test</span>
-    <span class="n">make</span> <span class="n">install</span>
-    <span class="n">make</span> <span class="n">uninstall</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    chmod +x configure.sh
+    . ./configure.sh
+    make
+    make test
+    make install
+    make uninstall
 </pre></div>
 </div>
 </section>
@@ -470,13 +465,13 @@ Add the msys2 binary (usually C:\msys64\usr\bin) to the path in order to be able
   </nav></div>
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/getting_started/readme.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/getting_started/readme.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -491,8 +486,8 @@ Add the msys2 binary (usually C:\msys64\usr\bin) to the path in order to be able
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -512,7 +507,7 @@ Add the msys2 binary (usually C:\msys64\usr\bin) to the path in order to be able
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.1.
     <br/>
   </p>
 </div>
@@ -525,8 +520,7 @@ Add the msys2 binary (usually C:\msys64\usr\bin) to the path in order to be able
       
         <div class="footer-item">
 <p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>
