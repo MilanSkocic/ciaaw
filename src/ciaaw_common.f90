@@ -5,7 +5,7 @@ module ciaaw__common
     use ieee_arithmetic, only: ieee_quiet_nan, ieee_value
     private
 
-    public optval
+    public :: optval
     public :: sp, dp, int32, int64
 
 end module
