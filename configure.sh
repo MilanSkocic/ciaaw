@@ -25,8 +25,8 @@ export PY=python
 export PYGEN=python
 export BUILD_DIR="./build"
 export INCLUDE_DIR="./include"
-export FPM_FFLAGS="-fPIC -std=f2018 -pedantic -Wall -Wextra"
-export FPM_CFLAGS="-fPIC -std=c11 -pedantic -Wall -Wextra"
+export FPM_FFLAGS="-fPIC -pedantic -Wall -Wextra"
+export FPM_CFLAGS="-fPIC -pedantic -Wall -Wextra"
 export FPM_LDFLAGS=""
 export DEFAULT_INSTALL_DIR="$HOME/.local"
 export PLATFORM="linux"
