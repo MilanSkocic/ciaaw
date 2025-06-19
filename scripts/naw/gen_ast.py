@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 r"""Generate language independant representation of NAW."""
 import argparse
 import tomlkit

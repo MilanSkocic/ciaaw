@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 r"""Generate language independant representation of SAW."""
 import argparse
 import tomlkit

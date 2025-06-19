@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 r"""Format IUPAC"""
 import os
 import argparse
