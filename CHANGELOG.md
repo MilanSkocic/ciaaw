@@ -1,12 +1,11 @@
-# 0.5.2
+# 1.0.0
 
 * Switch to UCRT64 for Windows binaries.
-* Update Fortran standard to `-std=f2018`.
 * Switch documentation to `sphinx` with `fspx` (development version).
   * `fspx` uses Ford as a backend.
 * Drop Ford documentation output
 
-**Not released**
+[Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
 
 
 # 0.5.1
