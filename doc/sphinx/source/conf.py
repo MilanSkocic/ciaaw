@@ -4,16 +4,21 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 import os
 import sys
+import tomllib
 sys.path.insert(0, os.path.abspath('../../../py/src/'))
 import pyciaaw
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+fpath="../../../fpm.toml"
+f = open(fpath, "rb")
+fpm = tomllib.load(f)
+f.close()
 
 
 project = 'ciaaw'
-copyright = '2025, M. Skocic'
-author = 'Milan Skocic'
+copyright = fpm["copyright"].replace("Copyright ","")
+author = fpm["author"]
 release = pyciaaw.__version__
 
 # -- General configuration ---------------------------------------------------
