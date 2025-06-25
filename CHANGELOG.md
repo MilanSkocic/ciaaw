@@ -1,3 +1,8 @@
+# 1.0.1dev0
+
+
+[Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
+
 # 1.0.0
 
 * Switch to UCRT64 for Windows binaries.
