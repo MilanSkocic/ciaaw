@@ -2,7 +2,7 @@
 
 * Remove support for Python 3.9 and add support for Python 3.14.
 
-[Full changelog](https://github.com/MilanSkocic/codata/releases)
+[Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
 
 
 # 1.0.0
