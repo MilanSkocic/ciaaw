@@ -37,7 +37,7 @@ jobs:
         python3.10 -m pip install -U --user pip setuptools wheel build 
         python3.11 -m pip install -U --user pip setuptools wheel build
         python3.12 -m pip install -U --user pip setuptools wheel build
-        python3.3 -m pip install -U --user pip setuptools wheel build
+        python3.13 -m pip install -U --user pip setuptools wheel build
         python3.14 -m pip install -U --user pip setuptools wheel build
         python3.14t -m pip install -U --user pip setuptools wheel build
     - name: Checkout
