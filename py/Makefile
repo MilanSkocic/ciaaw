@@ -6,7 +6,7 @@ SETUP=setup.py pyproject.toml
 
 # ---------------------------------------------------------------------
 # TARGETS
-.PHONY: package test clean
+.PHONY: package clean
 
 all: package
 # ---------------------------------------------------------------------
@@ -56,25 +56,25 @@ python3.10: $(SETUP)
 
 test: test3.10 test3.11 test3.12 test3.13 test3.14
 
-test3.14: 
+test3.14: python3.14
 	$(FPM_PY)3.14 -m pytest -v
 
-test3.14t: 
+test3.14t: python3.14t
 	$(FPM_PY)3.14t -m pytest -v
 
-test3.13: 
+test3.13: python3.13
 	$(FPM_PY)3.13 -m pytest -v
 
-test3.12: 
+test3.12: python3.12
 	$(FPM_PY)3.12 -m pytest -v
 
-test3.11: 
+test3.11: python3.11
 	$(FPM_PY)3.11 -m pytest -v
 
-test3.10: 
+test3.10: python3.10
 	$(FPM_PY)3.10 -m pytest -v
 
-example: 
+example: python3.14
 	$(FPM_PY)3.14 ../example/example.py
 # ---------------------------------------------------------------------
 
