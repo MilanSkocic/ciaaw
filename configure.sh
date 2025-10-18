@@ -48,7 +48,7 @@ export FPM_LIBSWINDOWS=("libgfortran-5" "libquadmath-0" "libgcc_s_seh-1" "libwin
 export FPM_ROOT="/usr/lib/x86_64-linux-gnu/"
 export FPM_LIBS="${LIBSLINUX[@]}"
 
-if [[ "$OSTYPE" == "msys" ]]; then
+if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "msys" ]]; then
     FPM_DEFAULT_INSTALL_DIR="${APPDATA//\\//}/local"
     FPM_PLATFORM="windows"
     FPM_ARCH=$MSYSTEM_CARCH
