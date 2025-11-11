@@ -42,7 +42,7 @@ Build: the configuration file will set all the environment variables necessary f
 
 ```
     chmod +x configure.sh
-    . ./configure.sh
+    ./configure.sh
     make
     make test
     make install

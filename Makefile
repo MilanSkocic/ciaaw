@@ -1,9 +1,9 @@
+include make.in
 # ---------------------------------------------------------------------
 # CONFIGURATION
+install_dir=$(DESTDIR)/$(PREFIX)
 ifneq ($(prefix), )
-	install_dir=$(prefix)
-else
-	install_dir=$(FPM_DEFAULT_INSTALL_DIR)
+	PREFIX=$(prefix)
 endif
 
 ifneq ($(type), )
@@ -11,6 +11,8 @@ ifneq ($(type), )
 else
 	btype=release
 endif
+
+install_dir=$(DESTDIR)/$(PREFIX)
 
 GEN=./scripts/saw/gen_src.py
 GEN_ICE=./scripts/ice/gen_src.py
