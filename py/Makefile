@@ -17,7 +17,7 @@ all: package
 # COMPILATION
 package: python3.10 python3.11 python3.12 python3.13 python3.14 sdist auditwheel
 
-audtiwheel: $(SETUP)
+auditwheel: $(SETUP)
 	$(FPM_AW)
 
 sdist: $(SETUP)
