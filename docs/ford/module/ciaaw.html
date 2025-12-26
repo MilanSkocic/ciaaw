@@ -1,0 +1,573 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Standard and abridged atomic weights, isotopic abundances and nuclides' standard atomic weights.">
+    <meta name="author" content="M. Skocic" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>ciaaw &ndash; ciaaw</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ciaaw </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>ciaaw
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.6% of total for modules and submodules.">4 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/ciaaw.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/ciaaw.f90.html'>ciaaw.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">ciaaw</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+    <em>None</em>
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      <p>Main module for the CIAAW library.</p>
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='ciaaw__capi.html'>ciaaw__capi</a></li>
+                  <li class="list-inline-item"><a href='ciaaw__api.html'>ciaaw__api</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.42.4 (0)
+ -->
+<!-- Title: module~~ciaaw~~UsesGraph Pages: 1 -->
+<svg id="moduleciaawUsesGraph" width="641pt" height="230pt"
+ viewBox="0.00 0.00 641.00 229.71" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~ciaaw~~UsesGraph" class="graph" transform="scale(0.69 0.69) rotate(0) translate(4 327.85)">
+<title>module~~ciaaw~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-327.85 922,-327.85 922,4 -4,4"/>
+<!-- module~ciaaw -->
+<g id="module~~ciaaw~~UsesGraph_node1" class="node">
+<title>module~ciaaw</title>
+<polygon fill="none" stroke="black" points="918,-60.85 864,-60.85 864,-36.85 918,-36.85 918,-60.85"/>
+<text text-anchor="middle" x="891" y="-46.45" font-family="Helvetica,sans-Serif" font-size="10.50">ciaaw</text>
+</g>
+<!-- module~ciaaw__api -->
+<g id="module~~ciaaw~~UsesGraph_node2" class="node">
+<title>module~ciaaw__api</title>
+<g id="a_module~~ciaaw~~UsesGraph_node2"><a xlink:href="../module/ciaaw__api.html" xlink:title="ciaaw__api">
+<polygon fill="#337ab7" stroke="#337ab7" points="709,-81.85 639,-81.85 639,-57.85 709,-57.85 709,-81.85"/>
+<text text-anchor="middle" x="674" y="-67.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ciaaw__api</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw&#45;&gt;module~ciaaw__api -->
+<g id="module~~ciaaw~~UsesGraph_edge1" class="edge">
+<title>module~ciaaw&#45;&gt;module~ciaaw__api</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M863.64,-51.42C827.62,-54.94 762.53,-61.3 719.04,-65.55"/>
+<polygon fill="#000000" stroke="#000000" points="718.64,-62.07 709.02,-66.52 719.32,-69.03 718.64,-62.07"/>
+</g>
+<!-- module~ciaaw__capi -->
+<g id="module~~ciaaw~~UsesGraph_node3" class="node">
+<title>module~ciaaw__capi</title>
+<g id="a_module~~ciaaw~~UsesGraph_node3"><a xlink:href="../module/ciaaw__capi.html" xlink:title="ciaaw__capi">
+<polygon fill="#337ab7" stroke="#337ab7" points="828,-40.85 752,-40.85 752,-16.85 828,-16.85 828,-40.85"/>
+<text text-anchor="middle" x="790" y="-26.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ciaaw__capi</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw&#45;&gt;module~ciaaw__capi -->
+<g id="module~~ciaaw~~UsesGraph_edge2" class="edge">
+<title>module~ciaaw&#45;&gt;module~ciaaw__capi</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M863.99,-43.59C856,-41.98 846.94,-40.15 838,-38.34"/>
+<polygon fill="#000000" stroke="#000000" points="838.5,-34.87 828,-36.32 837.11,-41.73 838.5,-34.87"/>
+</g>
+<!-- ieee_arithmetic -->
+<g id="module~~ciaaw~~UsesGraph_node4" class="node">
+<title>ieee_arithmetic</title>
+<g id="a_module~~ciaaw~~UsesGraph_node4"><a xlink:href="http://fortranwiki.org/fortran/show/ieee_arithmetic" xlink:title="ieee_arithmetic">
+<polygon fill="#337ab7" stroke="#337ab7" points="96,-274.85 0,-274.85 0,-250.85 96,-250.85 96,-274.85"/>
+<text text-anchor="middle" x="48" y="-260.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ieee_arithmetic</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw__api&#45;&gt;ieee_arithmetic -->
+<g id="module~~ciaaw~~UsesGraph_edge3" class="edge">
+<title>module~ciaaw__api&#45;&gt;ieee_arithmetic</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M428,-271.85C313.93,-274 180.56,-269.11 106.34,-265.73"/>
+<polygon fill="#000000" stroke="#000000" points="106.42,-262.23 96.27,-265.26 106.09,-269.22 106.42,-262.23"/>
+</g>
+<!-- module~ciaaw__common -->
+<g id="module~~ciaaw~~UsesGraph_node6" class="node">
+<title>module~ciaaw__common</title>
+<g id="a_module~~ciaaw~~UsesGraph_node6"><a xlink:href="../module/ciaaw__common.html" xlink:title="ciaaw__common">
+<polygon fill="#337ab7" stroke="#337ab7" points="235,-173.85 134,-173.85 134,-149.85 235,-149.85 235,-173.85"/>
+<text text-anchor="middle" x="184.5" y="-159.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ciaaw__common</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw__api&#45;&gt;module~ciaaw__common -->
+<g id="module~~ciaaw~~UsesGraph_edge4" class="edge">
+<title>module~ciaaw__api&#45;&gt;module~ciaaw__common</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M638.97,-66.97C614.26,-65.58 580.11,-65.1 550.5,-69.85"/>
+</g>
+<!-- module~ciaaw__pte -->
+<g id="module~~ciaaw~~UsesGraph_node7" class="node">
+<title>module~ciaaw__pte</title>
+<g id="a_module~~ciaaw~~UsesGraph_node7"><a xlink:href="../module/ciaaw__pte.html" xlink:title="ciaaw__pte">
+<polygon fill="#337ab7" stroke="#337ab7" points="585,-121.85 514,-121.85 514,-97.85 585,-97.85 585,-121.85"/>
+<text text-anchor="middle" x="549.5" y="-107.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ciaaw__pte</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw__api&#45;&gt;module~ciaaw__pte -->
+<g id="module~~ciaaw~~UsesGraph_edge5" class="edge">
+<title>module~ciaaw__api&#45;&gt;module~ciaaw__pte</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M638.88,-80.99C625.3,-85.42 609.5,-90.58 595.04,-95.3"/>
+<polygon fill="#000000" stroke="#000000" points="593.71,-92.06 585.29,-98.49 595.88,-98.71 593.71,-92.06"/>
+</g>
+<!-- module~ciaaw__types -->
+<g id="module~~ciaaw~~UsesGraph_node8" class="node">
+<title>module~ciaaw__types</title>
+<g id="a_module~~ciaaw~~UsesGraph_node8"><a xlink:href="../module/ciaaw__types.html" xlink:title="ciaaw__types">
+<polygon fill="#337ab7" stroke="#337ab7" points="355,-205.85 273,-205.85 273,-181.85 355,-181.85 355,-205.85"/>
+<text text-anchor="middle" x="314" y="-191.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ciaaw__types</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw__api&#45;&gt;module~ciaaw__types -->
+<g id="module~~ciaaw~~UsesGraph_edge6" class="edge">
+<title>module~ciaaw__api&#45;&gt;module~ciaaw__types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M667,-81.87C642.95,-128.19 549.08,-291.49 430,-271.85"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M428,-271.85C387.03,-272.62 350.13,-237.19 330.31,-213.82"/>
+<polygon fill="#000000" stroke="#000000" points="332.84,-211.39 323.8,-205.85 327.42,-215.81 332.84,-211.39"/>
+</g>
+<!-- module~ciaaw__version -->
+<g id="module~~ciaaw~~UsesGraph_node9" class="node">
+<title>module~ciaaw__version</title>
+<g id="a_module~~ciaaw~~UsesGraph_node9"><a xlink:href="../module/ciaaw__version.html" xlink:title="ciaaw__version">
+<polygon fill="#337ab7" stroke="#337ab7" points="596,-323.85 503,-323.85 503,-299.85 596,-299.85 596,-323.85"/>
+<text text-anchor="middle" x="549.5" y="-309.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ciaaw__version</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw__api&#45;&gt;module~ciaaw__version -->
+<g id="module~~ciaaw~~UsesGraph_edge7" class="edge">
+<title>module~ciaaw__api&#45;&gt;module~ciaaw__version</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M671.63,-82.05C667.1,-117.46 649.67,-221.74 596,-285.85 593.44,-288.9 590.43,-291.67 587.2,-294.16"/>
+<polygon fill="#000000" stroke="#000000" points="585.17,-291.31 578.82,-299.79 589.07,-297.12 585.17,-291.31"/>
+</g>
+<!-- module~ciaaw__capi&#45;&gt;module~ciaaw__api -->
+<g id="module~~ciaaw~~UsesGraph_edge9" class="edge">
+<title>module~ciaaw__capi&#45;&gt;module~ciaaw__api</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M755.41,-40.93C743.8,-45.1 730.63,-49.84 718.35,-54.26"/>
+<polygon fill="#000000" stroke="#000000" points="716.97,-51.03 708.74,-57.71 719.34,-57.62 716.97,-51.03"/>
+</g>
+<!-- iso_c_binding -->
+<g id="module~~ciaaw~~UsesGraph_node5" class="node">
+<title>iso_c_binding</title>
+<g id="a_module~~ciaaw~~UsesGraph_node5"><a xlink:href="http://fortranwiki.org/fortran/show/iso_c_binding" xlink:title="iso_c_binding">
+<polygon fill="#337ab7" stroke="#337ab7" points="716,-39.85 632,-39.85 632,-15.85 716,-15.85 716,-39.85"/>
+<text text-anchor="middle" x="674" y="-25.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_c_binding</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw__capi&#45;&gt;iso_c_binding -->
+<g id="module~~ciaaw~~UsesGraph_edge8" class="edge">
+<title>module~ciaaw__capi&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M751.99,-28.52C743.76,-28.45 734.9,-28.37 726.22,-28.3"/>
+<polygon fill="#000000" stroke="#000000" points="726.2,-24.8 716.17,-28.21 726.14,-31.8 726.2,-24.8"/>
+</g>
+<!-- module~ciaaw__capi&#45;&gt;module~ciaaw__common -->
+<g id="module~~ciaaw~~UsesGraph_edge10" class="edge">
+<title>module~ciaaw__capi&#45;&gt;module~ciaaw__common</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M759.59,-16.82C727.46,-5.47 674.85,7.78 632,-6.85 588.67,-21.64 595.7,-62.59 550.5,-69.85"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M548.5,-69.85C496.27,-76.65 482.48,-65.37 430,-69.85"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M428,-69.85C374.92,-74.38 368.02,-104.61 315,-109.85"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M313,-109.85C276.93,-113.41 238.86,-131 213.81,-144.74"/>
+<polygon fill="#000000" stroke="#000000" points="211.87,-141.82 204.88,-149.79 215.31,-147.92 211.87,-141.82"/>
+</g>
+<!-- module~ciaaw__common&#45;&gt;ieee_arithmetic -->
+<g id="module~~ciaaw~~UsesGraph_edge11" class="edge">
+<title>module~ciaaw__common&#45;&gt;ieee_arithmetic</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M147.73,-173.89C142.23,-176.45 136.8,-179.43 132,-182.85 112.25,-196.91 113.38,-206.94 96,-223.85 88.74,-230.9 80.36,-238.12 72.71,-244.4"/>
+<polygon fill="#000000" stroke="#000000" points="70.36,-241.79 64.77,-250.79 74.75,-247.24 70.36,-241.79"/>
+</g>
+<!-- stdlib_kinds -->
+<g id="module~~ciaaw~~UsesGraph_node13" class="node">
+<title>stdlib_kinds</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="85,-172.85 11,-172.85 11,-148.85 85,-148.85 85,-172.85"/>
+<text text-anchor="middle" x="48" y="-158.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stdlib_kinds</text>
+</g>
+<!-- module~ciaaw__common&#45;&gt;stdlib_kinds -->
+<g id="module~~ciaaw~~UsesGraph_edge12" class="edge">
+<title>module~ciaaw__common&#45;&gt;stdlib_kinds</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.8,-161.48C121.17,-161.38 107.66,-161.28 95.21,-161.19"/>
+<polygon fill="#000000" stroke="#000000" points="95.07,-157.69 85.05,-161.11 95.02,-164.69 95.07,-157.69"/>
+</g>
+<!-- stdlib_optval -->
+<g id="module~~ciaaw~~UsesGraph_node14" class="node">
+<title>stdlib_optval</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="87.5,-214.85 8.5,-214.85 8.5,-190.85 87.5,-190.85 87.5,-214.85"/>
+<text text-anchor="middle" x="48" y="-200.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stdlib_optval</text>
+</g>
+<!-- module~ciaaw__common&#45;&gt;stdlib_optval -->
+<g id="module~~ciaaw~~UsesGraph_edge13" class="edge">
+<title>module~ciaaw__common&#45;&gt;stdlib_optval</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M143.87,-173.93C129.38,-178.34 112.82,-183.39 97.63,-188.02"/>
+<polygon fill="#000000" stroke="#000000" points="96.43,-184.73 87.88,-190.99 98.47,-191.43 96.43,-184.73"/>
+</g>
+<!-- module~ciaaw__pte&#45;&gt;module~ciaaw__common -->
+<g id="module~~ciaaw~~UsesGraph_edge14" class="edge">
+<title>module~ciaaw__pte&#45;&gt;module~ciaaw__common</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M529,-97.82C506.02,-84.94 466.35,-66.75 430,-69.85"/>
+</g>
+<!-- module~ciaaw__pte&#45;&gt;module~ciaaw__types -->
+<g id="module~~ciaaw~~UsesGraph_edge18" class="edge">
+<title>module~ciaaw__pte&#45;&gt;module~ciaaw__types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M543.55,-121.88C533.28,-145.01 507.21,-195.16 467,-214.85 429.92,-233 382.04,-221.48 350.01,-209.56"/>
+<polygon fill="#000000" stroke="#000000" points="351.2,-206.27 340.61,-205.88 348.65,-212.79 351.2,-206.27"/>
+</g>
+<!-- module~ciaaw__ice -->
+<g id="module~~ciaaw~~UsesGraph_node10" class="node">
+<title>module~ciaaw__ice</title>
+<g id="a_module~~ciaaw~~UsesGraph_node10"><a xlink:href="../module/ciaaw__ice.html" xlink:title="ciaaw__ice">
+<polygon fill="#337ab7" stroke="#337ab7" points="464,-163.85 394,-163.85 394,-139.85 464,-139.85 464,-163.85"/>
+<text text-anchor="middle" x="429" y="-149.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ciaaw__ice</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw__pte&#45;&gt;module~ciaaw__ice -->
+<g id="module~~ciaaw~~UsesGraph_edge15" class="edge">
+<title>module~ciaaw__pte&#45;&gt;module~ciaaw__ice</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M514.54,-121.88C501.77,-126.41 487.08,-131.62 473.56,-136.41"/>
+<polygon fill="#000000" stroke="#000000" points="472.22,-133.17 463.96,-139.81 474.56,-139.77 472.22,-133.17"/>
+</g>
+<!-- module~ciaaw__naw -->
+<g id="module~~ciaaw~~UsesGraph_node11" class="node">
+<title>module~ciaaw__naw</title>
+<g id="a_module~~ciaaw~~UsesGraph_node11"><a xlink:href="../module/ciaaw__naw.html" xlink:title="ciaaw__naw">
+<polygon fill="#337ab7" stroke="#337ab7" points="467,-121.85 391,-121.85 391,-97.85 467,-97.85 467,-121.85"/>
+<text text-anchor="middle" x="429" y="-107.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ciaaw__naw</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw__pte&#45;&gt;module~ciaaw__naw -->
+<g id="module~~ciaaw~~UsesGraph_edge16" class="edge">
+<title>module~ciaaw__pte&#45;&gt;module~ciaaw__naw</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M513.91,-109.85C502.49,-109.85 489.58,-109.85 477.37,-109.85"/>
+<polygon fill="#000000" stroke="#000000" points="477.33,-106.35 467.33,-109.85 477.33,-113.35 477.33,-106.35"/>
+</g>
+<!-- module~ciaaw__saw -->
+<g id="module~~ciaaw~~UsesGraph_node12" class="node">
+<title>module~ciaaw__saw</title>
+<g id="a_module~~ciaaw~~UsesGraph_node12"><a xlink:href="../module/ciaaw__saw.html" xlink:title="ciaaw__saw">
+<polygon fill="#337ab7" stroke="#337ab7" points="466,-205.85 392,-205.85 392,-181.85 466,-181.85 466,-205.85"/>
+<text text-anchor="middle" x="429" y="-191.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ciaaw__saw</text>
+</a>
+</g>
+</g>
+<!-- module~ciaaw__pte&#45;&gt;module~ciaaw__saw -->
+<g id="module~~ciaaw~~UsesGraph_edge17" class="edge">
+<title>module~ciaaw__pte&#45;&gt;module~ciaaw__saw</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M534.24,-121.87C518.32,-135.05 491.57,-156.5 467,-172.85 465.15,-174.08 463.23,-175.31 461.27,-176.52"/>
+<polygon fill="#000000" stroke="#000000" points="459.41,-173.56 452.61,-181.69 462.99,-179.57 459.41,-173.56"/>
+</g>
+<!-- module~ciaaw__types&#45;&gt;module~ciaaw__common -->
+<g id="module~~ciaaw~~UsesGraph_edge19" class="edge">
+<title>module~ciaaw__types&#45;&gt;module~ciaaw__common</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M272.66,-183.72C263.36,-181.39 253.28,-178.86 243.4,-176.38"/>
+<polygon fill="#000000" stroke="#000000" points="244.16,-172.96 233.61,-173.92 242.46,-179.75 244.16,-172.96"/>
+</g>
+<!-- stdlib_string_type -->
+<g id="module~~ciaaw~~UsesGraph_node15" class="node">
+<title>stdlib_string_type</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="237,-215.85 132,-215.85 132,-191.85 237,-191.85 237,-215.85"/>
+<text text-anchor="middle" x="184.5" y="-201.45" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stdlib_string_type</text>
+</g>
+<!-- module~ciaaw__types&#45;&gt;stdlib_string_type -->
+<g id="module~~ciaaw~~UsesGraph_edge20" class="edge">
+<title>module~ciaaw__types&#45;&gt;stdlib_string_type</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M272.66,-197.01C264.58,-197.64 255.93,-198.32 247.32,-199"/>
+<polygon fill="#000000" stroke="#000000" points="246.96,-195.52 237.27,-199.79 247.51,-202.49 246.96,-195.52"/>
+</g>
+<!-- module~ciaaw__ice&#45;&gt;module~ciaaw__common -->
+<g id="module~~ciaaw~~UsesGraph_edge21" class="edge">
+<title>module~ciaaw__ice&#45;&gt;module~ciaaw__common</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M403.32,-139.76C375.69,-126.75 332.5,-108.12 315,-109.85"/>
+</g>
+<!-- module~ciaaw__ice&#45;&gt;module~ciaaw__types -->
+<g id="module~~ciaaw~~UsesGraph_edge22" class="edge">
+<title>module~ciaaw__ice&#45;&gt;module~ciaaw__types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M395.62,-163.88C383.56,-168.36 369.7,-173.52 356.91,-178.27"/>
+<polygon fill="#000000" stroke="#000000" points="355.54,-175.04 347.39,-181.81 357.98,-181.61 355.54,-175.04"/>
+</g>
+<!-- module~ciaaw__naw&#45;&gt;module~ciaaw__common -->
+<g id="module~~ciaaw~~UsesGraph_edge23" class="edge">
+<title>module~ciaaw__naw&#45;&gt;module~ciaaw__common</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M390.76,-108.01C368.68,-107.38 340.18,-107.36 315,-109.85"/>
+</g>
+<!-- module~ciaaw__naw&#45;&gt;module~ciaaw__types -->
+<g id="module~~ciaaw~~UsesGraph_edge24" class="edge">
+<title>module~ciaaw__naw&#45;&gt;module~ciaaw__types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M405.31,-121.89C400.49,-124.68 395.5,-127.74 391,-130.85 371.36,-144.4 350.61,-161.85 335.76,-174.94"/>
+<polygon fill="#000000" stroke="#000000" points="333.3,-172.45 328.16,-181.71 337.95,-177.67 333.3,-172.45"/>
+</g>
+<!-- module~ciaaw__saw&#45;&gt;module~ciaaw__common -->
+<g id="module~~ciaaw~~UsesGraph_edge25" class="edge">
+<title>module~ciaaw__saw&#45;&gt;module~ciaaw__common</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M405.31,-181.8C400.49,-179.02 395.5,-175.95 391,-172.85 354.89,-147.92 358.66,-105.53 315,-109.85"/>
+</g>
+<!-- module~ciaaw__saw&#45;&gt;module~ciaaw__types -->
+<g id="module~~ciaaw~~UsesGraph_edge26" class="edge">
+<title>module~ciaaw__saw&#45;&gt;module~ciaaw__types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M391.94,-193.85C383.39,-193.85 374.13,-193.85 365.09,-193.85"/>
+<polygon fill="#000000" stroke="#000000" points="365.03,-190.35 355.03,-193.85 365.03,-197.35 365.03,-190.35"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panmoduleciaawUsesGraph = svgPanZoom('#moduleciaawUsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.42.4 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="516pt" height="32pt"
+ viewBox="0.00 0.00 516.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 512,-28 512,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="385.5,-24 328.5,-24 328.5,0 385.5,0 385.5,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="508,-24 404,-24 404,0 508,0 508,-24"/>
+<text text-anchor="middle" x="456" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      
+      <br>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ciaaw
+ was developed by M. Skocic<br>              &copy; 2025 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

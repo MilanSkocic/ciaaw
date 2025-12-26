@@ -38,7 +38,6 @@
     <script src="../_static/documentation_options.js?v=58fbf978"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/fortran';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -140,9 +139,23 @@
 </li>
 
 
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="index.html">
     APIs
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../changelog/index.html">
+    Changelog
   </a>
 </li>
 
@@ -260,9 +273,23 @@ document.write(`
 </li>
 
 
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="index.html">
     APIs
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../changelog/index.html">
+    Changelog
   </a>
 </li>
 
@@ -383,248 +410,7 @@ document.write(`
                   
   <section id="fortran">
 <h1>Fortran<a class="headerlink" href="#fortran" title="Link to this heading">#</a></h1>
-<section id="api">
-<h2>API<a class="headerlink" href="#api" title="Link to this heading">#</a></h2>
-<section id="fortran-api">
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">module</span> <span class="pre">ciaaw__api</span></span></dt>
-<dd><p> API</p>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">fptr</span></span></span></dt>
-<dd><p> Get the version</p>
-<dl class="simple">
-<dt>fptr: character(len=:), pointer</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_saw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">abridged</span></em>, <em class="sig-param"><span class="pre">uncertainty</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p> Get the standard atomic weight for the element s.</p>
-<p> Returns NaN if the provided element is incorrect or -1 if the element does not have a SAW.</p>
-<p></p>
-<p></p>
-<dl class="simple">
-<dt>s: character(len=*), intent(in)</dt><dd><p> Element symbol.</p>
-</dd>
-<dt>abridged: logical, intent(in), optional</dt><dd><p> Flag for returning the abridged standard atomic weight. Default to TRUE.</p>
-</dd>
-<dt>uncertainty: logical, intent(in), optional</dt><dd><p> Flag for returning the uncertainty instead of the value. Default to FALSE.
-
-</p>
-</dd>
-<dt>res: real(kind=dp)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_ice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">A</span></em>, <em class="sig-param"><span class="pre">uncertainty</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p> Get the isotopic composition of the element s for the mass number A. </p>
-<p> Returns NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.</p>
-<p></p>
-<p></p>
-<dl class="simple">
-<dt>s: character(len=*), intent(in)</dt><dd><p> Element symbol.</p>
-</dd>
-<dt>A: integer(kind=int32), intent(in)</dt><dd><p> Mass number.</p>
-</dd>
-<dt>uncertainty: logical, intent(in), optional</dt><dd><p> Flag for returning the uncertainty instead of the value. Default to FALSE.
-
-</p>
-</dd>
-<dt>res: real(kind=dp)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_nice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p> Get the number of isotopes in ICE of the element s.</p>
-<p> Returns -1 if the provided element is incorrect.</p>
-<p></p>
-<p></p>
-<dl class="simple">
-<dt>s: character(len=*), intent(in)</dt><dd><p> Element symbol.
-
-</p>
-</dd>
-<dt>res: integer(kind=int32)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_naw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">A</span></em>, <em class="sig-param"><span class="pre">uncertainty</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p> Get the atomic weight of the nuclide s for the mass number A. </p>
-<p> Returns NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.</p>
-<p></p>
-<p></p>
-<dl class="simple">
-<dt>s: character(len=*), intent(in)</dt><dd><p> Element symbol.</p>
-</dd>
-<dt>A: integer(kind=int32), intent(in)</dt><dd><p> Mass number.</p>
-</dd>
-<dt>uncertainty: logical, intent(in), optional</dt><dd><p> Flag for returning the uncertainty instead of the value. Default to FALSE.
-
-</p>
-</dd>
-<dt>res: real(kind=dp)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">get_nnaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p> Get the number of nuclides in NAW of the element s.</p>
-<p> Returns -1 if the provided element is incorrect.</p>
-<p></p>
-<p></p>
-<dl class="simple">
-<dt>s: character(len=*), intent(in)</dt><dd><p> Element symbol.
-
-</p>
-</dd>
-<dt>res: integer(kind=int32)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-</section>
-</section>
-<section id="c-bindings">
-<h2>C Bindings<a class="headerlink" href="#c-bindings" title="Link to this heading">#</a></h2>
-<section id="fortran-api">
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">module</span> <span class="pre">ciaaw__capi</span></span></dt>
-<dd><p> C API.</p>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">capi_get_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">cptr</span></span></span></dt>
-<dd><p> C API.</p>
-<p></p>
-<dl class="simple">
-<dt>cptr: type(c_ptr)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">capi_get_saw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">abridged</span></em>, <em class="sig-param"><span class="pre">uncertainty</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p> C API.</p>
-<p></p>
-<p></p>
-<dl class="simple">
-<dt>s: type(c_ptr), value, intent(in)</dt><dd><p> Symbol.</p>
-</dd>
-<dt>n: integer(kind=c_int), value, intent(in)</dt><dd><p> Size of the symbol string.</p>
-</dd>
-<dt>abridged: logical(kind=c_bool), value, intent(in)</dt><dd><p> Flag for setting if abridged value is desired.</p>
-</dd>
-<dt>uncertainty: logical(kind=c_bool), value, intent(in)</dt><dd><p> Flag for setting if the uncertainty is desired instead of the value.
-
-</p>
-</dd>
-<dt>res: real(kind=c_double)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">capi_get_ice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">A</span></em>, <em class="sig-param"><span class="pre">uncertainty</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p> C API.</p>
-<p></p>
-<p></p>
-<dl class="simple">
-<dt>s: type(c_ptr), value, intent(in)</dt><dd><p> Element symbol.</p>
-</dd>
-<dt>n: integer(kind=c_int), value, intent(in)</dt><dd><p> Size of the symbol string.</p>
-</dd>
-<dt>A: integer(kind=c_int), value, intent(in)</dt><dd><p> Mass number.</p>
-</dd>
-<dt>uncertainty: logical(kind=c_bool), value, intent(in)</dt><dd><p> Flag for returning the uncertainty instead of the value. Default to FALSE.
-
-</p>
-</dd>
-<dt>res: real(kind=c_double)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">capi_get_nice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">n</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p> C API.</p>
-<p></p>
-<p></p>
-<dl class="simple">
-<dt>s: type(c_ptr), value, intent(in)</dt><dd><p> Element symbol.</p>
-</dd>
-<dt>n: integer(kind=c_int), value, intent(in)</dt><dd><p> Size of the symbol string.
-
-</p>
-</dd>
-<dt>res: integer(kind=c_int)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">capi_get_naw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">A</span></em>, <em class="sig-param"><span class="pre">uncertainty</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p> C API.</p>
-<p></p>
-<p></p>
-<dl class="simple">
-<dt>s: type(c_ptr), value, intent(in)</dt><dd><p> Element symbol.</p>
-</dd>
-<dt>n: integer(kind=c_int), value, intent(in)</dt><dd><p> Size of the symbol string.</p>
-</dd>
-<dt>A: integer(kind=c_int), value, intent(in)</dt><dd><p> Mass number.</p>
-</dd>
-<dt>uncertainty: logical(kind=c_bool), value, intent(in)</dt><dd><p> Flag for returning the uncertainty instead of the value. Default to FALSE.
-
-</p>
-</dd>
-<dt>res: real(kind=c_double)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-<dl>
-<dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">function</span> <span class="pre">capi_get_nnaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s</span></em>, <em class="sig-param"><span class="pre">n</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">res</span></span></span></dt>
-<dd><p> C API.</p>
-<p></p>
-<p></p>
-<dl class="simple">
-<dt>s: type(c_ptr), value, intent(in)</dt><dd><p> Element symbol.</p>
-</dd>
-<dt>n: integer(kind=c_int), value, intent(in)</dt><dd><p> Size of the symbol string.
-
-</p>
-</dd>
-<dt>res: integer(kind=c_int)</dt><dd><p></p>
-</dd>
-</dl>
-<span class="math notranslate nohighlight">\(\)</span></dd></dl>
-
-</section>
-</section>
+<p><a class="reference external" href="../ford/index.html">FORD documentation</a></p>
 </section>
 
 
@@ -664,31 +450,6 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-api"><dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">module</span> <span class="pre">ciaaw__api</span></span></dt>
-<dd><p> API</p>
-<span class="math notranslate nohighlight">\(\)</span></dd></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-bindings">C Bindings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-api"><dt class="sig sig-object">
-<span class="sig-name descname"><span class="pre">module</span> <span class="pre">ciaaw__capi</span></span></dt>
-<dd><p> C API.</p>
-<span class="math notranslate nohighlight">\(\)</span></dd></a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
 
   <div class="sidebar-secondary-item">
 

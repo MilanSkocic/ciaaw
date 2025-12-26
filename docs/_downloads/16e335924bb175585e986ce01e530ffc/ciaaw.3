@@ -1,0 +1,575 @@
+.\" Man page generated from reStructuredText.
+.
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.TH "CIAAW" "3" "Dec 26, 2025" "" "ciaaw"
+.SH NAME
+ciaaw \- Standard atomic weights
+[image: Alternative text]
+[image]
+.sp
+Standard and abridged atomic weights, isotopic abundances and
+nuclides’ standard atomic weights according to \X'tty: link https://www.ciaaw.org'\fI\%CIAAW\fP\X'tty: link'\&.
+.sp
+The latest standard atomic weights were released in 2021 by the [ciaaw](\X'tty: link https://www.ciaaw.org'\fI\%https://www.ciaaw.org\fP\X'tty: link').
+All the values for the atomic weights are provided as double precision reals.
+.sp
+The standard atomic weights (or realtive atomic mass),:math:\fIA_r(E)\fP,
+are extracted from table 1 from Prohaska \fIet al.\fP [\fI\%1\fP]\&. For the elements
+that feature an interval for the standard atomic weight, the mean value and the uncertainty are computed
+using formulas defined in [\fI\%2\fP]\&.
+.sp
+.ce
+A_r(E) = \efrac{a+b}{2}
+
+u(A_r(E)) = \efrac{b\-a}{2\esqrt{3}}
+.ce 0
+.sp
+The standard atomic weights are a dimensionless quantity and thus they need to be multiplied by
+the molar mass constant M_u=1.00000000105 \epm 0.00000000031 g.mol^{\-1}
+in order to get the value in g.mol^{\-1}\&.
+See \X'tty: link https://milanskocic.github.io/codata'\fI\%codata\fP\X'tty: link' for physical constants.
+.sp
+The latest isotopic compositions were released in 2013 by the [ciaaw](\X'tty: link https://www.ciaaw.org'\fI\%https://www.ciaaw.org\fP\X'tty: link').
+All the values for the compositions are provided as double precision reals.
+The isotopic compositions of the element, are extracted from table 1 from Meija \fIet al.\fP [\fI\%3\fP]\&.
+.sp
+The latest atomic weights for nuclides were released in 2020 by [ciaaw](\X'tty: link https://www.ciaaw.org'\fI\%https://www.ciaaw.org\fP\X'tty: link')
+from Huang \fIet al.\fP [\fI\%4\fP]\&.
+All the values for the nuclide atomic weights are provided as double precision reals.
+.SH GETTING STARTED
+.SS Introduction
+.sp
+\fIciaaw\fP is a Fortran library providing the standard and abridged
+atomic weights, the isotopic abundance and the isotopes’ standard atomic
+weights. The data are taken from \X'tty: link http://ciaaw.org'\fI\%http://ciaaw.org\fP\X'tty: link'\&. C API allows usage
+from C, or can be used as a basis for other wrappers. Python wrapper
+allows easy usage from Python.
+.sp
+What have been implemented:
+.INDENT 0.0
+.IP \(bu 2
+SAW: Standard Atomic Weights.
+.IP \(bu 2
+ICE: Isotopic Composition of the Element
+.IP \(bu 2
+NAW: Nuclides Atomic Weight.
+.UNINDENT
+.sp
+To use \fIciaaw\fP within your
+\X'tty: link https://github.com/fortran-lang/fpm'\fI\%fpm\fP\X'tty: link' project, add the following
+to your \fIfpm.toml\fP file:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.EX
+[dependencies]
+iapws = { git=\(dqhttps://github.com/MilanSkocic/ciaaw.git\(dq }
+.EE
+.UNINDENT
+.UNINDENT
+.SS Dependencies
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.EX
+gcc>=10.0
+gfortran>=10.0
+fpm>=0.8
+stdlib>=0.5
+.EE
+.UNINDENT
+.UNINDENT
+.SS Installation
+.sp
+A Makefile is provided, which uses
+\X'tty: link https://fpm.fortran-lang.org'\fI\%fpm\fP\X'tty: link', for building the library.
+.INDENT 0.0
+.IP \(bu 2
+On windows, \X'tty: link https://www.msys2.org'\fI\%msys2\fP\X'tty: link' needs to be installed.
+Add the msys2 binary (usually C:\emsys64\eusr\ebin) to the path in
+order to be able to use make.
+.IP \(bu 2
+On Darwin, the \X'tty: link https://formulae.brew.sh/formula/gcc'\fI\%gcc\fP\X'tty: link'
+toolchain needs to be installed.
+.UNINDENT
+.sp
+Build: the configuration file will set all the environment variables
+necessary for the compilation
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.EX
+chmod +x configure.sh
+\&./configure.sh
+make
+make test
+make install
+make uninstall
+.EE
+.UNINDENT
+.UNINDENT
+.SS License
+.sp
+MIT
+.SH EXAMPLES
+.SS Fortran
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.EX
+! EXAMPLE IN FORTRAN
+program example_in_f
+    use ciaaw
+    implicit none
+
+    character(len=8) :: s
+    
+    ! ASAW = Abridged Standard Atomic Weight
+    ! SAW  = Standard Atomic Weight
+    ! ICE  = Isotopic Composition of the Element
+    ! NAW  = Nuclide Atomic Weight
+    ! U    = Uncertainty
+
+    print \(aq(A)\(aq, \(aq########### CIAAW VERSION ##########\(aq
+    print *, \(dqversion \(dq, get_version()  
+
+    print \(aq(A)\(aq, \(aq########### CIAAW SAW ##########\(aq
+    print \(aq(A10, F10.5)\(aq, \(aqASAW H   = \(aq, get_saw(\(dqH\(dq, abridged=.true.)
+    print \(aq(A10, F10.5)\(aq, \(aqU ASAW H = \(aq, get_saw(\(dqH\(dq, uncertainty=.true.)
+    print \(aq(A10, F10.5)\(aq, \(aqSAW H    = \(aq, get_saw(\(dqH\(dq, abridged = .false.)
+    print \(aq(A10, F10.5)\(aq, \(aqU SAW H  =  \(aq, get_saw(\(dqH\(dq, abridged = .false., uncertainty = .true.)
+    print \(aq(A10, F10.5)\(aq, \(aqASAW T   = \(aq, get_saw(\(dqTc\(dq, abridged=.true.)
+    
+    print \(aq(A)\(aq, \(aq########### CIAAW ICE ##########\(aq
+    print \(aq(A, I3)\(aq,        \(aqN ICE H    = \(aq, get_nice(\(dqH\(dq)
+    print \(aq(A, F12.6)\(aq,   \(aqICE H 1    = \(aq, get_ice(\(dqH\(dq, A=1)
+    print \(aq(A, ES23.16)\(aq, \(aqU ICE H 1  = \(aq, get_ice(\(dqH\(dq, A=1, uncertainty=.true.)
+    print \(aq(A, F12.6)\(aq,   \(aqICE H 2    = \(aq, get_ice(\(dqH\(dq, A=2)
+    print \(aq(A, ES23.16)\(aq, \(aqU ICE H 2  = \(aq, get_ice(\(dqH\(dq, A=2, uncertainty=.true.)
+    print \(aq(A, I3)\(aq,        \(aqN ICE Tc   = \(aq, get_nice(\(dqTc\(dq)
+    print \(aq(A, I3)\(aq,        \(aqN ICE C    = \(aq, get_nice(\(dqC\(dq)
+    
+    print \(aq(A)\(aq, \(aq########### CIAAW NAW ##########\(aq
+    print \(aq(A, ES23.16)\(aq,   \(aqNAW H 2     = \(aq, get_naw(\(dqH\(dq, A=2)
+    print \(aq(A, ES23.16)\(aq,   \(aqU NAW H 2   = \(aq, get_naw(\(dqH\(dq, A=2, uncertainty=.true.)
+    print \(aq(A, I3)\(aq,          \(aqN NAW Tc    = \(aq, get_nnaw(\(dqTc\(dq)
+
+end program
+
+.EE
+.UNINDENT
+.UNINDENT
+.SS C
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.EX
+/* EXAMPLE IN C */
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+#include \(dqciaaw.h\(dq
+
+
+    // ASAW = Abridged Standard Atomic Weight
+    // SAW  = Standard Atomic Weight
+    // ICE  = Isotopic Composition of the Element
+    // NAW  = Nuclide Atomic Weight
+    // U    = Uncertainty
+
+int main(void){
+
+
+    printf(\(dq%s\en\(dq, \(dq########## CIAAW VERSION ##########\(dq);
+    printf(\(dqversion %s\en\(dq, ciaaw_get_version());
+    
+    printf(\(dq%s\en\(dq, \(dq########## CIAAW SAW ##########\(dq);
+    printf(\(dq%s %10.5f\en\(dq, \(dqASAW H   = \(dq, ciaaw_get_saw(\(dqH\(dq, 1, true, false));
+    printf(\(dq%s %10.5f\en\(dq, \(dqU ASAW H = \(dq, ciaaw_get_saw(\(dqH\(dq, 1, true, true));
+    printf(\(dq%s %10.5f\en\(dq, \(dqSAW H    = \(dq, ciaaw_get_saw(\(dqH\(dq, 1, false, false));
+    printf(\(dq%s %10.5f\en\(dq, \(dqU SAW H  = \(dq, ciaaw_get_saw(\(dqH\(dq, 1, false, true));
+    printf(\(dq%s %10.5f\en\(dq, \(dqASAW Tc  = \(dq, ciaaw_get_saw(\(dqTc\(dq, 2, true, false));
+
+    printf(\(dq%s\en\(dq, \(dq########## CIAAW ICE ##########\(dq);
+    printf(\(dq%s %d\en\(dq,     \(dqN ICE H      = \(dq, ciaaw_get_nice(\(dqH\(dq, 1));
+    printf(\(dq%s %12.6f\en\(dq, \(dqICE H 1      = \(dq, ciaaw_get_ice(\(dqH\(dq, 1, 1, false)); 
+    printf(\(dq%s %23.16e\en\(dq,\(dqU ICE H 1    = \(dq, ciaaw_get_ice(\(dqH\(dq, 1, 1, true)); 
+    printf(\(dq%s %12.6f\en\(dq, \(dqICE H 2      = \(dq, ciaaw_get_ice(\(dqH\(dq, 1, 2, false)); 
+    printf(\(dq%s %23.16e\en\(dq,\(dqU ICE H 2    = \(dq, ciaaw_get_ice(\(dqH\(dq, 1, 2, true)); 
+    printf(\(dq%s %d\en\(dq,     \(dqN ICE Tc     = \(dq, ciaaw_get_nice(\(dqTc\(dq, 2));
+    printf(\(dq%s %d\en\(dq,     \(dqN ICE C      = \(dq, ciaaw_get_nice(\(dqC\(dq, 1));
+
+    printf(\(dq%s\en\(dq, \(dq########## CIAAW NAW ##########\(dq);
+    printf(\(dq%s %23.16f\en\(dq, \(dqNAW H 2      = \(dq, ciaaw_get_naw(\(dqH\(dq, 1, 2, false)); 
+    printf(\(dq%s %23.16e\en\(dq, \(dqU NAW H 2    = \(dq, ciaaw_get_naw(\(dqH\(dq, 1, 2, true)); 
+    printf(\(dq%s %d\en\(dq,      \(dqN NAW Tc     = \(dq, ciaaw_get_nnaw(\(dqTc\(dq, 2));
+
+    return EXIT_SUCCESS;
+    }
+
+.EE
+.UNINDENT
+.UNINDENT
+.SS Python
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.EX
+sys.path.insert(0, \(dq../py/src/\(dq)
+import pyciaaw
+
+# ASAW = Abridged Standard Atomic Weight
+# SAW  = Standard Atomic Weight
+# ICE  = Isotopic Composition of the Element
+# NAW  = Nuclide Atomic Weight
+# U    = Uncertainty
+
+print(\(dq########## CIAAW VERSION ##########\(dq)
+print(\(dqversion \(dq, pyciaaw.__version__)
+
+print(\(dq########## CIAAW SAW  ##########\(dq)
+print(\(dqASAW H   = \(dq, pyciaaw.get_saw(\(dqH\(dq))
+print(\(dqU ASAW H = \(dq, pyciaaw.get_saw(\(dqH\(dq, uncertainty=True))
+print(\(dqSAW H    = \(dq, pyciaaw.get_saw(\(dqH\(dq, abridged=False, uncertainty=False))
+print(\(dqU SAW H  = \(dq, pyciaaw.get_saw(\(dqH\(dq, abridged=False, uncertainty=True))
+print(\(dqASAW Tc  = \(dq, pyciaaw.get_saw(\(dqTc\(dq))
+
+
+print(\(dq########## CIAAW ICE  ##########\(dq)
+print(\(dqN ICE H   = \(dq, pyciaaw.get_nice(\(dqH\(dq))
+print(\(aqICE H 1   = \(aq, pyciaaw.get_ice(\(dqH\(dq, A=1))
+print(\(aqU ICE H 1 = \(aq, pyciaaw.get_ice(\(dqH\(dq, A=1, uncertainty=True))
+print(\(aqICE H 2   = \(aq, pyciaaw.get_ice(\(dqH\(dq, A=2))
+print(\(aqU ICE H 2 = \(aq, pyciaaw.get_ice(\(dqH\(dq, A=2, uncertainty=True))
+print(\(dqN ICE Tc  = \(dq, pyciaaw.get_nice(\(dqTc\(dq))
+print(\(dqN ICE C   = \(dq, pyciaaw.get_nice(\(dqC\(dq))
+
+print(\(dq########## CIAAW NAW  ##########\(dq)
+print(\(aqNAW H 2   = \(aq, pyciaaw.get_naw(\(dqH\(dq, A=2))
+print(\(aqU NAW H 2 = \(aq, pyciaaw.get_naw(\(dqH\(dq, A=2, uncertainty=True))
+print(\(dqN NAW Tc  = \(dq, pyciaaw.get_nnaw(\(dqTc\(dq))
+
+.EE
+.UNINDENT
+.UNINDENT
+.SH APIS
+.SS Fortran
+.sp
+\X'tty: link https://milanskocic.github.io/ciaaw/ford/index.html'\fI\%https://milanskocic.github.io/ciaaw/ford/index.html\fP\X'tty: link'
+.SS C API
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.EX
+#ifndef CIAAW_H
+#define CIAAW_H
+#if _MSC_VER
+#define ADD_IMPORT __declspec(dllimport)
+#else
+#define ADD_IMPORT
+#endif
+#include <stdbool.h>
+
+extern char* ciaaw_get_version(void);
+extern double ciaaw_get_saw(char *s, int n, bool abridged, bool uncertainty);
+extern double ciaaw_get_ice(char *s, int n, int A, bool uncertainty);
+extern int ciaaw_get_nice(char *s, int n);
+extern double ciaaw_get_naw(char *s, int n, int A, bool uncertaintuy);
+extern int ciaaw_get_nnaw(char *s, int n);
+
+#endif
+
+.EE
+.UNINDENT
+.UNINDENT
+.SS Python
+.sp
+SAW: Standard Atomic Weights.
+.sp
+ICE: Isotopic Compositions of the element.
+.sp
+NAW: Nuclide’s Atomic Weights.
+.INDENT 0.0
+.TP
+.B get_ice(s: str, A: int, uncertainty: bool = False)
+Get the isotopic composition of the element s for the mass number A.
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.TP
+\fBs: str\fP
+Element symbol.
+.TP
+\fBA: int\fP
+Mass number.
+.TP
+\fBuncertainty: bool, optional\fP
+Flag to get the uncertainty instead of the value. Default to False.
+.UNINDENT
+.TP
+.B Returns
+.INDENT 7.0
+.TP
+.B ice: float
+Returns NaN if the provided element or the mass number A are incorrect or \-1 if the element does not have an ICE.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B get_naw(s: str, A: int, uncertainty: bool = False)
+Get the atomic weight of the nuclide s for the mass number A.
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.TP
+\fBs: str\fP
+Element symbol.
+.TP
+\fBA: int\fP
+Mass number.
+.TP
+\fBuncertainty: bool, optional\fP
+Flag to get the uncertainty instead of the value. Default to False.
+.UNINDENT
+.TP
+.B Returns
+.INDENT 7.0
+.TP
+.B naw: float
+Returns NaN if the provided element or A are incorrect or \-1 if the element does not have an NAW.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B get_nice(s)
+Get the number of isotopes in ICE of the element s.
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.TP
+\fBs: str\fP
+Element symbol.
+.UNINDENT
+.TP
+.B Returns
+.INDENT 7.0
+.TP
+.B nice: int
+Returns \-1 if the provided element is incorrect.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B get_nnaw(s)
+Get the number of nuclides in NAW of the element s.
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.TP
+\fBs: str\fP
+Element symbol.
+.UNINDENT
+.TP
+.B Returns
+.INDENT 7.0
+.TP
+.B nnaw: int
+Returns \-1 if the provided element is incorrect.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B get_saw(s: str, abridged: bool = True, uncertainty: bool = False) -> float
+Get the standard atomic weight of the element s.
+.INDENT 7.0
+.TP
+.B Parameters
+.INDENT 7.0
+.TP
+\fBs: str\fP
+Element symbol.
+.TP
+\fBabridged: bool, optional\fP
+Flag for the abridged value. Default to True.
+.TP
+\fBuncertainty: bool, optional\fP
+Flag to get the uncertainty instead of the value. Default to False.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SH CHANGELOG
+.SS 1.1.1
+.INDENT 0.0
+.IP \(bu 2
+Refactoring the \fBconfigure.sh\fP script.
+.IP \(bu 2
+Remove support for 3.14t. No official release on python.org.
+.IP \(bu 2
+If binaries for Python 3.14t are needed you need to compile them by yourself.
+.UNINDENT
+.SS 1.1.0
+.INDENT 0.0
+.IP \(bu 2
+Remove support for Python 3.9 and add support for Python 3.14(t).
+.UNINDENT
+.sp
+\X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%Full changelog\fP\X'tty: link'
+.SS 1.0.0
+.INDENT 0.0
+.IP \(bu 2
+Switch to UCRT64 for Windows binaries.
+.IP \(bu 2
+Switch documentation to \fBsphinx\fP with \fBfspx\fP (development version).
+.INDENT 2.0
+.IP \(bu 2
+\fBfspx\fP uses Ford as a backend.
+.UNINDENT
+.IP \(bu 2
+Drop Ford documentation output
+.UNINDENT
+.sp
+\X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%Full changelog\fP\X'tty: link'
+.SS 0.5.1
+.INDENT 0.0
+.IP \(bu 2
+Code refactoring.
+.IP \(bu 2
+Documentation update.
+.UNINDENT
+.sp
+\X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%Full changelog\fP\X'tty: link'
+.SS 0.5.0
+.INDENT 0.0
+.IP \(bu 2
+API break:
+.INDENT 2.0
+.IP \(bu 2
+Data for standard atomic weights are no directly accessed.
+.IP \(bu 2
+SAW, ICE and NAW are stored in derived types for each elements.
+.IP \(bu 2
+Each element is stored in a periodic table.
+.IP \(bu 2
+Element properties are now accessed through getters.
+.UNINDENT
+.IP \(bu 2
+Doc update.
+.UNINDENT
+.sp
+Full changelog available at \X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%github\fP\X'tty: link'
+.SS 0.4.3
+.INDENT 0.0
+.IP \(bu 2
+Refractoring.
+.IP \(bu 2
+Documentation update.
+.UNINDENT
+.sp
+Full changelog available at \X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%github\fP\X'tty: link'
+.SS 0.4.2
+.INDENT 0.0
+.IP \(bu 2
+Refractoring.
+.IP \(bu 2
+Documentation update.
+.IP \(bu 2
+Merge back C API and Python wrapper.
+.UNINDENT
+.sp
+Full changelog available at \X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%github\fP\X'tty: link'
+.SS 0.4.1
+.INDENT 0.0
+.IP \(bu 2
+Fix bug in max value for saw.
+.UNINDENT
+.sp
+Full changelog available at \X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%github\fP\X'tty: link'
+.SS 0.4.0
+.INDENT 0.0
+.IP \(bu 2
+Fix type error in tests
+.IP \(bu 2
+Refractoring
+.IP \(bu 2
+Documentation update.
+.UNINDENT
+.sp
+Full changelog available at \X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%github\fP\X'tty: link'
+.SS 0.3.0
+.INDENT 0.0
+.IP \(bu 2
+Code refactoring.
+.IP \(bu 2
+Move C API and Python wrapper to their own repositories.
+.IP \(bu 2
+Improve documentatinon.
+.UNINDENT
+.sp
+Full changelog available at \X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%github\fP\X'tty: link'
+.SS 0.2.0
+.INDENT 0.0
+.IP \(bu 2
+Fix error in phosphorus name.
+.IP \(bu 2
+Possibility to have standard atomic weights for several years.
+.UNINDENT
+.sp
+Full changelog available at \X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%github\fP\X'tty: link'
+.SS 0.1.0
+.INDENT 0.0
+.IP \(bu 2
+All elements from the periodic table added for the saw module.
+.IP \(bu 2
+They are implemented as parameter derived type.
+.UNINDENT
+.sp
+Full changelog available at \X'tty: link https://github.com/MilanSkocic/ciaaw/releases'\fI\%github\fP\X'tty: link'
+.IP [1] 5
+Thomas Prohaska, Johanna Irrgeher, Jacqueline Benefield, John\ K. Böhlke, Lesley\ A. Chesson, Tyler\ B. Coplen, Tiping Ding, Philip J.\ H. Dunn, Manfred Gröning, Norman\ E. Holden, Harro A.\ J. Meijer, Heiko Moossen, Antonio Possolo, Yoshio Takahashi, Jochen Vogl, Thomas Walczyk, Jun Wang, Michael\ E. Wieser, Shigekazu Yoneda, Xiang\-Kun Zhu, and Juris Meija. Standard atomic weights of the elements 2021 (IUPAC Technical Report). \fIPure and Applied Chemistry\fP, 94(5):573–600, 2022. URL: \X'tty: link https://doi.org/10.1515/pac-2019-0603'\fI\%https://doi.org/10.1515/pac\-2019\-0603\fP\X'tty: link' (visited on 2023\-02\-20), \X'tty: link https://doi.org/10.1515/pac-2019-0603'\fI\%doi:10.1515/pac\-2019\-0603\fP\X'tty: link'\&.
+.IP [2] 5
+M.H. van\ der Veen, J.\ Meia, and D.\ Brynn\ Hibbert. Interpretation and use of standard atomic weights (IUPAC Technical Report). \fIPure and Applied Chemistry\fP, 93(5):629–646, 2021.
+.IP [3] 5
+Juris Meija, Tyler\ B. Coplen, Michael Berglund, Willi\ A. Brand, Paul De\ Bièvre, Manfred Gröning, Norman\ E. Holden, Johanna Irrgeher, Robert\ D. Loss, Thomas Walczyk, and Thomas Prohaska. Isotopic compositions of the elements 2013 (IUPAC Technical Report). \fIPure and Applied Chemistry\fP, 88(3):293–306, 2016. URL: \X'tty: link https://doi.org/10.1515/pac-2015-0503'\fI\%https://doi.org/10.1515/pac\-2015\-0503\fP\X'tty: link' (visited on 2024\-06\-07), \X'tty: link https://doi.org/10.1515/pac-2015-0503'\fI\%doi:10.1515/pac\-2015\-0503\fP\X'tty: link'\&.
+.IP [4] 5
+W.J. Huang, Meng Wang, F.G. Kondev, G.\ Audi, and S.\ Naimi. The ame 2020 atomic mass evaluation (i). evaluation of input data, and adjustment procedures*. \fIChinese Physics C\fP, 45(3):030002, mar 2021. URL: \X'tty: link https://dx.doi.org/10.1088/1674-1137/abddb0'\fI\%https://dx.doi.org/10.1088/1674\-1137/abddb0\fP\X'tty: link', \X'tty: link https://doi.org/10.1088/1674-1137/abddb0'\fI\%doi:10.1088/1674\-1137/abddb0\fP\X'tty: link'\&.
+.SH AUTHOR
+Milan Skocic
+.SH COPYRIGHT
+2023-2025, Milan Skocic
+.\" Generated by docutils manpage writer.
+.

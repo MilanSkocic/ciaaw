@@ -2,17 +2,10 @@
 Fortran
 *******
 
-.. The Fortran documentation is generated with `FORD <../ford/index.html>`_.
+.. only:: html 
 
+    `FORD documentation <../ford/index.html>`_
 
-.. .. autofortran:: ../../../src/test_fspx.f90
-
-API
-===
-
-.. autofortran:: ../../../src/ciaaw_api.f90
-
-C Bindings
-==========
-.. autofortran:: ../../../src/ciaaw_capi.f90
-
+.. only:: (latex or texinfo or man)
+    
+    https://milanskocic.github.io/ciaaw/ford/index.html

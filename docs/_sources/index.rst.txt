@@ -1,30 +1,23 @@
-.. fspx documentation master file, created by
-   sphinx-quickstart on Mon Oct  7 14:09:33 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-CIAAW
-=====
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   getting_started/index
-   api/index
-   references/index.rst
+#####################
+CIAAW - Documentation
+#####################
 
 .. image:: ../../../media/logo.png
   :width: 400
+  :align: center
   :alt: Alternative text
    
-
 Standard and abridged atomic weights, isotopic abundances and 
 nuclides' standard atomic weights according to `CIAAW <https://www.ciaaw.org>`_.
 
+.. only:: html
+    
+    - MAN PAGE: :download:`ciaaw.3 <../build/man/ciaaw.3>`.
+    
+    - INFO: :download:`ciaaw.info <../build/texinfo/ciaaw.info>`.
+    
+    - PDF: :download:`ciaaw.pdf <../build/latex/ciaaw.pdf>`.
 
-SAW: Standard Atomic Weights
-----------------------------
 
 The latest standard atomic weights were released in 2021 by the [ciaaw](https://www.ciaaw.org).
 All the values for the atomic weights are provided as double precision reals.
@@ -46,19 +39,23 @@ in order to get the value in :math:`g.mol^{-1}`.
 See `codata <https://milanskocic.github.io/codata>`_ for physical constants.
 
 
-
-ICE: Isotopic Compositions of the Element
------------------------------------------
-
 The latest isotopic compositions were released in 2013 by the [ciaaw](https://www.ciaaw.org).
 All the values for the compositions are provided as double precision reals.
 The isotopic compositions of the element, are extracted from table 1 from :cite:t:`meija2016-1`. 
 
 
-
-NAW: Nuclide Atomic Weights
-------------------------------
-
 The latest atomic weights for nuclides were released in 2020 by [ciaaw](https://www.ciaaw.org)
 from :cite:t:`huang-2021-1`.
 All the values for the nuclide atomic weights are provided as double precision reals. 
+
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   getting_started/index.rst
+   examples/index.rst
+   api/index.rst
+   changelog/index.rst
+   references/index.rst
