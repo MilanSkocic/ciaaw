@@ -31,7 +31,6 @@ extensions = [
     'myst_parser',
     'sphinxcontrib.bibtex',
     'numpydoc',
-    'fspx',
 ]
 bibtex_bibfiles = ["./references/references.bib"]
 bibtex_default_style = 'unsrt'
@@ -60,3 +59,7 @@ html_theme_options = {
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
 add_module_names = False
+
+man_pages = [
+    ("index", 'ciaaw', 'Standard atomic weights', [author], 3),
+]
