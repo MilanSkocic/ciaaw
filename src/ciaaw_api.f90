@@ -15,6 +15,7 @@ module ciaaw__api
     public :: get_saw
     public :: get_ice, get_nice
     public :: get_naw, get_nnaw
+    public :: print_periodic_table
     ! public :: get_ice_values
 
 contains
