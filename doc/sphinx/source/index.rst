@@ -12,11 +12,11 @@ nuclides' standard atomic weights according to `CIAAW <https://www.ciaaw.org>`_.
 
 .. only:: html
     
-    - MAN PAGE: :download:`ciaaw.3 <../build/man/ciaaw.3>`.
+    - man page: :download:`ciaaw.3 <../build/man/ciaaw.3>`.
     
-    - INFO: :download:`ciaaw.info <../build/texinfo/ciaaw.info>`.
+    - info: :download:`ciaaw.info <../build/texinfo/ciaaw.info>`.
     
-    - PDF: :download:`ciaaw.pdf <../build/latex/ciaaw.pdf>`.
+    - pdf: :download:`ciaaw.pdf <../build/latex/ciaaw.pdf>`.
 
 
 The latest standard atomic weights were released in 2021 by the [ciaaw](https://www.ciaaw.org).
