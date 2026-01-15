@@ -1,6 +1,6 @@
-*****
-C API
-*****
+########
+C Header
+########
 
 .. literalinclude:: ../../../../include/ciaaw.h
    :language: C
