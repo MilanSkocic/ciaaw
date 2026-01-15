@@ -6,9 +6,11 @@
 `ciaaw` is a  Fortran library providing the standard and abridged atomic weights, 
 the isotopic abundance and the isotopes' standard atomic weights.
 
+- **Man pages**: man pages are available in the doc folder.
 - **Documentation:** https://milanskocic.github.io/ciaaw/
 - **Source code:** https://github.com/MilanSKocic/ciaaw
 - **Python wrapper:** https://pypi.org/project/pyciaaw
+- **Binaries:** https://github.com/MilanSkocic/ciaaw/releases
 
 It covers:
 

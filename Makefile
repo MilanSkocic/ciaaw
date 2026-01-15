@@ -31,7 +31,7 @@ F_MODULE = ./src/ciaaw_saw.f90  ./src/ciaaw_ice.f90 ./src/ciaaw_naw.f90 ./src/ci
 
 all: $(FPM_LIBNAME)
 
-$(FPM_LIBNAME): build copy_a shared
+$(FPM_LIBNAME): prep build copy_a shared
 # ---------------------------------------------------------------------
 
 
@@ -53,12 +53,16 @@ sources: $(SRC_FYPP_F90) $(F_MODULE)
 
 ./src/%.f90: ./src/%.fypp
 	fypp -I ../include $< $@
+
+prep:
+	make -C srcprep
 # ---------------------------------------------------------------------
 
 
 # ---------------------------------------------------------------------
 # COMPILATION
 build: 
+	make -C doc man
 	fpm build --profile=$(btype)
 
 test: build
