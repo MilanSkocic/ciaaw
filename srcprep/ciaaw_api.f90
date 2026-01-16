@@ -6,11 +6,11 @@ module ciaaw__api
     use ciaaw__types
     use ciaaw__pte
     private
-
+    
     character(len=:), allocatable, target :: version_f
-
+    
     real(dp), allocatable, target :: n_ice_out(:,:)
-
+    
     public :: get_z_by_symbol
     public :: get_version
     public :: get_saw
@@ -24,42 +24,44 @@ contains
 ! ------------------------------ -----------------------------------------------
 ! VERSION
 !###############################################################################
-! NAME
-!     get_version - version getter for the library
-! 
-! LIBRARY
-!     ciaaw - (-libciaaw, -lciaaw)
-! 
-! SYNOPSIS
-!     function get_version()result(fptr)
-! 
-! DESCRIPTION
-!     This function returns the version of the ciaaw library.
-! 
-! RETURN VALUE
-!     character(len=:), pointer :: fptr
-! 
-! NOTES
-!     The C API is defined by the following prototype: char* ciaaw_get_version(void)
-! 
-!     The python wrapper embeds the version number in the top level
-!     variable __version__.
-! 
-! EXAMPLE
-!     Fortran
-! 
-!         print *, "version = ", get_version()
-! 
-!     C
-! 
-!         printf("version = %s\n", ciaaw_get_version());
-! 
-!     Python
-! 
-!         print(f"version = {pyciaaw.__version__}")
-! 
-! SEE ALSO
-!     ciaaw(3)
+$BLOCK comment --file ciaaw_get_version.3.txt
+NAME
+    get_version - version getter for the library
+
+LIBRARY
+    ciaaw - (-libciaaw, -lciaaw) 
+
+SYNOPSIS
+    function get_version()result(fptr)
+    
+DESCRIPTION
+    This function returns the version of the ciaaw library.
+
+RETURN VALUE
+    character(len=:), pointer :: fptr
+
+NOTES
+    The C API is defined by the following prototype: char* ciaaw_get_version(void)
+
+    The python wrapper embeds the version number in the top level
+    variable __version__.
+
+EXAMPLE
+    Fortran
+
+        print *, "version = ", get_version()
+
+    C
+
+        printf("version = %s\n", ciaaw_get_version());
+
+    Python
+
+        print(f"version = {pyciaaw.__version__}")
+
+SEE ALSO
+    ciaaw(3)
+$ENDBLOCK
 function get_version()result(fptr)
     !! Get the version
     implicit none
@@ -70,17 +72,17 @@ function get_version()result(fptr)
     endif
     allocate(character(len=len(version)) :: version_f)
     version_f = version
-    fptr => version_f
+    fptr => version_f    
 end function
 ! ------------------------------------------------------------------------------
 
 ! ------------------------------------------------------------------------------
-! Base search functions
+! Base search functions 
 function is_in_pt(z)result(res)
     !! Check if the atomic number z is in the periodic table
     integer(int32), intent(in) :: z  !! Atomic number
     logical :: res
-
+    
     if((z<1) .or. (z>size(pt))) then
         res = .false.
     else
@@ -104,7 +106,7 @@ function get_z_by_symbol(s)result(res)
         elmt = pt(i)
         if(s == elmt%symbol)then
             res = i
-            exit
+            exit 
         endif
     end do
 end function
@@ -113,7 +115,7 @@ end function
 subroutine print_periodic_table()
     !! Print periodic table.
     integer(int32) :: i,j
-
+    
     character(len=20) :: v, u, w
 
     character(len=15) :: header(3)
@@ -132,31 +134,31 @@ subroutine print_periodic_table()
         header(3) = "z=" // v
         print "(3A15)", header
         print "(A)", "---------------------------------------------"
-
-        print "(A)", "STANDARD ATOMIC WEIGHTS"
+        
+        print "(A)", "STANDARD ATOMIC WEIGHTS" 
         write(v, "(F10.5)") pt(i)%saw%asaw
         write(u, "(F10.5)") pt(i)%saw%asaw_u
         print "(A4, A10, A, A10)", "M = ", adjustl(v), "+/-", adjustl(u)
-
+        
         print "(A)", "---------------------------------------------"
-
-        print "(A)", "ISOTOPIC COMPOSITIONS"
-        print "(3A15)", ice_headers
+        
+        print "(A)", "ISOTOPIC COMPOSITIONS" 
+        print "(3A15)", ice_headers 
         do j=1, pt(i)%ice%n
             write(w, "(I3)") nint(pt(i)%ice%values(j,1))
             write(v, "(ES12.5)") pt(i)%ice%values(j,2)
             write(u, "(ES12.5)") pt(i)%ice%values(j,3)
-            print "(3A15)", adjustl(w), adjustl(v), adjustl(u)
+            print "(3A15)", adjustl(w), adjustl(v), adjustl(u) 
         enddo
         print "(A)", "---------------------------------------------"
-
-        print "(A)", "NUCLIDE ATOMIC WEIGHTS"
+        
+        print "(A)", "NUCLIDE ATOMIC WEIGHTS" 
         print "(3A15)", naw_headers
         do j=1, pt(i)%naw%n
             write(w, "(I3)") nint(pt(i)%naw%values(j,1))
             write(v, "(ES12.5)") pt(i)%naw%values(j,2)
             write(u, "(ES12.5)") pt(i)%naw%values(j,3)
-            print "(3A15)", adjustl(w), adjustl(v), adjustl(u)
+            print "(3A15)", adjustl(w), adjustl(v), adjustl(u) 
         enddo
         print "(A)", "============================================="
 
@@ -171,58 +173,60 @@ end subroutine
 
 
 ! ------------------------------------------------------------------------------
-! SAW
+! SAW 
 !###############################################################################
-! NAME
-!     saw - get the standard atomic weight
-! 
-! LIBRARY
-!     ciaaw - (-libciaaw, -lciaaw)
-! 
-! SYNOPSIS
-!     function get_saw(s, abridged, uncertainty)result(res)
-! 
-! DESCRIPTION
-!     This function returns the standard atomic weight.
-! 
-!     Parameters:
-!         o character(len=*), intent(in) :: s               Element symbol.
-!         o logical, intent(in), optional :: abridged       Flag for returning the abridged standard atomic weight. Default to TRUE.
-!         o logical, intent(in), optional :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
-! 
-! 
-! RETURN VALUE
-!     real(dp) :: res
-! 
-! NOTES
-!     The C API is defined by the following prototype:
-! 
-!     double ciaaw_get_saw(char *s, int n, bool abridged, bool uncertainty)
-! 
-!     The python wrapper is defined by the following prototype:
-! 
-!     def get_saw(s: str, abridged: bool=True, uncertainty: bool=False)->float
-! 
-! EXAMPLE
-!     Fortran
-! 
-!         print '(A10, F10.5)', 'ASAW H   = ', get_saw("H")
-! 
-!     C
-! 
-!         printf("%s %10.5f\n", "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));
-! 
-!     Python
-! 
-!         print("ASAW H   = ", pyciaaw.get_saw("H"))
-! 
-! SEE ALSO
-!     ciaaw(3)
+$BLOCK comment --file ciaaw_saw.3.txt
+NAME
+    saw - get the standard atomic weight
+
+LIBRARY
+    ciaaw - (-libciaaw, -lciaaw) 
+
+SYNOPSIS
+    function get_saw(s, abridged, uncertainty)result(res)
+    
+DESCRIPTION
+    This function returns the standard atomic weight.
+
+    Parameters:
+        o character(len=*), intent(in) :: s               Element symbol.
+        o logical, intent(in), optional :: abridged       Flag for returning the abridged standard atomic weight. Default to TRUE.
+        o logical, intent(in), optional :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
+
+
+RETURN VALUE
+    real(dp) :: res
+
+NOTES
+    The C API is defined by the following prototype: 
+
+    double ciaaw_get_saw(char *s, int n, bool abridged, bool uncertainty)
+
+    The python wrapper is defined by the following prototype:
+
+    def get_saw(s: str, abridged: bool=True, uncertainty: bool=False)->float
+
+EXAMPLE
+    Fortran
+
+        print '(A10, F10.5)', 'ASAW H   = ', get_saw("H")
+
+    C
+
+        printf("%s %10.5f\n", "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));
+
+    Python
+
+        print("ASAW H   = ", pyciaaw.get_saw("H"))
+
+SEE ALSO
+    ciaaw(3)
+$ENDBLOCK
 function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight for the element s.
     !!
     !! Returns NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-
+    
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
     logical, intent(in), optional :: abridged      !! Flag for returning the abridged standard atomic weight. Default to TRUE.
@@ -235,15 +239,15 @@ function get_saw(s, abridged, uncertainty)result(res)
     real(dp) :: saw_max, saw_min, saw, saw_u
     integer(int32) :: z, n
     logical :: a2, u2
-
+   
 
     a2 = optval(abridged, .true.)
     u2 = optval(uncertainty, .false.)
-
+        
     z = get_z_by_symbol(s)
-
+    
     res = ieee_value(1.0_dp, ieee_quiet_nan)
-
+    
     if(z>0)then
         if(a2 .eqv. .true.)then
             if(u2 .eqv. .true.)then
@@ -253,18 +257,18 @@ function get_saw(s, abridged, uncertainty)result(res)
             end if
         else
             if((pt(z)%saw%saw == -1.0_dp) .and. (pt(z)%saw%saw_max > 0.0_dp) .and. (pt(z)%saw%saw_min > 0.0_dp))then
-
+                
                 saw_max = pt(z)%saw%saw_max
                 saw_min = pt(z)%saw%saw_min
-
+                
                 saw = (saw_max + saw_min) / 2.0_dp
                 saw_u = (saw_max - saw_min)/(2.0_dp*sqrt(3.0_dp))
-
+                
                 n = floor(log10(saw_u))
-
+                
                 saw_u = ceiling(saw_u * 10.0_dp**(-n))*10.0_dp**n
                 saw = nint(saw * 10.0_dp**(-n)) * 10.0_dp**n
-
+                
                 if(u2 .eqv. .true.)then
                     res = saw_u
                 else
@@ -275,8 +279,8 @@ function get_saw(s, abridged, uncertainty)result(res)
                     res = pt(z)%saw%saw_u
                 else
                     res = pt(z)%saw%saw
-                end if
-            end if
+                end if 
+            end if 
         end if
     end if
 end function
@@ -286,10 +290,10 @@ end function
 ! ------------------------------------------------------------------------------
 ! ICE
 function get_ice(s, A, uncertainty)result(res)
-    !! Get the isotopic composition of the element s for the mass number A.
-    !!
+    !! Get the isotopic composition of the element s for the mass number A. 
+    !! 
     !! Returns NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
-
+    
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
     integer(int32), intent(in) :: A                !! Mass number.
@@ -297,17 +301,17 @@ function get_ice(s, A, uncertainty)result(res)
 
     ! Returns
     real(dp) :: res
-
+    
     ! Variables
     real(dp) :: A_double
     integer(int32) :: i, z, col, row
     logical :: u2
-
+   
 
     u2 = optval(uncertainty, .false.)
     z = get_z_by_symbol(s)
     A_double = real(A, dp)
-
+    
     res = ieee_value(1.0_dp, ieee_quiet_nan)
 
     if(u2 .eqv. .true.)then
@@ -383,7 +387,7 @@ end function
 !         res => null()
 !     endif
 
-! end function
+! end function 
 ! ------------------------------------------------------------------------------
 
 
@@ -391,10 +395,10 @@ end function
 ! ------------------------------------------------------------------------------
 ! NAW
 function get_naw(s, A, uncertainty)result(res)
-    !! Get the atomic weight of the nuclide s for the mass number A.
+    !! Get the atomic weight of the nuclide s for the mass number A. 
     !!
     !! Returns NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
-
+    
     ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
     integer(int32), intent(in) :: A                !! Mass number.
@@ -402,17 +406,17 @@ function get_naw(s, A, uncertainty)result(res)
 
     ! Returns
     real(dp) :: res
-
+    
     ! Variables
     real(dp) :: A_double
     integer(int32) :: i, z, col, row
     logical :: u2
-
+   
 
     u2 = optval(uncertainty, .false.)
     z = get_z_by_symbol(s)
     A_double = real(A, dp)
-
+    
     res = ieee_value(1.0_dp, ieee_quiet_nan)
 
     if(u2 .eqv. .true.)then
@@ -437,7 +441,7 @@ end function
 
 function get_nnaw(s)result(res)
     !! Get the number of nuclides in NAW of the element s.
-    !!
+    !! 
     !! Returns -1 if the provided element is incorrect.
 
     ! Arguments
