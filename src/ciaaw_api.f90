@@ -23,43 +23,6 @@ contains
 
 ! ------------------------------ -----------------------------------------------
 ! VERSION
-!###############################################################################
-! NAME
-!     get_version - version getter for the library
-! 
-! LIBRARY
-!     ciaaw - (-libciaaw, -lciaaw)
-! 
-! SYNOPSIS
-!     function get_version()result(fptr)
-! 
-! DESCRIPTION
-!     This function returns the version of the ciaaw library.
-! 
-! RETURN VALUE
-!     character(len=:), pointer :: fptr
-! 
-! NOTES
-!     The C API is defined by the following prototype: char* ciaaw_get_version(void)
-! 
-!     The python wrapper embeds the version number in the top level
-!     variable __version__.
-! 
-! EXAMPLE
-!     Fortran
-! 
-!         print *, "version = ", get_version()
-! 
-!     C
-! 
-!         printf("version = %s\n", ciaaw_get_version());
-! 
-!     Python
-! 
-!         print(f"version = {pyciaaw.__version__}")
-! 
-! SEE ALSO
-!     ciaaw(3)
 function get_version()result(fptr)
     !! Get the version
     implicit none
@@ -172,52 +135,6 @@ end subroutine
 
 ! ------------------------------------------------------------------------------
 ! SAW
-!###############################################################################
-! NAME
-!     saw - get the standard atomic weight
-! 
-! LIBRARY
-!     ciaaw - (-libciaaw, -lciaaw)
-! 
-! SYNOPSIS
-!     function get_saw(s, abridged, uncertainty)result(res)
-! 
-! DESCRIPTION
-!     This function returns the standard atomic weight.
-! 
-!     Parameters:
-!         o character(len=*), intent(in) :: s               Element symbol.
-!         o logical, intent(in), optional :: abridged       Flag for returning the abridged standard atomic weight. Default to TRUE.
-!         o logical, intent(in), optional :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
-! 
-! 
-! RETURN VALUE
-!     real(dp) :: res
-! 
-! NOTES
-!     The C API is defined by the following prototype:
-! 
-!     double ciaaw_get_saw(char *s, int n, bool abridged, bool uncertainty)
-! 
-!     The python wrapper is defined by the following prototype:
-! 
-!     def get_saw(s: str, abridged: bool=True, uncertainty: bool=False)->float
-! 
-! EXAMPLE
-!     Fortran
-! 
-!         print '(A10, F10.5)', 'ASAW H   = ', get_saw("H")
-! 
-!     C
-! 
-!         printf("%s %10.5f\n", "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));
-! 
-!     Python
-! 
-!         print("ASAW H   = ", pyciaaw.get_saw("H"))
-! 
-! SEE ALSO
-!     ciaaw(3)
 function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight for the element s.
     !!
