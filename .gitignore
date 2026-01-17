@@ -30,6 +30,7 @@ API-doc/
 *.dll
 *.so
 *.dylib
+tmp.txt
 
 *.egg-info
 __pycache__
