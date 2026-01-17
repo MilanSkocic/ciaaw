@@ -29,7 +29,7 @@ def get_saw(s: str, abridged: bool=True, uncertainty: bool=False)->float:
     """
     return _ciaaw.get_saw(str(s), bool(abridged), bool(uncertainty))
 
-def get_ice(s:str, A:int, uncertainty: bool=False):
+def get_ice(s:str, A:int, uncertainty: bool=False)->float:
     r"""
     Get the isotopic composition of the element s for the mass number A. 
 
@@ -49,7 +49,7 @@ def get_ice(s:str, A:int, uncertainty: bool=False):
     """
     return _ciaaw.get_ice(str(s), int(A), bool(uncertainty))
 
-def get_nice(s):
+def get_nice(s:str)->int:
     r"""
     Get the number of isotopes in ICE of the element s.
 
@@ -66,7 +66,7 @@ def get_nice(s):
     return _ciaaw.get_nice(str(s))
 
 
-def get_naw(s:str, A:int, uncertainty: bool=False):
+def get_naw(s:str, A:int, uncertainty: bool=False)->float:
     r"""
     Get the atomic weight of the nuclide s for the mass number A. 
 
@@ -86,7 +86,7 @@ def get_naw(s:str, A:int, uncertainty: bool=False):
     """
     return _ciaaw.get_naw(str(s), int(A), bool(uncertainty))
 
-def get_nnaw(s):
+def get_nnaw(s:str)->int:
     r"""
     Get the number of nuclides in NAW of the element s.
 
