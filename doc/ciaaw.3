@@ -164,10 +164,6 @@ o \fBinteger\fP(int32) :: res
 .RE
 .TP
 .B
-o ! function \fBget_ice_values\fP(s)result(res)
-o   \fBcharacter\fP(len=*), \fBintent\fP(in) :: s    Element symbol.
-.TP
-.B
 o function \fBget_naw\fP(s, A, \fBuncertainty)result\fP(res)
 Get the atomic weight of the nuclide s for the mass number A.
 .RS
@@ -244,6 +240,57 @@ To \fBuse\fP \fIciaaw\fP within your fpm project, add the following to your fpm.
 .fi
 dp stands for double precision and it is an alias to real64
 from the iso_fortran_env module.
+.PP
+The definitions of the acronyms:
+.RS
+.TP
+.B
+o ASAW
+Abridged Standard Atomic Weight
+.TP
+.B
+o SAW
+Standard Atomic Weight
+.TP
+.B
+o ICE
+Isotopic Composition of the Element
+.TP
+.B
+o NAW
+Nuclide Atomic Weight
+.TP
+.B
+o U
+Uncertainty
+.RE
+.PP
+The definitions of the common variables:
+.RS
+.TP
+.B
+o s
+Element
+.TP
+.B
+o Z
+Atomic number
+.TP
+.B
+o A
+Mass number
+.TP
+.B
+o u
+Uncertainty
+.TP
+.B
+o ab
+Abridged
+.TP
+.B
+o res
+Return values
 .SH EXAMPLES
 Example in Fortran:
 .PP
@@ -272,18 +319,19 @@ Example in Fortran:
         print '(A10, F10.5)', 'ASAW T   = ', get_saw("Tc", abridged=.true.)
 
         print '(A)', '########### CIAAW ICE ##########'
-        print '(A, I3)',        'N ICE H    = ', get_nice("H")
+        print '(A, I3)',      'N ICE H    = ', get_nice("H")
         print '(A, F12.6)',   'ICE H 1    = ', get_ice("H", A=1)
         print '(A, ES23.16)', 'U ICE H 1  = ', get_ice("H", A=1, uncertainty=.true.)
         print '(A, F12.6)',   'ICE H 2    = ', get_ice("H", A=2)
         print '(A, ES23.16)', 'U ICE H 2  = ', get_ice("H", A=2, uncertainty=.true.)
-        print '(A, I3)',        'N ICE Tc   = ', get_nice("Tc")
-        print '(A, I3)',        'N ICE C    = ', get_nice("C")
+        print '(A, I3)',      'N ICE Tc   = ', get_nice("Tc")
+        print '(A, I3)',      'N ICE C    = ', get_nice("C")
 
         print '(A)', '########### CIAAW NAW ##########'
-        print '(A, ES23.16)',   'NAW H 2     = ', get_naw("H", A=2)
-        print '(A, ES23.16)',   'U NAW H 2   = ', get_naw("H", A=2, uncertainty=.true.)
-        print '(A, I3)',          'N NAW Tc    = ', get_nnaw("Tc")
+        print '(A, ES23.16)', 'NAW H 2     = ', get_naw("H", A=2)
+        print '(A, ES23.16)', 'U NAW H 2   = ', get_naw("H", A=2, uncertainty=.true.)
+        print '(A, I3)',      'N NAW Tc    = ', get_nnaw("Tc")
+
         end program
 
 .fam T
@@ -306,31 +354,31 @@ Example in C:
         // U    = Uncertainty
 
         int main(void){
-            printf("%s\n", "########## CIAAW VERSION ##########");
-            printf("version %s\n", ciaaw_get_version());
+        printf("%s\n", "########## CIAAW VERSION ##########");
+        printf("version %s\n", ciaaw_get_version());
 
-            printf("%s\n", "########## CIAAW SAW ##########");
-            printf("%s %10.5f\n", "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));
-            printf("%s %10.5f\n", "U ASAW H = ", ciaaw_get_saw("H", 1, true, true));
-            printf("%s %10.5f\n", "SAW H    = ", ciaaw_get_saw("H", 1, false, false));
-            printf("%s %10.5f\n", "U SAW H  = ", ciaaw_get_saw("H", 1, false, true));
-            printf("%s %10.5f\n", "ASAW Tc  = ", ciaaw_get_saw("Tc", 2, true, false));
+        printf("%s\n", "########## CIAAW SAW ##########");
+        printf("%s %10.5f\n", "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));
+        printf("%s %10.5f\n", "U ASAW H = ", ciaaw_get_saw("H", 1, true, true));
+        printf("%s %10.5f\n", "SAW H    = ", ciaaw_get_saw("H", 1, false, false));
+        printf("%s %10.5f\n", "U SAW H  = ", ciaaw_get_saw("H", 1, false, true));
+        printf("%s %10.5f\n", "ASAW Tc  = ", ciaaw_get_saw("Tc", 2, true, false));
 
-            printf("%s\n", "########## CIAAW ICE ##########");
-            printf("%s %d\n",     "N ICE H      = ", ciaaw_get_nice("H", 1));
-            printf("%s %12.6f\n", "ICE H 1      = ", ciaaw_get_ice("H", 1, 1, false));
-            printf("%s %23.16e\n","U ICE H 1    = ", ciaaw_get_ice("H", 1, 1, true));
-            printf("%s %12.6f\n", "ICE H 2      = ", ciaaw_get_ice("H", 1, 2, false));
-            printf("%s %23.16e\n","U ICE H 2    = ", ciaaw_get_ice("H", 1, 2, true));
-            printf("%s %d\n",     "N ICE Tc     = ", ciaaw_get_nice("Tc", 2));
-            printf("%s %d\n",     "N ICE C      = ", ciaaw_get_nice("C", 1));
+        printf("%s\n", "########## CIAAW ICE ##########");
+        printf("%s %d\n",     "N ICE H      = ", ciaaw_get_nice("H", 1));
+        printf("%s %12.6f\n", "ICE H 1      = ", ciaaw_get_ice("H", 1, 1, false));
+        printf("%s %23.16e\n","U ICE H 1    = ", ciaaw_get_ice("H", 1, 1, true));
+        printf("%s %12.6f\n", "ICE H 2      = ", ciaaw_get_ice("H", 1, 2, false));
+        printf("%s %23.16e\n","U ICE H 2    = ", ciaaw_get_ice("H", 1, 2, true));
+        printf("%s %d\n",     "N ICE Tc     = ", ciaaw_get_nice("Tc", 2));
+        printf("%s %d\n",     "N ICE C      = ", ciaaw_get_nice("C", 1));
 
-            printf("%s\n", "########## CIAAW NAW ##########");
-            printf("%s %23.16f\n", "NAW H 2      = ", ciaaw_get_naw("H", 1, 2, false));
-            printf("%s %23.16e\n", "U NAW H 2    = ", ciaaw_get_naw("H", 1, 2, true));
-            printf("%s %d\n",      "N NAW Tc     = ", ciaaw_get_nnaw("Tc", 2));
-            return EXIT_SUCCESS;
-            }
+        printf("%s\n", "########## CIAAW NAW ##########");
+        printf("%s %23.16f\n", "NAW H 2      = ", ciaaw_get_naw("H", 1, 2, false));
+        printf("%s %23.16e\n", "U NAW H 2    = ", ciaaw_get_naw("H", 1, 2, true));
+        printf("%s %d\n",      "N NAW Tc     = ", ciaaw_get_nnaw("Tc", 2));
+        return EXIT_SUCCESS;
+        }
 
 .fam T
 .fi
