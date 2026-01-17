@@ -48,13 +48,6 @@ DESCRIPTION
     Fortran API
         o function get_version()result(fptr)  Get the version
              o character(len=:), pointer :: fptr    Fortran pointer to a string indicating the version..
-        o function is_in_pt(z)result(res)  Check if the atomic number z is in the periodic table
-             o integer(int32), intent(in) :: z    Atomic number
-             o logical :: res    True or False
-        o function get_z_by_symbol(s)result(res)  Get the atomic number z of the element defined by the symbol s.
-             o character(len=*), intent(in) :: s    Element symbol
-             o integer(int32) :: res    >0 if found and -1 if not found.
-        o subroutine print_periodic_table()  Print periodic table.
         o function get_saw(s, abridged, uncertainty)result(res)  Get the standard atomic weight for the element s.
              o character(len=*), intent(in) :: s    Element symbol.
              o logical, intent(in), optional :: abridged    Set to False if the abridged value is not desired. Default to TRUE.
