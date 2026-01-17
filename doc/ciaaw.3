@@ -74,38 +74,6 @@ Fortran pointer to a string indicating the version..
 .RE
 .TP
 .B
-o function \fBis_in_pt\fP(z)result(res)
-Check if the atomic number z is in the periodic table
-.RS
-.TP
-.B
-o \fBinteger\fP(int32), \fBintent\fP(in) :: z
-Atomic number
-.TP
-.B
-o logical :: res
-True or False
-.RE
-.TP
-.B
-o function \fBget_z_by_symbol\fP(s)result(res)
-Get the atomic number z of the element defined by the symbol s.
-.RS
-.TP
-.B
-o \fBcharacter\fP(len=*), \fBintent\fP(in) :: s
-Element symbol
-.TP
-.B
-o \fBinteger\fP(int32) :: res
->0 if found and \fB-1\fP if not found.
-.RE
-.TP
-.B
-o subroutine \fBprint_periodic_table\fP()
-Print periodic table.
-.TP
-.B
 o function \fBget_saw\fP(s, abridged, \fBuncertainty)result\fP(res)
 Get the standard atomic weight for the element s.
 .RS
