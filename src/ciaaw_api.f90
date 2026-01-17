@@ -42,7 +42,7 @@ end function
 function is_in_pt(z)result(res)
     !! Check if the atomic number z is in the periodic table
     integer(int32), intent(in) :: z  !! Atomic number
-    logical :: res
+    logical :: res                   !! True or False
 
     if((z<1) .or. (z>size(pt))) then
         res = .false.
@@ -53,10 +53,8 @@ end function
 
 function get_z_by_symbol(s)result(res)
     !! Get the atomic number z of the element defined by the symbol s.
-    !!
-    !! Returns -1 if the element is not found.
     character(len=*), intent(in) :: s    !! Element symbol
-    integer(int32) :: res                !! Atomic number
+    integer(int32) :: res                !! >0 if found and -1 if not found.
 
     integer(int32) :: i
     type(element_type) :: elmt
@@ -137,18 +135,11 @@ end subroutine
 ! SAW
 function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight for the element s.
-    !!
-    !! Returns NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-
-    ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
-    logical, intent(in), optional :: abridged      !! Flag for returning the abridged standard atomic weight. Default to TRUE.
-    logical, intent(in), optional :: uncertainty   !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+    logical, intent(in), optional :: abridged      !! Set to False if the abridged value is not desired. Default to TRUE.
+    logical, intent(in), optional :: uncertainty   !! Set to True if the uncertainty is desired. Default to FALSE.
+    real(dp) :: res                                !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
 
-    ! Returns
-    real(dp) :: res
-
-    ! Variables
     real(dp) :: saw_max, saw_min, saw, saw_u
     integer(int32) :: z, n
     logical :: a2, u2
@@ -204,18 +195,11 @@ end function
 ! ICE
 function get_ice(s, A, uncertainty)result(res)
     !! Get the isotopic composition of the element s for the mass number A.
-    !!
-    !! Returns NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
-
-    ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
     integer(int32), intent(in) :: A                !! Mass number.
-    logical, intent(in), optional :: uncertainty   !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+    logical, intent(in), optional :: uncertainty   !! Set to True if the uncertainty is desired. Default to FALSE.
+    real(dp) :: res                                !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
 
-    ! Returns
-    real(dp) :: res
-
-    ! Variables
     real(dp) :: A_double
     integer(int32) :: i, z, col, row
     logical :: u2
@@ -249,16 +233,9 @@ end function
 
 function get_nice(s)result(res)
     !! Get the number of isotopes in ICE of the element s.
-    !!
-    !! Returns -1 if the provided element is incorrect.
-
-    ! Arguments
     character(len=*), intent(in) :: s             !! Element symbol.
+    integer(int32) :: res                         !! >0 if found or -1 if not found.
 
-    ! Returns
-    integer(int32) :: res
-
-    ! Variables
     integer(int32) :: z
 
     z = get_z_by_symbol(s)
@@ -309,16 +286,10 @@ end function
 ! NAW
 function get_naw(s, A, uncertainty)result(res)
     !! Get the atomic weight of the nuclide s for the mass number A.
-    !!
-    !! Returns NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
-
-    ! Arguments
     character(len=*), intent(in) :: s              !! Element symbol.
     integer(int32), intent(in) :: A                !! Mass number.
     logical, intent(in), optional :: uncertainty   !! Flag for returning the uncertainty instead of the value. Default to FALSE.
-
-    ! Returns
-    real(dp) :: res
+    real(dp) :: res                                !! NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
 
     ! Variables
     real(dp) :: A_double
@@ -354,16 +325,9 @@ end function
 
 function get_nnaw(s)result(res)
     !! Get the number of nuclides in NAW of the element s.
-    !!
-    !! Returns -1 if the provided element is incorrect.
-
-    ! Arguments
     character(len=*), intent(in) :: s             !! Element symbol.
+    integer(int32) :: res                         !! >O if found or -1 if not found.
 
-    ! Returns
-    integer(int32) :: res
-
-    ! Variables
     integer(int32) :: z
 
     z = get_z_by_symbol(s)

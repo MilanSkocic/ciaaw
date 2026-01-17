@@ -45,31 +45,37 @@
 !     All the values for the nuclide atomic weights are provided as double precision reals.
 ! 
 !     Fortran API
-!         o character(len=:), pointer function get_version()  Get the version.
-!         o real(dp) function get_saw(s, abridged, uncertainty)  Get the standard atomic weight for the element s.
-!             o character(len=*), intent(in) :: s               Element symbol.
-!             o integer(int32), intent(in) :: A                 Mass number.
-!             o logical, intent(in), optional :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
-!             o Returns NaN if the provided element is incorrect
-!             o Returns -1 if the element does not have a SAW.
-!         o real (dp) function get_ice(s, A, uncertainty)  Get the isotopic composition of the element s for the mass number A.
-!             o character(len=*), intent(in) :: s               Element symbol.
-!             o integer(int32), intent(in) :: A                 Mass number.
-!             o logical, intent(in), optional :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
-!             o Returns NaN if the provided element or the mass number A are incorrect
-!             o Returns -1 if the element does not have an ICE.
-!         o integer(int32) function get_nice(s)  Get the number of isotopes in ICE of the element s.
-!             o character(len=*), intent(in) :: s              Element symbol.
-!             o Returns -1 if the provided element is incorrect.
-!         o real(dp) function get_naw(s, A, uncertainty)  Get the atomic weight of the nuclide s for the mass number A.
-!             o character(len=*), intent(in) :: s               Element symbol.
-!             o integer(int32), intent(in) :: A                 Mass number.
-!             o logical, intent(in), optional :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
-!             o Returns NaN if the provided element or A are incorrect
-!             o Returns -1 if the element does not have an NAW.
-!         o integer(int32) function get_nnaw(s)  Get the number of nuclides in NAW of the element s.
-!             o character(len=*), intent(in) :: s              Element symbol.
-!             o Returns -1 if the provided element is incorrect.
+!         o function get_version()result(fptr)  Get the version
+!              o character(len=:), pointer :: fptr    Fortran pointer to a string indicating the version..
+!         o function is_in_pt(z)result(res)  Check if the atomic number z is in the periodic table
+!              o integer(int32), intent(in) :: z    Atomic number
+!              o logical :: res    True or False
+!         o function get_z_by_symbol(s)result(res)  Get the atomic number z of the element defined by the symbol s.
+!              o character(len=*), intent(in) :: s    Element symbol
+!              o integer(int32) :: res    >0 if found and -1 if not found.
+!         o subroutine print_periodic_table()  Print periodic table.
+!         o function get_saw(s, abridged, uncertainty)result(res)  Get the standard atomic weight for the element s.
+!              o character(len=*), intent(in) :: s    Element symbol.
+!              o logical, intent(in), optional :: abridged    Set to False if the abridged value is not desired. Default to TRUE.
+!              o logical, intent(in), optional :: uncertainty    Set to True if the uncertainty is desired. Default to FALSE.
+!              o real(dp) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
+!         o function get_ice(s, A, uncertainty)result(res)  Get the isotopic composition of the element s for the mass number A.
+!              o character(len=*), intent(in) :: s    Element symbol.
+!              o integer(int32), intent(in) :: A    Mass number.
+!              o logical, intent(in), optional :: uncertainty    Set to True if the uncertainty is desired. Default to FALSE.
+!              o real(dp) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
+!         o function get_nice(s)result(res)  Get the number of isotopes in ICE of the element s.
+!              o character(len=*), intent(in) :: s    Element symbol.
+!              o integer(int32) :: res    >0 if found or -1 if not found.
+!         o ! function get_ice_values(s)result(res)             o   character(len=*), intent(in) :: s    Element symbol.
+!         o function get_naw(s, A, uncertainty)result(res)  Get the atomic weight of the nuclide s for the mass number A.
+!              o character(len=*), intent(in) :: s    Element symbol.
+!              o integer(int32), intent(in) :: A    Mass number.
+!              o logical, intent(in), optional :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
+!              o real(dp) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
+!         o function get_nnaw(s)result(res)  Get the number of nuclides in NAW of the element s.
+!              o character(len=*), intent(in) :: s    Element symbol.
+!              o integer(int32) :: res    >O if found or -1 if not found.
 ! 
 !     C API
 !         o char* ciaaw_get_version(void)
@@ -82,9 +88,9 @@
 !     Python wrappers
 !         o get_saw(s: str, abridged: bool=True, uncertainty: bool=False)->float
 !         o get_ice(s:str, A:int, uncertainty: bool=False)->float
-!         o get_nice(s)->int:
+!         o get_nice(s:str)->int
 !         o get_naw(s:str, A:int, uncertainty: bool=False)->float
-!         o get_nnaw(s)->int
+!         o get_nnaw(s:str)->int
 ! 
 ! NOTES
 !     To use ciaaw within your fpm project, add the following to your fpm.toml file:
