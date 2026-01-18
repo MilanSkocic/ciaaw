@@ -326,7 +326,7 @@ end function
 function get_nnaw(s)result(res)
     !! Get the number of nuclides in NAW of the element s.
     character(len=*), intent(in) :: s             !! Element symbol.
-    integer(int32) :: res                         !! >O if found or -1 if not found.
+    integer(int32) :: res                         !! >0 if found or -1 if not found.
 
     integer(int32) :: z
 

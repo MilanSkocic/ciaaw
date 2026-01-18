@@ -68,7 +68,7 @@ DESCRIPTION
              o real(dp) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
         o function get_nnaw(s)result(res)  Get the number of nuclides in NAW of the element s.
              o character(len=*), intent(in) :: s    Element symbol.
-             o integer(int32) :: res    >O if found or -1 if not found.
+             o integer(int32) :: res    >0 if found or -1 if not found.
 
     C API
         o char* ciaaw_get_version(void)
