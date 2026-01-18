@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>CIAAW - Documentation &#8212; ciaaw 1.1.1 documentation</title>
+    <title>ciaaw - Documentation &#8212; ciaaw 1.1.1 documentation</title>
   
   
   
@@ -38,11 +38,10 @@
     <script src="_static/documentation_options.js?v=58fbf978"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started" href="getting_started/index.html" />
+    <link rel="next" title="Fortran AutoDoc" href="fortran/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -133,36 +132,22 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="getting_started/index.html">
-    Getting Started
+  <a class="nav-link nav-internal" href="fortran/index.html">
+    Fortran AutoDoc
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="examples/index.html">
-    Examples
+  <a class="nav-link nav-internal" href="C/index.html">
+    C Header
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="api/index.html">
-    APIs
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="changelog/index.html">
-    Changelog
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="references/index.html">
-    Bibliography
+  <a class="nav-link nav-internal" href="python/index.html">
+    Python AutoDoc
   </a>
 </li>
 
@@ -269,36 +254,22 @@ document.write(`
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="getting_started/index.html">
-    Getting Started
+  <a class="nav-link nav-internal" href="fortran/index.html">
+    Fortran AutoDoc
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="examples/index.html">
-    Examples
+  <a class="nav-link nav-internal" href="C/index.html">
+    C Header
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="api/index.html">
-    APIs
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="changelog/index.html">
-    Changelog
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="references/index.html">
-    Bibliography
+  <a class="nav-link nav-internal" href="python/index.html">
+    Python AutoDoc
   </a>
 </li>
 
@@ -368,36 +339,143 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="ciaaw-documentation">
-<h1>CIAAW - Documentation<a class="headerlink" href="#ciaaw-documentation" title="Link to this heading">#</a></h1>
+<h1>ciaaw - Documentation<a class="headerlink" href="#ciaaw-documentation" title="Link to this heading">#</a></h1>
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="Alternative text" class="align-center" src="_images/logo.png" style="width: 400px;" />
 </a>
-<p>Standard and abridged atomic weights, isotopic abundances and
-nuclides’ standard atomic weights according to <a class="reference external" href="https://www.ciaaw.org">CIAAW</a>.</p>
-<ul class="simple">
-<li><p>MAN PAGE: <a class="reference download internal" download="" href="_downloads/16e335924bb175585e986ce01e530ffc/ciaaw.3"><code class="xref download docutils literal notranslate"><span class="pre">ciaaw.3</span></code></a>.</p></li>
-<li><p>INFO: <a class="reference download internal" download="" href="_downloads/85dffe1e49df7ee8cd59f3f597f6cac3/ciaaw.info"><code class="xref download docutils literal notranslate"><span class="pre">ciaaw.info</span></code></a>.</p></li>
-<li><p>PDF: <a class="reference download internal" download="" href="_downloads/e6f5dfbf76f1058b9f04a4cbae1527f0/ciaaw.pdf"><code class="xref download docutils literal notranslate"><span class="pre">ciaaw.pdf</span></code></a>.</p></li>
-</ul>
-<p>The latest standard atomic weights were released in 2021 by the [ciaaw](<a class="reference external" href="https://www.ciaaw.org">https://www.ciaaw.org</a>).
-All the values for the atomic weights are provided as double precision reals.</p>
-<p>The standard atomic weights (or realtive atomic mass),:math:<cite>A_r(E)</cite>,
-are extracted from table 1 from <span id="id1">Prohaska <em>et al.</em> [<a class="reference internal" href="references/index.html#id4" title="Thomas Prohaska, Johanna Irrgeher, Jacqueline Benefield, John K. Böhlke, Lesley A. Chesson, Tyler B. Coplen, Tiping Ding, Philip J. H. Dunn, Manfred Gröning, Norman E. Holden, Harro A. J. Meijer, Heiko Moossen, Antonio Possolo, Yoshio Takahashi, Jochen Vogl, Thomas Walczyk, Jun Wang, Michael E. Wieser, Shigekazu Yoneda, Xiang-Kun Zhu, and Juris Meija. Standard atomic weights of the elements 2021 (IUPAC Technical Report). Pure and Applied Chemistry, 94(5):573–600, 2022. URL: https://doi.org/10.1515/pac-2019-0603 (visited on 2023-02-20), doi:10.1515/pac-2019-0603.">1</a>]</span>. For the elements
-that feature an interval for the standard atomic weight, the mean value and the uncertainty are computed
-using formulas defined in <span id="id2">[<a class="reference internal" href="references/index.html#id3" title="M.H. van der Veen, J. Meia, and D. Brynn Hibbert. Interpretation and use of standard atomic weights (IUPAC Technical Report). Pure and Applied Chemistry, 93(5):629–646, 2021.">2</a>]</span>.</p>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}A_r(E) = \frac{a+b}{2}\\u(A_r(E)) = \frac{b-a}{2\sqrt{3}}\end{aligned}\end{align} \]</div>
-<p>The standard atomic weights are a dimensionless quantity and thus they need to be multiplied by
-the molar mass constant <span class="math notranslate nohighlight">\(M_u=1.00000000105 \pm 0.00000000031 g.mol^{-1}\)</span>
-in order to get the value in <span class="math notranslate nohighlight">\(g.mol^{-1}\)</span>.
-See <a class="reference external" href="https://milanskocic.github.io/codata">codata</a> for physical constants.</p>
-<p>The latest isotopic compositions were released in 2013 by the [ciaaw](<a class="reference external" href="https://www.ciaaw.org">https://www.ciaaw.org</a>).
-All the values for the compositions are provided as double precision reals.
-The isotopic compositions of the element, are extracted from table 1 from <span id="id3">Meija <em>et al.</em> [<a class="reference internal" href="references/index.html#id2" title="Juris Meija, Tyler B. Coplen, Michael Berglund, Willi A. Brand, Paul De Bièvre, Manfred Gröning, Norman E. Holden, Johanna Irrgeher, Robert D. Loss, Thomas Walczyk, and Thomas Prohaska. Isotopic compositions of the elements 2013 (IUPAC Technical Report). Pure and Applied Chemistry, 88(3):293–306, 2016. URL: https://doi.org/10.1515/pac-2015-0503 (visited on 2024-06-07), doi:10.1515/pac-2015-0503.">3</a>]</span>.</p>
-<p>The latest atomic weights for nuclides were released in 2020 by [ciaaw](<a class="reference external" href="https://www.ciaaw.org">https://www.ciaaw.org</a>)
-from <span id="id4">Huang <em>et al.</em> [<a class="reference internal" href="references/index.html#id5" title="W.J. Huang, Meng Wang, F.G. Kondev, G. Audi, and S. Naimi. The ame 2020 atomic mass evaluation (i). evaluation of input data, and adjustment procedures*. Chinese Physics C, 45(3):030002, mar 2021. URL: https://dx.doi.org/10.1088/1674-1137/abddb0, doi:10.1088/1674-1137/abddb0.">4</a>]</span>.
-All the values for the nuclide atomic weights are provided as double precision reals.</p>
+<section id="example-in-fortran">
+<h2>Example in Fortran<a class="headerlink" href="#example-in-fortran" title="Link to this heading">#</a></h2>
+<div class="highlight-Fortran notranslate"><div class="highlight"><pre><span></span><span class="c">! EXAMPLE IN FORTRAN</span>
+<span class="k">program </span><span class="n">example_in_f</span>
+<span class="w">    </span><span class="k">use </span><span class="n">ciaaw</span>
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">s</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c">! ASAW = Abridged Standard Atomic Weight</span>
+<span class="w">    </span><span class="c">! SAW  = Standard Atomic Weight</span>
+<span class="w">    </span><span class="c">! ICE  = Isotopic Composition of the Element</span>
+<span class="w">    </span><span class="c">! NAW  = Nuclide Atomic Weight</span>
+<span class="w">    </span><span class="c">! U    = Uncertainty</span>
+
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;########### CIAAW VERSION ##########&#39;</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;version &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">get_version</span><span class="p">()</span><span class="w">  </span>
+
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;########### CIAAW SAW ##########&#39;</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A10, F10.5)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ASAW H   = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_saw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">abridged</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A10, F10.5)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;U ASAW H = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_saw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">uncertainty</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A10, F10.5)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SAW H    = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_saw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">abridged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A10, F10.5)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;U SAW H  =  &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_saw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">abridged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">uncertainty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A10, F10.5)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ASAW T   = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_saw</span><span class="p">(</span><span class="s2">&quot;Tc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">abridged</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;########### CIAAW ICE ##########&#39;</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, I3)&#39;</span><span class="p">,</span><span class="w">      </span><span class="s1">&#39;N ICE H    = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_nice</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, F12.6)&#39;</span><span class="p">,</span><span class="w">   </span><span class="s1">&#39;ICE H 1    = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_ice</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, ES23.16)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;U ICE H 1  = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_ice</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">uncertainty</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, F12.6)&#39;</span><span class="p">,</span><span class="w">   </span><span class="s1">&#39;ICE H 2    = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_ice</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, ES23.16)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;U ICE H 2  = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_ice</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">uncertainty</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, I3)&#39;</span><span class="p">,</span><span class="w">      </span><span class="s1">&#39;N ICE Tc   = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_nice</span><span class="p">(</span><span class="s2">&quot;Tc&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, I3)&#39;</span><span class="p">,</span><span class="w">      </span><span class="s1">&#39;N ICE C    = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_nice</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;########### CIAAW NAW ##########&#39;</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, ES23.16)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;NAW H 2     = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_naw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, ES23.16)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;U NAW H 2   = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_naw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">uncertainty</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, I3)&#39;</span><span class="p">,</span><span class="w">      </span><span class="s1">&#39;N NAW Tc    = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">get_nnaw</span><span class="p">(</span><span class="s2">&quot;Tc&quot;</span><span class="p">)</span>
+
+<span class="k">end program</span>
+</pre></div>
+</div>
+</section>
+<section id="example-in-c">
+<h2>Example in C<a class="headerlink" href="#example-in-c" title="Link to this heading">#</a></h2>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/* EXAMPLE IN C */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ciaaw.h&quot;</span>
+
+
+<span class="w">    </span><span class="c1">// ASAW = Abridged Standard Atomic Weight</span>
+<span class="w">    </span><span class="c1">// SAW  = Standard Atomic Weight</span>
+<span class="w">    </span><span class="c1">// ICE  = Isotopic Composition of the Element</span>
+<span class="w">    </span><span class="c1">// NAW  = Nuclide Atomic Weight</span>
+<span class="w">    </span><span class="c1">// U    = Uncertainty</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;########## CIAAW VERSION ##########&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;version %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_version</span><span class="p">());</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;########## CIAAW SAW ##########&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %10.5f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ASAW H   = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_saw</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %10.5f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;U ASAW H = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_saw</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %10.5f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SAW H    = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_saw</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %10.5f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;U SAW H  = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_saw</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %10.5f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ASAW Tc  = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_saw</span><span class="p">(</span><span class="s">&quot;Tc&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;########## CIAAW ICE ##########&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w">     </span><span class="s">&quot;N ICE H      = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_nice</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %12.6f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ICE H 1      = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_ice</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">));</span><span class="w"> </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %23.16e</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;U ICE H 1    = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_ice</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">));</span><span class="w"> </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %12.6f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ICE H 2      = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_ice</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">));</span><span class="w"> </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %23.16e</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;U ICE H 2    = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_ice</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">));</span><span class="w"> </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w">     </span><span class="s">&quot;N ICE Tc     = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_nice</span><span class="p">(</span><span class="s">&quot;Tc&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w">     </span><span class="s">&quot;N ICE C      = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_nice</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;########## CIAAW NAW ##########&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %23.16f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;NAW H 2      = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_naw</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">));</span><span class="w"> </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %23.16e</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;U NAW H 2    = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_naw</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">));</span><span class="w"> </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w">      </span><span class="s">&quot;N NAW Tc     = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ciaaw_get_nnaw</span><span class="p">(</span><span class="s">&quot;Tc&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="example-in-python">
+<h2>Example in Python<a class="headerlink" href="#example-in-python" title="Link to this heading">#</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sa">r</span><span class="sd">&quot;&quot;&quot;EXAMPLE IN PYTHON&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;../py/src/&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">pyciaaw</span>
+
+<span class="c1"># ASAW = Abridged Standard Atomic Weight</span>
+<span class="c1"># SAW  = Standard Atomic Weight</span>
+<span class="c1"># ICE  = Isotopic Composition of the Element</span>
+<span class="c1"># NAW  = Nuclide Atomic Weight</span>
+<span class="c1"># U    = Uncertainty</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;########## CIAAW VERSION ##########&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;version &quot;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;########## CIAAW SAW  ##########&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ASAW H   = &quot;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_saw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U ASAW H = &quot;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_saw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SAW H    = &quot;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_saw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">abridged</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U SAW H  = &quot;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_saw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">abridged</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ASAW Tc  = &quot;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_saw</span><span class="p">(</span><span class="s2">&quot;Tc&quot;</span><span class="p">))</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;########## CIAAW ICE  ##########&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N ICE H   = &quot;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_nice</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ICE H 1   = &#39;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_ice</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;U ICE H 1 = &#39;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_ice</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ICE H 2   = &#39;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_ice</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;U ICE H 2 = &#39;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_ice</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N ICE Tc  = &quot;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_nice</span><span class="p">(</span><span class="s2">&quot;Tc&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N ICE C   = &quot;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_nice</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;########## CIAAW NAW  ##########&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;NAW H 2   = &#39;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_naw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;U NAW H 2 = &#39;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_naw</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N NAW Tc  = &quot;</span><span class="p">,</span> <span class="n">pyciaaw</span><span class="o">.</span><span class="n">get_nnaw</span><span class="p">(</span><span class="s2">&quot;Tc&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 
 
@@ -411,11 +489,11 @@ All the values for the nuclide atomic weights are provided as double precision r
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="getting_started/index.html"
+       href="fortran/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Getting Started</p>
+        <p class="prev-next-title">Fortran AutoDoc</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -428,6 +506,20 @@ All the values for the nuclide atomic weights are provided as double precision r
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-in-fortran">Example in Fortran</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-in-c">Example in C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-in-python">Example in Python</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 
