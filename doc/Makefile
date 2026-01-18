@@ -1,10 +1,12 @@
 include ../make.in
 
+
 # for i in doc/*.txt; do name=$(basename -s .txt $i ); echo "- :download:\`$name <../../$name>\`";done
 
 MANPREP=$(wildcard *.prep)
 MAN=$(patsubst %.prep, %, $(MANPREP))
 MANPDF=$(patsubst %.prep, %.pdf, $(MANPREP))
+MANTXT=$(patsubst %.prep, %.txt, $(MANPREP))
 
 BOOKMAN=$(FPM_NAME).pdf
 
@@ -15,7 +17,7 @@ html:
 	make -C sphinx html
 
 .PHONY:
-man: $(MAN) $(MANPDF)
+man: $(MAN) $(MANPDF) $(MANTXT)
 
 .PHONY:
 $(BOOKMAN): $(MAN)
@@ -27,8 +29,11 @@ $(BOOKMAN): $(MAN)
 %.pdf: %
 	man -l -Tpdf $< > $@
 
+%.txt: %
+	man -l $< > $@
+
 
 .PHONY:
 clean:
 	make -C sphinx clean
-	rm -fv $(MANPREP) $(MAN) $(MANPDF) $(BOOKMAN)
+	rm -fv $(MANPREP) $(MAN) $(MANPDF) $(MANTXT) $(BOOKMAN)
