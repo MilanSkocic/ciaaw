@@ -31,7 +31,7 @@ F_MODULE = ./src/ciaaw_saw.f90  ./src/ciaaw_ice.f90 ./src/ciaaw_naw.f90 ./src/ci
 
 all: $(FPM_LIBNAME)
 
-$(FPM_LIBNAME): prep build copy_a shared
+$(FPM_LIBNAME): build copy_a shared
 # ---------------------------------------------------------------------
 
 
@@ -62,7 +62,6 @@ prep:
 # ---------------------------------------------------------------------
 # COMPILATION
 build: 
-	make -C doc man
 	fpm build --profile=$(btype)
 
 test: build
@@ -131,6 +130,7 @@ uninstall:
 # ---------------------------------------------------------------------
 # OTHERS
 doc:
+	fpm run --profile release --target $(FPM_APPNAME) -- --help > doc/$(FPM_APPNAME).1.prep
 	make -C doc
 
 docs:
@@ -143,5 +143,6 @@ logo:
 clean:
 	rm -rf $(F_MODULE) $(SRC_FYPP_F90)
 	fpm clean --all
+	make -C srcprep clean
 	make -C doc clean
 # ---------------------------------------------------------------------
