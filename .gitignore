@@ -42,5 +42,6 @@ py/wheelhouse/
 py/src/pyciaaw/bin/
 py/src/pyciaaw/include/
 py/src/pyciaaw/lib/
+py/src/pyciaaw/ciaaw
 
 make.in
