@@ -27,7 +27,7 @@ F_MODULE = ./src/ciaaw_saw.f90  ./src/ciaaw_ice.f90 ./src/ciaaw_naw.f90 ./src/ci
 
 # ---------------------------------------------------------------------
 # TARGETS
-.PHONY: build data sources references doc docs clean logo
+.PHONY: prep build data sources references doc docs clean logo
 
 all: $(FPM_LIBNAME)
 
@@ -100,9 +100,11 @@ install_dirs:
 	mkdir -p $(install_dir)/include
 	mkdir -p $(install_dir)/lib
 	mkdir -p $(install_dir)/share/man/man3
+	mkdir -p $(install_dir)/share/man/man1
 	fpm install --prefix=$(install_dir) --profile=$(btype)
 	cp -f $(FPM_INCLUDE_DIR)/$(FPM_NAME)*.h $(install_dir)/include
 	cp -f doc/$(FPM_NAME)*.3 $(install_dir)/share/man/man3
+	cp -f doc/$(FPM_NAME)*.1 $(install_dir)/share/man/man1
 
 install_linux: 
 	cp -f $(FPM_BUILD_DIR)/$(FPM_LIBNAME).so $(install_dir)/lib
