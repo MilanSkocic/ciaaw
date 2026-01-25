@@ -24,4 +24,7 @@ include-package-data = false
 where = ["src"]
 
 [tool.setuptools.package-data]
-pyciaaw = ["libciaaw.*", "libgfortran*", "libquadmath*", "libgcc_s*", "libwinpthread*"]
+pyciaaw = ["libciaaw.*", "ciaaw*", "libgfortran*", "libquadmath*", "libgcc_s*", "libwinpthread*"]
+
+[project.scripts]
+pyciaaw = "pyciaaw:main"

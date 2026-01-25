@@ -5,9 +5,21 @@ ICE: Isotopic Compositions of the element.
 
 NAW: Nuclide's Atomic Weights.
 """
+import platform
+import subprocess
+import sys
+from pathlib import Path
+
 from ._ciaaw import __version__
 from . import _ciaaw
 
+def main():
+    binary = Path(__file__).parent / "ciaaw"
+    if platform.system() == "Windows":
+        binary = binary.with_suffix(".exe")
+
+    res = subprocess.run([binary] + sys.argv[1:])
+    sys.exit(res.returncode)
 
 def get_saw(s: str, abridged: bool=True, uncertainty: bool=False)->float:
     r"""
