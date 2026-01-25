@@ -4,32 +4,48 @@ NAME
        ciaaw - Command line for ciaaw
 
 SYNOPSIS
-       ciaaw [OPTIONS] [REGEX_PATTERN ... ]
+       ciaaw [OPTIONS] [ELEMENTS ...]
 
 DESCRIPTION
-       ciaaw is a command line interface ...
+       ciaaw  is  a  command  line  interface  for  printing the atomic
+       weights, the  isotopic  compositions  and  the  nuclides  atomic
+       weights.
 
-       constants.
+       If no elements is provided the full periodic table is displayed.
 
 OPTIONS
-       o --usage
+       o --saw, -s
+              Get the standard atomic weight.
+
+       o --ice, -i
+              Get the isotopic composition.
+
+       o --naw, -n
+              Get the nuclide atomic weight.
+
+       o --colnames, -c
+              Show the headers in the outputs.
+
+       o --usage, -u
               Show usage text and exit.
 
-       o --help
+       o --help, -h
               Show help text and exit.
 
-       o --verbose
+       o --verbose, -V
               Display additional information when available.
 
-       o --version
+       o --version, -v
               Show version information and exit.
 
 EXAMPLE
        Minimal example
 
-            ciaaw
+             ciaaw
+             ciaaw H C B O Zr Nb --saw --ice --naw --colnames
+             ciaaw H C B O Zr Nb -sinc
 
 SEE ALSO
        ciaaw(3), codata(3)
 
-1.1.1                       23 January 2026                    ciaaw(1)
+1.1.1                       25 January 2026                    ciaaw(1)
