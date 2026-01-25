@@ -28,28 +28,19 @@ program ciaawcli
         '  '//name//' - Command line for ciaaw                           ', &
         '                                                                ', &
         'SYNOPSIS                                                        ', &
-        '  '//name//' SUBCOMMAND [OPTIONS] [ELEMENTS ...]                ', &
+        '  '//name//' [OPTIONS] [ELEMENTS ...]                ', &
         '                                                                ', &
         'DESCRIPTION                                                     ', &
         '  '//name//' is a command line interface for printing the atomic ', &
         '  weights, the isotopic compositions and the nuclides atomic weights.', &
         '                                                                ', &
-        'SUBCOMMANDS                                                     ', &
-        '  o saw  Get the standard atomic weight.                        ', &
-        '  o ice  Get the isotopic composition of the element.           ', &
-        '  o naw  Get the nuclide atomic weight.                         ', &
-        '                                                                ', &
-        '  Their syntax is                                               ', &
-        '                                                                ', &
-        '  o saw [-a] [-s] [-e] [-z] ELEMENTS ...                          ', &
-        '                                                                ', &
-        '                                                                ', &
+        '  If no elements is provided the full periodic table is displayed.', &
         '                                                                ', &
         'OPTIONS                                                         ', &
-        '  o --abridged, -a   Use the abridged value.                  ', &
-        '  o --symbol, -s     Display symbol.                          ', &
-        '  o --error, -e      Display the uncertainty.                ', &
-        '  o --zmass, -z      Display the mass number Z.                     ', &
+        '  o --saw, -s        Get the standard atomic weight.            ', &
+        '  o --ice, -i        Get the isotopic composition. ', &
+        '  o --naw, -n        Get the nuclide atomic weight.             ', &
+        '  o --colnames, -c   Show the headers in the outputs.           ', &
         '  o --usage, -u      Show usage text and exit.                  ', &
         '  o --help, -h       Show help text and exit.                   ', &
         '  o --verbose, -V    Display additional information when available.   ', &
@@ -58,23 +49,22 @@ program ciaawcli
         'EXAMPLE                                                         ', &
         '  Minimal example                                               ', &
         '                                                                ', &
-        '      ciaaw saw H                                              ', &
-        '      ciaaw saw -a -u O                                        ', &
-        '      ciaaw saw H C B O Zr Nb --pprint                         ', &
-        '      ciaaw saw -a H C B O Zr Nb --pprint                      ', &
+        '      ciaaw                                                     ', &
+        '      ciaaw H C B O Zr Nb --saw --ice --naw --colnames           ', &
+        '      ciaaw H C B O Zr Nb -sinc                                  ', &
         '                                                                ', &
         'SEE ALSO                                                         ', &
         '  ciaaw(3), codata(3)                                                     ', &
         '' ]
     
     call set_mode('strict')
-    call set_args('--abridged:a --saw --ice --naw --headers', help_text, version_text) 
+    call set_args('--abridged:a --saw:s --ice:i --naw:n --colnames:c', help_text, version_text) 
     if(size(args)<=0)then
         call print_periodic_table()
     else
         do i=1, size(args)
             s = trim(args(i))
-            call print(s, lget('saw'), lget('ice'), lget('naw'), lget('headers'))
+            call print(s, lget('s'), lget('i'), lget('n'), lget('c'))
         end do
     end if
 
@@ -152,7 +142,7 @@ subroutine print(s, saw, ice, naw, headers)
                 write(s1, '(A)') pt(i)%symbol
                 write(s2, '(I3)') pt(i)%z
                 write(s3, "(I3)") nint(pt(i)%naw%values(j,1))
-                write(s4, "(ES12.5)") pt(i)%naw%values(j,2)
+                write(s4, "(F12.6)") pt(i)%naw%values(j,2)
                 write(s5, "(ES12.5)") pt(i)%naw%values(j,3)
                 write(output_unit, "(5A15)") adjustl(s1), adjustl(s2), adjustl(s3), adjustl(s4), adjustl(s5)
             enddo
