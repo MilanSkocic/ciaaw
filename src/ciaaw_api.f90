@@ -11,7 +11,6 @@ module ciaaw__api
 
     real(dp), allocatable, target :: n_ice_out(:,:)
 
-    public :: get_z_by_symbol
     public :: get_version
     public :: get_saw
     public :: get_ice, get_nice
