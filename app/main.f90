@@ -7,6 +7,7 @@ program ciaawcli
     use ciaaw
     use ciaaw__pte, only: pt
     use ciaaw__common
+    use codata, only: MOLAR_MASS_CONSTANT
 
     character(len=*), parameter :: name="ciaaw"
     character(len=:),allocatable, target  :: help_text(:)
@@ -16,61 +17,63 @@ program ciaawcli
     character(len=3) :: s
 
     version_text=[character(len=80) :: &
-        'PROGRAM:      '//name//'                         ', &
-        'DESCRIPTION:  Command line interface for ciaaw  ', &
-        'VERSION:      '//get_version()//'                ', &
-        'AUTHOR:       M. Skocic                          ', &
-        'LICENSE:      MIT                                ', &
+        'PROGRAM:      '//name//'                                              ', &
+        'DESCRIPTION:  Command line interface for ciaaw                        ', &
+        'VERSION:      '//get_version()//'                                     ', &
+        'AUTHOR:       M. Skocic                                               ', &
+        'LICENSE:      MIT                                                     ', &
         '' ]
 
     help_text=[character(len=80) :: &
-        'NAME                                                            ', &
-        '  '//name//' - Command line for ciaaw                           ', &
-        '                                                                ', &
-        'SYNOPSIS                                                        ', &
-        '  '//name//' [OPTIONS] [ELEMENTS ...]                ', &
-        '                                                                ', &
-        'DESCRIPTION                                                     ', &
-        '  '//name//' is a command line interface for printing the atomic ', &
-        '  weights, the isotopic compositions and the nuclides atomic weights.', &
-        '                                                                ', &
-        '  If no elements is provided the full periodic table is displayed.', &
-        '                                                                ', &
-        'OPTIONS                                                         ', &
-        '  o --saw, -s        Get the standard atomic weight.            ', &
-        '  o --ice, -i        Get the isotopic composition. ', &
-        '  o --naw, -n        Get the nuclide atomic weight.             ', &
-        '  o --colnames, -c   Show the headers in the outputs.           ', &
-        '  o --usage, -u      Show usage text and exit.                  ', &
-        '  o --help, -h       Show help text and exit.                   ', &
+        'NAME                                                                  ', &
+        '  '//name//' - Command line for ciaaw                                 ', &
+        '                                                                      ', &
+        'SYNOPSIS                                                              ', &
+        '  '//name//' [OPTIONS] [ELEMENTS ...]                                 ', &
+        '                                                                      ', &
+        'DESCRIPTION                                                           ', &
+        '  '//name//' is a command line interface which provides the atomic    ', &
+        '  weights, the isotopic compositions and the nuclides atomic weights. ', &
+        '  If no elements is provided the full periodic table is displayed.    ', &
+        '                                                                      ', &
+        'OPTIONS                                                               ', &
+        '  o --saw, -s        Get the standard atomic weight.                  ', &
+        '  o --ice, -i        Get the isotopic composition.                    ', &
+        '  o --naw, -n        Get the nuclide atomic weight.                   ', &
+        '  o --mu, -m         Get the molar masses in g/mol by multiplying the ', &
+        '                     atomic weights by the molar mass contant Mu.', &
+        '  o --colnames, -c   Show the headers in the outputs.                 ', &
+        '  o --usage, -u      Show usage text and exit.                        ', &
+        '  o --help, -h       Show help text and exit.                         ', &
         '  o --verbose, -V    Display additional information when available.   ', &
         '  o --version, -v    Show version information and exit.               ', &
-        '                                                                ', &
-        'EXAMPLE                                                         ', &
-        '  Minimal example                                               ', &
-        '                                                                ', &
-        '      ciaaw                                                     ', &
-        '      ciaaw H C B O Zr Nb --saw --ice --naw --colnames           ', &
-        '      ciaaw H C B O Zr Nb -sinc                                  ', &
-        '                                                                ', &
-        'SEE ALSO                                                         ', &
-        '  ciaaw(3), codata(3)                                                     ', &
+        '                                                                      ', &
+        'EXAMPLE                                                               ', &
+        '  Minimal example                                                     ', &
+        '                                                                      ', &
+        '      ciaaw                                                           ', &
+        '      ciaaw H C B O Zr Nb --saw --ice --naw --colnames                ', &
+        '      ciaaw H C B O Zr Nb -sinc                                       ', &
+        '                                                                      ', &
+        'SEE ALSO                                                              ', &
+        '  ciaaw(3), codata(3)                                                 ', &
         '' ]
     
     call set_mode('strict')
-    call set_args('--abridged:a --saw:s --ice:i --naw:n --colnames:c', help_text, version_text) 
+    call set_args('--abridged:a --saw:s --ice:i --naw:n --mu:m --colnames:c', help_text, version_text) 
     if(size(args)<=0)then
         call print_periodic_table()
     else
         do i=1, size(args)
             s = trim(args(i))
-            call print(s, lget('s'), lget('i'), lget('n'), lget('c'))
+            call print(s, lget('s'), lget('i'), lget('n'), lget('c'), lget('m'))
         end do
     end if
 
 contains
 
 subroutine print_text(char_fp)
+    ! Print text pointed by char_fp.
     character(len=:), pointer, intent(in) :: char_fp(:)
     integer :: i
     do i=1, size(char_fp), 1
@@ -78,30 +81,41 @@ subroutine print_text(char_fp)
     end do
 end subroutine
 
-subroutine print(s, saw, ice, naw, headers)
+subroutine print(s, saw, ice, naw, headers, mu)
+    ! Print saw, ice and naw.
     character(len=*), intent(in) :: s
     logical, intent(in), optional :: saw
     logical, intent(in), optional :: ice
     logical, intent(in), optional :: naw
     logical, intent(in), optional :: headers
+    logical, intent(in), optional :: mu
 
-    real(dp) :: r, dr
+    real(dp) :: r, dr, cmu
     integer :: i,j,z
     character(len=15) :: s1, s2, s3, s4, s5
-    logical :: h, saw2, ice2, naw2
+    logical :: h, saw2, ice2, naw2, mu2
    
-    character(len=15) :: header(4)
+    character(len=15) :: header(5)
     character(len=15) :: ice_headers(5)
     character(len=15) :: naw_headers(5)
+    character(len=32) :: fmt
 
     h = optval(headers, .false.)
     saw2 = optval(saw, .true.)
     ice2 = optval(ice, .false.)
     naw2 = optval(naw, .false.)
+    mu2 = optval(mu, .false.)
     
-    header = [character(len=15) :: "S", "Z", "M", "dM"]
-    ice_headers = [character(len=15) :: "S", "Z", "A", "C", "dC"]
-    naw_headers = [character(len=15) :: "S", "Z", "A", "M", "dM"]
+    header = [character(len=15) ::      'S', 'Z', 'A', 'M', 'dM']
+    ice_headers = [character(len=15) :: 'S', 'Z', 'A', 'C', 'dC']
+    naw_headers = [character(len=15) :: 'S', 'Z', 'A', 'M', 'dM']
+    fmt = '(A5, A5, A5, A15, A15)'
+    
+    cmu = 1.0_dp
+    if(mu2)then
+        cmu = MOLAR_MASS_CONSTANT%value * 1000.0
+        print *,  cmu
+    end if
 
     z = -1
     do i=1, size(pt)
@@ -112,43 +126,44 @@ subroutine print(s, saw, ice, naw, headers)
     end do
     if(z>0)then 
         if(saw2) then
-            if(h) write(output_unit, '(4A15)') header
+            if(h) write(output_unit, fmt) header
             write(s1, '(A)') pt(i)%symbol
             write(s2, '(I3)') pt(i)%z
-            write(s3, '(F14.6)') pt(i)%saw%asaw
-            write(s4, '(F14.6)') pt(i)%saw%asaw_u
-            write(output_unit, '(4A15)') &
+            write(s3, '(A)') ''
+            write(s4, '(F14.6)') pt(i)%saw%asaw * cmu
+            write(s5, '(F14.6)') pt(i)%saw%asaw_u * cmu
+            write(output_unit, fmt) &
                 adjustl(s1), &
                 adjustl(s2), &
                 adjustl(s3), &
-                adjustl(s4)
+                adjustl(s4), &
+                adjustl(s5)
         end if
 
         if(ice2)then
-            if(h) write(output_unit, "(5A15)") ice_headers
+            if(h) write(output_unit, '(A5, A5, A5, A15, A15)') ice_headers
             do j=1, pt(i)%ice%n
                 write(s1, '(A)') pt(i)%symbol
                 write(s2, '(I3)') pt(i)%z
-                write(s3, "(I3)") nint(pt(i)%ice%values(j,1))
-                write(s4, "(F12.6)") pt(i)%ice%values(j,2)
-                write(s5, "(ES12.5)") pt(i)%ice%values(j,3)
-                write(output_unit, "(5A15)") adjustl(s1), adjustl(s2), adjustl(s3), adjustl(s4), adjustl(s5)
+                write(s3, '(I3)') nint(pt(i)%ice%values(j,1))
+                write(s4, '(F12.6)') pt(i)%ice%values(j,2)
+                write(s5, '(ES12.5)') pt(i)%ice%values(j,3)
+                write(output_unit, '(A5, A5, A5, A15, A15)') adjustl(s1), adjustl(s2), adjustl(s3), adjustl(s4), adjustl(s5)
             enddo
         end if
         
         if(naw2)then
-            if(h) write(output_unit, "(5A15)") naw_headers
+            if(h) write(output_unit, '(A5, A5, A5, A15, A15)') naw_headers
             do j=1, pt(i)%naw%n
                 write(s1, '(A)') pt(i)%symbol
                 write(s2, '(I3)') pt(i)%z
-                write(s3, "(I3)") nint(pt(i)%naw%values(j,1))
-                write(s4, "(F12.6)") pt(i)%naw%values(j,2)
-                write(s5, "(ES12.5)") pt(i)%naw%values(j,3)
-                write(output_unit, "(5A15)") adjustl(s1), adjustl(s2), adjustl(s3), adjustl(s4), adjustl(s5)
+                write(s3, '(I3)') nint(pt(i)%naw%values(j,1))
+                write(s4, '(F12.6)') pt(i)%naw%values(j,2) * cmu
+                write(s5, '(ES12.5)') pt(i)%naw%values(j,3) * cmu
+                write(output_unit, '(A5, A5, A5, A15, A15)') adjustl(s1), adjustl(s2), adjustl(s3), adjustl(s4), adjustl(s5)
             enddo
         end if
     end if
-
 end subroutine
 
 subroutine print_all()
