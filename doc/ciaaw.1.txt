@@ -7,11 +7,10 @@ SYNOPSIS
        ciaaw [OPTIONS] [ELEMENTS ...]
 
 DESCRIPTION
-       ciaaw  is  a  command  line  interface  for  printing the atomic
+       ciaaw  is  a  command  line  interface which provides the atomic
        weights, the  isotopic  compositions  and  the  nuclides  atomic
-       weights.
-
-       If no elements is provided the full periodic table is displayed.
+       weights.   If no elements is provided the full periodic table is
+       displayed.
 
 OPTIONS
        o --saw, -s
@@ -22,6 +21,10 @@ OPTIONS
 
        o --naw, -n
               Get the nuclide atomic weight.
+
+       o --mu, -m
+              Get the molar masses in g/mol by multiplying  the  atomic
+              weights by the molar mass contant Mu.
 
        o --colnames, -c
               Show the headers in the outputs.
@@ -48,4 +51,4 @@ EXAMPLE
 SEE ALSO
        ciaaw(3), codata(3)
 
-1.1.1                       25 January 2026                    ciaaw(1)
+1.1.2                       27 January 2026                    ciaaw(1)
