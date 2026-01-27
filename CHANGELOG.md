@@ -1,3 +1,10 @@
+# 1.2.0
+
+- Add CLI `ciaaw(1)` for searching saw, ice and naw.
+- Code refactoring
+
+[Full changelog](https://github.com/MilanSkocic/codata/releases)
+
 # 1.1.1
 
 * Refactoring the `configure.sh` script.
