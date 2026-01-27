@@ -51,4 +51,4 @@ EXAMPLE
 SEE ALSO
        ciaaw(3), codata(3)
 
-1.1.2                       27 January 2026                    ciaaw(1)
+1.2.0rc1                    27 January 2026                    ciaaw(1)
