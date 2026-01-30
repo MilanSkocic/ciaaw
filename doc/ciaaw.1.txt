@@ -4,12 +4,12 @@ NAME
        ciaaw - Command line for ciaaw
 
 SYNOPSIS
-       ciaaw [OPTIONS] [ELEMENTS ...]
+       ciaaw [OPTION...] [ELEMENT...]
 
 DESCRIPTION
        ciaaw  is  a  command  line  interface which provides the atomic
        weights, the  isotopic  compositions  and  the  nuclides  atomic
-       weights.   If no elements is provided the full periodic table is
+       weights.   If  no element is provided the full periodic table is
        displayed.
 
 OPTIONS
@@ -51,4 +51,4 @@ EXAMPLE
 SEE ALSO
        ciaaw(3), codata(3)
 
-1.2.0rc1                    27 January 2026                    ciaaw(1)
+1.2.0                       30 January 2026                    ciaaw(1)
