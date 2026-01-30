@@ -1,6 +1,6 @@
 program ciaawcli
     use iso_fortran_env, only: output_unit
-    use M_CLI2, only: set_args, iget, lget
+    use M_CLI2, only: set_args, iget, lget, specified
     use M_CLI2, only: args=>unnamed, get_subcommand, set_mode
     use regex_module, only: REGEX, parse_pattern, regex_pattern
     use stdlib_optval
@@ -18,7 +18,7 @@ program ciaawcli
 
     version_text=[character(len=80) :: &
         'PROGRAM:      '//name//'                                              ', &
-        'DESCRIPTION:  Command line interface for ciaaw                        ', &
+        'DESCRIPTION:  Command line interface for ciaaw.                       ', &
         'VERSION:      '//get_version()//'                                     ', &
         'AUTHOR:       M. Skocic                                               ', &
         'LICENSE:      MIT                                                     ', &
@@ -29,12 +29,12 @@ program ciaawcli
         '  '//name//' - Command line for ciaaw                                 ', &
         '                                                                      ', &
         'SYNOPSIS                                                              ', &
-        '  '//name//' [OPTIONS] [ELEMENTS ...]                                 ', &
+        '  '//name//' [OPTION...] [ELEMENT...]                                 ', &
         '                                                                      ', &
         'DESCRIPTION                                                           ', &
         '  '//name//' is a command line interface which provides the atomic    ', &
         '  weights, the isotopic compositions and the nuclides atomic weights. ', &
-        '  If no elements is provided the full periodic table is displayed.    ', &
+        '  If no element is provided the full periodic table is displayed.    ', &
         '                                                                      ', &
         'OPTIONS                                                               ', &
         '  o --saw, -s        Get the standard atomic weight.                  ', &
@@ -64,6 +64,10 @@ program ciaawcli
     if(size(args)<=0)then
         call print_periodic_table()
     else
+        if(.not.all(specified(['s','i','n'])))then
+            write(output_unit, '(A)') 'Specify at least option -s or -i or -n. See --help.'
+            stop
+        end if
         do i=1, size(args)
             s = trim(args(i))
             call print(s, lget('s'), lget('i'), lget('n'), lget('c'), lget('m'))
