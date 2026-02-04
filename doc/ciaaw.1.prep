@@ -10,16 +10,16 @@ DESCRIPTION
   If no element is provided the full periodic table is displayed.
 
 OPTIONS
-  o --saw, -s        Get the standard atomic weight.
-  o --ice, -i        Get the isotopic composition.
-  o --naw, -n        Get the nuclide atomic weight.
-  o --mu, -m         Get the molar masses in g/mol by multiplying the
-                     atomic weights by the molar mass contant Mu.
-  o --colnames, -c   Show the headers in the outputs.
-  o --usage, -u      Show usage text and exit.
-  o --help, -h       Show help text and exit.
-  o --verbose, -V    Display additional information when available.
-  o --version, -v    Show version information and exit.
+  --saw, -s        Get the standard atomic weight.
+  --ice, -i        Get the isotopic composition.
+  --naw, -n        Get the nuclide atomic weight.
+  --mu, -m         Get the molar masses in g/mol by multiplying the
+                   atomic weights by the molar mass contant Mu.
+  --colnames, -c   Show the headers in the outputs.
+  --usage, -u      Show usage text and exit.
+  --help, -h       Show help text and exit.
+  --verbose, -V    Display additional information when available.
+  --version, -v    Show version information and exit.
 
 EXAMPLE
   Minimal example

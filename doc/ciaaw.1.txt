@@ -13,32 +13,32 @@ DESCRIPTION
        displayed.
 
 OPTIONS
-       o --saw, -s
+       --saw, -s
               Get the standard atomic weight.
 
-       o --ice, -i
+       --ice, -i
               Get the isotopic composition.
 
-       o --naw, -n
+       --naw, -n
               Get the nuclide atomic weight.
 
-       o --mu, -m
+       --mu, -m
               Get the molar masses in g/mol by multiplying  the  atomic
               weights by the molar mass contant Mu.
 
-       o --colnames, -c
+       --colnames, -c
               Show the headers in the outputs.
 
-       o --usage, -u
+       --usage, -u
               Show usage text and exit.
 
-       o --help, -h
+       --help, -h
               Show help text and exit.
 
-       o --verbose, -V
+       --verbose, -V
               Display additional information when available.
 
-       o --version, -v
+       --version, -v
               Show version information and exit.
 
 EXAMPLE
@@ -51,4 +51,4 @@ EXAMPLE
 SEE ALSO
        ciaaw(3), codata(3)
 
-1.2.0                       30 January 2026                    ciaaw(1)
+1.2.1                       04 February 2026                   ciaaw(1)
