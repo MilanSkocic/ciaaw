@@ -2,12 +2,11 @@ program ciaawcli
     use iso_fortran_env, only: output_unit
     use M_CLI2, only: set_args, iget, lget, specified
     use M_CLI2, only: args=>unnamed, get_subcommand, set_mode
-    use regex_module, only: REGEX, parse_pattern, regex_pattern
     use stdlib_optval
+    use stdlib_codata, only: MOLAR_MASS_CONSTANT
     use ciaaw
     use ciaaw__pte, only: pt
     use ciaaw__common
-    use codata, only: MOLAR_MASS_CONSTANT
 
     character(len=*), parameter :: name="ciaaw"
     character(len=:),allocatable, target  :: help_text(:)
@@ -37,16 +36,16 @@ program ciaawcli
         '  If no element is provided the full periodic table is displayed.    ', &
         '                                                                      ', &
         'OPTIONS                                                               ', &
-        '  o --saw, -s        Get the standard atomic weight.                  ', &
-        '  o --ice, -i        Get the isotopic composition.                    ', &
-        '  o --naw, -n        Get the nuclide atomic weight.                   ', &
-        '  o --mu, -m         Get the molar masses in g/mol by multiplying the ', &
-        '                     atomic weights by the molar mass contant Mu.', &
-        '  o --colnames, -c   Show the headers in the outputs.                 ', &
-        '  o --usage, -u      Show usage text and exit.                        ', &
-        '  o --help, -h       Show help text and exit.                         ', &
-        '  o --verbose, -V    Display additional information when available.   ', &
-        '  o --version, -v    Show version information and exit.               ', &
+        '  --saw, -s        Get the standard atomic weight.                  ', &
+        '  --ice, -i        Get the isotopic composition.                    ', &
+        '  --naw, -n        Get the nuclide atomic weight.                   ', &
+        '  --mu, -m         Get the molar masses in g/mol by multiplying the ', &
+        '                   atomic weights by the molar mass contant Mu.', &
+        '  --colnames, -c   Show the headers in the outputs.                 ', &
+        '  --usage, -u      Show usage text and exit.                        ', &
+        '  --help, -h       Show help text and exit.                         ', &
+        '  --verbose, -V    Display additional information when available.   ', &
+        '  --version, -v    Show version information and exit.               ', &
         '                                                                      ', &
         'EXAMPLE                                                               ', &
         '  Minimal example                                                     ', &
@@ -64,8 +63,8 @@ program ciaawcli
     if(size(args)<=0)then
         call print_periodic_table()
     else
-        if(.not.all(specified(['s','i','n'])))then
-            write(output_unit, '(A)') 'Specify at least option -s or -i or -n. See --help.'
+        if(.not.any(specified(['s','i','n'])))then
+            write(output_unit, '(A)') 'Specify at least one option -s or -i or -n. See --help.'
             stop
         end if
         do i=1, size(args)
