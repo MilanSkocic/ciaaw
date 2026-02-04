@@ -34,20 +34,21 @@ DESCRIPTION
        from table 1  from  Prohaska  et  al.  (IUPAC  Technical  Report
        94(5):573–600).   For  the elements that feature an interval for
        the standard atomic weight, the mean value and  the  uncertainty
-       are computed using formulas defined in [2].  The standard atomic
-       weights  are  a  dimensionless quantity and thus they need to be
-       multiplied by the molar mass constant Mu in  order  to  get  the
-       value in g.mol-1. See codata for physical constants.
+       are  computed  using  formulas defined in IUPAC Technical Report
+       93(5):629–646.  The standard atomic weights are a  dimensionless
+       quantity  and  thus they need to be multiplied by the molar mass
+       constant Mu in order to get the value in g.mol-1. See codata for
+       physical constants.
 
-       The  latest  isotopic  compositions were released in 2013 by the
-       ciaaw (https://www.ciaaw.org).  All the values for the  composi‐
+       The latest isotopic compositions were released in  2013  by  the
+       ciaaw  (https://www.ciaaw.org).  All the values for the composi‐
        tions are provided as double precision reals.  The isotopic com‐
-       positions  of the element, are extracted from table 1 from Meija
+       positions of the element, are extracted from table 1 from  Meija
        et al. (IUPAC Technical Report. 88(3):293–306).
 
-       The latest atomic weights for nuclides were released in 2020  by
-       ciaaw   https://www.ciaaw.org   from  Huang  et  al.  (AME  2020
-       45(3):030002).  All the values for the  nuclide  atomic  weights
+       The  latest atomic weights for nuclides were released in 2020 by
+       ciaaw  https://www.ciaaw.org  from  Huang  et  al.   (AME   2020
+       45(3):030002).   All  the  values for the nuclide atomic weights
        are provided as double precision reals.
 
        Fortran API
@@ -56,7 +57,7 @@ DESCRIPTION
                      Get the version
 
                      o character(len=:), pointer :: fptr
-                            Fortran  pointer to a string indicating the
+                            Fortran pointer to a string indicating  the
                             version..
 
               o function get_saw(s, abridged, uncertainty)result(res)
@@ -66,11 +67,11 @@ DESCRIPTION
                             Element symbol.
 
                      o logical, intent(in), optional :: abridged
-                            Set to False if the abridged value  is  not
+                            Set  to  False if the abridged value is not
                             desired. Default to TRUE.
 
                      o logical, intent(in), optional :: uncertainty
-                            Set  to True if the uncertainty is desired.
+                            Set to True if the uncertainty is  desired.
                             Default to FALSE.
 
                      o real(dp) :: res
@@ -78,7 +79,7 @@ DESCRIPTION
                             -1 if the element does not have a SAW.
 
               o function get_ice(s, A, uncertainty)result(res)
-                     Get the isotopic composition of the element s  for
+                     Get  the isotopic composition of the element s for
                      the mass number A.
 
                      o character(len=*), intent(in) :: s
@@ -88,16 +89,16 @@ DESCRIPTION
                             Mass number.
 
                      o logical, intent(in), optional :: uncertainty
-                            Set  to True if the uncertainty is desired.
+                            Set to True if the uncertainty is  desired.
                             Default to FALSE.
 
                      o real(dp) :: res
-                            NaN if the provided  element  or  the  mass
+                            NaN  if  the  provided  element or the mass
                             number A are incorrect or -1 if the element
                             does not have an ICE.
 
               o function get_nice(s)result(res)
-                     Get  the  number of isotopes in ICE of the element
+                     Get the number of isotopes in ICE of  the  element
                      s.
 
                      o character(len=*), intent(in) :: s
@@ -107,7 +108,7 @@ DESCRIPTION
                             >0 if found or -1 if not found.
 
               o function get_naw(s, A, uncertainty)result(res)
-                     Get the atomic weight of the  nuclide  s  for  the
+                     Get  the  atomic  weight  of the nuclide s for the
                      mass number A.
 
                      o character(len=*), intent(in) :: s
@@ -117,16 +118,16 @@ DESCRIPTION
                             Mass number.
 
                      o logical, intent(in), optional :: uncertainty
-                            Flag  for returning the uncertainty instead
+                            Flag for returning the uncertainty  instead
                             of the value. Default to FALSE.
 
                      o real(dp) :: res
                             NaN if the provided element or A are incor‐
-                            rect or -1 if the element does not have  an
+                            rect  or -1 if the element does not have an
                             NAW.
 
               o function get_nnaw(s)result(res)
-                     Get  the  number of nuclides in NAW of the element
+                     Get the number of nuclides in NAW of  the  element
                      s.
 
                      o character(len=*), intent(in) :: s
@@ -139,22 +140,22 @@ DESCRIPTION
 
               •  char* ciaaw_get_version(void)
 
-              •  double ciaaw_get_saw(char *s, int  n,  bool  abridged,
+              •  double  ciaaw_get_saw(char  *s,  int n, bool abridged,
                  bool uncertainty)
 
-              •  double  ciaaw_get_ice(char  *s, int n, int A, bool un‐
+              •  double ciaaw_get_ice(char *s, int n, int A,  bool  un‐
                  certainty)
 
               •  int ciaaw_get_nice(char *s, int n)
 
-              •  double ciaaw_get_naw(char *s, int n, int A,  bool  un‐
+              •  double  ciaaw_get_naw(char  *s, int n, int A, bool un‐
                  certaintuy)
 
               •  int ciaaw_get_nnaw(char *s, int n)
 
        Python wrappers
 
-              •  get_saw(s:   str,  abridged:  bool=True,  uncertainty:
+              •  get_saw(s:  str,  abridged:  bool=True,   uncertainty:
                  bool=False)->float
 
               •  get_ice(s:str, A:int, uncertainty: bool=False)->float
@@ -166,7 +167,7 @@ DESCRIPTION
               •  get_nnaw(s:str)->int
 
 NOTES
-       To use ciaaw within your fpm project, add the following to  your
+       To  use ciaaw within your fpm project, add the following to your
        fpm.toml file:
 
                [dependencies]
@@ -199,7 +200,7 @@ NOTES
 
               o ab   Abridged
 
-              o res  Return values
+              o res  Result
 
 EXAMPLES
        Example in Fortran:
