@@ -2,14 +2,14 @@
 
 - Bug fix in CLI `ciaaw(1)`. 
 
-[Full changelog](https://github.com/MilanSkocic/codata/releases)
+[Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
 
 # 1.2.0
 
 - Add CLI `ciaaw(1)` for searching saw, ice and naw.
 - Code refactoring
 
-[Full changelog](https://github.com/MilanSkocic/codata/releases)
+[Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
 
 # 1.1.1
 
