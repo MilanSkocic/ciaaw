@@ -2,5 +2,5 @@ module ciaaw__version
     !! Version
     implicit none
     private
-    character(len=*), parameter, public :: version = "1.2.1"
+    character(len=*), parameter, public :: version = "1.2.2"
 end module ciaaw__version

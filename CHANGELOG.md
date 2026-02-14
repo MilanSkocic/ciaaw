@@ -1,3 +1,11 @@
+# 1.2.2
+
+- Maintenance release.
+- Fix Makefile for uninstall target with incorrect file names.
+- Fix Makefile for man pages.
+
+[Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
+
 # 1.2.1
 
 - Bug fix in CLI `ciaaw(1)`. 
