@@ -1,4 +1,4 @@
-ciaaw(1)                     Library calls                     ciaaw(1)
+ciaaw(1)                     User Commands                     ciaaw(1)
 
 NAME
        ciaaw - Command line for ciaaw
@@ -51,4 +51,4 @@ EXAMPLE
 SEE ALSO
        ciaaw(3), codata(3)
 
-1.2.1                       04 February 2026                   ciaaw(1)
+1.2.2                       14 February 2026                   ciaaw(1)

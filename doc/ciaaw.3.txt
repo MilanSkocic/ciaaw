@@ -1,4 +1,4 @@
-ciaaw(3)                     Library calls                     ciaaw(3)
+ciaaw(3)                     Library Calls                     ciaaw(3)
 
 NAME
        ciaaw  -  library  for  isotopic  abundances and standard atomic
@@ -321,4 +321,4 @@ EXAMPLES
 SEE ALSO
        gsl(3), codata(3)
 
-1.2.1                       04 February 2026                   ciaaw(3)
+1.2.2                       14 February 2026                   ciaaw(3)
