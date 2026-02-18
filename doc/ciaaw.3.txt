@@ -321,4 +321,4 @@ EXAMPLES
 SEE ALSO
        gsl(3), codata(3)
 
-1.2.2                       14 February 2026                   ciaaw(3)
+1.3.0                       18 February 2026                   ciaaw(3)
