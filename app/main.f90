@@ -117,7 +117,6 @@ subroutine print(s, saw, ice, naw, headers, mu)
     cmu = 1.0_dp
     if(mu2)then
         cmu = MOLAR_MASS_CONSTANT%value * 1000.0
-        print *,  cmu
     end if
 
     z = -1
