@@ -91,4 +91,5 @@ clean:
 	rm -f $(FPM_PY_SRC)/*.dll 
 	rm -f $(FPM_PY_SRC)/*.dll.a 
 	rm -f $(FPM_PY_SRC)/*.pyd
+	rm -f $(FPM_PY_SRC)/$(FPM_APPNAME)
 # ---------------------------------------------------------------------
