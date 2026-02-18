@@ -59,6 +59,7 @@ program ciaawcli
         '' ]
     
     call set_mode('strict')
+    call set_mode('response_file')
     call set_args('--abridged:a --saw:s --ice:i --naw:n --mu:m --colnames:c', help_text, version_text) 
     if(size(args)<=0)then
         call print_periodic_table()
