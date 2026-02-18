@@ -47,6 +47,32 @@ program ciaawcli
         '  --verbose, -V    Display additional information when available.   ', &
         '  --version, -v    Show version information and exit.               ', &
         '                                                                      ', &
+        'NOTES                                                                 ', &
+        '                                                                      ', &
+        '  You may replace the default options from a file if your first       ', &
+        '  options begin with @file.                                           ', &
+        '  Initial options will then be read from the "response file"          ', &
+        '  "file.rsp" in the current directory.                                ', &
+        '                                                                      ', &
+        '  If "file" does not exist or cannot be read, then an error occurs and', &
+        '  the program stops. Each line of the file is prefixed with "options"', &
+        '  and interpreted as a separate argument. The file itself may not'  , &
+        '  contain @file arguments. That is, it is not processed recursively.', &
+        '                                                                      ', &
+        '  For more information on response files see                          '  , &
+        '                                                                      ', &
+        '    https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html'  , &
+        '                                                                      ', &
+        '  The basic functionality described here will remain the same, but'  , &
+        '  other features described at the above reference may change.'  , &
+        '                                                                      '  , &
+        '  An example file:                                                    '  , &
+        '                                                                      '  , &
+        '     # my build options'  , &
+        '     H C B O Zr Nb --saw --ice --naw --colnames'  , &
+
+        '                                                                      ', &
+        '                                                                      ', &
         'EXAMPLE                                                               ', &
         '  Minimal example                                                     ', &
         '                                                                      ', &
