@@ -1,64 +1,3 @@
-[  0%]              ciaaw_version.f90
-[  3%]              ciaaw_version.f90  done.
-[  3%]                      example.c
-[  6%]                      example.c  done.
-[  6%]                     M_CLI2.F90
-[ 10%]                     M_CLI2.F90  done.
-[ 10%]                stdlib_system.c
-[ 13%]                stdlib_system.c  done.
-[ 13%]               stdlib_kinds.f90
-[ 16%]               stdlib_kinds.f90  done.
-[ 16%]     stdlib_system_subprocess.c
-[ 20%]     stdlib_system_subprocess.c  done.
-[ 20%]              stdlib_io_aux.f90
-[ 23%]              stdlib_io_aux.f90  done.
-[ 23%]              stdlib_optval.f90
-[ 26%]              stdlib_optval.f90  done.
-[ 26%]               stdlib_ascii.f90
-[ 30%]               stdlib_ascii.f90  done.
-[ 30%]               ciaaw_common.f90
-[ 33%]               ciaaw_common.f90  done.
-[ 33%]         stdlib_codata_type.f90
-[ 36%]         stdlib_codata_type.f90  done.
-[ 36%]         stdlib_string_type.f90
-[ 40%]         stdlib_string_type.f90  done.
-[ 40%]                ciaaw_types.f90
-[ 43%]                ciaaw_types.f90  done.
-[ 43%]              stdlib_codata.f90
-[ 46%]              stdlib_codata.f90  done.
-[ 46%]             stdlib_strings.f90
-[ 50%]             stdlib_strings.f90  done.
-[ 50%]                  ciaaw_saw.f90
-[ 53%]                  ciaaw_saw.f90  done.
-[ 53%]                  ciaaw_naw.f90
-[ 56%]                  ciaaw_naw.f90  done.
-[ 56%]                  ciaaw_ice.f90
-[ 60%]                  ciaaw_ice.f90  done.
-[ 60%]   stdlib_strings_to_string.f90
-[ 63%]   stdlib_strings_to_string.f90  done.
-[ 63%] stdlib_string_type_constructor
-[ 66%] stdlib_string_type_constructor  done.
-[ 66%]                  ciaaw_pte.f90
-[ 70%]                  ciaaw_pte.f90  done.
-[ 70%]                  ciaaw_api.f90
-[ 73%]                  ciaaw_api.f90  done.
-[ 73%]                 ciaaw_capi.f90
-[ 76%]                 ciaaw_capi.f90  done.
-[ 76%]                      ciaaw.f90
-[ 80%]                      ciaaw.f90  done.
-[ 80%]                     libciaaw.a
-[ 83%]                     libciaaw.a  done.
-[ 83%]                       main.f90
-[ 86%]                       main.f90  done.
-[ 86%]                    example.f90
-[ 90%]                    example.f90  done.
-[ 90%]                          ciaaw
-[ 93%]                          ciaaw  done.
-[ 93%]                   example_in_c
-[ 96%]                   example_in_c  done.
-[ 96%]                   example_in_f
-[100%]                   example_in_f  done.
-[100%] Project compiled successfully.
 NAME
   ciaaw - Command line for ciaaw
 
@@ -97,15 +36,6 @@ NOTES
   For more information on response files see
 
     https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html
-
-  The basic functionality described here will remain the same, but
-  other features described at the above reference may change.
-
-  An example file:
-
-     # my build options
-     H C B O Zr Nb --saw --ice --naw --colnames
-
 
 EXAMPLE
   Minimal example
