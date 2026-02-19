@@ -63,16 +63,6 @@ program ciaawcli
         '                                                                      ', &
         '    https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html'  , &
         '                                                                      ', &
-        '  The basic functionality described here will remain the same, but'  , &
-        '  other features described at the above reference may change.'  , &
-        '                                                                      '  , &
-        '  An example file:                                                    '  , &
-        '                                                                      '  , &
-        '     # my build options'  , &
-        '     H C B O Zr Nb --saw --ice --naw --colnames'  , &
-
-        '                                                                      ', &
-        '                                                                      ', &
         'EXAMPLE                                                               ', &
         '  Minimal example                                                     ', &
         '                                                                      ', &
