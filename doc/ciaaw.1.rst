@@ -1,0 +1,83 @@
+NAME
+----
+
+**ciaaw** - Command line for ciaaw
+
+SYNOPSIS
+--------
+
+::
+
+   ciaaw [OPTION...] [ELEMENT...]
+
+DESCRIPTION
+-----------
+
+**ciaaw is a command line interface which provides the atomic** weights,
+the isotopic compositions and the nuclides atomic weights. If no element
+is provided the full periodic table is displayed.
+
+OPTIONS
+-------
+
+**--saw, -s**
+   Get the standard atomic weight.
+
+**--ice, -i**
+   Get the isotopic composition.
+
+**--naw, -n**
+   Get the nuclide atomic weight.
+
+**--mu, -m**
+   Get the molar masses in g/mol by multiplying the atomic weights by
+   the molar mass contant Mu.
+
+**--colnames, -c**
+   Show the headers in the outputs.
+
+**--usage, -u**
+   Show usage text and exit.
+
+**--help, -h**
+   Show help text and exit.
+
+**--verbose, -V**
+   Display additional information when available.
+
+**--version, -v**
+   Show version information and exit.
+
+NOTES
+-----
+
+You may replace the default options from a file if your first options
+begin with @file. Initial options will then be read from the "response
+file" "file.rsp" in the current directory.
+
+If "file" does not exist or cannot be read, then an error occurs and the
+program stops. Each line of the file is prefixed with "options" and
+interpreted as a separate argument. The file itself may not contain
+@file arguments. That is, it is not processed recursively.
+
+For more information on response files see
+
+::
+
+       https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html
+
+EXAMPLE
+-------
+
+Minimal example
+
+::
+
+         ciaaw
+         ciaaw H C B O Zr Nb --saw --ice --naw --colnames
+         ciaaw H C B O Zr Nb -sinc
+
+SEE ALSO
+--------
+
+**ciaaw(3), codata(3)**

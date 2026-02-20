@@ -1,3 +1,11 @@
+# 1.3.0
+
+- Add [response_file]( https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html) 
+  capability for the CLI.
+- Add `rst` output for the man pages.
+- Integration of the man pages in the online documentation generated with sphinx.
+
+
 # 1.2.2
 
 - Maintenance release.
