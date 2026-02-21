@@ -1,6 +1,5 @@
 module ciaaw__types
     !! Derived types for Standard Atomic Weights. 
-    use stdlib_string_type, only: string_type
     use ciaaw__common
     implicit none
     private
