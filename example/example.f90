@@ -3,8 +3,6 @@ program example_in_f
     use ciaaw
     implicit none
 
-    character(len=8) :: s
-    
     ! ASAW = Abridged Standard Atomic Weight
     ! SAW  = Standard Atomic Weight
     ! ICE  = Isotopic Composition of the Element

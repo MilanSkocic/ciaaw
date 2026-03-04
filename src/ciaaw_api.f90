@@ -1,137 +1,148 @@
 module ciaaw__api
-    !! API
-    use ieee_arithmetic, only: ieee_value, ieee_quiet_nan, ieee_is_nan
-    use ciaaw__version
-    use ciaaw__common
-    use ciaaw__types
-    use ciaaw__pte
-    private
+!! API
+use ieee_arithmetic, only: ieee_value, ieee_quiet_nan, ieee_is_nan
+use ciaaw__version, only: version
+use ciaaw__common, only: dp, int32, optval
+use ciaaw__types, only: element_type
+use ciaaw__pte, only: pt
+implicit none(type,external)
+private
 
-    character(len=:), allocatable, target :: version_f
+character(len=:), allocatable, target :: version_f
 
-    real(dp), allocatable, target :: n_ice_out(:,:)
+real(dp), allocatable, target :: n_ice_out(:,:)
 
-    public :: get_version
-    public :: get_saw
-    public :: get_ice, get_nice
-    public :: get_naw, get_nnaw
-    public :: print_periodic_table
-    ! public :: get_ice_values
+
+!=======================================================================
+! PUBLIC
+!=======================================================================
+public :: get_version
+public :: get_saw
+public :: get_ice, get_nice
+public :: get_naw, get_nnaw
+public :: print_periodic_table
+! public :: get_ice_values
 
 contains
-
-! ------------------------------ -----------------------------------------------
-! VERSION
+!=======================================================================
+! GET_VERSION
+!=======================================================================
 function get_version()result(fptr)
-    !! Get the version
-    implicit none
-    character(len=:), pointer :: fptr    !! Fortran pointer to a string indicating the version..
+!! Get the version
+implicit none
+character(len=:), pointer :: fptr    !! Fortran pointer to a string indicating the version..
 
-    if(allocated(version_f))then
-        deallocate(version_f)
-    endif
-    allocate(character(len=len(version)) :: version_f)
-    version_f = version
-    fptr => version_f
-end function
-! ------------------------------------------------------------------------------
-
-! ------------------------------------------------------------------------------
-! Base search functions
-function is_in_pt(z)result(res)
-    !! Check if the atomic number z is in the periodic table
-    integer(int32), intent(in) :: z  !! Atomic number
-    logical :: res                   !! True or False
-
-    if((z<1) .or. (z>size(pt))) then
-        res = .false.
-    else
-        res = .true.
-    end if
-end function
-
-function get_z_by_symbol(s)result(res)
-    !! Get the atomic number z of the element defined by the symbol s.
-    character(len=*), intent(in) :: s    !! Element symbol
-    integer(int32) :: res                !! >0 if found and -1 if not found.
-
-    integer(int32) :: i
-    type(element_type) :: elmt
-
-    res = -1
-
-    do i=1, size(pt)
-        elmt = pt(i)
-        if(s == elmt%symbol)then
-            res = i
-            exit
-        endif
-    end do
-end function
+if(allocated(version_f))then
+    deallocate(version_f)
+endif
+allocate(character(len=len(version)) :: version_f)
+version_f = version
+fptr => version_f
+end function get_version
+!=======================================================================
 
 
+!=======================================================================
+! PRINT_PERIODIC_TABLE
+!=======================================================================
 subroutine print_periodic_table()
-    !! Print periodic table.
-    integer(int32) :: i,j
+!! Print periodic table.
+integer(int32) :: i,j
 
-    character(len=20) :: v, u, w
+character(len=20) :: v, u, w
 
-    character(len=15) :: header(3)
-    character(len=15) :: ice_headers(3)
-    character(len=15) :: naw_headers(3)
+character(len=15) :: header(3)
+character(len=15) :: ice_headers(3)
+character(len=15) :: naw_headers(3)
 
-    header = [character(len=20) :: "", "", ""]
-    ice_headers = [character(len=15) :: "A", "C /%", "dC /%"]
-    naw_headers = [character(len=15) :: "A", "M", "dM"]
+header = [character(len=20) :: "", "", ""]
+ice_headers = [character(len=15) :: "A", "C /%", "dC /%"]
+naw_headers = [character(len=15) :: "A", "M", "dM"]
 
-    do i=1, size(pt)
-        print "(A)", "============================================="
-        header(1) = pt(i)%symbol
-        header(2) = pt(i)%element
-        write(v, "(I3)") pt(i)%z
-        header(3) = "z=" // v
-        print "(3A15)", header
-        print "(A)", "---------------------------------------------"
+do i=1, size(pt)
+    print "(A)", "============================================="
+    header(1) = pt(i)%symbol
+    header(2) = pt(i)%element
+    write(v, "(I3)") pt(i)%z
+    header(3) = "z=" // v
+    print "(3A15)", header
+    print "(A)", "---------------------------------------------"
 
-        print "(A)", "STANDARD ATOMIC WEIGHTS"
-        write(v, "(F10.5)") pt(i)%saw%asaw
-        write(u, "(F10.5)") pt(i)%saw%asaw_u
-        print "(A4, A10, A, A10)", "M = ", adjustl(v), "+/-", adjustl(u)
+    print "(A)", "STANDARD ATOMIC WEIGHTS"
+    write(v, "(F10.5)") pt(i)%saw%asaw
+    write(u, "(F10.5)") pt(i)%saw%asaw_u
+    print "(A4, A10, A, A10)", "M = ", adjustl(v), "+/-", adjustl(u)
 
-        print "(A)", "---------------------------------------------"
+    print "(A)", "---------------------------------------------"
 
-        print "(A)", "ISOTOPIC COMPOSITIONS"
-        print "(3A15)", ice_headers
-        do j=1, pt(i)%ice%n
-            write(w, "(I3)") nint(pt(i)%ice%values(j,1))
-            write(v, "(ES12.5)") pt(i)%ice%values(j,2)
-            write(u, "(ES12.5)") pt(i)%ice%values(j,3)
-            print "(3A15)", adjustl(w), adjustl(v), adjustl(u)
-        enddo
-        print "(A)", "---------------------------------------------"
+    print "(A)", "ISOTOPIC COMPOSITIONS"
+    print "(3A15)", ice_headers
+    do j=1, pt(i)%ice%n
+        write(w, "(I3)") nint(pt(i)%ice%values(j,1))
+        write(v, "(ES12.5)") pt(i)%ice%values(j,2)
+        write(u, "(ES12.5)") pt(i)%ice%values(j,3)
+        print "(3A15)", adjustl(w), adjustl(v), adjustl(u)
+    enddo
+    print "(A)", "---------------------------------------------"
 
-        print "(A)", "NUCLIDE ATOMIC WEIGHTS"
-        print "(3A15)", naw_headers
-        do j=1, pt(i)%naw%n
-            write(w, "(I3)") nint(pt(i)%naw%values(j,1))
-            write(v, "(ES12.5)") pt(i)%naw%values(j,2)
-            write(u, "(ES12.5)") pt(i)%naw%values(j,3)
-            print "(3A15)", adjustl(w), adjustl(v), adjustl(u)
-        enddo
-        print "(A)", "============================================="
+    print "(A)", "NUCLIDE ATOMIC WEIGHTS"
+    print "(3A15)", naw_headers
+    do j=1, pt(i)%naw%n
+        write(w, "(I3)") nint(pt(i)%naw%values(j,1))
+        write(v, "(ES12.5)") pt(i)%naw%values(j,2)
+        write(u, "(ES12.5)") pt(i)%naw%values(j,3)
+        print "(3A15)", adjustl(w), adjustl(v), adjustl(u)
+    enddo
+    print "(A)", "============================================="
 
-        print *, ""
-        print *, ""
+    print *, ""
+    print *, ""
 
-    end do
-end subroutine
-!-------------------------------------------------------------------------------
-
-
+end do
+end subroutine print_periodic_table
+!=======================================================================
 
 
-! ------------------------------------------------------------------------------
-! SAW
+!=======================================================================
+! Base search functions
+!=======================================================================
+function is_in_pt(z)result(res)
+!! Check if the atomic number z is in the periodic table
+integer(int32), intent(in) :: z  !! Atomic number
+logical :: res                   !! True or False
+
+if((z<1) .or. (z>size(pt))) then
+    res = .false.
+else
+    res = .true.
+end if
+end function is_in_pt
+!-----------------------------------------------------------------------
+function get_z_by_symbol(s)result(res)
+!! Get the atomic number z of the element defined by the symbol s.
+character(len=*), intent(in) :: s    !! Element symbol
+integer(int32) :: res                !! >0 if found and -1 if not found.
+
+integer(int32) :: i
+type(element_type) :: elmt
+
+res = -1
+
+do i=1, size(pt)
+    elmt = pt(i)
+    if(s == elmt%symbol)then
+        res = i
+        exit
+    endif
+end do
+end function get_z_by_symbol
+!=======================================================================
+
+
+
+!=======================================================================
+! GET_SAW
+!=======================================================================
 function get_saw(s, abridged, uncertainty)result(res)
     !! Get the standard atomic weight for the element s.
     character(len=*), intent(in) :: s              !! Element symbol.
@@ -186,8 +197,8 @@ function get_saw(s, abridged, uncertainty)result(res)
             end if
         end if
     end if
-end function
-! ------------------------------------------------------------------------------
+end function get_saw
+!=======================================================================
 
 
 ! ------------------------------------------------------------------------------
