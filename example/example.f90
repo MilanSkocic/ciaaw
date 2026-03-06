@@ -1,6 +1,6 @@
 ! EXAMPLE IN FORTRAN
 program example_in_f
-use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw
+use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, get_version
 implicit none(type,external)
 print *, "version ", get_version()
 
