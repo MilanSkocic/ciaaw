@@ -1,3 +1,141 @@
+   **[**
+      0%] ciaaw_version.f90
+
+   **[**
+      4%] ciaaw_version.f90 done.
+
+   **[**
+      4%] example.c
+
+   **[**
+      8%] example.c done.
+
+   **[**
+      8%] M_CLI2.F90
+
+   **[ 13%]**
+      M_CLI2.F90 done.
+
+   **[ 13%]**
+      stdlib_system.c
+
+   **[ 17%]**
+      stdlib_system.c done.
+
+   **[ 17%]**
+      stdlib_kinds.f90
+
+   **[ 21%]**
+      stdlib_kinds.f90 done.
+
+   **[ 21%]**
+      stdlib_system_subprocess.c
+
+   **[ 26%]**
+      stdlib_system_subprocess.c done.
+
+   **[ 26%]**
+      stdlib_io_aux.f90
+
+   **[ 30%]**
+      stdlib_io_aux.f90 done.
+
+   **[ 30%]**
+      stdlib_optval.f90
+
+   **[ 34%]**
+      stdlib_optval.f90 done.
+
+   **[ 34%]**
+      ciaaw_common.f90
+
+   **[ 39%]**
+      ciaaw_common.f90 done.
+
+   **[ 39%]**
+      stdlib_codata_type.f90
+
+   **[ 43%]**
+      stdlib_codata_type.f90 done.
+
+   **[ 43%]**
+      ciaaw_types.f90
+
+   **[ 47%]**
+      ciaaw_types.f90 done.
+
+   **[ 47%]**
+      stdlib_codata.f90
+
+   **[ 52%]**
+      stdlib_codata.f90 done.
+
+   **[ 52%]**
+      ciaaw_saw.f90
+
+   **[ 56%]**
+      ciaaw_saw.f90 done.
+
+   **[ 56%]**
+      ciaaw_naw.f90
+
+   **[ 60%]**
+      ciaaw_naw.f90 done.
+
+   **[ 60%]**
+      ciaaw_ice.f90
+
+   **[ 65%]**
+      ciaaw_ice.f90 done.
+
+   **[ 65%]**
+      ciaaw_pte.f90
+
+   **[ 69%]**
+      ciaaw_pte.f90 done.
+
+   **[ 69%]**
+      ciaaw.f90
+
+   **[ 73%]**
+      ciaaw.f90 done.
+
+   **[ 73%]**
+      libciaaw.a
+
+   **[ 78%]**
+      libciaaw.a done.
+
+   **[ 78%]**
+      main.f90
+
+   **[ 82%]**
+      main.f90 done.
+
+   **[ 82%]**
+      example.f90
+
+   **[ 86%]**
+      example.f90 done.
+
+   **[ 86%]**
+      ciaaw
+
+   **[ 91%]**
+      ciaaw done.
+
+   **[ 91%]**
+      example_in_c
+
+   **[ 95%]**
+      example_in_c done.
+
+   **[ 95%]**
+      example_in_f
+
+   **[100%]**
+      example_in_f done. [100%] Project compiled successfully.
+
 NAME
 ----
 
