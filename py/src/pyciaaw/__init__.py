@@ -23,7 +23,7 @@ def main():
     sys.exit(res.returncode)
 
 
-def get_saw(s: str, abridged: bool = True, uncertainty: bool = False) -> float:
+def get_saw(s: str, ab: bool = True, u: bool = False) -> float:
     r"""
     Get the standard atomic weight of the element s.
 
@@ -31,9 +31,9 @@ def get_saw(s: str, abridged: bool = True, uncertainty: bool = False) -> float:
     ----------
     s: str
         Element symbol.
-    abridged: bool, optional
+    ab: bool, optional
         Flag for the abridged value. Default to True.
-    uncertainty: bool, optional
+    u: bool, optional
         Flag to get the uncertainty instead of the value. Default to False.
 
     Returns:
@@ -42,10 +42,10 @@ def get_saw(s: str, abridged: bool = True, uncertainty: bool = False) -> float:
         Returns NaN if the provided element is incorrect or -1
         if the element does not have a standard atomic weight.
     """
-    return _ciaaw.get_saw(str(s), bool(abridged), bool(uncertainty))
+    return _ciaaw.get_saw(str(s), bool(ab), bool(u))
 
 
-def get_ice(s: str, A: int, uncertainty: bool = False) -> float:
+def get_ice(s: str, A: int, u: bool = False) -> float:
     r"""
     Get the isotopic composition of the element s for the mass number A.
 
@@ -55,7 +55,7 @@ def get_ice(s: str, A: int, uncertainty: bool = False) -> float:
         Element symbol.
     A: int
         Mass number.
-    uncertainty: bool, optional
+    u: bool, optional
         Flag to get the uncertainty instead of the value.
         Default to False.
 
@@ -65,7 +65,7 @@ def get_ice(s: str, A: int, uncertainty: bool = False) -> float:
         Returns NaN if the provided element or the mass number A are
         incorrect or -1 if the element does not have an ICE.
     """
-    return _ciaaw.get_ice(str(s), int(A), bool(uncertainty))
+    return _ciaaw.get_ice(str(s), int(A), bool(u))
 
 
 def get_nice(s: str) -> int:
@@ -85,7 +85,7 @@ def get_nice(s: str) -> int:
     return _ciaaw.get_nice(str(s))
 
 
-def get_naw(s: str, A: int, uncertainty: bool = False) -> float:
+def get_naw(s: str, A: int, u: bool = False) -> float:
     r"""
     Get the atomic weight of the nuclide s for the mass number A.
 
@@ -95,7 +95,7 @@ def get_naw(s: str, A: int, uncertainty: bool = False) -> float:
         Element symbol.
     A: int
         Mass number.
-    uncertainty: bool, optional
+    u: bool, optional
         Flag to get the uncertainty instead of the value. Default to False.
 
     Returns
@@ -104,7 +104,7 @@ def get_naw(s: str, A: int, uncertainty: bool = False) -> float:
         Returns NaN if the provided element or A are incorrect or -1
         if the element does not have an NAW.
     """
-    return _ciaaw.get_naw(str(s), int(A), bool(uncertainty))
+    return _ciaaw.get_naw(str(s), int(A), bool(u))
 
 
 def get_nnaw(s: str) -> int:
