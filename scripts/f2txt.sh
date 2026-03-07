@@ -5,10 +5,10 @@ i=0
 while IFS='' read -r lineraw; do
     line=$(echo $lineraw | sed -E 's/^[[:space:]]*//')
     case $line in
-        *"function"*"("*")"*)
+        "function"*"("*")"*)
             echo  -n "        o $line"
             ;;
-        *"subroutine"*"("*")"*)
+        "subroutine"*"("*")"*)
             echo  -n "        o $line"
             ;;
         "!! "*)
