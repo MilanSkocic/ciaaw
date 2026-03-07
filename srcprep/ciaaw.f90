@@ -12,17 +12,16 @@ SYNOPSIS
     import pyciaaw
 
 DESCRIPTION
-    ciaaw is a Fortran library providing the standard and abridged atomic 
-    weights, the isotopic abundance and the isotopes’ standard atomic weights. 
-    The data are taken from http://ciaaw.org. 
-    C API allows usage from C, or can be used as a basis for other wrappers. 
-    Python wrapper allows easy usage from Python.
-
-    What have been implemented:
+    ciaaw is a Fortran library providing the standard and abridged atomic
+    weights, the isotopic abundance and the isotopes’ standard atomic weights:
 
         o SAW  Standard Atomic Weights.
         o ICE  Isotopic Composition of the Element
         o NAW  Nuclides Atomic Weight.
+
+    The data are taken from http://ciaaw.org.
+    C API allows usage from C, or can be used as a basis for other wrappers.
+    Python wrapper allows easy usage from Python.
 
     The latest standard atomic weights were released in 2021 by the ciaaw 
     (https://www.ciaaw.org). 
@@ -49,42 +48,91 @@ DESCRIPTION
     Fortran API
         o function get_version()result(fptr)  Get the version
              o character(len=:), pointer :: fptr    Fortran pointer to a string indicating the version..
-        o function get_saw(s, abridged, uncertainty)result(res)  Get the standard atomic weight for the element s.
+        o function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)  C API.
+             o type(c_ptr) :: cptr    C pointer to a string indicating the version.
+        o subroutine print_periodic_table()  Print periodic table.
+        o function get_saw(s, ab, u)result(res)  Get the standard atomic weight for the element s.
              o character(len=*), intent(in) :: s    Element symbol.
-             o logical, intent(in), optional :: abridged    Set to False if the abridged value is not desired. Default to TRUE.
-             o logical, intent(in), optional :: uncertainty    Set to True if the uncertainty is desired. Default to FALSE.
+             o logical, intent(in), optional :: ab    Set to False if the abridged value is not desired. Default to TRUE.
+             o logical, intent(in), optional :: u    Set to True if the uncertainty is desired. Default to FALSE.
              o real(dp) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-        o function get_ice(s, A, uncertainty)result(res)  Get the isotopic composition of the element s for the mass number A.
+        o function capi_get_saw(s, n, ab, u)bind(C, name="ciaaw_get_saw")result(res)  C API.
+             o type(c_ptr), intent(in), value :: s    Symbol.
+             o integer(c_int), intent(in), value :: n    Size of the symbol string.
+             o logical(c_bool), intent(in), value :: ab    Flag for setting if abridged value is desired.
+             o logical(c_bool), intent(in), value :: u    Flag for setting if the uncertainty is desired instead of the value.
+             o real(c_double) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
+        o function get_ice(s, A, u)result(res)  Get the isotopic composition of the element s for the mass number A.
              o character(len=*), intent(in) :: s    Element symbol.
              o integer(int32), intent(in) :: A    Mass number.
-             o logical, intent(in), optional :: uncertainty    Set to True if the uncertainty is desired. Default to FALSE.
+             o logical, intent(in), optional :: u    Set to True if the uncertainty is desired. Default to FALSE.
              o real(dp) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
+        o function capi_get_ice(s, n, A, u)bind(C, name="ciaaw_get_ice")result(res)  C API.
+             o type(c_ptr), intent(in), value :: s    Element symbol.
+             o integer(c_int), intent(in), value :: n    Size of the symbol string.
+             o integer(c_int), intent(in), value :: A    Mass number.
+             o logical(c_bool), intent(in), value :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
+             o real(c_double) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
         o function get_nice(s)result(res)  Get the number of isotopes in ICE of the element s.
              o character(len=*), intent(in) :: s    Element symbol.
              o integer(int32) :: res    >0 if found or -1 if not found.
-        o function get_naw(s, A, uncertainty)result(res)  Get the atomic weight of the nuclide s for the mass number A.
+        o function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)  C API.
+             o type(c_ptr), intent(in), value :: s    Element symbol.
+             o integer(c_int), intent(in), value :: n    Size of the symbol string.
+             o integer(c_int) :: res    >0 if found or -1 if not found.
+             o   character(len=*), intent(in) :: s    Element symbol.
+             o   type(c_ptr), intent(in), value :: s    Element symbol.
+             o   integer(c_int), intent(in), value :: n    Size of the symbol string.
+        o function get_naw(s, A, u)result(res)  Get the atomic weight of the nuclide s for the mass number A.
              o character(len=*), intent(in) :: s    Element symbol.
              o integer(int32), intent(in) :: A    Mass number.
-             o logical, intent(in), optional :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
+             o logical, intent(in), optional :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
              o real(dp) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
+        o function capi_get_naw(s, n, A, u)bind(C, name="ciaaw_get_naw")result(res)  C API.
+             o type(c_ptr), intent(in), value :: s    Element symbol.
+             o integer(c_int), intent(in), value :: n    Size of the symbol string.
+             o integer(c_int), intent(in), value :: A    Mass number.
+             o logical(c_bool), intent(in), value :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
+             o real(c_double) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
         o function get_nnaw(s)result(res)  Get the number of nuclides in NAW of the element s.
              o character(len=*), intent(in) :: s    Element symbol.
              o integer(int32) :: res    >0 if found or -1 if not found.
+        o function capi_get_nnaw(s,n)bind(C, name="ciaaw_get_nnaw")result(res)  C API.
+             o type(c_ptr), intent(in), value :: s    Element symbol.
+             o integer(c_int), intent(in), value :: n    Size of the symbol string.
 
     C API
         o char* ciaaw_get_version(void)
-        o double ciaaw_get_saw(char *s, int n, bool abridged, bool uncertainty)
-        o double ciaaw_get_ice(char *s, int n, int A, bool uncertainty)
+        o double ciaaw_get_saw(char *s, int n, bool ab, bool u)
+        o double ciaaw_get_ice(char *s, int n, int A, bool u)
         o int ciaaw_get_nice(char *s, int n)
-        o double ciaaw_get_naw(char *s, int n, int A, bool uncertaintuy)
+        o double ciaaw_get_naw(char *s, int n, int A, bool u)
         o int ciaaw_get_nnaw(char *s, int n)
     
     Python wrappers
-        o get_saw(s: str, abridged: bool=True, uncertainty: bool=False)->float
-        o get_ice(s:str, A:int, uncertainty: bool=False)->float
-        o get_nice(s:str)->int
-        o get_naw(s:str, A:int, uncertainty: bool=False)->float
-        o get_nnaw(s:str)->int
+        o get_saw(s: str, ab: bool = True, u: bool = False) -> float
+        o get_ice(s: str, A: int, u: bool = False) -> float
+        o get_nice(s: str) -> int
+        o get_naw(s: str, A: int, u: bool = False) -> float
+        o get_nnaw(s: str) -> int
+
+    References
+
+        o W.J. Huang, Meng Wang, F.G. Kondev, G. Audi, and S. Naimi. The AME 2020 atomic mass
+        evaluation (I). Evaluation of input data, and adjustment procedures*. 45(3):030002.
+
+        o Juris Meija, Tyler B. Coplen, Michael Berglund, Willi A. Brand, Paul De Bièvre, Manfred
+        Gröning, Norman E. Holden, Johanna Irrgeher, Robert D. Loss, Thomas Walczyk, and Thomas
+        Prohaska. Isotopic compositions of the elements 2013 (IUPAC Technical Report). 88(3):293–306.
+
+        o Thomas Prohaska, Johanna Irrgeher, Jacqueline Benefield, John K. Böhlke, Lesley A. Chesson,
+        Tyler B. Coplen, Tiping Ding, Philip J. H. Dunn, Manfred Gröning, Norman E. Holden, Harro
+        A. J. Meijer, Heiko Moossen, Antonio Possolo, Yoshio Takahashi, Jochen Vogl, Thomas Walczyk,
+        Jun Wang, Michael E. Wieser, Shigekazu Yoneda, Xiang-Kun Zhu, and Juris Meija. Standard
+        atomic weights of the elements 2021 (IUPAC Technical Report). 94(5):573–600.
+
+        o M.H. van der Veen, J. Meia, and D. Brynn Hibbert. Interpretation and use of standard atomic
+        weights (IUPAC Technical Report). 93(5):629–646.
 
 NOTES
     To use ciaaw within your fpm project, add the following to your fpm.toml file:
@@ -100,7 +148,6 @@ NOTES
         o SAW    Standard Atomic Weight
         o ICE    Isotopic Composition of the Element
         o NAW    Nuclide Atomic Weight
-        o U      Uncertainty
 
     The definitions of the common variables:
         o s    Element
@@ -114,29 +161,29 @@ EXAMPLES
     Example in Fortran
 
         program example_in_f
-        use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw
+        use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, get_version
         implicit none(type,external)
         print *, "version ", get_version()
         
         print '(A)', '########### CIAAW SAW ##########'
-        print '(A10, F10.5)', 'ASAW H = ', get_saw("H", abridged=.true.)
-        print '(A10, F10.5)', 'U ASAW H = ', get_saw("H", uncertainty=.true.)
-        print '(A10, F10.5)', 'SAW H = ', get_saw("H", abridged = .false.)
-        print '(A10, F10.5)', 'U SAW H = ', get_saw("H", abridged = .false., uncertainty = .true.)
-        print '(A10, F10.5)', 'ASAW T = ', get_saw("Tc", abridged=.true.)
+        print '(A10, F10.5)', 'ASAW H = ', get_saw("H", ab=.true.)
+        print '(A10, F10.5)', 'U ASAW H = ', get_saw("H", u=.true.)
+        print '(A10, F10.5)', 'SAW H = ', get_saw("H", ab=.false.)
+        print '(A10, F10.5)', 'U SAW H = ', get_saw("H", ab=.false., u=.true.)
+        print '(A10, F10.5)', 'ASAW T = ', get_saw("Tc", ab=.true.)
         
         print '(A)', '########### CIAAW ICE ##########'
         print '(A, I3)', 'N ICE H = ', get_nice("H")
         print '(A, F12.6)', 'ICE H 1 = ', get_ice("H", A=1)
-        print '(A, ES23.16)', 'U ICE H 1 = ', get_ice("H", A=1, uncertainty=.true.)
+        print '(A, ES23.16)', 'U ICE H 1 = ', get_ice("H", A=1, u=.true.)
         print '(A, F12.6)', 'ICE H 2 = ', get_ice("H", A=2)
-        print '(A, ES23.16)', 'U ICE H 2 = ', get_ice("H", A=2, uncertainty=.true.)
+        print '(A, ES23.16)', 'U ICE H 2 = ', get_ice("H", A=2, u=.true.)
         print '(A, I3)', 'N ICE Tc = ', get_nice("Tc")
         print '(A, I3)', 'N ICE C = ', get_nice("C")
         
         print '(A)', '########### CIAAW NAW ##########'
         print '(A, ES23.16)', 'NAW H 2 = ', get_naw("H", A=2)
-        print '(A, ES23.16)', 'U NAW H 2 = ', get_naw("H", A=2, uncertainty=.true.)
+        print '(A, ES23.16)', 'U NAW H 2 = ', get_naw("H", A=2, u=.true.)
         print '(A, I3)', 'N NAW Tc = ', get_nnaw("Tc")
         
         end program example_in_f
@@ -180,35 +227,30 @@ EXAMPLES
 
         import pyciaaw
         
-        # ASAW = Abridged Standard Atomic Weight
-        # SAW  = Standard Atomic Weight
-        # ICE  = Isotopic Composition of the Element
-        # NAW  = Nuclide Atomic Weight
-        # U    = Uncertainty
-        
         print("########## CIAAW VERSION ##########")
         print("version ", pyciaaw.__version__)
         
         print("########## CIAAW SAW  ##########")
         print("ASAW H   = ", pyciaaw.get_saw("H"))
-        print("U ASAW H = ", pyciaaw.get_saw("H", uncertainty=True))
-        print("SAW H    = ", pyciaaw.get_saw("H", abridged=False, uncertainty=False))
-        print("U SAW H  = ", pyciaaw.get_saw("H", abridged=False, uncertainty=True))
+        print("U ASAW H = ", pyciaaw.get_saw("H", u=True))
+        print("SAW H    = ", pyciaaw.get_saw("H", ab=False, u=False))
+        print("U SAW H  = ", pyciaaw.get_saw("H", ab=False, u=True))
         print("ASAW Tc  = ", pyciaaw.get_saw("Tc"))
         
         print("########## CIAAW ICE  ##########")
         print("N ICE H   = ", pyciaaw.get_nice("H"))
         print('ICE H 1   = ', pyciaaw.get_ice("H", A=1))
-        print('U ICE H 1 = ', pyciaaw.get_ice("H", A=1, uncertainty=True))
+        print('U ICE H 1 = ', pyciaaw.get_ice("H", A=1, u=True))
         print('ICE H 2   = ', pyciaaw.get_ice("H", A=2))
-        print('U ICE H 2 = ', pyciaaw.get_ice("H", A=2, uncertainty=True))
+        print('U ICE H 2 = ', pyciaaw.get_ice("H", A=2, u=True))
         print("N ICE Tc  = ", pyciaaw.get_nice("Tc"))
         print("N ICE C   = ", pyciaaw.get_nice("C"))
         
         print("########## CIAAW NAW  ##########")
         print('NAW H 2   = ', pyciaaw.get_naw("H", A=2))
-        print('U NAW H 2 = ', pyciaaw.get_naw("H", A=2, uncertainty=True))
+        print('U NAW H 2 = ', pyciaaw.get_naw("H", A=2, u=True))
         print("N NAW Tc  = ", pyciaaw.get_nnaw("Tc"))
+
 
 SEE ALSO
     ciaaw(1), gsl(3), codata(3)
@@ -373,26 +415,26 @@ end function get_z_by_symbol
 !=======================================================================
 ! GET_SAW
 !=======================================================================
-function get_saw(s, abridged, uncertainty)result(res)
+function get_saw(s, ab, u)result(res)
 !! Get the standard atomic weight for the element s.
-character(len=*), intent(in) :: s              !! Element symbol.
-logical, intent(in), optional :: abridged      !! Set to False if the abridged value is not desired. Default to TRUE.
-logical, intent(in), optional :: uncertainty   !! Set to True if the uncertainty is desired. Default to FALSE.
-real(dp) :: res                                !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
+character(len=*), intent(in) :: s    !! Element symbol.
+logical, intent(in), optional :: ab  !! Set to False if the abridged value is not desired. Default to TRUE.
+logical, intent(in), optional :: u   !! Set to True if the uncertainty is desired. Default to FALSE.
+real(dp) :: res                      !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
 
 real(dp) :: saw_max, saw_min, saw, saw_u
 integer(int32) :: z, n
-logical :: a2, u2
+logical :: ab2, u2
 
-a2 = optval(abridged, .true.)
-u2 = optval(uncertainty, .false.)
+ab2 = optval(ab, .true.)
+u2 = optval(u, .false.)
 
 z = get_z_by_symbol(s)
 
 res = ieee_value(1.0_dp, ieee_quiet_nan)
 
 if(z>0)then
-    if(a2 .eqv. .true.)then
+    if(ab2 .eqv. .true.)then
         if(u2 .eqv. .true.)then
             res = pt(z)%saw%asaw_u
         else
@@ -428,18 +470,18 @@ if(z>0)then
 end if
 end function get_saw
 !-----------------------------------------------------------------------
-function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")result(res)
+function capi_get_saw(s, n, ab, u)bind(C, name="ciaaw_get_saw")result(res)
 !! C API.
-type(c_ptr), intent(in), value :: s               !! Symbol.
-integer(c_int), intent(in), value :: n            !! Size of the symbol string.
-logical(c_bool), intent(in), value :: abridged    !! Flag for setting if abridged value is desired.
-logical(c_bool), intent(in), value :: uncertainty !! Flag for setting if the uncertainty is desired instead of the value.
-real(c_double) :: res                             !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
+type(c_ptr), intent(in), value :: s       !! Symbol.
+integer(c_int), intent(in), value :: n    !! Size of the symbol string.
+logical(c_bool), intent(in), value :: ab  !! Flag for setting if abridged value is desired.
+logical(c_bool), intent(in), value :: u   !! Flag for setting if the uncertainty is desired instead of the value.
+real(c_double) :: res                     !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
 
 integer(c_int) :: i
 character, pointer, dimension(:) :: c2f_s
 character(len=n) :: fs
-logical :: f_abridged, f_uncertainty
+logical :: f_ab, f_u
 
 call c_f_pointer(s, c2f_s, shape=[n])
 
@@ -447,10 +489,10 @@ do i=1, n
     fs(i:i) = c2f_s(i)
 enddo
 
-f_abridged = logical(abridged)
-f_uncertainty = logical(uncertainty)
+f_ab = logical(ab)
+f_u = logical(u)
 
-res = get_saw(fs, f_abridged, f_uncertainty)
+res = get_saw(fs, f_ab, f_u)
 end function capi_get_saw
 !=======================================================================
 
@@ -458,18 +500,18 @@ end function capi_get_saw
 !=======================================================================
 ! GET_ICE
 !=======================================================================
-function get_ice(s, A, uncertainty)result(res)
+function get_ice(s, A, u)result(res)
 !! Get the isotopic composition of the element s for the mass number A.
-character(len=*), intent(in) :: s              !! Element symbol.
-integer(int32), intent(in) :: A                !! Mass number.
-logical, intent(in), optional :: uncertainty   !! Set to True if the uncertainty is desired. Default to FALSE.
-real(dp) :: res                                !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
+character(len=*), intent(in) :: s   !! Element symbol.
+integer(int32), intent(in) :: A     !! Mass number.
+logical, intent(in), optional :: u  !! Set to True if the uncertainty is desired. Default to FALSE.
+real(dp) :: res                     !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
 
 real(dp) :: A_double
 integer(int32) :: i, z, col, row
 logical :: u2
 
-u2 = optval(uncertainty, .false.)
+u2 = optval(u, .false.)
 z = get_z_by_symbol(s)
 A_double = real(A, dp)
 
@@ -495,18 +537,18 @@ if(row > 0)then
 endif
 end function get_ice
 !-----------------------------------------------------------------------
-function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)
+function capi_get_ice(s, n, A, u)bind(C, name="ciaaw_get_ice")result(res)
 !! C API.
-type(c_ptr), intent(in), value :: s                    !! Element symbol.
-integer(c_int), intent(in), value :: n                 !! Size of the symbol string.
-integer(c_int), intent(in), value :: A                 !! Mass number.
-logical(c_bool), intent(in), value :: uncertainty      !! Flag for returning the uncertainty instead of the value. Default to FALSE.
-real(c_double) :: res                                !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
+type(c_ptr), intent(in), value :: s      !! Element symbol.
+integer(c_int), intent(in), value :: n   !! Size of the symbol string.
+integer(c_int), intent(in), value :: A   !! Mass number.
+logical(c_bool), intent(in), value :: u  !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+real(c_double) :: res                    !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
 
 integer(c_int) :: i
 character, pointer, dimension(:) :: c2f_s
 character(len=n) :: fs
-logical :: f_uncertainty
+logical :: f_u
 
 call c_f_pointer(s, c2f_s, shape=[n])
 
@@ -514,9 +556,9 @@ do i=1, n
     fs(i:i) = c2f_s(i)
 enddo
 
-f_uncertainty = logical(uncertainty)
+f_u = logical(u)
 
-res = get_ice(fs, A, f_uncertainty)
+res = get_ice(fs, A, f_u)
 end function capi_get_ice
 !=======================================================================
 
@@ -629,19 +671,19 @@ end function capi_get_nice
 !=======================================================================
 ! GET_NAW
 !=======================================================================
-function get_naw(s, A, uncertainty)result(res)
+function get_naw(s, A, u)result(res)
 !! Get the atomic weight of the nuclide s for the mass number A.
-character(len=*), intent(in) :: s              !! Element symbol.
-integer(int32), intent(in) :: A                !! Mass number.
-logical, intent(in), optional :: uncertainty   !! Flag for returning the uncertainty instead of the value. Default to FALSE.
-real(dp) :: res                                !! NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
+character(len=*), intent(in) :: s   !! Element symbol.
+integer(int32), intent(in) :: A     !! Mass number.
+logical, intent(in), optional :: u  !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+real(dp) :: res                     !! NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
 
 real(dp) :: A_double
 integer(int32) :: i, z, col, row
 logical :: u2
 
 
-u2 = optval(uncertainty, .false.)
+u2 = optval(u, .false.)
 z = get_z_by_symbol(s)
 A_double = real(A, dp)
 
@@ -667,18 +709,18 @@ if(row > 0)then
 endif
 end function get_naw
 !-----------------------------------------------------------------------
-function capi_get_naw(s, n, A, uncertainty)bind(C, name="ciaaw_get_naw")result(res)
+function capi_get_naw(s, n, A, u)bind(C, name="ciaaw_get_naw")result(res)
 !! C API.
-type(c_ptr), intent(in), value :: s                    !! Element symbol.
-integer(c_int), intent(in), value :: n                 !! Size of the symbol string.
-integer(c_int), intent(in), value :: A                 !! Mass number.
-logical(c_bool), intent(in), value :: uncertainty      !! Flag for returning the uncertainty instead of the value. Default to FALSE.
-real(c_double) :: res                                !! NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
+type(c_ptr), intent(in), value :: s      !! Element symbol.
+integer(c_int), intent(in), value :: n   !! Size of the symbol string.
+integer(c_int), intent(in), value :: A   !! Mass number.
+logical(c_bool), intent(in), value :: u  !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+real(c_double) :: res                    !! NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
 
 integer(c_int) :: i
 character, pointer, dimension(:) :: c2f_s
 character(len=n) :: fs
-logical :: f_uncertainty
+logical :: f_u
 
 call c_f_pointer(s, c2f_s, shape=[n])
 
@@ -686,9 +728,9 @@ do i=1, n
     fs(i:i) = c2f_s(i)
 enddo
 
-f_uncertainty = logical(uncertainty)
+f_u = logical(u)
 
-res = get_naw(fs, A, f_uncertainty)
+res = get_naw(fs, A, f_u)
 end function capi_get_naw
 !=======================================================================
 
