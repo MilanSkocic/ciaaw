@@ -55,22 +55,22 @@
 !              o logical, intent(in), optional :: ab    Set to False if the abridged value is not desired. Default to TRUE.
 !              o logical, intent(in), optional :: u    Set to True if the uncertainty is desired. Default to FALSE.
 !              o real(dp) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-!         o function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")result(res)  C API.
+!         o function capi_get_saw(s, n, ab, u)bind(C, name="ciaaw_get_saw")result(res)  C API.
 !              o type(c_ptr), intent(in), value :: s    Symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
-!              o logical(c_bool), intent(in), value :: abridged    Flag for setting if abridged value is desired.
-!              o logical(c_bool), intent(in), value :: uncertainty    Flag for setting if the uncertainty is desired instead of the value.
+!              o logical(c_bool), intent(in), value :: ab    Flag for setting if abridged value is desired.
+!              o logical(c_bool), intent(in), value :: u    Flag for setting if the uncertainty is desired instead of the value.
 !              o real(c_double) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-!         o function get_ice(s, A, uncertainty)result(res)  Get the isotopic composition of the element s for the mass number A.
+!         o function get_ice(s, A, u)result(res)  Get the isotopic composition of the element s for the mass number A.
 !              o character(len=*), intent(in) :: s    Element symbol.
 !              o integer(int32), intent(in) :: A    Mass number.
-!              o logical, intent(in), optional :: uncertainty    Set to True if the uncertainty is desired. Default to FALSE.
+!              o logical, intent(in), optional :: u    Set to True if the uncertainty is desired. Default to FALSE.
 !              o real(dp) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
-!         o function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)  C API.
+!         o function capi_get_ice(s, n, A, u)bind(C, name="ciaaw_get_ice")result(res)  C API.
 !              o type(c_ptr), intent(in), value :: s    Element symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
 !              o integer(c_int), intent(in), value :: A    Mass number.
-!              o logical(c_bool), intent(in), value :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
+!              o logical(c_bool), intent(in), value :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
 !              o real(c_double) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
 !         o function get_nice(s)result(res)  Get the number of isotopes in ICE of the element s.
 !              o character(len=*), intent(in) :: s    Element symbol.
@@ -82,16 +82,16 @@
 !              o   character(len=*), intent(in) :: s    Element symbol.
 !              o   type(c_ptr), intent(in), value :: s    Element symbol.
 !              o   integer(c_int), intent(in), value :: n    Size of the symbol string.
-!         o function get_naw(s, A, uncertainty)result(res)  Get the atomic weight of the nuclide s for the mass number A.
+!         o function get_naw(s, A, u)result(res)  Get the atomic weight of the nuclide s for the mass number A.
 !              o character(len=*), intent(in) :: s    Element symbol.
 !              o integer(int32), intent(in) :: A    Mass number.
-!              o logical, intent(in), optional :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
+!              o logical, intent(in), optional :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
 !              o real(dp) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
-!         o function capi_get_naw(s, n, A, uncertainty)bind(C, name="ciaaw_get_naw")result(res)  C API.
+!         o function capi_get_naw(s, n, A, u)bind(C, name="ciaaw_get_naw")result(res)  C API.
 !              o type(c_ptr), intent(in), value :: s    Element symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
 !              o integer(c_int), intent(in), value :: A    Mass number.
-!              o logical(c_bool), intent(in), value :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
+!              o logical(c_bool), intent(in), value :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
 !              o real(c_double) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
 !         o function get_nnaw(s)result(res)  Get the number of nuclides in NAW of the element s.
 !              o character(len=*), intent(in) :: s    Element symbol.
@@ -102,18 +102,18 @@
 ! 
 !     C API
 !         o char* ciaaw_get_version(void)
-!         o double ciaaw_get_saw(char *s, int n, bool abridged, bool uncertainty)
-!         o double ciaaw_get_ice(char *s, int n, int A, bool uncertainty)
+!         o double ciaaw_get_saw(char *s, int n, bool ab, bool u)
+!         o double ciaaw_get_ice(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nice(char *s, int n)
-!         o double ciaaw_get_naw(char *s, int n, int A, bool uncertaintuy)
+!         o double ciaaw_get_naw(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nnaw(char *s, int n)
 ! 
 !     Python wrappers
-!         o get_saw(s: str, abridged: bool=True, uncertainty: bool=False)->float
-!         o get_ice(s:str, A:int, uncertainty: bool=False)->float
-!         o get_nice(s:str)->int
-!         o get_naw(s:str, A:int, uncertainty: bool=False)->float
-!         o get_nnaw(s:str)->int
+!         o get_saw(s: str, ab: bool = True, u: bool = False) -> float
+!         o get_ice(s: str, A: int, u: bool = False) -> float
+!         o get_nice(s: str) -> int
+!         o get_naw(s: str, A: int, u: bool = False) -> float
+!         o get_nnaw(s: str) -> int
 ! 
 !     References
 ! 
