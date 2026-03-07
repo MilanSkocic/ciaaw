@@ -1,9 +1,21 @@
+# 1.4.0
+
+- Refactoring and cleaning.
+- Arguments `abridged` and `uncertainty` were shortened to `ab` and `u`.
+- API break for Fortran API and Python API due to the named arguments.
+- C is not affected as there is no named arguments.
+
+[Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
+
+
 # 1.3.0
 
 - Add [response_file]( https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html) 
   capability for the CLI.
 - Add `rst` output for the man pages.
 - Integration of the man pages in the online documentation generated with sphinx.
+
+[Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
 
 
 # 1.2.2
@@ -14,11 +26,13 @@
 
 [Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
 
+
 # 1.2.1
 
 - Bug fix in CLI `ciaaw(1)`. 
 
 [Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
+
 
 # 1.2.0
 
@@ -26,6 +40,7 @@
 - Code refactoring
 
 [Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
+
 
 # 1.1.1
 
