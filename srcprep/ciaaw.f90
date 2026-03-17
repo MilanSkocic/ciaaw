@@ -44,77 +44,12 @@ DESCRIPTION
     The latest atomic weights for nuclides were released in 2020 by 
     ciaaw https://www.ciaaw.org from Huang et al. (AME 2020 45(3):030002). 
     All the values for the nuclide atomic weights are provided as double precision reals.
-    
-    Fortran API
-        o function get_version()result(fptr)  Get the version
-             o character(len=:), pointer :: fptr    Fortran pointer to a string indicating the version..
-        o function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)  C API.
-             o type(c_ptr) :: cptr    C pointer to a string indicating the version.
-        o subroutine print_periodic_table()  Print periodic table.
-        o function get_saw(s, ab, u)result(res)  Get the standard atomic weight for the element s.
-             o character(len=*), intent(in) :: s    Element symbol.
-             o logical, intent(in), optional :: ab    Set to False if the abridged value is not desired. Default to TRUE.
-             o logical, intent(in), optional :: u    Set to True if the uncertainty is desired. Default to FALSE.
-             o real(dp) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-        o function capi_get_saw(s, n, ab, u)bind(C, name="ciaaw_get_saw")result(res)  C API.
-             o type(c_ptr), intent(in), value :: s    Symbol.
-             o integer(c_int), intent(in), value :: n    Size of the symbol string.
-             o logical(c_bool), intent(in), value :: ab    Flag for setting if abridged value is desired.
-             o logical(c_bool), intent(in), value :: u    Flag for setting if the uncertainty is desired instead of the value.
-             o real(c_double) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-        o function get_ice(s, A, u)result(res)  Get the isotopic composition of the element s for the mass number A.
-             o character(len=*), intent(in) :: s    Element symbol.
-             o integer(int32), intent(in) :: A    Mass number.
-             o logical, intent(in), optional :: u    Set to True if the uncertainty is desired. Default to FALSE.
-             o real(dp) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
-        o function capi_get_ice(s, n, A, u)bind(C, name="ciaaw_get_ice")result(res)  C API.
-             o type(c_ptr), intent(in), value :: s    Element symbol.
-             o integer(c_int), intent(in), value :: n    Size of the symbol string.
-             o integer(c_int), intent(in), value :: A    Mass number.
-             o logical(c_bool), intent(in), value :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
-             o real(c_double) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
-        o function get_nice(s)result(res)  Get the number of isotopes in ICE of the element s.
-             o character(len=*), intent(in) :: s    Element symbol.
-             o integer(int32) :: res    >0 if found or -1 if not found.
-        o function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)  C API.
-             o type(c_ptr), intent(in), value :: s    Element symbol.
-             o integer(c_int), intent(in), value :: n    Size of the symbol string.
-             o integer(c_int) :: res    >0 if found or -1 if not found.
-             o   character(len=*), intent(in) :: s    Element symbol.
-             o   type(c_ptr), intent(in), value :: s    Element symbol.
-             o   integer(c_int), intent(in), value :: n    Size of the symbol string.
-        o function get_naw(s, A, u)result(res)  Get the atomic weight of the nuclide s for the mass number A.
-             o character(len=*), intent(in) :: s    Element symbol.
-             o integer(int32), intent(in) :: A    Mass number.
-             o logical, intent(in), optional :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
-             o real(dp) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
-        o function capi_get_naw(s, n, A, u)bind(C, name="ciaaw_get_naw")result(res)  C API.
-             o type(c_ptr), intent(in), value :: s    Element symbol.
-             o integer(c_int), intent(in), value :: n    Size of the symbol string.
-             o integer(c_int), intent(in), value :: A    Mass number.
-             o logical(c_bool), intent(in), value :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
-             o real(c_double) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
-        o function get_nnaw(s)result(res)  Get the number of nuclides in NAW of the element s.
-             o character(len=*), intent(in) :: s    Element symbol.
-             o integer(int32) :: res    >0 if found or -1 if not found.
-        o function capi_get_nnaw(s,n)bind(C, name="ciaaw_get_nnaw")result(res)  C API.
-             o type(c_ptr), intent(in), value :: s    Element symbol.
-             o integer(c_int), intent(in), value :: n    Size of the symbol string.
 
-    C API
-        o char* ciaaw_get_version(void)
-        o double ciaaw_get_saw(char *s, int n, bool ab, bool u)
-        o double ciaaw_get_ice(char *s, int n, int A, bool u)
-        o int ciaaw_get_nice(char *s, int n)
-        o double ciaaw_get_naw(char *s, int n, int A, bool u)
-        o int ciaaw_get_nnaw(char *s, int n)
-    
-    Python wrappers
-        o get_saw(s: str, ab: bool = True, u: bool = False) -> float
-        o get_ice(s: str, A: int, u: bool = False) -> float
-        o get_nice(s: str) -> int
-        o get_naw(s: str, A: int, u: bool = False) -> float
-        o get_nnaw(s: str) -> int
+$INCLUDE ./fapi.txt
+
+$INCLUDE ./capi.txt
+
+$INCLUDE ./pyapi.txt
 
     References
 
@@ -149,7 +84,7 @@ NOTES
         o ICE    Isotopic Composition of the Element
         o NAW    Nuclide Atomic Weight
 
-    The definitions of the common variables:
+    The definitions of the abbreviations:
         o s    Element
         o Z    Atomic number
         o A    Mass number
@@ -158,99 +93,7 @@ NOTES
         o res  Result
 
 EXAMPLES
-    Example in Fortran
-
-        program example_in_f
-        use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, get_version
-        implicit none(type,external)
-        print *, "version ", get_version()
-        
-        print '(A)', '########### CIAAW SAW ##########'
-        print '(A10, F10.5)', 'ASAW H = ', get_saw("H", ab=.true.)
-        print '(A10, F10.5)', 'U ASAW H = ', get_saw("H", u=.true.)
-        print '(A10, F10.5)', 'SAW H = ', get_saw("H", ab=.false.)
-        print '(A10, F10.5)', 'U SAW H = ', get_saw("H", ab=.false., u=.true.)
-        print '(A10, F10.5)', 'ASAW T = ', get_saw("Tc", ab=.true.)
-        
-        print '(A)', '########### CIAAW ICE ##########'
-        print '(A, I3)', 'N ICE H = ', get_nice("H")
-        print '(A, F12.6)', 'ICE H 1 = ', get_ice("H", A=1)
-        print '(A, ES23.16)', 'U ICE H 1 = ', get_ice("H", A=1, u=.true.)
-        print '(A, F12.6)', 'ICE H 2 = ', get_ice("H", A=2)
-        print '(A, ES23.16)', 'U ICE H 2 = ', get_ice("H", A=2, u=.true.)
-        print '(A, I3)', 'N ICE Tc = ', get_nice("Tc")
-        print '(A, I3)', 'N ICE C = ', get_nice("C")
-        
-        print '(A)', '########### CIAAW NAW ##########'
-        print '(A, ES23.16)', 'NAW H 2 = ', get_naw("H", A=2)
-        print '(A, ES23.16)', 'U NAW H 2 = ', get_naw("H", A=2, u=.true.)
-        print '(A, I3)', 'N NAW Tc = ', get_nnaw("Tc")
-        
-        end program example_in_f
-
-    Example in C
-
-        #include <stdlib.h>
-        #include <stdio.h>
-        #include <string.h>
-        #include <stdbool.h>
-        #include "ciaaw.h"
-        
-        int main(void){
-        printf("%s\n", "########## CIAAW VERSION ##########");
-        printf("version %s\n", ciaaw_get_version());
-        
-        printf("%s\n", "########## CIAAW SAW ##########");
-        printf("%s %10.5f\n", "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));
-        printf("%s %10.5f\n", "U ASAW H = ", ciaaw_get_saw("H", 1, true, true));
-        printf("%s %10.5f\n", "SAW H    = ", ciaaw_get_saw("H", 1, false, false));
-        printf("%s %10.5f\n", "U SAW H  = ", ciaaw_get_saw("H", 1, false, true));
-        printf("%s %10.5f\n", "ASAW Tc  = ", ciaaw_get_saw("Tc", 2, true, false));
-        
-        printf("%s\n", "########## CIAAW ICE ##########");
-        printf("%s %d\n",     "N ICE H      = ", ciaaw_get_nice("H", 1));
-        printf("%s %12.6f\n", "ICE H 1      = ", ciaaw_get_ice("H", 1, 1, false)); 
-        printf("%s %23.16e\n","U ICE H 1    = ", ciaaw_get_ice("H", 1, 1, true)); 
-        printf("%s %12.6f\n", "ICE H 2      = ", ciaaw_get_ice("H", 1, 2, false)); 
-        printf("%s %23.16e\n","U ICE H 2    = ", ciaaw_get_ice("H", 1, 2, true)); 
-        printf("%s %d\n",     "N ICE Tc     = ", ciaaw_get_nice("Tc", 2));
-        printf("%s %d\n",     "N ICE C      = ", ciaaw_get_nice("C", 1));
-        
-        printf("%s\n", "########## CIAAW NAW ##########");
-        printf("%s %23.16f\n", "NAW H 2      = ", ciaaw_get_naw("H", 1, 2, false)); 
-        printf("%s %23.16e\n", "U NAW H 2    = ", ciaaw_get_naw("H", 1, 2, true)); 
-        printf("%s %d\n",      "N NAW Tc     = ", ciaaw_get_nnaw("Tc", 2));
-        return EXIT_SUCCESS;
-        }
-
-    Example in Python
-
-        import pyciaaw
-        
-        print("########## CIAAW VERSION ##########")
-        print("version ", pyciaaw.__version__)
-        
-        print("########## CIAAW SAW  ##########")
-        print("ASAW H   = ", pyciaaw.get_saw("H"))
-        print("U ASAW H = ", pyciaaw.get_saw("H", u=True))
-        print("SAW H    = ", pyciaaw.get_saw("H", ab=False, u=False))
-        print("U SAW H  = ", pyciaaw.get_saw("H", ab=False, u=True))
-        print("ASAW Tc  = ", pyciaaw.get_saw("Tc"))
-        
-        print("########## CIAAW ICE  ##########")
-        print("N ICE H   = ", pyciaaw.get_nice("H"))
-        print('ICE H 1   = ', pyciaaw.get_ice("H", A=1))
-        print('U ICE H 1 = ', pyciaaw.get_ice("H", A=1, u=True))
-        print('ICE H 2   = ', pyciaaw.get_ice("H", A=2))
-        print('U ICE H 2 = ', pyciaaw.get_ice("H", A=2, u=True))
-        print("N ICE Tc  = ", pyciaaw.get_nice("Tc"))
-        print("N ICE C   = ", pyciaaw.get_nice("C"))
-        
-        print("########## CIAAW NAW  ##########")
-        print('NAW H 2   = ', pyciaaw.get_naw("H", A=2))
-        print('U NAW H 2 = ', pyciaaw.get_naw("H", A=2, u=True))
-        print("N NAW Tc  = ", pyciaaw.get_nnaw("Tc"))
-
+$INCLUDE ./example.mantxt
 
 SEE ALSO
     ciaaw(1), gsl(3), codata(3)
