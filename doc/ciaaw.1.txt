@@ -66,4 +66,4 @@ EXAMPLE
 SEE ALSO
        ciaaw(3), codata(3)
 
-1.4.0                        07 March 2026                     ciaaw(1)
+1.4.0                        17 March 2026                     ciaaw(1)
