@@ -45,9 +45,13 @@
 !     All the values for the nuclide atomic weights are provided as double precision reals.
 ! 
 !     Fortran API:
-!         o function get_version()result(fptr)  Get the version
+!         o function get_version()result(fptr)  Get the version - Deprecated. Use version() instead.
 !              o character(len=:), pointer :: fptr    Fortran pointer to a string indicating the version..
 !         o function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)  C API.
+!              o type(c_ptr) :: cptr    C pointer to a string indicating the version.
+!         o function version()result(fptr)  Get the version.
+!              o character(len=:), pointer :: fptr    Pointer to a string (=>version).
+!         o function capi_version()bind(C,name="ciaaw_version")result(cptr)  C API - Get the version
 !              o type(c_ptr) :: cptr    C pointer to a string indicating the version.
 !         o subroutine print_periodic_table()  Print periodic table.
 !         o function is_in_pt(z)result(res)  Check if the atomic number z is in the periodic table
@@ -105,6 +109,7 @@
 ! 
 !     C API:
 !         o char* ciaaw_get_version(void)
+!         o char* ciaaw_version(void)
 !         o double ciaaw_get_saw(char *s, int n, bool ab, bool u)
 !         o double ciaaw_get_ice(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nice(char *s, int n)
@@ -166,9 +171,9 @@
 ! 
 !         ! EXAMPLE IN FORTRAN
 !         program example_in_f
-!         use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, get_version
+!         use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, version
 !         implicit none(type,external)
-!         print *, "version ", get_version()
+!         print *, "version ", version()
 ! 
 !         print '(A)', '########### CIAAW SAW ##########'
 !         print '(A10, F10.5)', 'ASAW H = ', get_saw("H", ab=.true.)
@@ -204,7 +209,7 @@
 ! 
 !         int main(void){
 !         printf("%s\n", "########## CIAAW VERSION ##########");
-!         printf("version %s\n", ciaaw_get_version());
+!         printf("version %s\n", ciaaw_version());
 ! 
 !         printf("%s\n", "########## CIAAW SAW ##########");
 !         printf("%s %10.5f\n", "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));
@@ -266,7 +271,6 @@
 !     ciaaw(1), gsl(3), codata(3)
 module ciaaw
 !! Main module for the CIAAW library: API and C API.
-use ciaaw__version, only: version
 use ciaaw__common, only: dp, int32, optval, &
                          ieee_is_nan, ieee_quiet_nan, ieee_value, &
                          c_ptr, c_int, c_bool, c_double, c_null_char, &
@@ -276,8 +280,9 @@ use ciaaw__pte, only: pt
 implicit none(type,external)
 private
 
-character(len=:), allocatable, target :: version_f
-character(len=:), allocatable, target :: version_c
+character(len=*), parameter, private :: v = '1.4.0'
+character(len=:), allocatable, target :: vf
+character(len=:), allocatable, target :: vc
 
 real(dp), allocatable, target :: n_ice_out(:,:)
 
@@ -285,6 +290,7 @@ real(dp), allocatable, target :: n_ice_out(:,:)
 ! PUBLIC
 !=======================================================================
 public :: get_version, capi_get_version
+public :: version, capi_version
 public :: get_saw, capi_get_saw
 public :: get_ice, capi_get_ice
 public :: get_nice, capi_get_nice
@@ -296,18 +302,18 @@ public :: print_periodic_table
 
 contains
 !=======================================================================
-! GET_VERSION
+! GET_VERSION() - DEPRECATED
 !=======================================================================
 function get_version()result(fptr)
-!! Get the version
+!! Get the version - Deprecated. Use version() instead.
 implicit none
 character(len=:), pointer :: fptr  !! Fortran pointer to a string indicating the version..
-if(allocated(version_f))then
-    deallocate(version_f)
+if(allocated(vf))then
+    deallocate(vf)
 endif
-allocate(character(len=len(version)) :: version_f)
-version_f = version
-fptr => version_f
+allocate(character(len=len(v)) :: vf)
+vf = v
+fptr => vf
 end function get_version
 !-----------------------------------------------------------------------
 function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
@@ -315,13 +321,42 @@ function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
 type(c_ptr) :: cptr    !! C pointer to a string indicating the version.
 character(len=:), pointer :: fptr
 fptr => get_version()
-if(allocated(version_c))then
-    deallocate(version_c)
+if(allocated(vc))then
+    deallocate(vc)
 endif
-allocate(character(len=len(fptr)+1) :: version_c)
-version_c = fptr // c_null_char
-cptr = c_loc(version_c)
+allocate(character(len=len(fptr)+1) :: vc)
+vc = fptr // c_null_char
+cptr = c_loc(vc)
 end function capi_get_version
+!=======================================================================
+
+
+!=======================================================================
+! VERSION()
+!=======================================================================
+function version()result(fptr)
+!! Get the version.
+character(len=:), pointer :: fptr !! Pointer to a string (=>version).
+if(allocated(vf))then
+    deallocate(vf)
+endif
+allocate(character(len=len(v)) :: vf)
+vf = v
+fptr => vf
+end function version
+!-----------------------------------------------------------------------
+function capi_version()bind(C,name="ciaaw_version")result(cptr)
+!! C API - Get the version
+type(c_ptr) :: cptr !! C pointer to a string indicating the version.
+character(len=:), pointer :: fptr
+fptr => version()
+if(allocated(vc))then
+    deallocate(vc)
+endif
+allocate(character(len=len(fptr)+1) :: vc)
+vc = fptr // c_null_char
+cptr = c_loc(vc)
+end function capi_version
 !=======================================================================
 
 

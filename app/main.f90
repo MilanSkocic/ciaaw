@@ -4,7 +4,7 @@ use M_CLI2, only: set_args, iget, lget, specified
 use M_CLI2, only: args=>unnamed, get_subcommand, set_mode
 use stdlib_optval, only: optval
 use stdlib_codata, only: MOLAR_MASS_CONSTANT
-use ciaaw, only: get_version, print_periodic_table
+use ciaaw, only: version, print_periodic_table
 use ciaaw__pte, only: pt
 use ciaaw__common, only: dp
 implicit none(type,external)
@@ -19,7 +19,7 @@ character(len=3) :: s
 version_text=[character(len=80) :: &
 'PROGRAM:      '//name//'                                              ', &
 'DESCRIPTION:  Command line interface for ciaaw.                       ', &
-'VERSION:      '//get_version()//'                                     ', &
+'VERSION:      '//version()//'                                         ', &
 'AUTHOR:       M. Skocic                                               ', &
 'LICENSE:      MIT                                                     ', &
 '' ]

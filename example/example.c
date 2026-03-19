@@ -7,7 +7,7 @@
 
 int main(void){
 printf("%s\n", "########## CIAAW VERSION ##########");
-printf("version %s\n", ciaaw_get_version());
+printf("version %s\n", ciaaw_version());
 
 printf("%s\n", "########## CIAAW SAW ##########");
 printf("%s %10.5f\n", "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));

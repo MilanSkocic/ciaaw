@@ -100,7 +100,6 @@ SEE ALSO
 $ENDBLOCK
 module ciaaw
 !! Main module for the CIAAW library: API and C API.
-use ciaaw__version, only: version
 use ciaaw__common, only: dp, int32, optval, &
                          ieee_is_nan, ieee_quiet_nan, ieee_value, &
                          c_ptr, c_int, c_bool, c_double, c_null_char, &
@@ -110,8 +109,12 @@ use ciaaw__pte, only: pt
 implicit none(type,external)
 private
 
-character(len=:), allocatable, target :: version_f
-character(len=:), allocatable, target :: version_c
+$IFDEF FPM_VERSION
+$IMPORT FPM_VERSION
+character(len=*), parameter, private :: v = '${FPM_VERSION}'
+$ENDIF
+character(len=:), allocatable, target :: vf
+character(len=:), allocatable, target :: vc
 
 real(dp), allocatable, target :: n_ice_out(:,:)
 
@@ -119,6 +122,7 @@ real(dp), allocatable, target :: n_ice_out(:,:)
 ! PUBLIC
 !=======================================================================
 public :: get_version, capi_get_version
+public :: version, capi_version
 public :: get_saw, capi_get_saw
 public :: get_ice, capi_get_ice
 public :: get_nice, capi_get_nice
@@ -130,18 +134,18 @@ public :: print_periodic_table
 
 contains
 !=======================================================================
-! GET_VERSION
+! GET_VERSION() - DEPRECATED
 !=======================================================================
 function get_version()result(fptr)
-!! Get the version
+!! Get the version - Deprecated. Use version() instead.
 implicit none
 character(len=:), pointer :: fptr  !! Fortran pointer to a string indicating the version..
-if(allocated(version_f))then
-    deallocate(version_f)
+if(allocated(vf))then
+    deallocate(vf)
 endif
-allocate(character(len=len(version)) :: version_f)
-version_f = version
-fptr => version_f
+allocate(character(len=len(v)) :: vf)
+vf = v
+fptr => vf
 end function get_version
 !-----------------------------------------------------------------------
 function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
@@ -149,13 +153,42 @@ function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
 type(c_ptr) :: cptr    !! C pointer to a string indicating the version.
 character(len=:), pointer :: fptr
 fptr => get_version()
-if(allocated(version_c))then
-    deallocate(version_c)
+if(allocated(vc))then
+    deallocate(vc)
 endif
-allocate(character(len=len(fptr)+1) :: version_c)
-version_c = fptr // c_null_char
-cptr = c_loc(version_c)
+allocate(character(len=len(fptr)+1) :: vc)
+vc = fptr // c_null_char
+cptr = c_loc(vc)
 end function capi_get_version
+!=======================================================================
+
+
+!=======================================================================
+! VERSION()
+!=======================================================================
+function version()result(fptr)
+!! Get the version.
+character(len=:), pointer :: fptr !! Pointer to a string (=>version).
+if(allocated(vf))then
+    deallocate(vf)
+endif
+allocate(character(len=len(v)) :: vf)
+vf = v
+fptr => vf
+end function version
+!-----------------------------------------------------------------------
+function capi_version()bind(C,name="ciaaw_version")result(cptr)
+!! C API - Get the version
+type(c_ptr) :: cptr !! C pointer to a string indicating the version.
+character(len=:), pointer :: fptr
+fptr => version()
+if(allocated(vc))then
+    deallocate(vc)
+endif
+allocate(character(len=len(fptr)+1) :: vc)
+vc = fptr // c_null_char
+cptr = c_loc(vc)
+end function capi_version
 !=======================================================================
 
 
