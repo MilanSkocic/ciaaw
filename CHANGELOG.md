@@ -1,3 +1,12 @@
+# 1.4.1
+
+- Maintenance release. No API break.
+- Use `prep(1)` for auto-generating the version parameter.
+- Add new API for getting the version number:
+    - `version()` instead of `get_version()`.
+    - `get_version()` is marked as deprecated, it will be removed in the
+      next major release.
+
 # 1.4.0
 
 - Refactoring and cleaning.
