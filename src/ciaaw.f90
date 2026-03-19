@@ -44,12 +44,18 @@
 !     ciaaw https://www.ciaaw.org from Huang et al. (AME 2020 45(3):030002).
 !     All the values for the nuclide atomic weights are provided as double precision reals.
 ! 
-!     Fortran API
+!     Fortran API:
 !         o function get_version()result(fptr)  Get the version
 !              o character(len=:), pointer :: fptr    Fortran pointer to a string indicating the version..
 !         o function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)  C API.
 !              o type(c_ptr) :: cptr    C pointer to a string indicating the version.
 !         o subroutine print_periodic_table()  Print periodic table.
+!         o function is_in_pt(z)result(res)  Check if the atomic number z is in the periodic table
+!              o integer(int32), intent(in) :: z    Atomic number
+!              o logical :: res    True or False
+!         o function get_z_by_symbol(s)result(res)  Get the atomic number z of the element defined by the symbol s.
+!              o character(len=*), intent(in) :: s    Element symbol
+!              o integer(int32) :: res    >0 if found and -1 if not found.
 !         o function get_saw(s, ab, u)result(res)  Get the standard atomic weight for the element s.
 !              o character(len=*), intent(in) :: s    Element symbol.
 !              o logical, intent(in), optional :: ab    Set to False if the abridged value is not desired. Default to TRUE.
@@ -79,9 +85,6 @@
 !              o type(c_ptr), intent(in), value :: s    Element symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
 !              o integer(c_int) :: res    >0 if found or -1 if not found.
-!              o   character(len=*), intent(in) :: s    Element symbol.
-!              o   type(c_ptr), intent(in), value :: s    Element symbol.
-!              o   integer(c_int), intent(in), value :: n    Size of the symbol string.
 !         o function get_naw(s, A, u)result(res)  Get the atomic weight of the nuclide s for the mass number A.
 !              o character(len=*), intent(in) :: s    Element symbol.
 !              o integer(int32), intent(in) :: A    Mass number.
@@ -100,7 +103,7 @@
 !              o type(c_ptr), intent(in), value :: s    Element symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
 ! 
-!     C API
+!     C API:
 !         o char* ciaaw_get_version(void)
 !         o double ciaaw_get_saw(char *s, int n, bool ab, bool u)
 !         o double ciaaw_get_ice(char *s, int n, int A, bool u)
@@ -108,7 +111,8 @@
 !         o double ciaaw_get_naw(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nnaw(char *s, int n)
 ! 
-!     Python wrappers
+!     Python API:
+!         o main()
 !         o get_saw(s: str, ab: bool = True, u: bool = False) -> float
 !         o get_ice(s: str, A: int, u: bool = False) -> float
 !         o get_nice(s: str) -> int
@@ -148,7 +152,7 @@
 !         o ICE    Isotopic Composition of the Element
 !         o NAW    Nuclide Atomic Weight
 ! 
-!     The definitions of the common variables:
+!     The definitions of the abbreviations:
 !         o s    Element
 !         o Z    Atomic number
 !         o A    Mass number
@@ -157,8 +161,10 @@
 !         o res  Result
 ! 
 ! EXAMPLES
+! 
 !     Example in Fortran
 ! 
+!         ! EXAMPLE IN FORTRAN
 !         program example_in_f
 !         use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, get_version
 !         implicit none(type,external)
@@ -189,6 +195,7 @@
 ! 
 !     Example in C
 ! 
+!         /* EXAMPLE IN C */
 !         #include <stdlib.h>
 !         #include <stdio.h>
 !         #include <string.h>
@@ -224,6 +231,10 @@
 ! 
 !     Example in Python
 ! 
+!         #!/usr/bin/env python
+!         r"""EXAMPLE IN PYTHON"""
+!         import sys
+!         sys.path.insert(0, "../py/src/")
 !         import pyciaaw
 ! 
 !         print("########## CIAAW VERSION ##########")
