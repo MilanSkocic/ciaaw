@@ -63,13 +63,25 @@ precision reals.
 Fortran API:
 
    **o function get_version()result(fptr)**
-      Get the version
+      Get the version - Deprecated. Use **version() instead.**
 
       **o character(len=:), pointer :: fptr**
          Fortran pointer to a string indicating the version..
 
    **o function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)**
       C API.
+
+      **o type(c_ptr) :: cptr**
+         C pointer to a string indicating the version.
+
+   **o function version()result(fptr)**
+      Get the version.
+
+      **o character(len=:), pointer :: fptr**
+         Pointer to a string (=>version).
+
+   **o function capi_version()bind(C,name="ciaaw_version")result(cptr)**
+      C API - Get the version
 
       **o type(c_ptr) :: cptr**
          C pointer to a string indicating the version.
@@ -249,6 +261,8 @@ C API:
 
    -  char\* **ciaaw_get_version(void)**
 
+   -  char\* **ciaaw_version(void)**
+
    -  double **ciaaw_get_saw(char \*s, int n, bool ab, bool u)**
 
    -  double **ciaaw_get_ice(char \*s, int n, int A, bool u)**
@@ -325,7 +339,7 @@ The definitions of the acronyms:
    **o NAW**
       Nuclide Atomic Weight
 
-The definitions of the common variables:
+The definitions of the abbreviations:
 
    **o s**
       Element
@@ -354,9 +368,9 @@ Example in Fortran
 
            ! EXAMPLE IN FORTRAN
            program example_in_f
-           use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, get_version
+           use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, version
            implicit none(type,external)
-           print *, "version ", get_version()
+           print *, "version ", version()
 
            print '(A)', '########### CIAAW SAW ##########'
            print '(A10, F10.5)', 'ASAW H = ', get_saw("H", ab=.true.)
@@ -394,7 +408,7 @@ Example in C
 
            int main(void){
            printf("%s, "########## CIAAW VERSION ##########");
-           printf("version %s, ciaaw_get_version());
+           printf("version %s, ciaaw_version());
 
            printf("%s, "########## CIAAW SAW ##########");
            printf("%s %10.5f, "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));

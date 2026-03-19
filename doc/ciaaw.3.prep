@@ -44,9 +44,13 @@ DESCRIPTION
     All the values for the nuclide atomic weights are provided as double precision reals.
 
     Fortran API:
-        o function get_version()result(fptr)  Get the version
+        o function get_version()result(fptr)  Get the version - Deprecated. Use version() instead.
              o character(len=:), pointer :: fptr    Fortran pointer to a string indicating the version..
         o function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)  C API.
+             o type(c_ptr) :: cptr    C pointer to a string indicating the version.
+        o function version()result(fptr)  Get the version.
+             o character(len=:), pointer :: fptr    Pointer to a string (=>version).
+        o function capi_version()bind(C,name="ciaaw_version")result(cptr)  C API - Get the version
              o type(c_ptr) :: cptr    C pointer to a string indicating the version.
         o subroutine print_periodic_table()  Print periodic table.
         o function is_in_pt(z)result(res)  Check if the atomic number z is in the periodic table
@@ -104,6 +108,7 @@ DESCRIPTION
 
     C API:
         o char* ciaaw_get_version(void)
+        o char* ciaaw_version(void)
         o double ciaaw_get_saw(char *s, int n, bool ab, bool u)
         o double ciaaw_get_ice(char *s, int n, int A, bool u)
         o int ciaaw_get_nice(char *s, int n)
@@ -165,9 +170,9 @@ EXAMPLES
 
         ! EXAMPLE IN FORTRAN
         program example_in_f
-        use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, get_version
+        use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, version
         implicit none(type,external)
-        print *, "version ", get_version()
+        print *, "version ", version()
 
         print '(A)', '########### CIAAW SAW ##########'
         print '(A10, F10.5)', 'ASAW H = ', get_saw("H", ab=.true.)
@@ -203,7 +208,7 @@ EXAMPLES
 
         int main(void){
         printf("%s\n", "########## CIAAW VERSION ##########");
-        printf("version %s\n", ciaaw_get_version());
+        printf("version %s\n", ciaaw_version());
 
         printf("%s\n", "########## CIAAW SAW ##########");
         printf("%s %10.5f\n", "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));

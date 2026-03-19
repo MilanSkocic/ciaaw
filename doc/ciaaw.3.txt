@@ -54,15 +54,30 @@ DESCRIPTION
        Fortran API:
 
               o function get_version()result(fptr)
-                     Get the version
+                     Get the version - Deprecated.  Use  version()  in‐
+                     stead.
 
                      o character(len=:), pointer :: fptr
-                            Fortran pointer to a string indicating  the
+                            Fortran  pointer to a string indicating the
                             version..
 
               o function capi_get_version()bind(c, name='ciaaw_get_ver‐
               sion')result(cptr)
                      C API.
+
+                     o type(c_ptr) :: cptr
+                            C pointer to a string indicating  the  ver‐
+                            sion.
+
+              o function version()result(fptr)
+                     Get the version.
+
+                     o character(len=:), pointer :: fptr
+                            Pointer to a string (=>version).
+
+              o function capi_version()bind(C,name="ciaaw_version")re‐
+              sult(cptr)
+                     C API - Get the version
 
                      o type(c_ptr) :: cptr
                             C  pointer  to a string indicating the ver‐
@@ -260,6 +275,8 @@ DESCRIPTION
 
               •  char* ciaaw_get_version(void)
 
+              •  char* ciaaw_version(void)
+
               •  double ciaaw_get_saw(char *s, int n, bool ab, bool u)
 
               •  double ciaaw_get_ice(char *s, int n, int A, bool u)
@@ -333,7 +350,7 @@ NOTES
 
               o NAW  Nuclide Atomic Weight
 
-       The definitions of the common variables:
+       The definitions of the abbreviations:
 
               o s    Element
 
@@ -352,9 +369,9 @@ EXAMPLES
 
                ! EXAMPLE IN FORTRAN
                program example_in_f
-               use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, get_version
+               use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, version
                implicit none(type,external)
-               print *, "version ", get_version()
+               print *, "version ", version()
 
                print '(A)', '########### CIAAW SAW ##########'
                print '(A10, F10.5)', 'ASAW H = ', get_saw("H", ab=.true.)
@@ -390,7 +407,7 @@ EXAMPLES
 
                int main(void){
                printf("%s0, "########## CIAAW VERSION ##########");
-               printf("version %s0, ciaaw_get_version());
+               printf("version %s0, ciaaw_version());
 
                printf("%s0, "########## CIAAW SAW ##########");
                printf("%s %10.5f0, "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));
@@ -450,4 +467,4 @@ EXAMPLES
 SEE ALSO
        ciaaw(1), gsl(3), codata(3)
 
-1.4.0                        17 March 2026                     ciaaw(3)
+1.4.0                        19 March 2026                     ciaaw(3)
