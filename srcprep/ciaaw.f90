@@ -137,7 +137,9 @@ contains
 ! GET_VERSION() - DEPRECATED
 !=======================================================================
 function get_version()result(fptr)
-!! Get the version - Deprecated. Use version() instead.
+!! Get the version.
+!! Deprecated. It will be removed in the next major release.
+!! Use version() instead.
 implicit none
 character(len=:), pointer :: fptr  !! Fortran pointer to a string indicating the version..
 if(allocated(vf))then

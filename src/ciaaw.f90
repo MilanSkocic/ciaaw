@@ -45,7 +45,9 @@
 !     All the values for the nuclide atomic weights are provided as double precision reals.
 ! 
 !     Fortran API:
-!         o function get_version()result(fptr)  Get the version - Deprecated. Use version() instead.
+!         o function get_version()result(fptr)  Get the version.
+!                                               Deprecated. It will be removed in the next major release.
+!                                               Use version() instead.
 !              o character(len=:), pointer :: fptr    Fortran pointer to a string indicating the version..
 !         o function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)  C API.
 !              o type(c_ptr) :: cptr    C pointer to a string indicating the version.
@@ -305,7 +307,9 @@ contains
 ! GET_VERSION() - DEPRECATED
 !=======================================================================
 function get_version()result(fptr)
-!! Get the version - Deprecated. Use version() instead.
+!! Get the version.
+!! Deprecated. It will be removed in the next major release.
+!! Use version() instead.
 implicit none
 character(len=:), pointer :: fptr  !! Fortran pointer to a string indicating the version..
 if(allocated(vf))then
