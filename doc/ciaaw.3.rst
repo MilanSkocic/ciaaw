@@ -63,7 +63,8 @@ precision reals.
 Fortran API:
 
    **o function get_version()result(fptr)**
-      Get the version - Deprecated. Use **version() instead.**
+      Get the version. Deprecated. It will be removed in the next major
+      release. Use **version() instead.**
 
       **o character(len=:), pointer :: fptr**
          Fortran pointer to a string indicating the version..
