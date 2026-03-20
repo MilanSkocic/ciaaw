@@ -88,12 +88,29 @@
 !              o logical(c_bool), intent(in), value :: ab    Flag for setting if abridged value is desired.
 !              o logical(c_bool), intent(in), value :: u    Flag for setting if the uncertainty is desired instead of the value.
 !              o real(c_double) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-!         o function get_ice(s, A, u)result(res)  Get the isotopic composition of the element s for the mass number A.
+!         o function get_ice(s, A, uncertainty)result(res)  Get the isotopic composition of the element s for the mass number A.
+!                                                           Deprecated. It will be removed in the next major release.
+!                                                           Use ice() instead.
+!              o character(len=*), intent(in) :: s    Element symbol.
+!              o integer(int32), intent(in) :: A    Mass number.
+!              o logical, intent(in), optional :: uncertainty    Set to True if the uncertainty is desired. Default to FALSE.
+!              o real(dp) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
+!         o function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)  C API.
+!                                                                                                Deprecated. It will be removed in the next major release.
+!                                                                                                Use capi_ice() instead.
+!              o type(c_ptr), intent(in), value :: s    Element symbol.
+!              o integer(c_int), intent(in), value :: n    Size of the symbol string.
+!              o integer(c_int), intent(in), value :: A    Mass number.
+!              o logical(c_bool), intent(in), value :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
+!              o real(c_double) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
+!         o function ice(s, A, u)result(res)  Get the isotopic composition of the element s for the mass number A.
+!                                             Deprecated. It will be removed in the next major release.
+!                                             Use ice() instead.
 !              o character(len=*), intent(in) :: s    Element symbol.
 !              o integer(int32), intent(in) :: A    Mass number.
 !              o logical, intent(in), optional :: u    Set to True if the uncertainty is desired. Default to FALSE.
 !              o real(dp) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
-!         o function capi_get_ice(s, n, A, u)bind(C, name="ciaaw_get_ice")result(res)  C API.
+!         o function capi_ice(s, n, A, u)bind(C, name="ciaaw_ice")result(res)  C API.
 !              o type(c_ptr), intent(in), value :: s    Element symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
 !              o integer(c_int), intent(in), value :: A    Mass number.
@@ -129,7 +146,8 @@
 !         o char* ciaaw_version(void)
 !         o double ciaaw_get_saw(char *s, int n, bool abridged, bool uncertainty)
 !         o double ciaaw_saw(char *s, int n, bool ab, bool u)
-!         o double ciaaw_get_ice(char *s, int n, int A, bool u)
+!         o double ciaaw_get_ice(char *s, int n, int A, bool uncertainty)
+!         o double ciaaw_ice(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nice(char *s, int n)
 !         o double ciaaw_get_naw(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nnaw(char *s, int n)
@@ -138,7 +156,8 @@
 !         o main()
 !         o get_saw(s: str, abridged: bool = True, uncertainty: bool = False) -> float
 !         o saw(s: str, ab: bool = True, u: bool = False) -> float
-!         o get_ice(s: str, A: int, u: bool = False) -> float
+!         o get_ice(s: str, A: int, uncertainty: bool = False) -> float
+!         o ice(s: str, A: int, u: bool = False) -> float
 !         o get_nice(s: str) -> int
 !         o get_naw(s: str, A: int, u: bool = False) -> float
 !         o get_nnaw(s: str) -> int
@@ -299,7 +318,7 @@ use ciaaw__pte, only: pt
 implicit none(type,external)
 private
 
-character(len=*), parameter, private :: v = '1.4.0'
+character(len=*), parameter, private :: v = '1.3.1'
 character(len=:), allocatable, target :: vf
 character(len=:), allocatable, target :: vc
 
@@ -313,6 +332,7 @@ public :: version, capi_version
 public :: get_saw, capi_get_saw
 public :: saw, capi_saw
 public :: get_ice, capi_get_ice
+public :: ice, capi_ice
 public :: get_nice, capi_get_nice
 public :: get_naw, capi_get_naw
 public :: get_nnaw, capi_get_nnaw
@@ -479,7 +499,7 @@ end function get_z_by_symbol
 
 
 !=======================================================================
-! GET_SAW - DEPRECATED
+! GET_SAW() - DEPRECATED
 !=======================================================================
 function get_saw(s, abridged, uncertainty)result(res)
 !! Get the standard atomic weight for the element s.
@@ -653,10 +673,82 @@ end function capi_saw
 
 
 !=======================================================================
-! GET_ICE
+! GET_ICE() - DEPRECATED
 !=======================================================================
-function get_ice(s, A, u)result(res)
+function get_ice(s, A, uncertainty)result(res)
 !! Get the isotopic composition of the element s for the mass number A.
+!! Deprecated. It will be removed in the next major release.
+!! Use ice() instead.
+character(len=*), intent(in) :: s   !! Element symbol.
+integer(int32), intent(in) :: A     !! Mass number.
+logical, intent(in), optional :: uncertainty  !! Set to True if the uncertainty is desired. Default to FALSE.
+real(dp) :: res                     !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
+
+real(dp) :: A_double
+integer(int32) :: i, z, col, row
+logical :: u2
+
+u2 = optval(uncertainty, .false.)
+z = get_z_by_symbol(s)
+A_double = real(A, dp)
+
+res = ieee_value(1.0_dp, ieee_quiet_nan)
+
+if(u2 .eqv. .true.)then
+    col = 3
+else
+    col = 2
+endif
+
+row = 0
+if((z>0) .and. (pt(z)%ice%n > 0))then
+    do i=1, pt(z)%ice%n
+        if(pt(z)%ice%values(i, 1) == A_double)then
+            row = i
+            exit
+        endif
+    end do
+endif
+if(row > 0)then
+    res = pt(z)%ice%values(row, col)
+endif
+end function get_ice
+!-----------------------------------------------------------------------
+function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)
+!! C API.
+!! Deprecated. It will be removed in the next major release.
+!! Use capi_ice() instead.
+type(c_ptr), intent(in), value :: s      !! Element symbol.
+integer(c_int), intent(in), value :: n   !! Size of the symbol string.
+integer(c_int), intent(in), value :: A   !! Mass number.
+logical(c_bool), intent(in), value :: uncertainty  !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+real(c_double) :: res                    !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
+
+integer(c_int) :: i
+character, pointer, dimension(:) :: c2f_s
+character(len=n) :: fs
+logical :: f_u
+
+call c_f_pointer(s, c2f_s, shape=[n])
+
+do i=1, n
+    fs(i:i) = c2f_s(i)
+enddo
+
+f_u = logical(uncertainty)
+
+res = get_ice(fs, A, f_u)
+end function capi_get_ice
+!=======================================================================
+
+
+!=======================================================================
+! ICE()
+!=======================================================================
+function ice(s, A, u)result(res)
+!! Get the isotopic composition of the element s for the mass number A.
+!! Deprecated. It will be removed in the next major release.
+!! Use ice() instead.
 character(len=*), intent(in) :: s   !! Element symbol.
 integer(int32), intent(in) :: A     !! Mass number.
 logical, intent(in), optional :: u  !! Set to True if the uncertainty is desired. Default to FALSE.
@@ -690,9 +782,9 @@ endif
 if(row > 0)then
     res = pt(z)%ice%values(row, col)
 endif
-end function get_ice
+end function ice
 !-----------------------------------------------------------------------
-function capi_get_ice(s, n, A, u)bind(C, name="ciaaw_get_ice")result(res)
+function capi_ice(s, n, A, u)bind(C, name="ciaaw_ice")result(res)
 !! C API.
 type(c_ptr), intent(in), value :: s      !! Element symbol.
 integer(c_int), intent(in), value :: n   !! Size of the symbol string.
@@ -713,8 +805,8 @@ enddo
 
 f_u = logical(u)
 
-res = get_ice(fs, A, f_u)
-end function capi_get_ice
+res = ice(fs, A, f_u)
+end function capi_ice
 !=======================================================================
 
 
