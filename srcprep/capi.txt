@@ -1,7 +1,8 @@
     C API:
         o char* ciaaw_get_version(void)
         o char* ciaaw_version(void)
-        o double ciaaw_get_saw(char *s, int n, bool ab, bool u)
+        o double ciaaw_get_saw(char *s, int n, bool abridged, bool uncertainty)
+        o double ciaaw_saw(char *s, int n, bool ab, bool u)
         o double ciaaw_get_ice(char *s, int n, int A, bool u)
         o int ciaaw_get_nice(char *s, int n)
         o double ciaaw_get_naw(char *s, int n, int A, bool u)

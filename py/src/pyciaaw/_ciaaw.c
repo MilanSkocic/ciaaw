@@ -7,8 +7,8 @@
 //======================================================================
 PyDoc_STRVAR(module_docstring, "C extension for ciaaw.");
 
-PyDoc_STRVAR(get_saw_doc, 
-"get_saw(s: str, abridged: bool, uncertainty: bool) -> float \n\n");
+PyDoc_STRVAR(saw_doc, 
+"saw(s: str, abridged: bool, uncertainty: bool) -> float \n\n");
 
 PyDoc_STRVAR(get_ice_doc, 
 "get_ice(s: str, A: int, uncertainty: bool) -> float \n\n");
@@ -27,7 +27,7 @@ PyDoc_STRVAR(get_nnaw_doc,
 //======================================================================
 // FUNCTIONS              
 //======================================================================
-static PyObject *get_saw(PyObject *self, PyObject *args){
+static PyObject *saw(PyObject *self, PyObject *args){
     char *s;
     int abridged;
     int uncertainty;
@@ -37,7 +37,7 @@ static PyObject *get_saw(PyObject *self, PyObject *args){
     if (!PyArg_ParseTuple(args, "s#pp", &s, &size, &abridged, &uncertainty)){
         return NULL;
     }
-    res = ciaaw_get_saw(s, size, (bool) abridged, (bool) uncertainty);
+    res = ciaaw_saw(s, size, (bool) abridged, (bool) uncertainty);
     
     return Py_BuildValue("d", res);
 }
@@ -104,7 +104,7 @@ static PyObject *get_nnaw(PyObject *self, PyObject *args){
 // METHODS              
 //======================================================================
 static PyMethodDef myMethods[] = {  
-{"get_saw",  (PyCFunction) get_saw,  METH_VARARGS, get_saw_doc},
+{"saw",  (PyCFunction) saw,  METH_VARARGS, saw_doc},
 {"get_ice",  (PyCFunction) get_ice,  METH_VARARGS, get_ice_doc},
 {"get_nice", (PyCFunction) get_nice, METH_VARARGS, get_nice_doc},
 {"get_naw",  (PyCFunction) get_naw,  METH_VARARGS, get_naw_doc},
