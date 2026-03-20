@@ -108,7 +108,46 @@ Fortran API:
       **o integer(int32) :: res**
          >0 if found and **-1 if not found.**
 
-   **o function get_saw(s, ab, u)result(res)**
+   **o function get_saw(s, abridged, uncertainty)result(res)**
+      Get the standard atomic weight for the element s. Deprecated. It
+      will be removed in the next major release. Use **saw() instead.**
+
+      **o character(len=\*), intent(in) :: s**
+         Element symbol.
+
+      **o logical, intent(in), optional :: abridged**
+         Set to False if the abridged value is not desired. Default to
+         TRUE.
+
+      **o logical, intent(in), optional :: uncertainty**
+         Set to True if the uncertainty is desired. Default to FALSE.
+
+      **o real(dp) :: res**
+         NaN if the provided element is incorrect or **-1 if the element
+         does not have a SAW.**
+
+   **o function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")result(res)**
+      C API. Deprecated. It will be removed in the next major release.
+      Use **capi_saw() instead.**
+
+      **o type(c_ptr), intent(in), value :: s**
+         Symbol.
+
+      **o integer(c_int), intent(in), value :: n**
+         Size of the symbol string.
+
+      **o logical(c_bool), intent(in), value :: abridged**
+         Flag for setting if abridged value is desired.
+
+      **o logical(c_bool), intent(in), value :: uncertainty**
+         Flag for setting if the uncertainty is desired instead of the
+         value.
+
+      **o real(c_double) :: res**
+         NaN if the provided element is incorrect or **-1 if the element
+         does not have a SAW.**
+
+   **o function saw(s, ab, u)result(res)**
       Get the standard atomic weight for the element s.
 
       **o character(len=\*), intent(in) :: s**
@@ -125,7 +164,7 @@ Fortran API:
          NaN if the provided element is incorrect or **-1 if the element
          does not have a SAW.**
 
-   **o function capi_get_saw(s, n, ab, u)bind(C, name="ciaaw_get_saw")result(res)**
+   **o function capi_saw(s, n, ab, u)bind(C, name="ciaaw_saw")result(res)**
       C API.
 
       **o type(c_ptr), intent(in), value :: s**
@@ -264,7 +303,10 @@ C API:
 
    -  char\* **ciaaw_version(void)**
 
-   -  double **ciaaw_get_saw(char \*s, int n, bool ab, bool u)**
+   -  double **ciaaw_get_saw(char \*s, int n, bool abridged, bool
+      uncertainty)**
+
+   -  double **ciaaw_saw(char \*s, int n, bool ab, bool u)**
 
    -  double **ciaaw_get_ice(char \*s, int n, int A, bool u)**
 
@@ -278,7 +320,10 @@ Python API:
 
    -  **main()**
 
-   -  **get_saw(s: str, ab: bool = True, u: bool = False) -> float**
+   -  **get_saw(s: str, abridged: bool = True, uncertainty: bool =
+      False) -> float**
+
+   -  **saw(s: str, ab: bool = True, u: bool = False) -> float**
 
    -  **get_ice(s: str, A: int, u: bool = False) -> float**
 
