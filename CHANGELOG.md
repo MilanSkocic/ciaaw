@@ -1,18 +1,15 @@
-# 1.4.1
+# 1.3.1
 
 - Maintenance release. No API break.
 - Use `prep(1)` for auto-generating the version parameter.
 - Add new API for getting the version number:
-    - `version()` instead of `get_version()`.
-    - `get_version()` is marked as deprecated, it will be removed in the
-      next major release.
-
-# 1.4.0
-
-- Refactoring and cleaning.
-- Arguments `abridged` and `uncertainty` were shortened to `ab` and `u`.
-- API break for Fortran API and Python API due to the named arguments.
-- C is not affected as there is no named arguments.
+    - `version()` instead of `get_version()` which is deprecated.
+    - `saw()` instead of `get_saw()` which is deprecated.
+    - `ice()` instead of `get_ice()` which is deprecated.
+    - `nice()` instead of `get_nice()` which is deprecated.
+    - `naw()` instead of `get_naw()` which is deprecated.
+    - `nnaw()` instead of `get_nnaw()` which is deprecated.
+- Deprecated functions will be removed in the next major release.
 
 [Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
 

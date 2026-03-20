@@ -70,7 +70,33 @@ def saw(s: str, ab: bool = True, u: bool = False) -> float:
     return _ciaaw.saw(str(s), bool(ab), bool(u))
 
 
-def get_ice(s: str, A: int, u: bool = False) -> float:
+def get_ice(s: str, A: int, uncertainty: bool = False) -> float:
+    r"""
+    Get the isotopic composition of the element s for the mass number A.
+
+    DEPRECATED: It will be removed in the next major release.
+    Use :func:`ice` instead.
+
+    Parameters
+    ----------
+    s: str
+        Element symbol.
+    A: int
+        Mass number.
+    uncertainty: bool, optional
+        Flag to get the uncertainty instead of the value.
+        Default to False.
+
+    Returns
+    -------
+    ice: float
+        Returns NaN if the provided element or the mass number A are
+        incorrect or -1 if the element does not have an ICE.
+    """
+    return _ciaaw.get_ice(str(s), int(A), bool(uncertainty))
+
+
+def ice(s: str, A: int, u: bool = False) -> float:
     r"""
     Get the isotopic composition of the element s for the mass number A.
 
@@ -90,7 +116,7 @@ def get_ice(s: str, A: int, u: bool = False) -> float:
         Returns NaN if the provided element or the mass number A are
         incorrect or -1 if the element does not have an ICE.
     """
-    return _ciaaw.get_ice(str(s), int(A), bool(u))
+    return _ciaaw.ice(str(s), int(A), bool(u))
 
 
 def get_nice(s: str) -> int:
