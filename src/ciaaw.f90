@@ -62,12 +62,27 @@
 !         o function get_z_by_symbol(s)result(res)  Get the atomic number z of the element defined by the symbol s.
 !              o character(len=*), intent(in) :: s    Element symbol
 !              o integer(int32) :: res    >0 if found and -1 if not found.
-!         o function get_saw(s, ab, u)result(res)  Get the standard atomic weight for the element s.
+!         o function get_saw(s, abridged, uncertainty)result(res)  Get the standard atomic weight for the element s.
+!                                                                  Deprecated. It will be removed in the next major release.
+!                                                                  Use saw() instead.
+!              o character(len=*), intent(in) :: s    Element symbol.
+!              o logical, intent(in), optional :: abridged    Set to False if the abridged value is not desired. Default to TRUE.
+!              o logical, intent(in), optional :: uncertainty    Set to True if the uncertainty is desired. Default to FALSE.
+!              o real(dp) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
+!         o function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")result(res)  C API.
+!                                                                                                       Deprecated. It will be removed in the next major release.
+!                                                                                                       Use capi_saw() instead.
+!              o type(c_ptr), intent(in), value :: s    Symbol.
+!              o integer(c_int), intent(in), value :: n    Size of the symbol string.
+!              o logical(c_bool), intent(in), value :: abridged    Flag for setting if abridged value is desired.
+!              o logical(c_bool), intent(in), value :: uncertainty    Flag for setting if the uncertainty is desired instead of the value.
+!              o real(c_double) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
+!         o function saw(s, ab, u)result(res)  Get the standard atomic weight for the element s.
 !              o character(len=*), intent(in) :: s    Element symbol.
 !              o logical, intent(in), optional :: ab    Set to False if the abridged value is not desired. Default to TRUE.
 !              o logical, intent(in), optional :: u    Set to True if the uncertainty is desired. Default to FALSE.
 !              o real(dp) :: res    NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-!         o function capi_get_saw(s, n, ab, u)bind(C, name="ciaaw_get_saw")result(res)  C API.
+!         o function capi_saw(s, n, ab, u)bind(C, name="ciaaw_saw")result(res)  C API.
 !              o type(c_ptr), intent(in), value :: s    Symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
 !              o logical(c_bool), intent(in), value :: ab    Flag for setting if abridged value is desired.
@@ -112,7 +127,8 @@
 !     C API:
 !         o char* ciaaw_get_version(void)
 !         o char* ciaaw_version(void)
-!         o double ciaaw_get_saw(char *s, int n, bool ab, bool u)
+!         o double ciaaw_get_saw(char *s, int n, bool abridged, bool uncertainty)
+!         o double ciaaw_saw(char *s, int n, bool ab, bool u)
 !         o double ciaaw_get_ice(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nice(char *s, int n)
 !         o double ciaaw_get_naw(char *s, int n, int A, bool u)
@@ -120,7 +136,8 @@
 ! 
 !     Python API:
 !         o main()
-!         o get_saw(s: str, ab: bool = True, u: bool = False) -> float
+!         o get_saw(s: str, abridged: bool = True, uncertainty: bool = False) -> float
+!         o saw(s: str, ab: bool = True, u: bool = False) -> float
 !         o get_ice(s: str, A: int, u: bool = False) -> float
 !         o get_nice(s: str) -> int
 !         o get_naw(s: str, A: int, u: bool = False) -> float
@@ -294,6 +311,7 @@ real(dp), allocatable, target :: n_ice_out(:,:)
 public :: get_version, capi_get_version
 public :: version, capi_version
 public :: get_saw, capi_get_saw
+public :: saw, capi_saw
 public :: get_ice, capi_get_ice
 public :: get_nice, capi_get_nice
 public :: get_naw, capi_get_naw
@@ -461,21 +479,23 @@ end function get_z_by_symbol
 
 
 !=======================================================================
-! GET_SAW
+! GET_SAW - DEPRECATED
 !=======================================================================
-function get_saw(s, ab, u)result(res)
+function get_saw(s, abridged, uncertainty)result(res)
 !! Get the standard atomic weight for the element s.
+!! Deprecated. It will be removed in the next major release.
+!! Use saw() instead.
 character(len=*), intent(in) :: s    !! Element symbol.
-logical, intent(in), optional :: ab  !! Set to False if the abridged value is not desired. Default to TRUE.
-logical, intent(in), optional :: u   !! Set to True if the uncertainty is desired. Default to FALSE.
+logical, intent(in), optional :: abridged  !! Set to False if the abridged value is not desired. Default to TRUE.
+logical, intent(in), optional :: uncertainty   !! Set to True if the uncertainty is desired. Default to FALSE.
 real(dp) :: res                      !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
 
 real(dp) :: saw_max, saw_min, saw, saw_u
 integer(int32) :: z, n
 logical :: ab2, u2
 
-ab2 = optval(ab, .true.)
-u2 = optval(u, .false.)
+ab2 = optval(abridged, .true.)
+u2 = optval(uncertainty, .false.)
 
 z = get_z_by_symbol(s)
 
@@ -518,7 +538,94 @@ if(z>0)then
 end if
 end function get_saw
 !-----------------------------------------------------------------------
-function capi_get_saw(s, n, ab, u)bind(C, name="ciaaw_get_saw")result(res)
+function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")result(res)
+!! C API.
+!! Deprecated. It will be removed in the next major release.
+!! Use capi_saw() instead.
+type(c_ptr), intent(in), value :: s       !! Symbol.
+integer(c_int), intent(in), value :: n    !! Size of the symbol string.
+logical(c_bool), intent(in), value :: abridged  !! Flag for setting if abridged value is desired.
+logical(c_bool), intent(in), value :: uncertainty   !! Flag for setting if the uncertainty is desired instead of the value.
+real(c_double) :: res                     !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
+
+integer(c_int) :: i
+character, pointer, dimension(:) :: c2f_s
+character(len=n) :: fs
+logical :: f_ab, f_u
+
+call c_f_pointer(s, c2f_s, shape=[n])
+
+do i=1, n
+    fs(i:i) = c2f_s(i)
+enddo
+
+f_ab = logical(abridged)
+f_u = logical(uncertainty)
+
+res = get_saw(fs, f_ab, f_u)
+end function capi_get_saw
+!=======================================================================
+
+
+!=======================================================================
+! SAW()
+!=======================================================================
+function saw(s, ab, u)result(res)
+!! Get the standard atomic weight for the element s.
+character(len=*), intent(in) :: s    !! Element symbol.
+logical, intent(in), optional :: ab  !! Set to False if the abridged value is not desired. Default to TRUE.
+logical, intent(in), optional :: u   !! Set to True if the uncertainty is desired. Default to FALSE.
+real(dp) :: res                      !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
+
+real(dp) :: vmax, vmin, v, vu
+integer(int32) :: z, n
+logical :: ab2, u2
+
+ab2 = optval(ab, .true.)
+u2 = optval(u, .false.)
+
+z = get_z_by_symbol(s)
+
+res = ieee_value(1.0_dp, ieee_quiet_nan)
+
+if(z>0)then
+    if(ab2 .eqv. .true.)then
+        if(u2 .eqv. .true.)then
+            res = pt(z)%saw%asaw_u
+        else
+            res = pt(z)%saw%asaw
+        end if
+    else
+        if((pt(z)%saw%saw == -1.0_dp) .and. (pt(z)%saw%saw_max > 0.0_dp) .and. (pt(z)%saw%saw_min > 0.0_dp))then
+
+            vmax = pt(z)%saw%saw_max
+            vmin = pt(z)%saw%saw_min
+
+            v = (vmax + vmin) / 2.0_dp
+            vu = (vmax - vmin)/(2.0_dp*sqrt(3.0_dp))
+
+            n = floor(log10(vu))
+
+            vu = ceiling(vu * 10.0_dp**(-n))*10.0_dp**n
+            v = nint(v * 10.0_dp**(-n)) * 10.0_dp**n
+
+            if(u2 .eqv. .true.)then
+                res = vu
+            else
+                res = v
+            end if
+        else
+            if(u2 .eqv. .true.)then
+                res = pt(z)%saw%saw_u
+            else
+                res = pt(z)%saw%saw
+            end if
+        end if
+    end if
+end if
+end function saw
+!-----------------------------------------------------------------------
+function capi_saw(s, n, ab, u)bind(C, name="ciaaw_saw")result(res)
 !! C API.
 type(c_ptr), intent(in), value :: s       !! Symbol.
 integer(c_int), intent(in), value :: n    !! Size of the symbol string.
@@ -540,8 +647,8 @@ enddo
 f_ab = logical(ab)
 f_u = logical(u)
 
-res = get_saw(fs, f_ab, f_u)
-end function capi_get_saw
+res = saw(fs, f_ab, f_u)
+end function capi_saw
 !=======================================================================
 
 
