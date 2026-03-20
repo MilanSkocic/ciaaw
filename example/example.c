@@ -18,10 +18,10 @@ printf("%s %10.5f\n", "ASAW Tc  = ", ciaaw_saw("Tc", 2, true, false));
 
 printf("%s\n", "########## CIAAW ICE ##########");
 printf("%s %d\n",     "N ICE H      = ", ciaaw_get_nice("H", 1));
-printf("%s %12.6f\n", "ICE H 1      = ", ciaaw_get_ice("H", 1, 1, false)); 
-printf("%s %23.16e\n","U ICE H 1    = ", ciaaw_get_ice("H", 1, 1, true)); 
-printf("%s %12.6f\n", "ICE H 2      = ", ciaaw_get_ice("H", 1, 2, false)); 
-printf("%s %23.16e\n","U ICE H 2    = ", ciaaw_get_ice("H", 1, 2, true)); 
+printf("%s %12.6f\n", "ICE H 1      = ", ciaaw_ice("H", 1, 1, false)); 
+printf("%s %23.16e\n","U ICE H 1    = ", ciaaw_ice("H", 1, 1, true)); 
+printf("%s %12.6f\n", "ICE H 2      = ", ciaaw_ice("H", 1, 2, false)); 
+printf("%s %23.16e\n","U ICE H 2    = ", ciaaw_ice("H", 1, 2, true)); 
 printf("%s %d\n",     "N ICE Tc     = ", ciaaw_get_nice("Tc", 2));
 printf("%s %d\n",     "N ICE C      = ", ciaaw_get_nice("C", 1));
 
