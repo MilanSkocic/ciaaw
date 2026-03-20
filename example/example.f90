@@ -1,15 +1,15 @@
 ! EXAMPLE IN FORTRAN
 program example_in_f
-use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, version
+use ciaaw, only: saw, get_ice, get_naw, get_nice, get_nnaw, version
 implicit none(type,external)
 print *, "version ", version()
 
 print '(A)', '########### CIAAW SAW ##########'
-print '(A10, F10.5)', 'ASAW H   = ', get_saw("H", ab=.true.)
-print '(A10, F10.5)', 'U ASAW H = ', get_saw("H", u=.true.)
-print '(A10, F10.5)', 'SAW H    = ', get_saw("H", ab=.false.)
-print '(A10, F10.5)', 'U SAW H  =  ', get_saw("H", ab=.false., u=.true.)
-print '(A10, F10.5)', 'ASAW T   = ', get_saw("Tc", ab=.true.)
+print '(A10, F10.5)', 'ASAW H   = ', saw("H", ab=.true.)
+print '(A10, F10.5)', 'U ASAW H = ', saw("H", u=.true.)
+print '(A10, F10.5)', 'SAW H    = ', saw("H", ab=.false.)
+print '(A10, F10.5)', 'U SAW H  =  ', saw("H", ab=.false., u=.true.)
+print '(A10, F10.5)', 'ASAW T   = ', saw("Tc", ab=.true.)
 
 print '(A)', '########### CIAAW ICE ##########'
 print '(A, I3)',      'N ICE H    = ', get_nice("H")

@@ -10,11 +10,11 @@ printf("%s\n", "########## CIAAW VERSION ##########");
 printf("version %s\n", ciaaw_version());
 
 printf("%s\n", "########## CIAAW SAW ##########");
-printf("%s %10.5f\n", "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));
-printf("%s %10.5f\n", "U ASAW H = ", ciaaw_get_saw("H", 1, true, true));
-printf("%s %10.5f\n", "SAW H    = ", ciaaw_get_saw("H", 1, false, false));
-printf("%s %10.5f\n", "U SAW H  = ", ciaaw_get_saw("H", 1, false, true));
-printf("%s %10.5f\n", "ASAW Tc  = ", ciaaw_get_saw("Tc", 2, true, false));
+printf("%s %10.5f\n", "ASAW H   = ", ciaaw_saw("H", 1, true, false));
+printf("%s %10.5f\n", "U ASAW H = ", ciaaw_saw("H", 1, true, true));
+printf("%s %10.5f\n", "SAW H    = ", ciaaw_saw("H", 1, false, false));
+printf("%s %10.5f\n", "U SAW H  = ", ciaaw_saw("H", 1, false, true));
+printf("%s %10.5f\n", "ASAW Tc  = ", ciaaw_saw("Tc", 2, true, false));
 
 printf("%s\n", "########## CIAAW ICE ##########");
 printf("%s %d\n",     "N ICE H      = ", ciaaw_get_nice("H", 1));
