@@ -23,7 +23,32 @@ def main():
     sys.exit(res.returncode)
 
 
-def get_saw(s: str, ab: bool = True, u: bool = False) -> float:
+def get_saw(s: str, abridged: bool = True, uncertainty: bool = False) -> float:
+    r"""
+    Get the standard atomic weight of the element s.
+
+    DEPRECATED: It will be removed in the next major release.
+    Use :func:`saw` instead.
+
+    Parameters
+    ----------
+    s: str
+        Element symbol.
+    abridged: bool, optional
+        Flag for the abridged value. Default to True.
+    uncertainty: bool, optional
+        Flag to get the uncertainty instead of the value. Default to False.
+
+    Returns:
+    --------
+    saw: float
+        Returns NaN if the provided element is incorrect or -1
+        if the element does not have a standard atomic weight.
+    """
+    return _ciaaw.saw(str(s), bool(abridged), bool(uncertainty))
+
+
+def saw(s: str, ab: bool = True, u: bool = False) -> float:
     r"""
     Get the standard atomic weight of the element s.
 
@@ -42,7 +67,7 @@ def get_saw(s: str, ab: bool = True, u: bool = False) -> float:
         Returns NaN if the provided element is incorrect or -1
         if the element does not have a standard atomic weight.
     """
-    return _ciaaw.get_saw(str(s), bool(ab), bool(u))
+    return _ciaaw.saw(str(s), bool(ab), bool(u))
 
 
 def get_ice(s: str, A: int, u: bool = False) -> float:
