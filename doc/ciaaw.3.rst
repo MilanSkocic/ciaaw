@@ -184,9 +184,49 @@ Fortran API:
          NaN if the provided element is incorrect or **-1 if the element
          does not have a SAW.**
 
-   **o function get_ice(s, A, u)result(res)**
+   **o function get_ice(s, A, uncertainty)result(res)**
       Get the isotopic composition of the element s for the mass number
-      A.
+      A. Deprecated. It will be removed in the next major release. Use
+      **ice() instead.**
+
+      **o character(len=\*), intent(in) :: s**
+         Element symbol.
+
+      **o integer(int32), intent(in) :: A**
+         Mass number.
+
+      **o logical, intent(in), optional :: uncertainty**
+         Set to True if the uncertainty is desired. Default to FALSE.
+
+      **o real(dp) :: res**
+         NaN if the provided element or the mass number A are incorrect
+         or **-1 if the element does not have an ICE.**
+
+   **o function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)**
+      C API. Deprecated. It will be removed in the next major release.
+      Use **capi_ice() instead.**
+
+      **o type(c_ptr), intent(in), value :: s**
+         Element symbol.
+
+      **o integer(c_int), intent(in), value :: n**
+         Size of the symbol string.
+
+      **o integer(c_int), intent(in), value :: A**
+         Mass number.
+
+      **o logical(c_bool), intent(in), value :: uncertainty**
+         Flag for returning the uncertainty instead of the value.
+         Default to FALSE.
+
+      **o real(c_double) :: res**
+         NaN if the provided element or the mass number A are incorrect
+         or **-1 if the element does not have an ICE.**
+
+   **o function ice(s, A, u)result(res)**
+      Get the isotopic composition of the element s for the mass number
+      A. Deprecated. It will be removed in the next major release. Use
+      **ice() instead.**
 
       **o character(len=\*), intent(in) :: s**
          Element symbol.
@@ -201,7 +241,7 @@ Fortran API:
          NaN if the provided element or the mass number A are incorrect
          or **-1 if the element does not have an ICE.**
 
-   **o function capi_get_ice(s, n, A, u)bind(C, name="ciaaw_get_ice")result(res)**
+   **o function capi_ice(s, n, A, u)bind(C, name="ciaaw_ice")result(res)**
       C API.
 
       **o type(c_ptr), intent(in), value :: s**
@@ -308,7 +348,9 @@ C API:
 
    -  double **ciaaw_saw(char \*s, int n, bool ab, bool u)**
 
-   -  double **ciaaw_get_ice(char \*s, int n, int A, bool u)**
+   -  double **ciaaw_get_ice(char \*s, int n, int A, bool uncertainty)**
+
+   -  double **ciaaw_ice(char \*s, int n, int A, bool u)**
 
    -  int **ciaaw_get_nice(char \*s, int n)**
 
@@ -325,7 +367,9 @@ Python API:
 
    -  **saw(s: str, ab: bool = True, u: bool = False) -> float**
 
-   -  **get_ice(s: str, A: int, u: bool = False) -> float**
+   -  **get_ice(s: str, A: int, uncertainty: bool = False) -> float**
+
+   -  **ice(s: str, A: int, u: bool = False) -> float**
 
    -  **get_nice(s: str) -> int**
 
