@@ -144,25 +144,13 @@ function get_version()result(fptr)
 !! Use version() instead.
 implicit none
 character(len=:), pointer :: fptr  !! Fortran pointer to a string indicating the version..
-if(allocated(vf))then
-    deallocate(vf)
-endif
-allocate(character(len=len(v)) :: vf)
-vf = v
-fptr => vf
+fptr => version()
 end function get_version
 !-----------------------------------------------------------------------
 function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
 !! C API.
 type(c_ptr) :: cptr    !! C pointer to a string indicating the version.
-character(len=:), pointer :: fptr
-fptr => get_version()
-if(allocated(vc))then
-    deallocate(vc)
-endif
-allocate(character(len=len(fptr)+1) :: vc)
-vc = fptr // c_null_char
-cptr = c_loc(vc)
+cptr = capi_version()
 end function capi_get_version
 !=======================================================================
 
@@ -303,53 +291,7 @@ character(len=*), intent(in) :: s    !! Element symbol.
 logical, intent(in), optional :: abridged  !! Set to False if the abridged value is not desired. Default to TRUE.
 logical, intent(in), optional :: uncertainty   !! Set to True if the uncertainty is desired. Default to FALSE.
 real(dp) :: res                      !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-
-real(dp) :: saw_max, saw_min, saw, saw_u
-integer(int32) :: z, n
-logical :: ab2, u2
-
-ab2 = optval(abridged, .true.)
-u2 = optval(uncertainty, .false.)
-
-z = get_z_by_symbol(s)
-
-res = ieee_value(1.0_dp, ieee_quiet_nan)
-
-if(z>0)then
-    if(ab2 .eqv. .true.)then
-        if(u2 .eqv. .true.)then
-            res = pt(z)%saw%asaw_u
-        else
-            res = pt(z)%saw%asaw
-        end if
-    else
-        if((pt(z)%saw%saw == -1.0_dp) .and. (pt(z)%saw%saw_max > 0.0_dp) .and. (pt(z)%saw%saw_min > 0.0_dp))then
-
-            saw_max = pt(z)%saw%saw_max
-            saw_min = pt(z)%saw%saw_min
-
-            saw = (saw_max + saw_min) / 2.0_dp
-            saw_u = (saw_max - saw_min)/(2.0_dp*sqrt(3.0_dp))
-
-            n = floor(log10(saw_u))
-
-            saw_u = ceiling(saw_u * 10.0_dp**(-n))*10.0_dp**n
-            saw = nint(saw * 10.0_dp**(-n)) * 10.0_dp**n
-
-            if(u2 .eqv. .true.)then
-                res = saw_u
-            else
-                res = saw
-            end if
-        else
-            if(u2 .eqv. .true.)then
-                res = pt(z)%saw%saw_u
-            else
-                res = pt(z)%saw%saw
-            end if
-        end if
-    end if
-end if
+res = saw(s, abridged, uncertainty)
 end function get_saw
 !-----------------------------------------------------------------------
 function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")result(res)
@@ -361,22 +303,7 @@ integer(c_int), intent(in), value :: n    !! Size of the symbol string.
 logical(c_bool), intent(in), value :: abridged  !! Flag for setting if abridged value is desired.
 logical(c_bool), intent(in), value :: uncertainty   !! Flag for setting if the uncertainty is desired instead of the value.
 real(c_double) :: res                     !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
-
-integer(c_int) :: i
-character, pointer, dimension(:) :: c2f_s
-character(len=n) :: fs
-logical :: f_ab, f_u
-
-call c_f_pointer(s, c2f_s, shape=[n])
-
-do i=1, n
-    fs(i:i) = c2f_s(i)
-enddo
-
-f_ab = logical(abridged)
-f_u = logical(uncertainty)
-
-res = get_saw(fs, f_ab, f_u)
+res = capi_saw(s, n, abridged, uncertainty)
 end function capi_get_saw
 !=======================================================================
 
@@ -477,35 +404,7 @@ character(len=*), intent(in) :: s   !! Element symbol.
 integer(int32), intent(in) :: A     !! Mass number.
 logical, intent(in), optional :: uncertainty  !! Set to True if the uncertainty is desired. Default to FALSE.
 real(dp) :: res                     !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
-
-real(dp) :: A_double
-integer(int32) :: i, z, col, row
-logical :: u2
-
-u2 = optval(uncertainty, .false.)
-z = get_z_by_symbol(s)
-A_double = real(A, dp)
-
-res = ieee_value(1.0_dp, ieee_quiet_nan)
-
-if(u2 .eqv. .true.)then
-    col = 3
-else
-    col = 2
-endif
-
-row = 0
-if((z>0) .and. (pt(z)%ice%n > 0))then
-    do i=1, pt(z)%ice%n
-        if(pt(z)%ice%values(i, 1) == A_double)then
-            row = i
-            exit
-        endif
-    end do
-endif
-if(row > 0)then
-    res = pt(z)%ice%values(row, col)
-endif
+res = ice(s, A, uncertainty)
 end function get_ice
 !-----------------------------------------------------------------------
 function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)
@@ -517,21 +416,7 @@ integer(c_int), intent(in), value :: n   !! Size of the symbol string.
 integer(c_int), intent(in), value :: A   !! Mass number.
 logical(c_bool), intent(in), value :: uncertainty  !! Flag for returning the uncertainty instead of the value. Default to FALSE.
 real(c_double) :: res                    !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
-
-integer(c_int) :: i
-character, pointer, dimension(:) :: c2f_s
-character(len=n) :: fs
-logical :: f_u
-
-call c_f_pointer(s, c2f_s, shape=[n])
-
-do i=1, n
-    fs(i:i) = c2f_s(i)
-enddo
-
-f_u = logical(uncertainty)
-
-res = get_ice(fs, A, f_u)
+res = capi_ice(s, n, A, uncertainty)
 end function capi_get_ice
 !=======================================================================
 
