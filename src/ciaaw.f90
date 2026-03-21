@@ -104,8 +104,6 @@
 !              o logical(c_bool), intent(in), value :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
 !              o real(c_double) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
 !         o function ice(s, A, u)result(res)  Get the isotopic composition of the element s for the mass number A.
-!                                             Deprecated. It will be removed in the next major release.
-!                                             Use ice() instead.
 !              o character(len=*), intent(in) :: s    Element symbol.
 !              o integer(int32), intent(in) :: A    Mass number.
 !              o logical, intent(in), optional :: u    Set to True if the uncertainty is desired. Default to FALSE.
@@ -117,9 +115,20 @@
 !              o logical(c_bool), intent(in), value :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
 !              o real(c_double) :: res    NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
 !         o function get_nice(s)result(res)  Get the number of isotopes in ICE of the element s.
+!                                            Deprecated. It will be removed in the next major release.
+!                                            Use nice() instead.
 !              o character(len=*), intent(in) :: s    Element symbol.
 !              o integer(int32) :: res    >0 if found or -1 if not found.
 !         o function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)  C API.
+!                                                                                 Deprecated. It will be removed in the next major release.
+!                                                                                 Use capi_nice() instead.
+!              o type(c_ptr), intent(in), value :: s    Element symbol.
+!              o integer(c_int), intent(in), value :: n    Size of the symbol string.
+!              o integer(c_int) :: res    >0 if found or -1 if not found.
+!         o function nice(s)result(res)  Get the number of isotopes in ICE of the element s.
+!              o character(len=*), intent(in) :: s    Element symbol.
+!              o integer(int32) :: res    >0 if found or -1 if not found.
+!         o function capi_nice(s,n)bind(C, name="ciaaw_nice")result(res)  C API.
 !              o type(c_ptr), intent(in), value :: s    Element symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
 !              o integer(c_int) :: res    >0 if found or -1 if not found.
@@ -149,6 +158,7 @@
 !         o double ciaaw_get_ice(char *s, int n, int A, bool uncertainty)
 !         o double ciaaw_ice(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nice(char *s, int n)
+!         o int ciaaw_nice(char *s, int n)
 !         o double ciaaw_get_naw(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nnaw(char *s, int n)
 ! 
@@ -334,6 +344,7 @@ public :: saw, capi_saw
 public :: get_ice, capi_get_ice
 public :: ice, capi_ice
 public :: get_nice, capi_get_nice
+public :: nice, capi_nice
 public :: get_naw, capi_get_naw
 public :: get_nnaw, capi_get_nnaw
 public :: print_periodic_table
@@ -632,8 +643,6 @@ end function capi_get_ice
 !=======================================================================
 function ice(s, A, u)result(res)
 !! Get the isotopic composition of the element s for the mass number A.
-!! Deprecated. It will be removed in the next major release.
-!! Use ice() instead.
 character(len=*), intent(in) :: s   !! Element symbol.
 integer(int32), intent(in) :: A     !! Mass number.
 logical, intent(in), optional :: u  !! Set to True if the uncertainty is desired. Default to FALSE.
@@ -696,9 +705,33 @@ end function capi_ice
 
 
 !=======================================================================
-! GET_NICE
+! GET_NICE() - DEPRECATED
 !=======================================================================
 function get_nice(s)result(res)
+!! Get the number of isotopes in ICE of the element s.
+!! Deprecated. It will be removed in the next major release.
+!! Use nice() instead.
+character(len=*), intent(in) :: s     !! Element symbol.
+integer(int32) :: res                 !! >0 if found or -1 if not found.
+res = nice(s)
+end function get_nice
+!-----------------------------------------------------------------------
+function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)
+!! C API.
+!! Deprecated. It will be removed in the next major release.
+!! Use capi_nice() instead.
+type(c_ptr), intent(in), value :: s        !! Element symbol.
+integer(c_int), intent(in), value :: n     !! Size of the symbol string.
+integer(c_int) :: res                      !! >0 if found or -1 if not found.
+res = capi_nice(s,n)
+end function capi_get_nice
+!=======================================================================
+
+
+!=======================================================================
+! NICE()
+!=======================================================================
+function nice(s)result(res)
 !! Get the number of isotopes in ICE of the element s.
 character(len=*), intent(in) :: s     !! Element symbol.
 integer(int32) :: res                 !! >0 if found or -1 if not found.
@@ -712,9 +745,9 @@ if(z>0)then
 else
     res = -1
 endif
-end function get_nice
+end function nice
 !-----------------------------------------------------------------------
-function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)
+function capi_nice(s,n)bind(C, name="ciaaw_nice")result(res)
 !! C API.
 type(c_ptr), intent(in), value :: s        !! Element symbol.
 integer(c_int), intent(in), value :: n     !! Size of the symbol string.
@@ -730,8 +763,8 @@ do i=1, n
     fs(i:i) = c2f_s(i)
 enddo
 
-res = get_nice(fs)
-end function capi_get_nice
+res = nice(fs)
+end function capi_nice
 !=======================================================================
 
 

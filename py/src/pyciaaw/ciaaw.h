@@ -14,6 +14,7 @@ extern double ciaaw_saw(char *s, int n, bool ab, bool u);
 extern double ciaaw_get_ice(char *s, int n, int A, bool uncertainty);
 extern double ciaaw_ice(char *s, int n, int A, bool u);
 extern int ciaaw_get_nice(char *s, int n);
+extern int ciaaw_nice(char *s, int n);
 extern double ciaaw_get_naw(char *s, int n, int A, bool u);
 extern int ciaaw_get_nnaw(char *s, int n);
 

@@ -225,8 +225,7 @@ Fortran API:
 
    **o function ice(s, A, u)result(res)**
       Get the isotopic composition of the element s for the mass number
-      A. Deprecated. It will be removed in the next major release. Use
-      **ice() instead.**
+      A.
 
       **o character(len=\*), intent(in) :: s**
          Element symbol.
@@ -262,7 +261,8 @@ Fortran API:
          or **-1 if the element does not have an ICE.**
 
    **o function get_nice(s)result(res)**
-      Get the number of isotopes in ICE of the element s.
+      Get the number of isotopes in ICE of the element s. Deprecated. It
+      will be removed in the next major release. Use **nice() instead.**
 
       **o character(len=\*), intent(in) :: s**
          Element symbol.
@@ -271,6 +271,28 @@ Fortran API:
          >0 if found or **-1 if not found.**
 
    **o function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)**
+      C API. Deprecated. It will be removed in the next major release.
+      Use **capi_nice() instead.**
+
+      **o type(c_ptr), intent(in), value :: s**
+         Element symbol.
+
+      **o integer(c_int), intent(in), value :: n**
+         Size of the symbol string.
+
+      **o integer(c_int) :: res**
+         >0 if found or **-1 if not found.**
+
+   **o function nice(s)result(res)**
+      Get the number of isotopes in ICE of the element s.
+
+      **o character(len=\*), intent(in) :: s**
+         Element symbol.
+
+      **o integer(int32) :: res**
+         >0 if found or **-1 if not found.**
+
+   **o function capi_nice(s,n)bind(C, name="ciaaw_nice")result(res)**
       C API.
 
       **o type(c_ptr), intent(in), value :: s**
@@ -353,6 +375,8 @@ C API:
    -  double **ciaaw_ice(char \*s, int n, int A, bool u)**
 
    -  int **ciaaw_get_nice(char \*s, int n)**
+
+   -  int **ciaaw_nice(char \*s, int n)**
 
    -  double **ciaaw_get_naw(char \*s, int n, int A, bool u)**
 
