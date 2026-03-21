@@ -2,7 +2,7 @@ module testsuite_ice
     !! Test ice
     use testdrive, only : new_unittest, unittest_type, error_type, check
     use ciaaw__common, only: dp, int32
-    use ciaaw, only: ice, get_nice
+    use ciaaw, only: ice, nice
     use ciaaw__pte, only: pt
     implicit none(type,external)
     private
@@ -54,7 +54,7 @@ subroutine test_nice(error)
     expected_n = [2, 2, 3]
 
     do i=1, N
-        value = get_nice(elmt(i))
+        value = nice(elmt(i))
         expected = expected_n(i)
         call check(error, value, expected)
         if (allocated(error)) return
