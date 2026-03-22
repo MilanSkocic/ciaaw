@@ -8,19 +8,19 @@
 PyDoc_STRVAR(module_docstring, "C extension for ciaaw.");
 
 PyDoc_STRVAR(saw_doc, 
-"saw(s: str, abridged: bool, uncertainty: bool) -> float \n\n");
+"saw(s: str, abridged: bool, u: bool) -> float \n\n");
 
 PyDoc_STRVAR(ice_doc, 
-"ice(s: str, A: int, uncertainty: bool) -> float \n\n");
+"ice(s: str, A: int, u: bool) -> float \n\n");
 
-PyDoc_STRVAR(get_nice_doc,
-"get_nice(s: str) -> int \n\n");
+PyDoc_STRVAR(nice_doc,
+"nice(s: str) -> int \n\n");
 
-PyDoc_STRVAR(get_naw_doc, 
-"get_naw(s: str, A: int, uncertainty: bool) -> float \n\n");
+PyDoc_STRVAR(naw_doc, 
+"naw(s: str, A: int, u: bool) -> float \n\n");
  
-PyDoc_STRVAR(get_nnaw_doc,
-"get_nnaw(s: str) -> int \n\n");
+PyDoc_STRVAR(nnaw_doc,
+"nnaw(s: str) -> int \n\n");
 //======================================================================
 
 
@@ -57,7 +57,7 @@ static PyObject *ice(PyObject *self, PyObject *args){
     return Py_BuildValue("d", res);
 }
 
-static PyObject *get_nice(PyObject *self, PyObject *args){
+static PyObject *_nice(PyObject *self, PyObject *args){
     char *s;
     Py_ssize_t size;
     int res;
@@ -65,12 +65,12 @@ static PyObject *get_nice(PyObject *self, PyObject *args){
     if (!PyArg_ParseTuple(args, "s#", &s, &size)){
         return NULL;
     }
-    res = ciaaw_get_nice(s, size);
+    res = ciaaw_nice(s, size);
 
     return Py_BuildValue("i", res);
 }
 
-static PyObject *get_naw(PyObject *self, PyObject *args){
+static PyObject *naw(PyObject *self, PyObject *args){
     char *s;
     int A;
     Py_ssize_t size;
@@ -80,12 +80,12 @@ static PyObject *get_naw(PyObject *self, PyObject *args){
     if (!PyArg_ParseTuple(args, "s#ip", &s, &size, &A, &uncertainty)){
         return NULL;
     }
-    res = ciaaw_get_naw(s, size, A, (bool) uncertainty);
+    res = ciaaw_naw(s, size, A, (bool) uncertainty);
     
     return Py_BuildValue("d", res);
 }
 
-static PyObject *get_nnaw(PyObject *self, PyObject *args){
+static PyObject *nnaw(PyObject *self, PyObject *args){
     char *s;
     Py_ssize_t size;
     int res;
@@ -93,7 +93,7 @@ static PyObject *get_nnaw(PyObject *self, PyObject *args){
     if (!PyArg_ParseTuple(args, "s#", &s, &size)){
         return NULL;
     }
-    res = ciaaw_get_nnaw(s, size);
+    res = ciaaw_nnaw(s, size);
 
     return Py_BuildValue("i", res);
 }
@@ -106,9 +106,9 @@ static PyObject *get_nnaw(PyObject *self, PyObject *args){
 static PyMethodDef myMethods[] = {  
 {"saw",  (PyCFunction) saw,  METH_VARARGS, saw_doc},
 {"ice",  (PyCFunction) ice,  METH_VARARGS, ice_doc},
-{"get_nice", (PyCFunction) get_nice, METH_VARARGS, get_nice_doc},
-{"get_naw",  (PyCFunction) get_naw,  METH_VARARGS, get_naw_doc},
-{"get_nnaw", (PyCFunction) get_nnaw, METH_VARARGS, get_nnaw_doc},
+{"nice", (PyCFunction) _nice, METH_VARARGS, nice_doc}, // Concflict name nice from Python.h
+{"naw",  (PyCFunction) naw,  METH_VARARGS, naw_doc},
+{"nnaw", (PyCFunction) nnaw, METH_VARARGS, nnaw_doc},
 { NULL, NULL, 0, NULL }};
 
 static struct PyModuleDef _ciaaw = 
