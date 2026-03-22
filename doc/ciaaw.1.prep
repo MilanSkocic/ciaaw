@@ -1,18 +1,3 @@
-[  0%]                      ciaaw.f90
-[ 14%]                      ciaaw.f90  done.
-[ 14%]                     libciaaw.a
-[ 28%]                     libciaaw.a  done.
-[ 28%]                       main.f90
-[ 42%]                       main.f90  done.
-[ 42%]                    example.f90
-[ 57%]                    example.f90  done.
-[ 57%]                          ciaaw
-[ 71%]                          ciaaw  done.
-[ 71%]                   example_in_c
-[ 85%]                   example_in_c  done.
-[ 85%]                   example_in_f
-[100%]                   example_in_f  done.
-[100%] Project compiled successfully.
 NAME
   ciaaw - Command line for ciaaw
 
