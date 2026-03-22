@@ -132,21 +132,46 @@
 !              o type(c_ptr), intent(in), value :: s    Element symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
 !              o integer(c_int) :: res    >0 if found or -1 if not found.
-!         o function get_naw(s, A, u)result(res)  Get the atomic weight of the nuclide s for the mass number A.
+!         o function get_naw(s, A, uncertainty)result(res)  Get the atomic weight of the nuclide s for the mass number A.
+!                                                           Deprecated. It will be removed in the next major release.
+!                                                           Use naw() instead.
+!              o character(len=*), intent(in) :: s    Element symbol.
+!              o integer(int32), intent(in) :: A    Mass number.
+!              o logical, intent(in), optional :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
+!              o real(dp) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
+!         o function capi_get_naw(s, n, A, uncertainty)bind(C, name="ciaaw_get_naw")result(res)  C API.
+!                                                                                                Deprecated. It will be removed in the next major release.
+!                                                                                                Use capi_naw() instead.
+!              o type(c_ptr), intent(in), value :: s    Element symbol.
+!              o integer(c_int), intent(in), value :: n    Size of the symbol string.
+!              o integer(c_int), intent(in), value :: A    Mass number.
+!              o logical(c_bool), intent(in), value :: uncertainty    Flag for returning the uncertainty instead of the value. Default to FALSE.
+!              o real(c_double) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
+!         o function naw(s, A, u)result(res)  Get the atomic weight of the nuclide s for the mass number A.
 !              o character(len=*), intent(in) :: s    Element symbol.
 !              o integer(int32), intent(in) :: A    Mass number.
 !              o logical, intent(in), optional :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
 !              o real(dp) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
-!         o function capi_get_naw(s, n, A, u)bind(C, name="ciaaw_get_naw")result(res)  C API.
+!         o function capi_naw(s, n, A, u)bind(C, name="ciaaw_naw")result(res)  C API.
 !              o type(c_ptr), intent(in), value :: s    Element symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
 !              o integer(c_int), intent(in), value :: A    Mass number.
 !              o logical(c_bool), intent(in), value :: u    Flag for returning the uncertainty instead of the value. Default to FALSE.
 !              o real(c_double) :: res    NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
 !         o function get_nnaw(s)result(res)  Get the number of nuclides in NAW of the element s.
+!                                            Deprecated. It will be removed in the next major release.
+!                                            Use nnaw() instead.
 !              o character(len=*), intent(in) :: s    Element symbol.
 !              o integer(int32) :: res    >0 if found or -1 if not found.
 !         o function capi_get_nnaw(s,n)bind(C, name="ciaaw_get_nnaw")result(res)  C API.
+!                                                                                 Deprecated. It will be removed in the next major release.
+!                                                                                 Use capi_nnaw() instead.
+!              o type(c_ptr), intent(in), value :: s    Element symbol.
+!              o integer(c_int), intent(in), value :: n    Size of the symbol string.
+!         o function nnaw(s)result(res)  Get the number of nuclides in NAW of the element s.
+!              o character(len=*), intent(in) :: s    Element symbol.
+!              o integer(int32) :: res    >0 if found or -1 if not found.
+!         o function capi_nnaw(s,n)bind(C, name="ciaaw_nnaw")result(res)  C API.
 !              o type(c_ptr), intent(in), value :: s    Element symbol.
 !              o integer(c_int), intent(in), value :: n    Size of the symbol string.
 ! 
@@ -159,8 +184,10 @@
 !         o double ciaaw_ice(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nice(char *s, int n)
 !         o int ciaaw_nice(char *s, int n)
-!         o double ciaaw_get_naw(char *s, int n, int A, bool u)
+!         o double ciaaw_get_naw(char *s, int n, int A, bool uncertainty)
+!         o double ciaaw_naw(char *s, int n, int A, bool u)
 !         o int ciaaw_get_nnaw(char *s, int n)
+!         o int ciaaw_nnaw(char *s, int n)
 ! 
 !     Python API:
 !         o main()
@@ -169,8 +196,11 @@
 !         o get_ice(s: str, A: int, uncertainty: bool = False) -> float
 !         o ice(s: str, A: int, u: bool = False) -> float
 !         o get_nice(s: str) -> int
-!         o get_naw(s: str, A: int, u: bool = False) -> float
+!         o nice(s: str) -> int
+!         o get_naw(s: str, A: int, uncertainty: bool = False) -> float
+!         o naw(s: str, A: int, u: bool = False) -> float
 !         o get_nnaw(s: str) -> int
+!         o nnaw(s: str) -> int
 ! 
 !     References
 ! 
@@ -346,7 +376,9 @@ public :: ice, capi_ice
 public :: get_nice, capi_get_nice
 public :: nice, capi_nice
 public :: get_naw, capi_get_naw
+public :: naw, capi_naw
 public :: get_nnaw, capi_get_nnaw
+public :: nnaw, capi_nnaw
 public :: print_periodic_table
 ! public :: get_ice_values
 !=======================================================================
@@ -769,9 +801,9 @@ end function capi_nice
 
 
 !=======================================================================
-! GET_ICE_VALUES
+! ICES()
 !=======================================================================
-! function get_ice_values(s)result(res)
+! function ices(s)result(res)
 ! !! Get the (n, 3) values array. See [[ciaaw__types(module):ice_type(type)]].
 ! !! Returns a null pointer if the provided symbol is incorrect.
 !
@@ -800,9 +832,9 @@ end function capi_nice
 !     n_ice_out(1,:) = ice_nan%values(1,:)
 !     res => null()
 ! endif
-! end function get_ice_values
+! end function ices
 !-----------------------------------------------------------------------
-! function capi_get_ice_values(s, n)bind(C, name="ciaaw_get_ice_values")result(res)
+! function capi_ices(s, n)bind(C, name="ciaaw_get_ice_values")result(res)
 !     !! C API for [[ciaaw__api(module):get_ice_values(function)]]
 
 !     ! Arguments
@@ -828,15 +860,43 @@ end function capi_nice
 
 !     res = c_loc(fptr)
 
-! end function
+! end function capi_ices
 !=======================================================================
 
 
 
 !=======================================================================
-! GET_NAW
+! GET_NAW() - DEPRECATED
 !=======================================================================
-function get_naw(s, A, u)result(res)
+function get_naw(s, A, uncertainty)result(res)
+!! Get the atomic weight of the nuclide s for the mass number A.
+!! Deprecated. It will be removed in the next major release.
+!! Use naw() instead.
+character(len=*), intent(in) :: s   !! Element symbol.
+integer(int32), intent(in) :: A     !! Mass number.
+logical, intent(in), optional :: uncertainty  !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+real(dp) :: res                     !! NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
+res = naw(s, A, uncertainty)
+end function get_naw
+!-----------------------------------------------------------------------
+function capi_get_naw(s, n, A, uncertainty)bind(C, name="ciaaw_get_naw")result(res)
+!! C API.
+!! Deprecated. It will be removed in the next major release.
+!! Use capi_naw() instead.
+type(c_ptr), intent(in), value :: s      !! Element symbol.
+integer(c_int), intent(in), value :: n   !! Size of the symbol string.
+integer(c_int), intent(in), value :: A   !! Mass number.
+logical(c_bool), intent(in), value :: uncertainty  !! Flag for returning the uncertainty instead of the value. Default to FALSE.
+real(c_double) :: res                    !! NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
+res = capi_naw(s, n, A, uncertainty)
+end function capi_get_naw
+!=======================================================================
+
+
+!=======================================================================
+! NAW()
+!=======================================================================
+function naw(s, A, u)result(res)
 !! Get the atomic weight of the nuclide s for the mass number A.
 character(len=*), intent(in) :: s   !! Element symbol.
 integer(int32), intent(in) :: A     !! Mass number.
@@ -872,9 +932,9 @@ endif
 if(row > 0)then
     res = pt(z)%naw%values(row, col)
 endif
-end function get_naw
+end function naw
 !-----------------------------------------------------------------------
-function capi_get_naw(s, n, A, u)bind(C, name="ciaaw_get_naw")result(res)
+function capi_naw(s, n, A, u)bind(C, name="ciaaw_naw")result(res)
 !! C API.
 type(c_ptr), intent(in), value :: s      !! Element symbol.
 integer(c_int), intent(in), value :: n   !! Size of the symbol string.
@@ -895,15 +955,39 @@ enddo
 
 f_u = logical(u)
 
-res = get_naw(fs, A, f_u)
-end function capi_get_naw
+res = naw(fs, A, f_u)
+end function capi_naw
 !=======================================================================
 
 
 !=======================================================================
-! GET_NNAW
+! GET_NNAW() - DEPRECATED
 !=======================================================================
 function get_nnaw(s)result(res)
+!! Get the number of nuclides in NAW of the element s.
+!! Deprecated. It will be removed in the next major release.
+!! Use nnaw() instead.
+character(len=*), intent(in) :: s   !! Element symbol.
+integer(int32) :: res               !! >0 if found or -1 if not found.
+res = nnaw(s)
+end function get_nnaw
+!-----------------------------------------------------------------------
+function capi_get_nnaw(s,n)bind(C, name="ciaaw_get_nnaw")result(res)
+!! C API.
+!! Deprecated. It will be removed in the next major release.
+!! Use capi_nnaw() instead.
+type(c_ptr), intent(in), value :: s       !! Element symbol.
+integer(c_int), intent(in), value :: n    !! Size of the symbol string.
+integer(c_int) :: res
+res = capi_nnaw(s,n)
+end function capi_get_nnaw
+!=======================================================================
+
+
+!=======================================================================
+! NNAW()
+!=======================================================================
+function nnaw(s)result(res)
 !! Get the number of nuclides in NAW of the element s.
 character(len=*), intent(in) :: s   !! Element symbol.
 integer(int32) :: res               !! >0 if found or -1 if not found.
@@ -917,9 +1001,9 @@ if(z>0)then
 else
     res = -1
 endif
-end function get_nnaw
+end function nnaw
 !-----------------------------------------------------------------------
-function capi_get_nnaw(s,n)bind(C, name="ciaaw_get_nnaw")result(res)
+function capi_nnaw(s,n)bind(C, name="ciaaw_nnaw")result(res)
 !! C API.
 type(c_ptr), intent(in), value :: s       !! Element symbol.
 integer(c_int), intent(in), value :: n    !! Size of the symbol string.
@@ -935,7 +1019,7 @@ do i=1, n
     fs(i:i) = c2f_s(i)
 enddo
 
-res = get_nnaw(fs)
-end function capi_get_nnaw
+res = nnaw(fs)
+end function capi_nnaw
 !=======================================================================
 end module ciaaw
