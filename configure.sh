@@ -59,7 +59,6 @@ if [[ "$FPM_VERSION" == *"dev"* ]]; then
     export FPM_VERSION="$FPM_VERSION+$(git rev-parse --short HEAD)"
 fi
 
-export DESTDIR=$FPM_DEFAULT_INSTALL_DIR
 export PREFIX=$FPM_DEFAULT_INSTALL_DIR
 export MANWIDTH=72
 
@@ -70,9 +69,7 @@ IFS=$'\n'
 for i in $envs; do
     echo "export $i" >> make.in
 done
-echo "export DESTDIR=$DESTDIR" >> make.in
 echo "export PREFIX=$PREFIX" >> make.in
-echo "export PREP_DOCUMENT_DIR=$PREP_DOCUMENT_DIR" >> make.in
 echo "export MANWIDTH=$MANWIDTH" >> make.in
 echo "done"
 
