@@ -189,7 +189,6 @@ DESCRIPTION
         o int ciaaw_nnaw(char *s, int n)
 
     Python API:
-        o main()
         o get_saw(s: str, abridged: bool = True, uncertainty: bool = False) -> float
         o saw(s: str, ab: bool = True, u: bool = False) -> float
         o get_ice(s: str, A: int, uncertainty: bool = False) -> float

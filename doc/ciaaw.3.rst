@@ -448,8 +448,6 @@ C API:
 
 Python API:
 
-   -  **main()**
-
    -  **get_saw(s: str, abridged: bool = True, uncertainty: bool =
       False) -> float**
 
