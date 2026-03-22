@@ -26,8 +26,8 @@ printf("%s %d\n",     "N ICE Tc     = ", ciaaw_nice("Tc", 2));
 printf("%s %d\n",     "N ICE C      = ", ciaaw_nice("C", 1));
 
 printf("%s\n", "########## CIAAW NAW ##########");
-printf("%s %23.16f\n", "NAW H 2      = ", ciaaw_get_naw("H", 1, 2, false)); 
-printf("%s %23.16e\n", "U NAW H 2    = ", ciaaw_get_naw("H", 1, 2, true)); 
-printf("%s %d\n",      "N NAW Tc     = ", ciaaw_get_nnaw("Tc", 2));
+printf("%s %23.16f\n", "NAW H 2      = ", ciaaw_naw("H", 1, 2, false)); 
+printf("%s %23.16e\n", "U NAW H 2    = ", ciaaw_naw("H", 1, 2, true)); 
+printf("%s %d\n",      "N NAW Tc     = ", ciaaw_nnaw("Tc", 2));
 return EXIT_SUCCESS;
 }

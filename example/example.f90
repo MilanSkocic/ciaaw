@@ -1,6 +1,6 @@
 ! EXAMPLE IN FORTRAN
 program example_in_f
-use ciaaw, only: saw, ice, get_naw, nice, get_nnaw, version
+use ciaaw, only: saw, ice, naw, nice, nnaw, version
 implicit none(type,external)
 print *, "version ", version()
 
@@ -21,8 +21,8 @@ print '(A, I3)',      'N ICE Tc   = ', nice("Tc")
 print '(A, I3)',      'N ICE C    = ', nice("C")
 
 print '(A)', '########### CIAAW NAW ##########'
-print '(A, ES23.16)', 'NAW H 2     = ', get_naw("H", A=2)
-print '(A, ES23.16)', 'U NAW H 2   = ', get_naw("H", A=2, u=.true.)
-print '(A, I3)',      'N NAW Tc    = ', get_nnaw("Tc")
+print '(A, ES23.16)', 'NAW H 2     = ', naw("H", A=2)
+print '(A, ES23.16)', 'U NAW H 2   = ', naw("H", A=2, u=.true.)
+print '(A, I3)',      'N NAW Tc    = ', nnaw("Tc")
 
 end program example_in_f
