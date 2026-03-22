@@ -5,5 +5,8 @@
         o get_ice(s: str, A: int, uncertainty: bool = False) -> float
         o ice(s: str, A: int, u: bool = False) -> float
         o get_nice(s: str) -> int
-        o get_naw(s: str, A: int, u: bool = False) -> float
+        o nice(s: str) -> int
+        o get_naw(s: str, A: int, uncertainty: bool = False) -> float
+        o naw(s: str, A: int, u: bool = False) -> float
         o get_nnaw(s: str) -> int
+        o nnaw(s: str) -> int
