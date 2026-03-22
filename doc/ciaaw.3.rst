@@ -552,30 +552,30 @@ Example in Fortran
 
            ! EXAMPLE IN FORTRAN
            program example_in_f
-           use ciaaw, only: get_saw, get_ice, get_naw, get_nice, get_nnaw, version
+           use ciaaw, only: saw, ice, naw, nice, nnaw, version
            implicit none(type,external)
            print *, "version ", version()
 
            print '(A)', '########### CIAAW SAW ##########'
-           print '(A10, F10.5)', 'ASAW H = ', get_saw("H", ab=.true.)
-           print '(A10, F10.5)', 'U ASAW H = ', get_saw("H", u=.true.)
-           print '(A10, F10.5)', 'SAW H = ', get_saw("H", ab=.false.)
-           print '(A10, F10.5)', 'U SAW H = ', get_saw("H", ab=.false., u=.true.)
-           print '(A10, F10.5)', 'ASAW T = ', get_saw("Tc", ab=.true.)
+           print '(A10, F10.5)', 'ASAW H = ', saw("H", ab=.true.)
+           print '(A10, F10.5)', 'U ASAW H = ', saw("H", u=.true.)
+           print '(A10, F10.5)', 'SAW H = ', saw("H", ab=.false.)
+           print '(A10, F10.5)', 'U SAW H = ', saw("H", ab=.false., u=.true.)
+           print '(A10, F10.5)', 'ASAW T = ', saw("Tc", ab=.true.)
 
            print '(A)', '########### CIAAW ICE ##########'
-           print '(A, I3)', 'N ICE H = ', get_nice("H")
-           print '(A, F12.6)', 'ICE H 1 = ', get_ice("H", A=1)
-           print '(A, ES23.16)', 'U ICE H 1 = ', get_ice("H", A=1, u=.true.)
-           print '(A, F12.6)', 'ICE H 2 = ', get_ice("H", A=2)
-           print '(A, ES23.16)', 'U ICE H 2 = ', get_ice("H", A=2, u=.true.)
-           print '(A, I3)', 'N ICE Tc = ', get_nice("Tc")
-           print '(A, I3)', 'N ICE C = ', get_nice("C")
+           print '(A, I3)', 'N ICE H = ', nice("H")
+           print '(A, F12.6)', 'ICE H 1 = ', ice("H", A=1)
+           print '(A, ES23.16)', 'U ICE H 1 = ', ice("H", A=1, u=.true.)
+           print '(A, F12.6)', 'ICE H 2 = ', ice("H", A=2)
+           print '(A, ES23.16)', 'U ICE H 2 = ', ice("H", A=2, u=.true.)
+           print '(A, I3)', 'N ICE Tc = ', nice("Tc")
+           print '(A, I3)', 'N ICE C = ', nice("C")
 
            print '(A)', '########### CIAAW NAW ##########'
-           print '(A, ES23.16)', 'NAW H 2 = ', get_naw("H", A=2)
-           print '(A, ES23.16)', 'U NAW H 2 = ', get_naw("H", A=2, u=.true.)
-           print '(A, I3)', 'N NAW Tc = ', get_nnaw("Tc")
+           print '(A, ES23.16)', 'NAW H 2 = ', naw("H", A=2)
+           print '(A, ES23.16)', 'U NAW H 2 = ', naw("H", A=2, u=.true.)
+           print '(A, I3)', 'N NAW Tc = ', nnaw("Tc")
 
            end program example_in_f
 
@@ -595,25 +595,25 @@ Example in C
            printf("version %s, ciaaw_version());
 
            printf("%s, "########## CIAAW SAW ##########");
-           printf("%s %10.5f, "ASAW H   = ", ciaaw_get_saw("H", 1, true, false));
-           printf("%s %10.5f, "U ASAW H = ", ciaaw_get_saw("H", 1, true, true));
-           printf("%s %10.5f, "SAW H    = ", ciaaw_get_saw("H", 1, false, false));
-           printf("%s %10.5f, "U SAW H  = ", ciaaw_get_saw("H", 1, false, true));
-           printf("%s %10.5f, "ASAW Tc  = ", ciaaw_get_saw("Tc", 2, true, false));
+           printf("%s %10.5f, "ASAW H   = ", ciaaw_saw("H", 1, true, false));
+           printf("%s %10.5f, "U ASAW H = ", ciaaw_saw("H", 1, true, true));
+           printf("%s %10.5f, "SAW H    = ", ciaaw_saw("H", 1, false, false));
+           printf("%s %10.5f, "U SAW H  = ", ciaaw_saw("H", 1, false, true));
+           printf("%s %10.5f, "ASAW Tc  = ", ciaaw_saw("Tc", 2, true, false));
 
            printf("%s, "########## CIAAW ICE ##########");
-           printf("%s %d,     "N ICE H      = ", ciaaw_get_nice("H", 1));
-           printf("%s %12.6f, "ICE H 1      = ", ciaaw_get_ice("H", 1, 1, false));
-           printf("%s %23.16e,"U ICE H 1    = ", ciaaw_get_ice("H", 1, 1, true));
-           printf("%s %12.6f, "ICE H 2      = ", ciaaw_get_ice("H", 1, 2, false));
-           printf("%s %23.16e,"U ICE H 2    = ", ciaaw_get_ice("H", 1, 2, true));
-           printf("%s %d,     "N ICE Tc     = ", ciaaw_get_nice("Tc", 2));
-           printf("%s %d,     "N ICE C      = ", ciaaw_get_nice("C", 1));
+           printf("%s %d,     "N ICE H      = ", ciaaw_nice("H", 1));
+           printf("%s %12.6f, "ICE H 1      = ", ciaaw_ice("H", 1, 1, false));
+           printf("%s %23.16e,"U ICE H 1    = ", ciaaw_ice("H", 1, 1, true));
+           printf("%s %12.6f, "ICE H 2      = ", ciaaw_ice("H", 1, 2, false));
+           printf("%s %23.16e,"U ICE H 2    = ", ciaaw_ice("H", 1, 2, true));
+           printf("%s %d,     "N ICE Tc     = ", ciaaw_nice("Tc", 2));
+           printf("%s %d,     "N ICE C      = ", ciaaw_nice("C", 1));
 
            printf("%s, "########## CIAAW NAW ##########");
-           printf("%s %23.16f, "NAW H 2      = ", ciaaw_get_naw("H", 1, 2, false));
-           printf("%s %23.16e, "U NAW H 2    = ", ciaaw_get_naw("H", 1, 2, true));
-           printf("%s %d,      "N NAW Tc     = ", ciaaw_get_nnaw("Tc", 2));
+           printf("%s %23.16f, "NAW H 2      = ", ciaaw_naw("H", 1, 2, false));
+           printf("%s %23.16e, "U NAW H 2    = ", ciaaw_naw("H", 1, 2, true));
+           printf("%s %d,      "N NAW Tc     = ", ciaaw_nnaw("Tc", 2));
            return EXIT_SUCCESS;
            }
 
@@ -631,25 +631,25 @@ Example in Python
            print("version ", pyciaaw.__version__)
 
            print("########## CIAAW SAW  ##########")
-           print("ASAW H   = ", pyciaaw.get_saw("H"))
-           print("U ASAW H = ", pyciaaw.get_saw("H", u=True))
-           print("SAW H    = ", pyciaaw.get_saw("H", ab=False, u=False))
-           print("U SAW H  = ", pyciaaw.get_saw("H", ab=False, u=True))
-           print("ASAW Tc  = ", pyciaaw.get_saw("Tc"))
+           print("ASAW H   = ", pyciaaw.saw("H"))
+           print("U ASAW H = ", pyciaaw.saw("H", u=True))
+           print("SAW H    = ", pyciaaw.saw("H", ab=False, u=False))
+           print("U SAW H  = ", pyciaaw.saw("H", ab=False, u=True))
+           print("ASAW Tc  = ", pyciaaw.saw("Tc"))
 
            print("########## CIAAW ICE  ##########")
-           print("N ICE H   = ", pyciaaw.get_nice("H"))
-           print('ICE H 1   = ', pyciaaw.get_ice("H", A=1))
-           print('U ICE H 1 = ', pyciaaw.get_ice("H", A=1, u=True))
-           print('ICE H 2   = ', pyciaaw.get_ice("H", A=2))
-           print('U ICE H 2 = ', pyciaaw.get_ice("H", A=2, u=True))
-           print("N ICE Tc  = ", pyciaaw.get_nice("Tc"))
-           print("N ICE C   = ", pyciaaw.get_nice("C"))
+           print("N ICE H   = ", pyciaaw.nice("H"))
+           print('ICE H 1   = ', pyciaaw.ice("H", A=1))
+           print('U ICE H 1 = ', pyciaaw.ice("H", A=1, u=True))
+           print('ICE H 2   = ', pyciaaw.ice("H", A=2))
+           print('U ICE H 2 = ', pyciaaw.ice("H", A=2, u=True))
+           print("N ICE Tc  = ", pyciaaw.nice("Tc"))
+           print("N ICE C   = ", pyciaaw.nice("C"))
 
            print("########## CIAAW NAW  ##########")
-           print('NAW H 2   = ', pyciaaw.get_naw("H", A=2))
-           print('U NAW H 2 = ', pyciaaw.get_naw("H", A=2, u=True))
-           print("N NAW Tc  = ", pyciaaw.get_nnaw("Tc"))
+           print('NAW H 2   = ', pyciaaw.naw("H", A=2))
+           print('U NAW H 2 = ', pyciaaw.naw("H", A=2, u=True))
+           print("N NAW Tc  = ", pyciaaw.nnaw("Tc"))
 
 SEE ALSO
 --------
