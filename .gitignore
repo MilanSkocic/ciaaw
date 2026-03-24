@@ -45,3 +45,6 @@ py/src/pyciaaw/lib/
 py/src/pyciaaw/ciaaw
 
 make.in
+
+srcprep/example*.txt
+srcprep/*api.txt
