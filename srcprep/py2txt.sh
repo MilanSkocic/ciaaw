@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-fpath="./srcprep/pyapi.txt"
+fpath=$2
 i=0
 
 echo "    Python API:" > $fpath

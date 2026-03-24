@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-fpath="./srcprep/fapi.txt"
+fpath=$2
 i=0
 func=0
 offset=0
