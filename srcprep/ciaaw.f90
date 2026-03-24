@@ -93,7 +93,7 @@ NOTES
         o res  Result
 
 EXAMPLES
-$INCLUDE ./example.mantxt
+$INCLUDE ./example.txt
 
 SEE ALSO
     ciaaw(1), gsl(3), codata(3)

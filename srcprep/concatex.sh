@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-fpath="./srcprep/example.mantxt"
+fpath="./example.txt"
 
 echo "" > $fpath
 
@@ -9,19 +9,19 @@ echo "" >> $fpath
 while IFS="" read -r line; do
     line=$(echo $line | sed 's/^[ \t]*//;s/[ \t]*$//')
     echo "        $line" >> $fpath
-done < "./example/example.f90"
+done < "../example/example.f90"
 echo "" >> $fpath
 
 echo "    Example in C"       >> $fpath
 echo "" >> $fpath
 while IFS="" read -r line; do
     echo "        $line" >> $fpath
-done < "./example/example.c"
+done < "../example/example.c"
 echo "" >> $fpath
 
 echo "    Example in Python"  >> $fpath
 echo "" >> $fpath
 while IFS="" read -r line; do
     echo "        $line" >> $fpath
-done < "./example/example.py"
+done < "../example/example.py"
 echo "" >> $fpath

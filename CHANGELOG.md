@@ -10,6 +10,7 @@
     - `naw()` instead of `get_naw()` which is deprecated.
     - `nnaw()` instead of `get_nnaw()` which is deprecated.
 - Deprecated functions will be removed in the next major release.
+- Refactoring.
 
 [Full changelog](https://github.com/MilanSkocic/ciaaw/releases)
 

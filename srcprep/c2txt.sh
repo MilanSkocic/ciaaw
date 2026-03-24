@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-fpath="./srcprep/capi.txt"
+fpath=$2
 i=0
 
 echo "    C API:" > $fpath
