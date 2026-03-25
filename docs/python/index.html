@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python AutoDoc &#8212; ciaaw 1.3.0 documentation</title>
+    <title>Python AutoDoc &#8212; ciaaw 1.3.1 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
+    <script src="../_static/documentation_options.js?v=bb516dca"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python/index';</script>
@@ -117,7 +117,7 @@
   
   
   
-    <p class="title logo__title">ciaaw 1.3.0 documentation</p>
+    <p class="title logo__title">ciaaw 1.3.1 documentation</p>
   
 </a></div>
     
@@ -394,6 +394,8 @@ document.write(`
 <dt class="sig sig-object py" id="pyciaaw.get_ice">
 <span class="sig-name descname"><span class="pre">get_ice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyciaaw.get_ice" title="Link to this definition">#</a></dt>
 <dd><p>Get the isotopic composition of the element s for the mass number A.</p>
+<p>DEPRECATED: It will be removed in the next major release.
+Use <a class="reference internal" href="#pyciaaw.ice" title="pyciaaw.ice"><code class="xref py py-func docutils literal notranslate"><span class="pre">ice()</span></code></a> instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -401,13 +403,15 @@ document.write(`
 </dd>
 <dt><strong>A: int</strong></dt><dd><p>Mass number.</p>
 </dd>
-<dt><strong>uncertainty: bool, optional</strong></dt><dd><p>Flag to get the uncertainty instead of the value. Default to False.</p>
+<dt><strong>uncertainty: bool, optional</strong></dt><dd><p>Flag to get the uncertainty instead of the value.
+Default to False.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>ice: float</dt><dd><p>Returns NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.</p>
+<dt>ice: float</dt><dd><p>Returns NaN if the provided element or the mass number A are
+incorrect or -1 if the element does not have an ICE.</p>
 </dd>
 </dl>
 </dd>
@@ -418,6 +422,8 @@ document.write(`
 <dt class="sig sig-object py" id="pyciaaw.get_naw">
 <span class="sig-name descname"><span class="pre">get_naw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyciaaw.get_naw" title="Link to this definition">#</a></dt>
 <dd><p>Get the atomic weight of the nuclide s for the mass number A.</p>
+<p>DEPRECATED: It will be removed in the next major release.
+Use <a class="reference internal" href="#pyciaaw.naw" title="pyciaaw.naw"><code class="xref py py-func docutils literal notranslate"><span class="pre">naw()</span></code></a> instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -431,7 +437,8 @@ document.write(`
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>naw: float</dt><dd><p>Returns NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.</p>
+<dt>naw: float</dt><dd><p>Returns NaN if the provided element or A are incorrect or -1
+if the element does not have an NAW.</p>
 </dd>
 </dl>
 </dd>
@@ -442,6 +449,8 @@ document.write(`
 <dt class="sig sig-object py" id="pyciaaw.get_nice">
 <span class="sig-name descname"><span class="pre">get_nice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pyciaaw.get_nice" title="Link to this definition">#</a></dt>
 <dd><p>Get the number of isotopes in ICE of the element s.</p>
+<p>DEPRECATED: It will be removed in the next major release.
+Use <a class="reference internal" href="#pyciaaw.nice" title="pyciaaw.nice"><code class="xref py py-func docutils literal notranslate"><span class="pre">nice()</span></code></a> instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -462,6 +471,8 @@ document.write(`
 <dt class="sig sig-object py" id="pyciaaw.get_nnaw">
 <span class="sig-name descname"><span class="pre">get_nnaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pyciaaw.get_nnaw" title="Link to this definition">#</a></dt>
 <dd><p>Get the number of nuclides in NAW of the element s.</p>
+<p>DEPRECATED: It will be removed in the next major release.
+Use <a class="reference internal" href="#pyciaaw.nnaw" title="pyciaaw.nnaw"><code class="xref py py-func docutils literal notranslate"><span class="pre">nnaw()</span></code></a> instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -482,6 +493,8 @@ document.write(`
 <dt class="sig sig-object py" id="pyciaaw.get_saw">
 <span class="sig-name descname"><span class="pre">get_saw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abridged</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyciaaw.get_saw" title="Link to this definition">#</a></dt>
 <dd><p>Get the standard atomic weight of the element s.</p>
+<p>DEPRECATED: It will be removed in the next major release.
+Use <a class="reference internal" href="#pyciaaw.saw" title="pyciaaw.saw"><code class="xref py py-func docutils literal notranslate"><span class="pre">saw()</span></code></a> instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -490,6 +503,117 @@ document.write(`
 <dt><strong>abridged: bool, optional</strong></dt><dd><p>Flag for the abridged value. Default to True.</p>
 </dd>
 <dt><strong>uncertainty: bool, optional</strong></dt><dd><p>Flag to get the uncertainty instead of the value. Default to False.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyciaaw.ice">
+<span class="sig-name descname"><span class="pre">ice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyciaaw.ice" title="Link to this definition">#</a></dt>
+<dd><p>Get the isotopic composition of the element s for the mass number A.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s: str</strong></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>A: int</strong></dt><dd><p>Mass number.</p>
+</dd>
+<dt><strong>u: bool, optional</strong></dt><dd><p>Flag to get the uncertainty instead of the value.
+Default to False.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>ice: float</dt><dd><p>Returns NaN if the provided element or the mass number A are
+incorrect or -1 if the element does not have an ICE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyciaaw.naw">
+<span class="sig-name descname"><span class="pre">naw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyciaaw.naw" title="Link to this definition">#</a></dt>
+<dd><p>Get the atomic weight of the nuclide s for the mass number A.</p>
+<p>DEPRECATED: It will be removed in the next major release.
+Use <a class="reference internal" href="#pyciaaw.naw" title="pyciaaw.naw"><code class="xref py py-func docutils literal notranslate"><span class="pre">naw()</span></code></a> instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s: str</strong></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>A: int</strong></dt><dd><p>Mass number.</p>
+</dd>
+<dt><strong>u: bool, optional</strong></dt><dd><p>Flag to get the uncertainty instead of the value. Default to False.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>naw: float</dt><dd><p>Returns NaN if the provided element or A are incorrect or -1
+if the element does not have an NAW.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyciaaw.nice">
+<span class="sig-name descname"><span class="pre">nice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pyciaaw.nice" title="Link to this definition">#</a></dt>
+<dd><p>Get the number of isotopes in ICE of the element s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s: str</strong></dt><dd><p>Element symbol.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>nice: int</dt><dd><p>Returns -1 if the provided element is incorrect.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyciaaw.nnaw">
+<span class="sig-name descname"><span class="pre">nnaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pyciaaw.nnaw" title="Link to this definition">#</a></dt>
+<dd><p>Get the number of nuclides in NAW of the element s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s: str</strong></dt><dd><p>Element symbol.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>nnaw: int</dt><dd><p>Returns -1 if the provided element is incorrect.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyciaaw.saw">
+<span class="sig-name descname"><span class="pre">saw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ab</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyciaaw.saw" title="Link to this definition">#</a></dt>
+<dd><p>Get the standard atomic weight of the element s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s: str</strong></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>ab: bool, optional</strong></dt><dd><p>Flag for the abridged value. Default to True.</p>
+</dd>
+<dt><strong>u: bool, optional</strong></dt><dd><p>Flag to get the uncertainty instead of the value. Default to False.</p>
 </dd>
 </dl>
 </dd>
@@ -540,6 +664,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyciaaw.get_nice"><code class="docutils literal notranslate"><span class="pre">get_nice()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyciaaw.get_nnaw"><code class="docutils literal notranslate"><span class="pre">get_nnaw()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyciaaw.get_saw"><code class="docutils literal notranslate"><span class="pre">get_saw()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyciaaw.ice"><code class="docutils literal notranslate"><span class="pre">ice()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyciaaw.naw"><code class="docutils literal notranslate"><span class="pre">naw()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyciaaw.nice"><code class="docutils literal notranslate"><span class="pre">nice()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyciaaw.nnaw"><code class="docutils literal notranslate"><span class="pre">nnaw()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyciaaw.saw"><code class="docutils literal notranslate"><span class="pre">saw()</span></code></a></li>
 </ul>
   </nav></div>
 
