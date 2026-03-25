@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Fortran AutoDoc &#8212; ciaaw 1.3.0 documentation</title>
+    <title>Fortran AutoDoc &#8212; ciaaw 1.3.1 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
+    <script src="../_static/documentation_options.js?v=bb516dca"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'fortran/index';</script>
@@ -118,7 +118,7 @@
   
   
   
-    <p class="title logo__title">ciaaw 1.3.0 documentation</p>
+    <p class="title logo__title">ciaaw 1.3.1 documentation</p>
   
 </a></div>
     
@@ -393,27 +393,18 @@ document.write(`
 <section id="f-module-ciaaw">
 <h3>ciaaw (module)<a class="headerlink" href="#f-module-ciaaw" title="Link to this heading">#</a></h3>
 <div class="docutils container">
-<p>Main module for the CIAAW library.</p>
+<p>Main module for the CIAAW library: API and C API.</p>
 </div>
-</section>
-<section id="f-module-ciaaw-api">
-<h3>ciaaw__api (module)<a class="headerlink" href="#f-module-ciaaw-api" title="Link to this heading">#</a></h3>
-<div class="docutils container">
-<p>API</p>
-</div>
-<p class="section-subtitle">Variables</p>
-<dl class="simple">
-<dt><span class="target" id="f-variable-ciaaw-api-version-f"></span><strong>version_f</strong><span class="classifier">character(len=:), allocatable, target</span></dt><dd></dd>
-<dt><span class="target" id="f-variable-ciaaw-api-n-ice-out"></span><strong>n_ice_out</strong><span class="classifier">real(dp), allocatable, target, dimension(:,:)</span></dt><dd></dd>
-</dl>
 <p class="section-subtitle">Procedures</p>
-<section id="f-function-ciaaw-api-get-version">
-<h4>get_version (function)<a class="headerlink" href="#f-function-ciaaw-api-get-version" title="Link to this heading">#</a></h4>
+<section id="f-function-ciaaw-get-version">
+<h4>get_version (function)<a class="headerlink" href="#f-function-ciaaw-get-version" title="Link to this heading">#</a></h4>
 <dl class="f function">
 <dt class="sig sig-object f">
 <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">get_version()</span> <span class="pre">-&gt;</span> <span class="pre">fptr</span></code></dt>
 <dd><div class="docutils container">
-<p>Get the version</p>
+<p>Get the version.
+Deprecated. It will be removed in the next major release.
+Use version() instead.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -426,23 +417,18 @@ document.write(`
 </dd></dl>
 
 </section>
-<section id="f-function-ciaaw-api-is-in-pt">
-<h4>is_in_pt (function)<a class="headerlink" href="#f-function-ciaaw-api-is-in-pt" title="Link to this heading">#</a></h4>
+<section id="f-function-ciaaw-capi-get-version">
+<h4>capi_get_version (function)<a class="headerlink" href="#f-function-ciaaw-capi-get-version" title="Link to this heading">#</a></h4>
 <dl class="f function">
 <dt class="sig sig-object f">
-<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">is_in_pt(z)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Arguments<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>z</strong><span class="classifier">integer(int32), intent(in)</span></dt><dd><p>Atomic number</p>
-</dd>
-</dl>
-</dd>
-</dl>
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_version()bind(c,</span> <span class="pre">name='ciaaw_get_version')</span> <span class="pre">-&gt;</span> <span class="pre">cptr</span></code></dt>
+<dd><div class="docutils container">
+<p>C API.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>res</strong><span class="classifier">logical</span></dt><dd><p>True or False</p>
+<dt><strong>cptr</strong><span class="classifier">type(c_ptr)</span></dt><dd><p>C pointer to a string indicating the version.</p>
 </dd>
 </dl>
 </dd>
@@ -450,23 +436,18 @@ document.write(`
 </dd></dl>
 
 </section>
-<section id="f-function-ciaaw-api-get-z-by-symbol">
-<h4>get_z_by_symbol (function)<a class="headerlink" href="#f-function-ciaaw-api-get-z-by-symbol" title="Link to this heading">#</a></h4>
+<section id="f-function-ciaaw-version">
+<h4>version (function)<a class="headerlink" href="#f-function-ciaaw-version" title="Link to this heading">#</a></h4>
 <dl class="f function">
 <dt class="sig sig-object f">
-<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">get_z_by_symbol(s)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Arguments<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>s</strong><span class="classifier">character(len=*), intent(in)</span></dt><dd><p>Element symbol</p>
-</dd>
-</dl>
-</dd>
-</dl>
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">version()</span> <span class="pre">-&gt;</span> <span class="pre">fptr</span></code></dt>
+<dd><div class="docutils container">
+<p>Get the version.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>res</strong><span class="classifier">integer(int32)</span></dt><dd><p>&gt;0 if found and -1 if not found.</p>
+<dt><strong>fptr</strong><span class="classifier">character(len=:), pointer</span></dt><dd><p>Pointer to a string (=&gt;version).</p>
 </dd>
 </dl>
 </dd>
@@ -474,8 +455,27 @@ document.write(`
 </dd></dl>
 
 </section>
-<section id="f-subroutine-ciaaw-api-print-periodic-table">
-<h4>print_periodic_table (subroutine)<a class="headerlink" href="#f-subroutine-ciaaw-api-print-periodic-table" title="Link to this heading">#</a></h4>
+<section id="f-function-ciaaw-capi-version">
+<h4>capi_version (function)<a class="headerlink" href="#f-function-ciaaw-capi-version" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_version()bind(C,name=&quot;ciaaw_version&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">cptr</span></code></dt>
+<dd><div class="docutils container">
+<p>C API - Get the version</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>cptr</strong><span class="classifier">type(c_ptr)</span></dt><dd><p>C pointer to a string indicating the version.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-subroutine-ciaaw-print-periodic-table">
+<h4>print_periodic_table (subroutine)<a class="headerlink" href="#f-subroutine-ciaaw-print-periodic-table" title="Link to this heading">#</a></h4>
 <dl class="f subroutine">
 <dt class="sig sig-object f">
 <code class="docutils literal notranslate"><span class="pre">subroutine</span> <span class="pre">print_periodic_table()</span></code></dt>
@@ -485,8 +485,8 @@ document.write(`
 </dd></dl>
 
 </section>
-<section id="f-function-ciaaw-api-get-saw">
-<h4>get_saw (function)<a class="headerlink" href="#f-function-ciaaw-api-get-saw" title="Link to this heading">#</a></h4>
+<section id="f-function-ciaaw-get-saw">
+<h4>get_saw (function)<a class="headerlink" href="#f-function-ciaaw-get-saw" title="Link to this heading">#</a></h4>
 <dl class="f function">
 <dt class="sig sig-object f">
 <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">get_saw(s,</span> <span class="pre">abridged,</span> <span class="pre">uncertainty)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
@@ -513,8 +513,96 @@ document.write(`
 </dd></dl>
 
 </section>
-<section id="f-function-ciaaw-api-get-ice">
-<h4>get_ice (function)<a class="headerlink" href="#f-function-ciaaw-api-get-ice" title="Link to this heading">#</a></h4>
+<section id="f-function-ciaaw-capi-get-saw">
+<h4>capi_get_saw (function)<a class="headerlink" href="#f-function-ciaaw-capi-get-saw" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_saw(s,</span> <span class="pre">n,</span> <span class="pre">abridged,</span> <span class="pre">uncertainty)bind(C,</span> <span class="pre">name=&quot;ciaaw_get_saw&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Symbol.</p>
+</dd>
+<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
+</dd>
+<dt><strong>abridged</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for setting if abridged value is desired.</p>
+</dd>
+<dt><strong>uncertainty</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for setting if the uncertainty is desired instead of the value.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">real(c_double)</span></dt><dd><p>NaN if the provided element is incorrect or -1 if the element does not have a SAW.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-saw">
+<h4>saw (function)<a class="headerlink" href="#f-function-ciaaw-saw" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">saw(s,</span> <span class="pre">ab,</span> <span class="pre">u)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">character(len=*), intent(in)</span></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>ab</strong><span class="classifier">logical, intent(in), optional</span></dt><dd><p>Set to False if the abridged value is not desired. Default to TRUE.</p>
+</dd>
+<dt><strong>u</strong><span class="classifier">logical, intent(in), optional</span></dt><dd><p>Set to True if the uncertainty is desired. Default to FALSE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">real(dp)</span></dt><dd><p>NaN if the provided element is incorrect or -1 if the element does not have a SAW.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-capi-saw">
+<h4>capi_saw (function)<a class="headerlink" href="#f-function-ciaaw-capi-saw" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_saw(s,</span> <span class="pre">n,</span> <span class="pre">ab,</span> <span class="pre">u)bind(C,</span> <span class="pre">name=&quot;ciaaw_saw&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Symbol.</p>
+</dd>
+<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
+</dd>
+<dt><strong>ab</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for setting if abridged value is desired.</p>
+</dd>
+<dt><strong>u</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for setting if the uncertainty is desired instead of the value.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">real(c_double)</span></dt><dd><p>NaN if the provided element is incorrect or -1 if the element does not have a SAW.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-get-ice">
+<h4>get_ice (function)<a class="headerlink" href="#f-function-ciaaw-get-ice" title="Link to this heading">#</a></h4>
 <dl class="f function">
 <dt class="sig sig-object f">
 <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">get_ice(s,</span> <span class="pre">A,</span> <span class="pre">uncertainty)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
@@ -541,8 +629,96 @@ document.write(`
 </dd></dl>
 
 </section>
-<section id="f-function-ciaaw-api-get-nice">
-<h4>get_nice (function)<a class="headerlink" href="#f-function-ciaaw-api-get-nice" title="Link to this heading">#</a></h4>
+<section id="f-function-ciaaw-capi-get-ice">
+<h4>capi_get_ice (function)<a class="headerlink" href="#f-function-ciaaw-capi-get-ice" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_ice(s,</span> <span class="pre">n,</span> <span class="pre">A,</span> <span class="pre">uncertainty)bind(C,</span> <span class="pre">name=&quot;ciaaw_get_ice&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
+</dd>
+<dt><strong>A</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Mass number.</p>
+</dd>
+<dt><strong>uncertainty</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">real(c_double)</span></dt><dd><p>NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-ice">
+<h4>ice (function)<a class="headerlink" href="#f-function-ciaaw-ice" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">ice(s,</span> <span class="pre">A,</span> <span class="pre">u)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">character(len=*), intent(in)</span></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>A</strong><span class="classifier">integer(int32), intent(in)</span></dt><dd><p>Mass number.</p>
+</dd>
+<dt><strong>u</strong><span class="classifier">logical, intent(in), optional</span></dt><dd><p>Set to True if the uncertainty is desired. Default to FALSE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">real(dp)</span></dt><dd><p>NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-capi-ice">
+<h4>capi_ice (function)<a class="headerlink" href="#f-function-ciaaw-capi-ice" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_ice(s,</span> <span class="pre">n,</span> <span class="pre">A,</span> <span class="pre">u)bind(C,</span> <span class="pre">name=&quot;ciaaw_ice&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
+</dd>
+<dt><strong>A</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Mass number.</p>
+</dd>
+<dt><strong>u</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">real(c_double)</span></dt><dd><p>NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-get-nice">
+<h4>get_nice (function)<a class="headerlink" href="#f-function-ciaaw-get-nice" title="Link to this heading">#</a></h4>
 <dl class="f function">
 <dt class="sig sig-object f">
 <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">get_nice(s)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
@@ -565,8 +741,84 @@ document.write(`
 </dd></dl>
 
 </section>
-<section id="f-function-ciaaw-api-get-naw">
-<h4>get_naw (function)<a class="headerlink" href="#f-function-ciaaw-api-get-naw" title="Link to this heading">#</a></h4>
+<section id="f-function-ciaaw-capi-get-nice">
+<h4>capi_get_nice (function)<a class="headerlink" href="#f-function-ciaaw-capi-get-nice" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_nice(s,n)bind(C,</span> <span class="pre">name=&quot;ciaaw_get_nice&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">integer(c_int)</span></dt><dd><p>&gt;0 if found or -1 if not found.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-nice">
+<h4>nice (function)<a class="headerlink" href="#f-function-ciaaw-nice" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">nice(s)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">character(len=*), intent(in)</span></dt><dd><p>Element symbol.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">integer(int32)</span></dt><dd><p>&gt;0 if found or -1 if not found.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-capi-nice">
+<h4>capi_nice (function)<a class="headerlink" href="#f-function-ciaaw-capi-nice" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_nice(s,n)bind(C,</span> <span class="pre">name=&quot;ciaaw_nice&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">integer(c_int)</span></dt><dd><p>&gt;0 if found or -1 if not found.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-get-naw">
+<h4>get_naw (function)<a class="headerlink" href="#f-function-ciaaw-get-naw" title="Link to this heading">#</a></h4>
 <dl class="f function">
 <dt class="sig sig-object f">
 <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">get_naw(s,</span> <span class="pre">A,</span> <span class="pre">uncertainty)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
@@ -593,8 +845,96 @@ document.write(`
 </dd></dl>
 
 </section>
-<section id="f-function-ciaaw-api-get-nnaw">
-<h4>get_nnaw (function)<a class="headerlink" href="#f-function-ciaaw-api-get-nnaw" title="Link to this heading">#</a></h4>
+<section id="f-function-ciaaw-capi-get-naw">
+<h4>capi_get_naw (function)<a class="headerlink" href="#f-function-ciaaw-capi-get-naw" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_naw(s,</span> <span class="pre">n,</span> <span class="pre">A,</span> <span class="pre">uncertainty)bind(C,</span> <span class="pre">name=&quot;ciaaw_get_naw&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
+</dd>
+<dt><strong>A</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Mass number.</p>
+</dd>
+<dt><strong>uncertainty</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">real(c_double)</span></dt><dd><p>NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-naw">
+<h4>naw (function)<a class="headerlink" href="#f-function-ciaaw-naw" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">naw(s,</span> <span class="pre">A,</span> <span class="pre">u)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">character(len=*), intent(in)</span></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>A</strong><span class="classifier">integer(int32), intent(in)</span></dt><dd><p>Mass number.</p>
+</dd>
+<dt><strong>u</strong><span class="classifier">logical, intent(in), optional</span></dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">real(dp)</span></dt><dd><p>NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-capi-naw">
+<h4>capi_naw (function)<a class="headerlink" href="#f-function-ciaaw-capi-naw" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_naw(s,</span> <span class="pre">n,</span> <span class="pre">A,</span> <span class="pre">u)bind(C,</span> <span class="pre">name=&quot;ciaaw_naw&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
+</dd>
+<dt><strong>A</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Mass number.</p>
+</dd>
+<dt><strong>u</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">real(c_double)</span></dt><dd><p>NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-get-nnaw">
+<h4>get_nnaw (function)<a class="headerlink" href="#f-function-ciaaw-get-nnaw" title="Link to this heading">#</a></h4>
 <dl class="f function">
 <dt class="sig sig-object f">
 <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">get_nnaw(s)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
@@ -617,169 +957,61 @@ document.write(`
 </dd></dl>
 
 </section>
-</section>
-<section id="f-module-ciaaw-capi">
-<h3>ciaaw__capi (module)<a class="headerlink" href="#f-module-ciaaw-capi" title="Link to this heading">#</a></h3>
-<div class="docutils container">
-<p>C API.</p>
-</div>
-<p class="section-subtitle">Variables</p>
-<dl class="simple">
-<dt><span class="target" id="f-variable-ciaaw-capi-version-c"></span><strong>version_c</strong><span class="classifier">character(len=:), allocatable, target</span></dt><dd></dd>
-</dl>
-<p class="section-subtitle">Procedures</p>
-<section id="f-function-ciaaw-capi-capi-get-version">
-<h4>capi_get_version (function)<a class="headerlink" href="#f-function-ciaaw-capi-capi-get-version" title="Link to this heading">#</a></h4>
-<dl class="f function">
-<dt class="sig sig-object f">
-<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_version()bind(c,</span> <span class="pre">name='ciaaw_get_version')</span> <span class="pre">-&gt;</span> <span class="pre">cptr</span></code></dt>
-<dd><div class="docutils container">
-<p>C API.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>cptr</strong><span class="classifier">type(c_ptr)</span></dt><dd><p>C pointer to a string indicating the version.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="f-function-ciaaw-capi-capi-get-saw">
-<h4>capi_get_saw (function)<a class="headerlink" href="#f-function-ciaaw-capi-capi-get-saw" title="Link to this heading">#</a></h4>
-<dl class="f function">
-<dt class="sig sig-object f">
-<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_saw(s,</span> <span class="pre">n,</span> <span class="pre">abridged,</span> <span class="pre">uncertainty)bind(C,</span> <span class="pre">name=&quot;ciaaw_get_saw&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
-<dd><div class="docutils container">
-<p>C API.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Arguments<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Symbol.</p>
-</dd>
-<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
-</dd>
-<dt><strong>abridged</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for setting if abridged value is desired.</p>
-</dd>
-<dt><strong>uncertainty</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for setting if the uncertainty is desired instead of the value.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>res</strong><span class="classifier">real(c_double)</span></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="f-function-ciaaw-capi-capi-get-ice">
-<h4>capi_get_ice (function)<a class="headerlink" href="#f-function-ciaaw-capi-capi-get-ice" title="Link to this heading">#</a></h4>
-<dl class="f function">
-<dt class="sig sig-object f">
-<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_ice(s,</span> <span class="pre">n,</span> <span class="pre">A,</span> <span class="pre">uncertainty)bind(C,</span> <span class="pre">name=&quot;ciaaw_get_ice&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
-<dd><div class="docutils container">
-<p>C API.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Arguments<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
-</dd>
-<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
-</dd>
-<dt><strong>A</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Mass number.</p>
-</dd>
-<dt><strong>uncertainty</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>res</strong><span class="classifier">real(c_double)</span></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="f-function-ciaaw-capi-capi-get-nice">
-<h4>capi_get_nice (function)<a class="headerlink" href="#f-function-ciaaw-capi-capi-get-nice" title="Link to this heading">#</a></h4>
-<dl class="f function">
-<dt class="sig sig-object f">
-<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_nice(s,n)bind(C,</span> <span class="pre">name=&quot;ciaaw_get_nice&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
-<dd><div class="docutils container">
-<p>C API.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Arguments<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
-</dd>
-<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>res</strong><span class="classifier">integer(c_int)</span></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="f-function-ciaaw-capi-capi-get-naw">
-<h4>capi_get_naw (function)<a class="headerlink" href="#f-function-ciaaw-capi-capi-get-naw" title="Link to this heading">#</a></h4>
-<dl class="f function">
-<dt class="sig sig-object f">
-<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_naw(s,</span> <span class="pre">n,</span> <span class="pre">A,</span> <span class="pre">uncertainty)bind(C,</span> <span class="pre">name=&quot;ciaaw_get_naw&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
-<dd><div class="docutils container">
-<p>C API.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Arguments<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
-</dd>
-<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
-</dd>
-<dt><strong>A</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Mass number.</p>
-</dd>
-<dt><strong>uncertainty</strong><span class="classifier">logical(c_bool), intent(in), value</span></dt><dd><p>Flag for returning the uncertainty instead of the value. Default to FALSE.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>res</strong><span class="classifier">real(c_double)</span></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="f-function-ciaaw-capi-capi-get-nnaw">
-<h4>capi_get_nnaw (function)<a class="headerlink" href="#f-function-ciaaw-capi-capi-get-nnaw" title="Link to this heading">#</a></h4>
+<section id="f-function-ciaaw-capi-get-nnaw">
+<h4>capi_get_nnaw (function)<a class="headerlink" href="#f-function-ciaaw-capi-get-nnaw" title="Link to this heading">#</a></h4>
 <dl class="f function">
 <dt class="sig sig-object f">
 <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_get_nnaw(s,n)bind(C,</span> <span class="pre">name=&quot;ciaaw_get_nnaw&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
-<dd><div class="docutils container">
-<p>C API.</p>
-</div>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
+</dd>
+<dt><strong>n</strong><span class="classifier">integer(c_int), intent(in), value</span></dt><dd><p>Size of the symbol string.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">integer(c_int)</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-nnaw">
+<h4>nnaw (function)<a class="headerlink" href="#f-function-ciaaw-nnaw" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">nnaw(s)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>s</strong><span class="classifier">character(len=*), intent(in)</span></dt><dd><p>Element symbol.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">integer(int32)</span></dt><dd><p>&gt;0 if found or -1 if not found.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="f-function-ciaaw-capi-nnaw">
+<h4>capi_nnaw (function)<a class="headerlink" href="#f-function-ciaaw-capi-nnaw" title="Link to this heading">#</a></h4>
+<dl class="f function">
+<dt class="sig sig-object f">
+<code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">capi_nnaw(s,n)bind(C,</span> <span class="pre">name=&quot;ciaaw_nnaw&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">res</span></code></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Arguments<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>s</strong><span class="classifier">type(c_ptr), intent(in), value</span></dt><dd><p>Element symbol.</p>
@@ -800,6 +1032,12 @@ document.write(`
 
 </section>
 </section>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
 </section>
 </section>
 
@@ -850,26 +1088,32 @@ document.write(`
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">Modules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-module-ciaaw">ciaaw (module)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-module-ciaaw-api">ciaaw__api (module)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-api-get-version">get_version (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-api-is-in-pt">is_in_pt (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-api-get-z-by-symbol">get_z_by_symbol (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-subroutine-ciaaw-api-print-periodic-table">print_periodic_table (subroutine)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-api-get-saw">get_saw (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-api-get-ice">get_ice (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-api-get-nice">get_nice (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-api-get-naw">get_naw (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-api-get-nnaw">get_nnaw (function)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-module-ciaaw-capi">ciaaw__capi (module)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-capi-get-version">capi_get_version (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-capi-get-saw">capi_get_saw (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-capi-get-ice">capi_get_ice (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-capi-get-nice">capi_get_nice (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-capi-get-naw">capi_get_naw (function)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-capi-get-nnaw">capi_get_nnaw (function)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-module-ciaaw">ciaaw (module)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-get-version">get_version (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-get-version">capi_get_version (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-version">version (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-version">capi_version (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-subroutine-ciaaw-print-periodic-table">print_periodic_table (subroutine)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-get-saw">get_saw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-get-saw">capi_get_saw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-saw">saw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-saw">capi_saw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-get-ice">get_ice (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-get-ice">capi_get_ice (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-ice">ice (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-ice">capi_ice (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-get-nice">get_nice (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-get-nice">capi_get_nice (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-nice">nice (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-nice">capi_nice (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-get-naw">get_naw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-get-naw">capi_get_naw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-naw">naw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-naw">capi_naw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-get-nnaw">get_nnaw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-get-nnaw">capi_get_nnaw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-nnaw">nnaw (function)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-function-ciaaw-capi-nnaw">capi_nnaw (function)</a></li>
 </ul>
 </li>
 </ul>
