@@ -10,7 +10,7 @@ all: example.txt fapi.txt capi.txt pyapi.txt $(f90)
 	prep $< -o $@
 
 example.txt: ../example/example.f90 ../example/example.c ../example/example.py
-	./concatex.sh
+	./concatex
 
 fapi.txt: ciaaw.f90
 	./code2txt $< $@
