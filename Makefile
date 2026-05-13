@@ -55,7 +55,9 @@ sources: $(SRC_FYPP_F90) $(F_MODULE)
 	fypp -I ../include $< $@
 
 prep:
+	make -C srcprep clean
 	make -C srcprep
+	fpm run --profile release --target $(FPM_APPNAME) -- --help > doc/$(FPM_APPNAME).1.prep
 # ---------------------------------------------------------------------
 
 
@@ -136,7 +138,6 @@ uninstall:
 # ---------------------------------------------------------------------
 # OTHERS
 doc:
-	fpm run --profile release --target $(FPM_APPNAME) -- --help > doc/$(FPM_APPNAME).1.prep
 	make -C doc
 
 docs:
