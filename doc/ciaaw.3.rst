@@ -67,25 +67,25 @@ Fortran API:
       release. Use **version() instead.**
 
       **o character(len=:), pointer :: fptr**
-         Fortran pointer to a string indicating the version..
+         !! Fortran pointer to a string indicating the version..
 
    **o function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)**
       C API.
 
       **o type(c_ptr) :: cptr**
-         C pointer to a string indicating the version.
+         !! C pointer to a string indicating the version.
 
    **o function version()result(fptr)**
       Get the version.
 
-      **o character(len=:), pointer :: fptr**
-         Pointer to a string (=>version).
+      -  **character(len=:), pointer :: fptr !! Pointer to a string
+         (=>version).**
 
    **o function capi_version()bind(C,name="ciaaw_version")result(cptr)**
       C API - Get the version
 
-      **o type(c_ptr) :: cptr**
-         C pointer to a string indicating the version.
+      -  **type(c_ptr) :: cptr !! C pointer to a string indicating the
+         version.**
 
    **o subroutine print_periodic_table()**
       Print periodic table.
@@ -94,95 +94,95 @@ Fortran API:
       Check if the atomic number z is in the periodic table
 
       **o integer(int32), intent(in) :: z**
-         Atomic number
+         !! Atomic number
 
       **o logical :: res**
-         True or False
+         !! True or False
 
    **o function get_z_by_symbol(s)result(res)**
       Get the atomic number z of the element defined by the symbol s.
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol
+         !! Element symbol
 
       **o integer(int32) :: res**
-         >0 if found and **-1 if not found.**
+         !! >0 if found and **-1 if not found.**
 
    **o function get_saw(s, abridged, uncertainty)result(res)**
       Get the standard atomic weight for the element s. Deprecated. It
       will be removed in the next major release. Use **saw() instead.**
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o logical, intent(in), optional :: abridged**
-         Set to False if the abridged value is not desired. Default to
-         TRUE.
+         !! Set to False if the abridged value is not desired. Default
+         to TRUE.
 
       **o logical, intent(in), optional :: uncertainty**
-         Set to True if the uncertainty is desired. Default to FALSE.
+         !! Set to True if the uncertainty is desired. Default to FALSE.
 
       **o real(dp) :: res**
-         NaN if the provided element is incorrect or **-1 if the element
-         does not have a SAW.**
+         !! NaN if the provided element is incorrect or **-1 if the
+         element does not have a SAW.**
 
    **o function capi_get_saw(s, n, abridged, uncertainty)bind(C, name="ciaaw_get_saw")result(res)**
       C API. Deprecated. It will be removed in the next major release.
       Use **capi_saw() instead.**
 
       **o type(c_ptr), intent(in), value :: s**
-         Symbol.
+         !! Symbol.
 
       **o integer(c_int), intent(in), value :: n**
-         Size of the symbol string.
+         !! Size of the symbol string.
 
       **o logical(c_bool), intent(in), value :: abridged**
-         Flag for setting if abridged value is desired.
+         !! Flag for setting if abridged value is desired.
 
       **o logical(c_bool), intent(in), value :: uncertainty**
-         Flag for setting if the uncertainty is desired instead of the
-         value.
+         !! Flag for setting if the uncertainty is desired instead of
+         the value.
 
       **o real(c_double) :: res**
-         NaN if the provided element is incorrect or **-1 if the element
-         does not have a SAW.**
+         !! NaN if the provided element is incorrect or **-1 if the
+         element does not have a SAW.**
 
    **o function saw(s, ab, u)result(res)**
       Get the standard atomic weight for the element s.
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o logical, intent(in), optional :: ab**
-         Set to False if the abridged value is not desired. Default to
-         TRUE.
+         !! Set to False if the abridged value is not desired. Default
+         to TRUE.
 
       **o logical, intent(in), optional :: u**
-         Set to True if the uncertainty is desired. Default to FALSE.
+         !! Set to True if the uncertainty is desired. Default to FALSE.
 
       **o real(dp) :: res**
-         NaN if the provided element is incorrect or **-1 if the element
-         does not have a SAW.**
+         !! NaN if the provided element is incorrect or **-1 if the
+         element does not have a SAW.**
 
    **o function capi_saw(s, n, ab, u)bind(C, name="ciaaw_saw")result(res)**
       C API.
 
       **o type(c_ptr), intent(in), value :: s**
-         Symbol.
+         !! Symbol.
 
       **o integer(c_int), intent(in), value :: n**
-         Size of the symbol string.
+         !! Size of the symbol string.
 
       **o logical(c_bool), intent(in), value :: ab**
-         Flag for setting if abridged value is desired.
+         !! Flag for setting if abridged value is desired.
 
       **o logical(c_bool), intent(in), value :: u**
-         Flag for setting if the uncertainty is desired instead of the
-         value.
+         !! Flag for setting if the uncertainty is desired instead of
+         the value.
 
       **o real(c_double) :: res**
-         NaN if the provided element is incorrect or **-1 if the element
-         does not have a SAW.**
+         !! NaN if the provided element is incorrect or **-1 if the
+         element does not have a SAW.**
 
    **o function get_ice(s, A, uncertainty)result(res)**
       Get the isotopic composition of the element s for the mass number
@@ -190,119 +190,119 @@ Fortran API:
       **ice() instead.**
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(int32), intent(in) :: A**
-         Mass number.
+         !! Mass number.
 
       **o logical, intent(in), optional :: uncertainty**
-         Set to True if the uncertainty is desired. Default to FALSE.
+         !! Set to True if the uncertainty is desired. Default to FALSE.
 
       **o real(dp) :: res**
-         NaN if the provided element or the mass number A are incorrect
-         or **-1 if the element does not have an ICE.**
+         !! NaN if the provided element or the mass number A are
+         incorrect or **-1 if the element does not have an ICE.**
 
    **o function capi_get_ice(s, n, A, uncertainty)bind(C, name="ciaaw_get_ice")result(res)**
       C API. Deprecated. It will be removed in the next major release.
       Use **capi_ice() instead.**
 
       **o type(c_ptr), intent(in), value :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(c_int), intent(in), value :: n**
-         Size of the symbol string.
+         !! Size of the symbol string.
 
       **o integer(c_int), intent(in), value :: A**
-         Mass number.
+         !! Mass number.
 
       **o logical(c_bool), intent(in), value :: uncertainty**
-         Flag for returning the uncertainty instead of the value.
+         !! Flag for returning the uncertainty instead of the value.
          Default to FALSE.
 
       **o real(c_double) :: res**
-         NaN if the provided element or the mass number A are incorrect
-         or **-1 if the element does not have an ICE.**
+         !! NaN if the provided element or the mass number A are
+         incorrect or **-1 if the element does not have an ICE.**
 
    **o function ice(s, A, u)result(res)**
       Get the isotopic composition of the element s for the mass number
       A.
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(int32), intent(in) :: A**
-         Mass number.
+         !! Mass number.
 
       **o logical, intent(in), optional :: u**
-         Set to True if the uncertainty is desired. Default to FALSE.
+         !! Set to True if the uncertainty is desired. Default to FALSE.
 
       **o real(dp) :: res**
-         NaN if the provided element or the mass number A are incorrect
-         or **-1 if the element does not have an ICE.**
+         !! NaN if the provided element or the mass number A are
+         incorrect or **-1 if the element does not have an ICE.**
 
    **o function capi_ice(s, n, A, u)bind(C, name="ciaaw_ice")result(res)**
       C API.
 
       **o type(c_ptr), intent(in), value :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(c_int), intent(in), value :: n**
-         Size of the symbol string.
+         !! Size of the symbol string.
 
       **o integer(c_int), intent(in), value :: A**
-         Mass number.
+         !! Mass number.
 
       **o logical(c_bool), intent(in), value :: u**
-         Flag for returning the uncertainty instead of the value.
+         !! Flag for returning the uncertainty instead of the value.
          Default to FALSE.
 
       **o real(c_double) :: res**
-         NaN if the provided element or the mass number A are incorrect
-         or **-1 if the element does not have an ICE.**
+         !! NaN if the provided element or the mass number A are
+         incorrect or **-1 if the element does not have an ICE.**
 
    **o function get_nice(s)result(res)**
       Get the number of isotopes in ICE of the element s. Deprecated. It
       will be removed in the next major release. Use **nice() instead.**
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(int32) :: res**
-         >0 if found or **-1 if not found.**
+         !! >0 if found or **-1 if not found.**
 
    **o function capi_get_nice(s,n)bind(C, name="ciaaw_get_nice")result(res)**
       C API. Deprecated. It will be removed in the next major release.
       Use **capi_nice() instead.**
 
       **o type(c_ptr), intent(in), value :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(c_int), intent(in), value :: n**
-         Size of the symbol string.
+         !! Size of the symbol string.
 
       **o integer(c_int) :: res**
-         >0 if found or **-1 if not found.**
+         !! >0 if found or **-1 if not found.**
 
    **o function nice(s)result(res)**
       Get the number of isotopes in ICE of the element s.
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(int32) :: res**
-         >0 if found or **-1 if not found.**
+         !! >0 if found or **-1 if not found.**
 
    **o function capi_nice(s,n)bind(C, name="ciaaw_nice")result(res)**
       C API.
 
       **o type(c_ptr), intent(in), value :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(c_int), intent(in), value :: n**
-         Size of the symbol string.
+         !! Size of the symbol string.
 
       **o integer(c_int) :: res**
-         >0 if found or **-1 if not found.**
+         !! >0 if found or **-1 if not found.**
 
    **o function get_naw(s, A, uncertainty)result(res)**
       Get the atomic weight of the nuclide s for the mass number A.
@@ -310,114 +310,114 @@ Fortran API:
       **naw() instead.**
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(int32), intent(in) :: A**
-         Mass number.
+         !! Mass number.
 
       **o logical, intent(in), optional :: uncertainty**
-         Flag for returning the uncertainty instead of the value.
+         !! Flag for returning the uncertainty instead of the value.
          Default to FALSE.
 
       **o real(dp) :: res**
-         NaN if the provided element or A are incorrect or **-1 if the
-         element does not have an NAW.**
+         !! NaN if the provided element or A are incorrect or **-1 if
+         the element does not have an NAW.**
 
    **o function capi_get_naw(s, n, A, uncertainty)bind(C, name="ciaaw_get_naw")result(res)**
       C API. Deprecated. It will be removed in the next major release.
       Use **capi_naw() instead.**
 
       **o type(c_ptr), intent(in), value :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(c_int), intent(in), value :: n**
-         Size of the symbol string.
+         !! Size of the symbol string.
 
       **o integer(c_int), intent(in), value :: A**
-         Mass number.
+         !! Mass number.
 
       **o logical(c_bool), intent(in), value :: uncertainty**
-         Flag for returning the uncertainty instead of the value.
+         !! Flag for returning the uncertainty instead of the value.
          Default to FALSE.
 
       **o real(c_double) :: res**
-         NaN if the provided element or A are incorrect or **-1 if the
-         element does not have an NAW.**
+         !! NaN if the provided element or A are incorrect or **-1 if
+         the element does not have an NAW.**
 
    **o function naw(s, A, u)result(res)**
       Get the atomic weight of the nuclide s for the mass number A.
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(int32), intent(in) :: A**
-         Mass number.
+         !! Mass number.
 
       **o logical, intent(in), optional :: u**
-         Flag for returning the uncertainty instead of the value.
+         !! Flag for returning the uncertainty instead of the value.
          Default to FALSE.
 
       **o real(dp) :: res**
-         NaN if the provided element or A are incorrect or **-1 if the
-         element does not have an NAW.**
+         !! NaN if the provided element or A are incorrect or **-1 if
+         the element does not have an NAW.**
 
    **o function capi_naw(s, n, A, u)bind(C, name="ciaaw_naw")result(res)**
       C API.
 
       **o type(c_ptr), intent(in), value :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(c_int), intent(in), value :: n**
-         Size of the symbol string.
+         !! Size of the symbol string.
 
       **o integer(c_int), intent(in), value :: A**
-         Mass number.
+         !! Mass number.
 
       **o logical(c_bool), intent(in), value :: u**
-         Flag for returning the uncertainty instead of the value.
+         !! Flag for returning the uncertainty instead of the value.
          Default to FALSE.
 
       **o real(c_double) :: res**
-         NaN if the provided element or A are incorrect or **-1 if the
-         element does not have an NAW.**
+         !! NaN if the provided element or A are incorrect or **-1 if
+         the element does not have an NAW.**
 
    **o function get_nnaw(s)result(res)**
       Get the number of nuclides in NAW of the element s. Deprecated. It
       will be removed in the next major release. Use **nnaw() instead.**
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(int32) :: res**
-         >0 if found or **-1 if not found.**
+         !! >0 if found or **-1 if not found.**
 
    **o function capi_get_nnaw(s,n)bind(C, name="ciaaw_get_nnaw")result(res)**
       C API. Deprecated. It will be removed in the next major release.
       Use **capi_nnaw() instead.**
 
       **o type(c_ptr), intent(in), value :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(c_int), intent(in), value :: n**
-         Size of the symbol string.
+         !! Size of the symbol string.
 
    **o function nnaw(s)result(res)**
       Get the number of nuclides in NAW of the element s.
 
       **o character(len=\*), intent(in) :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(int32) :: res**
-         >0 if found or **-1 if not found.**
+         !! >0 if found or **-1 if not found.**
 
    **o function capi_nnaw(s,n)bind(C, name="ciaaw_nnaw")result(res)**
       C API.
 
       **o type(c_ptr), intent(in), value :: s**
-         Element symbol.
+         !! Element symbol.
 
       **o integer(c_int), intent(in), value :: n**
-         Size of the symbol string.
+         !! Size of the symbol string.
 
 C API:
 
@@ -449,25 +449,25 @@ C API:
 Python API:
 
    -  **get_saw(s: str, abridged: bool = True, uncertainty: bool =
-      False) -> float**
+      False) -> float:**
 
-   -  **saw(s: str, ab: bool = True, u: bool = False) -> float**
+   -  **saw(s: str, ab: bool = True, u: bool = False) -> float:**
 
-   -  **get_ice(s: str, A: int, uncertainty: bool = False) -> float**
+   -  **get_ice(s: str, A: int, uncertainty: bool = False) -> float:**
 
-   -  **ice(s: str, A: int, u: bool = False) -> float**
+   -  **ice(s: str, A: int, u: bool = False) -> float:**
 
-   -  **get_nice(s: str) -> int**
+   -  **get_nice(s: str) -> int:**
 
-   -  **nice(s: str) -> int**
+   -  **nice(s: str) -> int:**
 
-   -  **get_naw(s: str, A: int, uncertainty: bool = False) -> float**
+   -  **get_naw(s: str, A: int, uncertainty: bool = False) -> float:**
 
-   -  **naw(s: str, A: int, u: bool = False) -> float**
+   -  **naw(s: str, A: int, u: bool = False) -> float:**
 
-   -  **get_nnaw(s: str) -> int**
+   -  **get_nnaw(s: str) -> int:**
 
-   -  **nnaw(s: str) -> int**
+   -  **nnaw(s: str) -> int:**
 
 References
 
