@@ -13,13 +13,13 @@ example.txt: ../example/example.f90 ../example/example.c ../example/example.py
 	./concatex.sh
 
 fapi.txt: ciaaw.f90
-	./f2txt.sh $< $@
+	./code2txt $< $@
 
 capi.txt: ../include/ciaaw.h
-	./c2txt.sh $< $@
+	./code2txt $< $@
 
 pyapi.txt: ../py/src/pyciaaw/__init__.py
-	./py2txt.sh $< $@
+	./code2txt $< $@
 
 clean:
 	rm -f $(f90)
