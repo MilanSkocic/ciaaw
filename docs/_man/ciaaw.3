@@ -3,14 +3,12 @@
 .SH NAME
 ciaaw \- library for isotopic abundances and standard atomic weights
 
-
 .SH LIBRARY
 Ciaaw library 
 .RI ( libciaaw ", " \-lciaaw )
 
-
-
 .SH SYNOPSIS
+\"{{{
 .IP Fortran 10 
 .B use ciaaw\fP
 
@@ -19,10 +17,10 @@ Ciaaw library
 
 .IP Python 10
 .B import pyciaaw
-
-
+\"}}}
 
 .SH DESCRIPTION
+\"{{{
 .PP
 .B ciaaw
 is a Fortran library providing the standard and abridged atomic
@@ -59,10 +57,10 @@ from Meija et al. (IUPAC Technical Report. 88(3):293–306).
 The latest atomic weights for nuclides were released in 2020 by
 \fBciaaw\fP https://www.ciaaw.org from Huang et al. (AME 2020 45(3):030002).
 All the values for the nuclide atomic weights are provided as double precision reals.
-
-
+\"}}}
 
 .SH NOTES
+\"{{{
 .PP
 To use \fBciaaw\fP within your fpm project, add the following to your fpm.toml file:
 .nf
@@ -115,23 +113,24 @@ References
 
 .IP [1] 5 
 J. Meija et al., 
-“Isotopic Compositions of the Elements 2013 (IUPAC Technical Report),” 
+"Isotopic Compositions of the Elements 2013 (IUPAC Technical Report)," 
 vol. 88, no. 3, pp. 293–306, 2016, doi: 10.1515/pac-2015-0503.
 .IP [2] 5 
 W. J. Huang, M. Wang, F. G. Kondev, G. Audi, and S. Naimi, 
-“The AME 2020 Atomic Mass Evaluation (I). Evaluation of Input Data, and Adjustment Procedures,” 
+"The AME 2020 Atomic Mass Evaluation (I). Evaluation of Input Data, and Adjustment Procedures," 
 Chinese Physics C, vol. 45, no. 3, p. 30002, Mar. 2021, doi: 10.1088/1674-1137/abddb0.
 .IP [3] 5 
 A. M. H. van der Veen, J. Meija, A. Possolo, and D. B. Hibbert, 
-“Interpretation and Use of Standard Atomic Weights (IUPAC Technical Report),” 
+"Interpretation and Use of Standard Atomic Weights (IUPAC Technical Report)," 
 Pure and Applied Chemistry, vol. 93, no. 5, pp. 629–646, 2021.
 .IP [4] 5 
 T. Prohaska et al., 
-“Standard Atomic Weights of the Elements 2021 (IUPAC Technical Report),” 
+"Standard Atomic Weights of the Elements 2021 (IUPAC Technical Report)," 
 vol. 94, no. 5, pp. 573–600, 2022, doi: 10.1515/pac-2019-0603.
+\"}}}
 
 .SH EXAMPLES
-
+\"{{{
 .PP
 Example in Fortran
 .nf
@@ -242,7 +241,7 @@ Example in Python
         print("N NAW Tc  = ", pyciaaw.nnaw("Tc"))
 .ft R
 .fi
-
+\"}}}
 
 .SH SEE ALSO
 .BR ciaaw (1)
