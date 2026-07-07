@@ -1,0 +1,149 @@
+<!-- Creator     : groff version 1.23.0 -->
+<!-- CreationDate: Tue Jul  7 07:57:59 2026 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>ciaaw_cli</title>
+
+</head>
+<body>
+
+<h1 align="center">ciaaw_cli</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#EXAMPLE">EXAMPLE</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">ciaaw - CLI for
+ciaaw</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>ciaaw</b>
+[<i>OPTION</i>]... [<i>ELEMENT</i>]...</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>ciaaw</b> is
+a command line interface which provides the atomic weights,
+the isotopic compositions and the nuclides atomic weights.
+If no element is provided the full periodic table is
+displayed.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>-s,
+--saw</b></p>
+
+<p style="margin-left:18%;">Get the standard atomic
+weight.</p>
+
+<p style="margin-left:9%;"><b>-i, --ice</b></p>
+
+<p style="margin-left:18%;">Get the isotopic
+composition.</p>
+
+<p style="margin-left:9%;"><b>-n, --naw</b></p>
+
+<p style="margin-left:18%;">Get the nuclide atomic
+weight.</p>
+
+<p style="margin-left:9%;"><b>-m, --mu</b></p>
+
+<p style="margin-left:18%;">Get the molar masses in g/mol
+by multiplying the atomic weights by the molar mass contant
+Mu.</p>
+
+<p style="margin-left:9%;"><b>-c, --colnames</b></p>
+
+<p style="margin-left:18%;">Show the headers in the
+outputs.</p>
+
+<p style="margin-left:9%;"><b>-u, --usage</b></p>
+
+<p style="margin-left:18%;">Show usage text and exit.</p>
+
+<p style="margin-left:9%;"><b>-v,--version</b></p>
+
+<p style="margin-left:18%;">Show version information and
+exit.</p>
+
+<p style="margin-left:9%;"><b>-h, --help</b></p>
+
+<p style="margin-left:18%;">Show help text and exit.</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">You may replace
+the default options from a file if your first options begin
+with @file. Initial options will then be read from the
+&quot;response file&quot; &quot;file.rsp&quot; in the
+current directory.</p>
+
+<p style="margin-left:9%; margin-top: 1em">If
+&quot;file&quot; does not exist or cannot be read, then an
+error occurs and the program stops. Each line of the file is
+prefixed with &quot;options&quot; and interpreted as a
+separate argument. The file itself may not contain @file
+arguments. That is, it is not processed recursively.</p>
+
+<p style="margin-left:9%; margin-top: 1em">For more
+information on response files see
+https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html</p>
+
+<h2>EXAMPLE
+<a name="EXAMPLE"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Minimal example
+<br>
+ciaaw <br>
+ciaaw H C B O Zr Nb --saw --ice --naw --colnames <br>
+ciaaw H C B O Zr Nb -sinc</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>ciaaw</b>(3),
+<b>codata</b>(3)</p>
+<hr>
+</body>
+</html>
