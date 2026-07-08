@@ -4,7 +4,7 @@
 ciaaw \- library for isotopic abundances and standard atomic weights
 
 .SH LIBRARY
-Ciaaw library 
+ciaaw library 
 .RI ( libciaaw ", " \-lciaaw )
 
 .SH SYNOPSIS
@@ -25,12 +25,15 @@ Ciaaw library
 .B ciaaw
 is a Fortran library providing the standard and abridged atomic
 weights, the isotopic abundance and the isotopes’ standard atomic weights:
+.RS
 .IP \(bu 5
 SAW: Standard Atomic Weights.
 .IP \(bu 5
 ICE: Isotopic Composition of the Element
 .IP \(bu 5
 NAW: Nuclides Atomic Weight.
+.RE
+
 .PP
 The data are taken from http://ciaaw.org.
 C API allows usage from C, or can be used as a basis for other wrappers.
@@ -74,6 +77,7 @@ To use \fBciaaw\fP within your fpm project, add the following to your fpm.toml f
 dp stands for double precision and it is an alias to real64
 from the iso_fortran_env module.
 The definitions of the acronyms:
+.RS
 .TP
 ASAW
 Abridged Standard Atomic Weight
@@ -86,9 +90,11 @@ Isotopic Composition of the Element
 .TP
 NAW
 Nuclide Atomic Weight
+.RE
 
 .PP
 The definitions of the abbreviations:
+.RS
 .TP
 s
 Element
@@ -107,10 +113,10 @@ Abridged
 .TP
 res
 Result
+.RE
 
 .PP
 References
-
 .IP [1] 5 
 J. Meija et al., 
 "Isotopic Compositions of the Elements 2013 (IUPAC Technical Report)," 
@@ -122,127 +128,10 @@ Chinese Physics C, vol. 45, no. 3, p. 30002, Mar. 2021, doi: 10.1088/1674-1137/a
 .IP [3] 5 
 A. M. H. van der Veen, J. Meija, A. Possolo, and D. B. Hibbert, 
 "Interpretation and Use of Standard Atomic Weights (IUPAC Technical Report)," 
-Pure and Applied Chemistry, vol. 93, no. 5, pp. 629–646, 2021.
+Pure and Applied Chemistry, vol. 93, no. 5, pp. 629-646, 2021.
 .IP [4] 5 
 T. Prohaska et al., 
 "Standard Atomic Weights of the Elements 2021 (IUPAC Technical Report)," 
-vol. 94, no. 5, pp. 573–600, 2022, doi: 10.1515/pac-2019-0603.
+vol. 94, no. 5, pp. 573-600, 2022, doi: 10.1515/pac-2019-0603.
 \"}}}
 
-.SH EXAMPLES
-\"{{{
-.PP
-Example in Fortran
-.nf
-.ft CR
-        ! EXAMPLE IN FORTRAN
-        program example_in_f
-        use ciaaw, only: saw, ice, naw, nice, nnaw, version
-        implicit none(type,external)
-        print *, "version ", version()
-
-        print '(A)', '########### CIAAW SAW ##########'
-        print '(A10, F10.5)', 'ASAW H = ', saw("H", ab=.true.)
-        print '(A10, F10.5)', 'U ASAW H = ', saw("H", u=.true.)
-        print '(A10, F10.5)', 'SAW H = ', saw("H", ab=.false.)
-        print '(A10, F10.5)', 'U SAW H = ', saw("H", ab=.false., u=.true.)
-        print '(A10, F10.5)', 'ASAW T = ', saw("Tc", ab=.true.)
-
-        print '(A)', '########### CIAAW ICE ##########'
-        print '(A, I3)', 'N ICE H = ', nice("H")
-        print '(A, F12.6)', 'ICE H 1 = ', ice("H", A=1)
-        print '(A, ES23.16)', 'U ICE H 1 = ', ice("H", A=1, u=.true.)
-        print '(A, F12.6)', 'ICE H 2 = ', ice("H", A=2)
-        print '(A, ES23.16)', 'U ICE H 2 = ', ice("H", A=2, u=.true.)
-        print '(A, I3)', 'N ICE Tc = ', nice("Tc")
-        print '(A, I3)', 'N ICE C = ', nice("C")
-
-        print '(A)', '########### CIAAW NAW ##########'
-        print '(A, ES23.16)', 'NAW H 2 = ', naw("H", A=2)
-        print '(A, ES23.16)', 'U NAW H 2 = ', naw("H", A=2, u=.true.)
-        print '(A, I3)', 'N NAW Tc = ', nnaw("Tc")
-
-        end program example_in_f
-.ft R
-.fi
-
-.PP
-Example in C
-.nf
-.ft CR
-        /* EXAMPLE IN C */
-        #include <stdlib.h>
-        #include <stdio.h>
-        #include <string.h>
-        #include <stdbool.h>
-        #include "ciaaw.h"
-
-        int main(void){
-        printf("%s\n", "########## CIAAW VERSION ##########");
-        printf("version %s\n", ciaaw_version());
-
-        printf("%s\n", "########## CIAAW SAW ##########");
-        printf("%s %10.5f\n", "ASAW H   = ", ciaaw_saw("H", 1, true, false));
-        printf("%s %10.5f\n", "U ASAW H = ", ciaaw_saw("H", 1, true, true));
-        printf("%s %10.5f\n", "SAW H    = ", ciaaw_saw("H", 1, false, false));
-        printf("%s %10.5f\n", "U SAW H  = ", ciaaw_saw("H", 1, false, true));
-        printf("%s %10.5f\n", "ASAW Tc  = ", ciaaw_saw("Tc", 2, true, false));
-
-        printf("%s\n", "########## CIAAW ICE ##########");
-        printf("%s %d\n",     "N ICE H      = ", ciaaw_nice("H", 1));
-        printf("%s %12.6f\n", "ICE H 1      = ", ciaaw_ice("H", 1, 1, false));
-        printf("%s %23.16e\n","U ICE H 1    = ", ciaaw_ice("H", 1, 1, true));
-        printf("%s %12.6f\n", "ICE H 2      = ", ciaaw_ice("H", 1, 2, false));
-        printf("%s %23.16e\n","U ICE H 2    = ", ciaaw_ice("H", 1, 2, true));
-        printf("%s %d\n",     "N ICE Tc     = ", ciaaw_nice("Tc", 2));
-        printf("%s %d\n",     "N ICE C      = ", ciaaw_nice("C", 1));
-
-        printf("%s\n", "########## CIAAW NAW ##########");
-        printf("%s %23.16f\n", "NAW H 2      = ", ciaaw_naw("H", 1, 2, false));
-        printf("%s %23.16e\n", "U NAW H 2    = ", ciaaw_naw("H", 1, 2, true));
-        printf("%s %d\n",      "N NAW Tc     = ", ciaaw_nnaw("Tc", 2));
-        return EXIT_SUCCESS;
-        }
-.ft R
-.fi
-
-.PP
-Example in Python
-.nf
-.ft CR
-        #!/usr/bin/env python
-        r"""EXAMPLE IN PYTHON"""
-        import sys
-        sys.path.insert(0, "../py/src/")
-        import pyciaaw
-
-        print("########## CIAAW VERSION ##########")
-        print("version ", pyciaaw.__version__)
-
-        print("########## CIAAW SAW  ##########")
-        print("ASAW H   = ", pyciaaw.saw("H"))
-        print("U ASAW H = ", pyciaaw.saw("H", u=True))
-        print("SAW H    = ", pyciaaw.saw("H", ab=False, u=False))
-        print("U SAW H  = ", pyciaaw.saw("H", ab=False, u=True))
-        print("ASAW Tc  = ", pyciaaw.saw("Tc"))
-
-        print("########## CIAAW ICE  ##########")
-        print("N ICE H   = ", pyciaaw.nice("H"))
-        print('ICE H 1   = ', pyciaaw.ice("H", A=1))
-        print('U ICE H 1 = ', pyciaaw.ice("H", A=1, u=True))
-        print('ICE H 2   = ', pyciaaw.ice("H", A=2))
-        print('U ICE H 2 = ', pyciaaw.ice("H", A=2, u=True))
-        print("N ICE Tc  = ", pyciaaw.nice("Tc"))
-        print("N ICE C   = ", pyciaaw.nice("C"))
-
-        print("########## CIAAW NAW  ##########")
-        print('NAW H 2   = ', pyciaaw.naw("H", A=2))
-        print('U NAW H 2 = ', pyciaaw.naw("H", A=2, u=True))
-        print("N NAW Tc  = ", pyciaaw.nnaw("Tc"))
-.ft R
-.fi
-\"}}}
-
-.SH SEE ALSO
-.BR ciaaw (1)
-.BR ciaaw (3)

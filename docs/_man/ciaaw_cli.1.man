@@ -85,6 +85,3 @@ Minimal example
 .fi
 
 
-.SH SEE ALSO
-.BR ciaaw (3), 
-.BR codata (3)

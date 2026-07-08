@@ -1,0 +1,61 @@
+.TH ciaaw_version 3 "@DATE@" "@VERSION@" "Library Functions Manual"
+
+.SH NAME
+\"{{{
+version \- function
+\"}}}
+
+.SH LIBRARY
+\"{{{
+ciaaw library 
+.RI ( libciaaw ", " \-lciaaw )
+\"}}}
+
+.SH SYNOPSIS
+\"{{{ 
+.IP Fortran 10
+.B character(len=:), pointer :: version()
+
+.IP C 10
+.B char* ciaaw_version()
+
+.IP Python 10
+.B pyciaaw.__version__
+\"}}}
+
+.SH DESCRIPTION
+\"{{{
+Get the library version.
+\"}}}
+
+.SH EXAMPLE
+\"{{{
+.PP
+Fortran:
+.nf
+.ft CR
+    use ciaaw
+    print *, "version = ", version()
+.ft R
+.fi
+
+.PP
+C:
+.nf
+.ft CR
+    include <stdio.h>
+    include "ciaaw.h"
+    printf("version = %s\\n", ciaaw_version());
+.ft R
+.fi
+
+.PP
+Python:
+.nf
+.ft CR
+    import pyciaaw
+    print(f"version = {pyciaaw.__version__}")
+.ft R
+.fi
+\"}}}
+

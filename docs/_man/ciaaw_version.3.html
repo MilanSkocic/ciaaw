@@ -1,0 +1,135 @@
+<!-- Creator     : groff version 1.23.0 -->
+<!-- CreationDate: Wed Jul  8 03:27:23 2026 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>ciaaw_version</title>
+
+</head>
+<body>
+
+<h1 align="center">ciaaw_version</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#LIBRARY">LIBRARY</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#EXAMPLE">EXAMPLE</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">version -
+function</p>
+
+<h2>LIBRARY
+<a name="LIBRARY"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">ciaaw library
+(<i>libciaaw</i>, <i>-lciaaw</i>)</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+
+
+<p style="margin-top: 1em">Fortran</p></td>
+<td width="4%"></td>
+<td width="49%">
+
+
+<p style="margin-top: 1em"><b>character(len=:), pointer ::
+version()</b></p> </td>
+<td width="29%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+
+
+<p>C</p></td>
+<td width="4%"></td>
+<td width="49%">
+
+
+<p><b>char* ciaaw_version()</b></p></td>
+<td width="29%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+
+
+<p>Python</p></td>
+<td width="4%"></td>
+<td width="49%">
+
+
+<p><b>pyciaaw.__version__</b></p></td>
+<td width="29%">
+</td></tr>
+</table>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Get the library
+version.</p>
+
+<h2>EXAMPLE
+<a name="EXAMPLE"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Fortran: <br>
+use ciaaw <br>
+print *, &quot;version = &quot;, version()</p>
+
+<p style="margin-left:9%; margin-top: 1em">C: <br>
+include &lt;stdio.h&gt; <br>
+include &quot;ciaaw.h&quot; <br>
+printf(&quot;version = %s\n&quot;, ciaaw_version());</p>
+
+<p style="margin-left:9%; margin-top: 1em">Python: <br>
+import pyciaaw <br>
+print(f&quot;version = {pyciaaw.__version__}&quot;)</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>ciaaw</b>(3),
+<b>ciaaw_cli</b>(1), <b>ciaaw_version</b>(3),
+<b>ciaaw_types</b>(3)</p>
+<hr>
+</body>
+</html>
