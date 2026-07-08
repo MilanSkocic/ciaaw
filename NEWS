@@ -1,20 +1,27 @@
+VERSION 1.3.2
+  - Maintenance release. NO API break.
+  - API is written as man pages in groff directly.
+    - ciaaw.3
+    - ciaaw_cli.1
+    - ciaaw_version.3
+
 VERSION 1.3.1
   - Maintenance release. No API break.
-  - Use `prep(1)` for auto-generating the version parameter.
+  - Use prep(1) for auto-generating the version parameter.
   - Add new API for getting the version number:
-      - `version()` instead of `get_version()` which is deprecated.
-      - `saw()` instead of `get_saw()` which is deprecated.
-      - `ice()` instead of `get_ice()` which is deprecated.
-      - `nice()` instead of `get_nice()` which is deprecated.
-      - `naw()` instead of `get_naw()` which is deprecated.
-      - `nnaw()` instead of `get_nnaw()` which is deprecated.
+      - version() instead of get_version() which is deprecated.
+      - saw() instead of get_saw() which is deprecated.
+      - ice() instead of get_ice() which is deprecated.
+      - nice() instead of get_nice() which is deprecated.
+      - naw() instead of get_naw() which is deprecated.
+      - nnaw() instead of get_nnaw() which is deprecated.
   - Deprecated functions will be removed in the next major release.
   - Refactoring.
 
 VERSION 1.3.0
-  - Add [response_file]( https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html) 
+  - Add response_file (https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html) 
     capability for the CLI.
-  - Add `rst` output for the man pages.
+  - Add rst output for the man pages.
   - Integration of the man pages in the online documentation generated with sphinx.
 
 VERSION 1.2.2
@@ -23,64 +30,64 @@ VERSION 1.2.2
   - Fix Makefile for man pages.
 
 VERSION 1.2.1
-  - Bug fix in CLI `ciaaw(1)`. 
+  - Bug fix in CLI ciaaw(1). 
 
 VERSION 1.2.0
-  - Add CLI `ciaaw(1)` for searching saw, ice and naw.
+  - Add CLI ciaaw(1) for searching saw, ice and naw.
   - Code refactoring
 
 VERSION 1.1.1
-  * Refactoring the `configure.sh` script.
-  * Remove support for 3.14t. No official release on python.org.
-  * If binaries for Python 3.14t are needed you need to compile them by yourself.
+  - Refactoring the configure.sh script.
+  - Remove support for 3.14t. No official release on python.org.
+  - If binaries for Python 3.14t are needed you need to compile them by yourself.
 
 VERSION 1.1.0
-  * Remove support for Python 3.9 and add support for Python 3.14(t).
+  - Remove support for Python 3.9 and add support for Python 3.14(t).
 
 VERSION 1.0.0
-  * Switch to UCRT64 for Windows binaries.
-  * Switch documentation to `sphinx` with `fspx` (development version).
-    * `fspx` uses Ford as a backend.
-  * Drop Ford documentation output
+  - Switch to UCRT64 for Windows binaries.
+  - Switch documentation to sphinx with fspx (development version).
+    - fspx uses Ford as a backend.
+  - Drop Ford documentation output
 
 VERSION 0.5.1
-  * Code refactoring.
-  * Documentation update.
+  - Code refactoring.
+  - Documentation update.
 
 VERSION 0.5.0
-  * API break: 
-      * Data for standard atomic weights are no directly accessed.
-      * SAW, ICE and NAW are stored in derived types for each elements.
-      * Each element is stored in a periodic table.
-      * Element properties are now accessed through getters.
-  * Doc update.
+  - API break: 
+      - Data for standard atomic weights are no directly accessed.
+      - SAW, ICE and NAW are stored in derived types for each elements.
+      - Each element is stored in a periodic table.
+      - Element properties are now accessed through getters.
+  - Doc update.
 
 VERSION 0.4.3 
-  * Refractoring.
-  * Documentation update.
+  - Refractoring.
+  - Documentation update.
 
 VERSION 0.4.2 
-  * Refractoring.
-  * Documentation update.
-  * Merge back C API and Python wrapper.
+  - Refractoring.
+  - Documentation update.
+  - Merge back C API and Python wrapper.
 
 VERSION 0.4.1
-  * Fix bug in max value for saw. 
+  - Fix bug in max value for saw. 
 
 VERSION 0.4.0
-  * Fix type error in tests
-  * Refractoring
-  * Documentation update.
+  - Fix type error in tests
+  - Refractoring
+  - Documentation update.
 
 VERSION 0.3.0
-  * Code refactoring.
-  * Move C API and Python wrapper to their own repositories.
-  * Improve documentatinon.
+  - Code refactoring.
+  - Move C API and Python wrapper to their own repositories.
+  - Improve documentatinon.
 
 VERSION 0.2.0
-  * Fix error in phosphorus name.
-  * Possibility to have standard atomic weights for several years.
+  - Fix error in phosphorus name.
+  - Possibility to have standard atomic weights for several years.
 
 VERSION 0.1.0
-  * All elements from the periodic table added for the saw module.
-  * They are implemented as parameter derived type.
+  - All elements from the periodic table added for the saw module.
+  - They are implemented as parameter derived type.
