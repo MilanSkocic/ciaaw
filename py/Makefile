@@ -84,12 +84,15 @@ clean:
 	rm -rf __pycache__ 
 	rm -rf wheelhouse 
 	rm -rf $(FPM_PY_SRC)/__pycache__
-	rm -f $(FPM_PY_SRC)/$(FPM_NAME)*.h 
+	rm -f $(FPM_PY_SRC)/$(FPM_NAME)
+	rm -f $(FPM_PY_SRC)/$(FPM_NAME).exe
 	rm -f $(FPM_PY_SRC)/*.a 
 	rm -f $(FPM_PY_SRC)/*.so 
 	rm -f $(FPM_PY_SRC)/*.dylib 
 	rm -f $(FPM_PY_SRC)/*.dll 
 	rm -f $(FPM_PY_SRC)/*.dll.a 
 	rm -f $(FPM_PY_SRC)/*.pyd
-	rm -f $(FPM_PY_SRC)/$(FPM_APPNAME)
+	rm -rf $(FPM_PY_SRC)/linux
+	rm -rf $(FPM_PY_SRC)/darwin
+	rm -rf $(FPM_PY_SRC)/windows
 # ---------------------------------------------------------------------

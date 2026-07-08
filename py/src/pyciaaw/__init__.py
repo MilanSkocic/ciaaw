@@ -15,7 +15,7 @@ from . import _ciaaw
 
 
 def main():
-    binary = Path(__file__).parent / "ciaaw"
+    binary = Path(__file__).parent / platform.system().lower() / "bin" / "ciaaw"
     if platform.system() == "Windows":
         binary = binary.with_suffix(".exe")
 
