@@ -1,5 +1,5 @@
 DESCRIPTION
-  `ciaaw` is a  Fortran library providing the standard and abridged atomic weights, 
+  ciaaw is a  Fortran library providing the standard and abridged atomic weights, 
   the isotopic abundance and the isotopes' standard atomic weights.
 
 FEATURES
@@ -19,11 +19,11 @@ INSTALLATION
   See the install file.
 
 NOTES FOR FORTRAN USERS
-  To use codata within your fpm(1) (https://github.com/fortran-lang/fpm)
+  To use ciaaw within your fpm(1) (https://github.com/fortran-lang/fpm)
   project, add the following lines to your file:
 
      [dependencies]
-     codata = { git="https://github.com/MilanSkocic/codata.git" }
+     ciaaw = { git="https://github.com/MilanSkocic/ciaaw.git" }
 
 REFERENCES
   [1]J. Meija et al., 
