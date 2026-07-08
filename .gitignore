@@ -39,11 +39,11 @@ __pycache__
 .DS_Store
 
 py/wheelhouse/
-py/src/pycodata/bin/
-py/src/pycodata/include/
-py/src/pycodata/lib/
-py/src/pycodata/codata
-py/src/pycodata/linux
-py/src/pycodata/darwin
-py/src/pycodata/windows
+py/src/pyciaaw/bin/
+py/src/pyciaaw/include/
+py/src/pyciaaw/lib/
+py/src/pyciaaw/ciaaw
+py/src/pyciaaw/linux
+py/src/pyciaaw/darwin
+py/src/pyciaaw/windows
 
