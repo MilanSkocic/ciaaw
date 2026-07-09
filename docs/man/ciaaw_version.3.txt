@@ -7,11 +7,14 @@ LIBRARY
        ciaaw library (libciaaw, -lciaaw)
 
 SYNOPSIS
-       Fortran   character(len=:), pointer :: version()
+       Fortran   function version()result(fptr)
+
+                 character(len=:), pointer :: fptr
+                        Pointer to a string.
 
        C         char* ciaaw_version()
 
-       Python    pyciaaw.__version__
+       Python    str:pyciaaw.__version__
 
 DESCRIPTION
        Get the library version.

@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.23.0 -->
-<!-- CreationDate: Thu Jul  9 08:06:19 2026 -->
+<!-- CreationDate: Thu Jul  9 12:41:03 2026 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,6 +24,7 @@
 <a href="#LIBRARY">LIBRARY</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
 <a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
 <a href="#EXAMPLE">EXAMPLE</a><br>
 <a href="#SEE ALSO">SEE ALSO</a><br>
 
@@ -63,37 +64,69 @@ function</p>
 
 <p style="margin-top: 1em">Fortran</p></td>
 <td width="4%"></td>
-<td width="78%">
+<td width="51%">
 
 
 <p style="margin-top: 1em"><b>real(dp) function
-saw(</b><i>s, ab, u</i><b>)</b></p></td></tr>
+saw(</b><i>s</i><b>,</b><i>ab</i><b>,</b><i>u</i><b>)result(res)</b></p> </td>
+<td width="27%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>character(len=*), intent(in)
+::</b> <i>s</i></p>
+
+<p style="margin-left:31%;">Element symbol.</p>
+
+<p style="margin-left:22%;"><b>logical, intent(in),
+optional ::</b> <i>ab</i></p>
+
+<p style="margin-left:31%;">Set to False if the abridged
+value is not desired. Default to TRUE.</p>
+
+<p style="margin-left:22%;"><b>logical, intent(in),
+optional ::</b> <i>u</i></p>
+
+<p style="margin-left:31%;">Set to True if the uncertainty
+is desired. Default to FALSE.</p>
+
+<p style="margin-left:22%;"><b>real(dp) ::</b>
+<i>res</i></p>
+
+<p style="margin-left:31%;">NaN if the provided element is
+incorrect or -1 if the element does not have a SAW.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="9%"></td>
-<td width="9%">
+<td width="8%">
 
 
 <p>C</p></td>
-<td width="4%"></td>
-<td width="78%">
+<td width="5%"></td>
+<td width="77%">
 
 
 <p><b>double ciaaw_saw(char *</b><i>s,</i><b>int</b>
 <i>n,</i><b>bool</b> <i>ab,</i><b>bool</b>
-<i>u</i><b>);</b></p> </td></tr>
+<i>u</i><b>);</b></p> </td>
+<td width="1%">
+</td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
-<td width="9%">
+<td width="8%">
 
 
 <p>Python</p></td>
-<td width="4%"></td>
-<td width="78%">
+<td width="5%"></td>
+<td width="77%">
 
 
-<p><b>saw(</b><i>s: str, abridged: bool = True,
-uncertainty: bool = False</i><b>) -&gt;
-float</b><i>:</i></p> </td></tr>
+
+<p><b>saw(</b><i>s:</i><b>str,</b><i>abridged:</i><b>bool=True,</b><i>uncertainty:</i><b>bool=False)-&gt;float:</b></p> </td>
+<td width="1%">
+</td></tr>
 </table>
 
 <h2>DESCRIPTION
@@ -102,22 +135,43 @@ float</b><i>:</i></p> </td></tr>
 
 
 <p style="margin-left:9%; margin-top: 1em">Get the standard
-atomic weight for the element s. <br>
-character(len=*), intent(in) :: s</p>
+atomic weight for the element <i>s</i>.</p>
 
-<p style="margin-left:18%;">Element symbol.</p>
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
 
-<p style="margin-left:9%;">logical, intent(in), optional ::
-ab</p>
 
-<p style="margin-left:18%;">Set to False if the abridged
-value is not desired. Default to TRUE.</p>
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="4%">
 
-<p style="margin-left:9%;">logical, intent(in), optional ::
-u</p>
 
-<p style="margin-left:18%;">Set to True if the uncertainty
-is desired. Default to FALSE.</p>
+<p style="margin-top: 1em">NaN</p></td>
+<td width="9%"></td>
+<td width="47%">
+
+
+<p style="margin-top: 1em">If the provided element is
+incorrect.</p> </td>
+<td width="31%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="4%">
+
+
+<p>-1</p></td>
+<td width="9%"></td>
+<td width="47%">
+
+
+<p>If the element does not have a SAW.</p></td>
+<td width="31%">
+</td></tr>
+</table>
 
 <h2>EXAMPLE
 <a name="EXAMPLE"></a>

@@ -9,26 +9,35 @@ LIBRARY
        ciaaw library (libciaaw, -lciaaw)
 
 SYNOPSIS
-       Fortran   real(dp) function saw(s, ab, u)
+       Fortran   real(dp) function saw(s,ab,u)result(res)
+
+                 character(len=*), intent(in) :: s
+                        Element symbol.
+
+                 logical, intent(in), optional :: ab
+                        Set  to  False if the abridged value is not de‐
+                        sired. Default to TRUE.
+
+                 logical, intent(in), optional :: u
+                        Set to True if the uncertainty is desired.  De‐
+                        fault to FALSE.
+
+                 real(dp) :: res
+                        NaN  if the provided element is incorrect or -1
+                        if the element does not have a SAW.
 
        C         double ciaaw_saw(char *s,int n,bool ab,bool u);
 
-       Python    saw(s: str, abridged: bool = True, uncertainty: bool =
-                 False) -> float:
+       Python    saw(s:str,abridged:bool=True,uncer‐
+                 tainty:bool=False)->float:
 
 DESCRIPTION
        Get the standard atomic weight for the element s.
 
-       character(len=*), intent(in) :: s
-              Element symbol.
+RETURN VALUE
+       NaN       If the provided element is incorrect.
 
-       logical, intent(in), optional :: ab
-              Set  to  False  if the abridged value is not desired. De‐
-              fault to TRUE.
-
-       logical, intent(in), optional :: u
-              Set to True if the uncertainty  is  desired.  Default  to
-              FALSE.
+       -1        If the element does not have a SAW.
 
 EXAMPLE
        Fortran:

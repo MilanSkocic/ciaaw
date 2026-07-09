@@ -14,13 +14,19 @@ ciaaw library
 .SH SYNOPSIS
 \"{{{ 
 .IP Fortran 10
-.B character(len=:), pointer :: version()
+.BI "function version()result(" fptr ")"
+.RS
+.TP
+.BI "character(len=:), pointer :: " fptr 
+Pointer to a string.
+.RE
+
 
 .IP C 10
 .B char* ciaaw_version()
 
 .IP Python 10
-.B pyciaaw.__version__
+.BI str: pyciaaw.__version__
 \"}}}
 
 .SH DESCRIPTION

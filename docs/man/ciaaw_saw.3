@@ -16,27 +16,37 @@ ciaaw library
 .SH SYNOPSIS
 \"{{{ 
 .IP Fortran 10
-.BI "real(dp) function saw(" "s, ab, u" ")"
+.BI "real(dp) function saw(" s , ab , u )result(res)
+.RS
+.TP
+.BI "character(len=*), intent(in) :: " s    
+Element symbol.
+.TP
+.BI "logical, intent(in), optional :: " ab 
+Set to False if the abridged value is not desired. Default to TRUE.
+.TP
+.BI "logical, intent(in), optional :: " u  
+Set to True if the uncertainty is desired. Default to FALSE.
+.TP
+.BI "real(dp) :: " res                      
+NaN if the provided element is incorrect or -1 if the element does not have a SAW.
+.RE
 
 .IP C 10
 .BI "double ciaaw_saw(char *" s, "int " n, "bool " ab, "bool " u ");"
 
 .IP Python 10
-.BI "saw(" "s: str," " " "abridged: bool = True," " " "uncertainty: bool = False" ") -> float":
+.BI "saw(" s: str, abridged: bool=True, uncertainty: bool=False)->float:
 \"}}}
 
 .SH DESCRIPTION
-Get the standard atomic weight for the element s.
+Get the standard atomic weight for the element \fIs\fP.
 
-.TP
-character(len=*), intent(in) :: s    
-Element symbol.
-.TP
-logical, intent(in), optional :: ab 
-Set to False if the abridged value is not desired. Default to TRUE.
-.TP
-logical, intent(in), optional :: u  
-Set to True if the uncertainty is desired. Default to FALSE.
+.SH RETURN VALUE
+.IP NaN 10 
+If the provided element is incorrect.
+.IP -1 10  
+If the element does not have a SAW.
 
 .SH EXAMPLE
 \"{{{
