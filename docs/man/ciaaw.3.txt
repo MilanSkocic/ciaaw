@@ -205,4 +205,4 @@ EXAMPLES
 SEE ALSO
        ciaaw(3), ciaaw_cli(1), ciaaw_version(3), ciaaw_types(3)
 
-1.3.1                         08 July 2026                     ciaaw(3)
+1.3.2                         09 July 2026                     ciaaw(3)

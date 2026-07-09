@@ -1,0 +1,50 @@
+ciaaw_saw(3)            Library Functions Manual           ciaaw_saw(3)
+
+ "Library Functions Manual"
+
+NAME
+       saw - function
+
+LIBRARY
+       ciaaw library (libciaaw, -lciaaw)
+
+SYNOPSIS
+       Fortran   real(dp) function saw(s, ab, u)
+
+       C         double ciaaw_saw(char *s,int n,bool ab,bool u);
+
+       Python    saw(s: str, abridged: bool = True, uncertainty: bool =
+                 False) -> float:
+
+DESCRIPTION
+       Get the standard atomic weight for the element s.
+
+       character(len=*), intent(in) :: s
+              Element symbol.
+
+       logical, intent(in), optional :: ab
+              Set  to  False  if the abridged value is not desired. De‐
+              fault to TRUE.
+
+       logical, intent(in), optional :: u
+              Set to True if the uncertainty  is  desired.  Default  to
+              FALSE.
+
+EXAMPLE
+       Fortran:
+           use ciaaw
+           saw("H", ab=.false., u=.true.)
+
+       C:
+           include <stdio.h>
+           include "ciaaw.h"
+           ciaaw_saw("H", 1, false, true)
+
+       Python:
+           import pyciaaw
+           pyciaaw.saw("H", ab=False, u=True)
+
+SEE ALSO
+       ciaaw(3), ciaaw_cli(1), ciaaw_version(3), ciaaw_types(3)
+
+1.3.2                         09 July 2026                 ciaaw_saw(3)

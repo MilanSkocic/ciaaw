@@ -1,0 +1,72 @@
+.TH ciaaw_saw 3 "@DATE@" "@VERSION@" "Library Functions Manual"
+
+ "Library Functions Manual"
+
+.SH NAME
+\"{{{
+saw \- function
+\"}}}
+
+.SH LIBRARY
+\"{{{
+ciaaw library 
+.RI ( libciaaw ", " \-lciaaw )
+\"}}}
+
+.SH SYNOPSIS
+\"{{{ 
+.IP Fortran 10
+.BI "real(dp) function saw(" "s, ab, u" ")"
+
+.IP C 10
+.BI "double ciaaw_saw(char *" s, "int " n, "bool " ab, "bool " u ");"
+
+.IP Python 10
+.BI "saw(" "s: str," " " "abridged: bool = True," " " "uncertainty: bool = False" ") -> float":
+\"}}}
+
+.SH DESCRIPTION
+Get the standard atomic weight for the element s.
+
+.TP
+character(len=*), intent(in) :: s    
+Element symbol.
+.TP
+logical, intent(in), optional :: ab 
+Set to False if the abridged value is not desired. Default to TRUE.
+.TP
+logical, intent(in), optional :: u  
+Set to True if the uncertainty is desired. Default to FALSE.
+
+.SH EXAMPLE
+\"{{{
+.PP
+Fortran:
+.nf
+.ft CR
+    use ciaaw
+    saw("H", ab=.false., u=.true.)
+.ft R
+.fi
+
+.PP
+C:
+.nf
+.ft CR
+    include <stdio.h>
+    include "ciaaw.h"
+    ciaaw_saw("H", 1, false, true)
+.ft R
+.fi
+
+.PP
+Python:
+.nf
+.ft CR
+    import pyciaaw
+    pyciaaw.saw("H", ab=False, u=True)
+.ft R
+.fi
+\"}}}
+
+

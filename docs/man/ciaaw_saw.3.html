@@ -13,12 +13,12 @@
        table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
        h1      { text-align: center }
 </style>
-<title>ciaaw_version</title>
+<title>ciaaw_saw</title>
 
 </head>
 <body>
 
-<h1 align="center">ciaaw_version</h1>
+<h1 align="center">ciaaw_saw</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#LIBRARY">LIBRARY</a><br>
@@ -30,12 +30,15 @@
 <hr>
 
 
+<p style="margin-top: 1em">&quot;Library Functions
+Manual&quot;</p>
+
 <h2>NAME
 <a name="NAME"></a>
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">version -
+<p style="margin-left:9%; margin-top: 1em">saw -
 function</p>
 
 <h2>LIBRARY
@@ -60,13 +63,11 @@ function</p>
 
 <p style="margin-top: 1em">Fortran</p></td>
 <td width="4%"></td>
-<td width="49%">
+<td width="78%">
 
 
-<p style="margin-top: 1em"><b>character(len=:), pointer ::
-version()</b></p> </td>
-<td width="29%">
-</td></tr>
+<p style="margin-top: 1em"><b>real(dp) function
+saw(</b><i>s, ab, u</i><b>)</b></p></td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="9%">
@@ -74,12 +75,12 @@ version()</b></p> </td>
 
 <p>C</p></td>
 <td width="4%"></td>
-<td width="49%">
+<td width="78%">
 
 
-<p><b>char* ciaaw_version()</b></p></td>
-<td width="29%">
-</td></tr>
+<p><b>double ciaaw_saw(char *</b><i>s,</i><b>int</b>
+<i>n,</i><b>bool</b> <i>ab,</i><b>bool</b>
+<i>u</i><b>);</b></p> </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="9%">
@@ -87,12 +88,12 @@ version()</b></p> </td>
 
 <p>Python</p></td>
 <td width="4%"></td>
-<td width="49%">
+<td width="78%">
 
 
-<p><b>pyciaaw.__version__</b></p></td>
-<td width="29%">
-</td></tr>
+<p><b>saw(</b><i>s: str, abridged: bool = True,
+uncertainty: bool = False</i><b>) -&gt;
+float</b><i>:</i></p> </td></tr>
 </table>
 
 <h2>DESCRIPTION
@@ -100,8 +101,23 @@ version()</b></p> </td>
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">Get the library
-version.</p>
+<p style="margin-left:9%; margin-top: 1em">Get the standard
+atomic weight for the element s. <br>
+character(len=*), intent(in) :: s</p>
+
+<p style="margin-left:18%;">Element symbol.</p>
+
+<p style="margin-left:9%;">logical, intent(in), optional ::
+ab</p>
+
+<p style="margin-left:18%;">Set to False if the abridged
+value is not desired. Default to TRUE.</p>
+
+<p style="margin-left:9%;">logical, intent(in), optional ::
+u</p>
+
+<p style="margin-left:18%;">Set to True if the uncertainty
+is desired. Default to FALSE.</p>
 
 <h2>EXAMPLE
 <a name="EXAMPLE"></a>
@@ -110,16 +126,16 @@ version.</p>
 
 <p style="margin-left:9%; margin-top: 1em">Fortran: <br>
 use ciaaw <br>
-print *, &quot;version = &quot;, version()</p>
+saw(&quot;H&quot;, ab=.false., u=.true.)</p>
 
 <p style="margin-left:9%; margin-top: 1em">C: <br>
 include &lt;stdio.h&gt; <br>
 include &quot;ciaaw.h&quot; <br>
-printf(&quot;version = %s\n&quot;, ciaaw_version());</p>
+ciaaw_saw(&quot;H&quot;, 1, false, true)</p>
 
 <p style="margin-left:9%; margin-top: 1em">Python: <br>
 import pyciaaw <br>
-print(f&quot;version = {pyciaaw.__version__}&quot;)</p>
+pyciaaw.saw(&quot;H&quot;, ab=False, u=True)</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>
