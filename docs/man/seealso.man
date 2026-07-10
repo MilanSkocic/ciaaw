@@ -2,6 +2,5 @@
 .BR ciaaw (3),
 .BR ciaaw_cli (1),
 .BR ciaaw_version (3),
-.BR ciaaw_types (3),
 .BR ciaaw_saw (3),
 .BR ciaaw_ice (3)
