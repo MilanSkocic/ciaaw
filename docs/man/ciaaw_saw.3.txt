@@ -1,7 +1,5 @@
 ciaaw_saw(3)            Library Functions Manual           ciaaw_saw(3)
 
- "Library Functions Manual"
-
 NAME
        saw - function
 
@@ -9,22 +7,15 @@ LIBRARY
        ciaaw library (libciaaw, -lciaaw)
 
 SYNOPSIS
-       Fortran   real(dp) function saw(s,ab,u)result(res)
+       Fortran   function saw(s,ab,u)result(res)
 
-                 character(len=*), intent(in) :: s
-                        Element symbol.
+                    character(len=*), intent(in) :: s
 
-                 logical, intent(in), optional :: ab
-                        Set  to  False if the abridged value is not de‐
-                        sired. Default to TRUE.
+                    logical, intent(in), optional :: ab
 
-                 logical, intent(in), optional :: u
-                        Set to True if the uncertainty is desired.  De‐
-                        fault to FALSE.
+                    logical, intent(in), optional :: u
 
-                 real(dp) :: res
-                        NaN  if the provided element is incorrect or -1
-                        if the element does not have a SAW.
+                    real(dp) :: res
 
        C         double ciaaw_saw(char *s,int n,bool ab,bool u);
 
@@ -32,7 +23,20 @@ SYNOPSIS
                  tainty:bool=False)->float:
 
 DESCRIPTION
-       Get the standard atomic weight for the element s.
+       Get  the  standard atomic weight for the element s.  The default
+       behavior is to provide the abridged  value,ab  is  TRUE,  recom‐
+       mended  by  the CIAAW.  The uncertainty can be retrieved by set‐
+       ting u=TRUE.
+
+       Arguments:
+
+       s         Element symbol.
+
+       ab        Set to False if the abridged value is not desired. De‐
+                 fault to TRUE.
+
+       u         Set to True if the uncertainty is desired. Default  to
+                 FALSE.
 
 RETURN VALUE
        NaN       If the provided element is incorrect.
@@ -54,6 +58,7 @@ EXAMPLE
            pyciaaw.saw("H", ab=False, u=True)
 
 SEE ALSO
-       ciaaw(3), ciaaw_cli(1), ciaaw_version(3), ciaaw_types(3)
+       ciaaw(3),    ciaaw_cli(1),   ciaaw_version(3),   ciaaw_types(3),
+       ciaaw_saw(3), ciaaw_ice(3)
 
-1.3.2                         09 July 2026                 ciaaw_saw(3)
+1.3.2                         10 July 2026                 ciaaw_saw(3)

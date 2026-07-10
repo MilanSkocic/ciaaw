@@ -1,7 +1,5 @@
 .TH ciaaw_saw 3 "@DATE@" "@VERSION@" "Library Functions Manual"
 
- "Library Functions Manual"
-
 .SH NAME
 \"{{{
 saw \- function
@@ -16,20 +14,16 @@ ciaaw library
 .SH SYNOPSIS
 \"{{{ 
 .IP Fortran 10
-.BI "real(dp) function saw(" s , ab , u )result(res)
+.BI "function saw(" s , ab , u )result(res)
 .RS
-.TP
+.IP "" 3
 .BI "character(len=*), intent(in) :: " s    
-Element symbol.
-.TP
+.IP "" 3
 .BI "logical, intent(in), optional :: " ab 
-Set to False if the abridged value is not desired. Default to TRUE.
-.TP
+.IP "" 3
 .BI "logical, intent(in), optional :: " u  
-Set to True if the uncertainty is desired. Default to FALSE.
-.TP
+.IP "" 3
 .BI "real(dp) :: " res                      
-NaN if the provided element is incorrect or -1 if the element does not have a SAW.
 .RE
 
 .IP C 10
@@ -41,6 +35,18 @@ NaN if the provided element is incorrect or -1 if the element does not have a SA
 
 .SH DESCRIPTION
 Get the standard atomic weight for the element \fIs\fP.
+The default behavior is to provide the abridged value,\fIab is TRUE\fP, 
+recommended by the CIAAW. 
+The uncertainty can be retrieved by setting \fIu\fP=TRUE.
+
+Arguments:
+.IP \fIs\fP 10    
+Element symbol.
+.IP \fIab\fP 10 
+Set to False if the abridged value is not desired. Default to TRUE.
+.IP \fIu\fP 10
+Set to True if the uncertainty is desired. Default to FALSE.
+
 
 .SH RETURN VALUE
 .IP NaN 10 

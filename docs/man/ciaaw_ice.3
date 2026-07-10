@@ -1,0 +1,59 @@
+.TH ciaaw_ice 3 "10 July 2026" "1.3.2" "Library Functions Manual"
+
+.SH NAME
+\"{{{
+ice \- function
+\"}}}
+
+.SH LIBRARY
+\"{{{
+ciaaw library 
+.RI ( libciaaw ", " \-lciaaw )
+\"}}}
+
+.SH SYNOPSIS
+\"{{{
+.IP Fortran 10
+.BI "function ice(" s , A , u )result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in) :: " s
+.IP "" 3
+.BI "integer(int32), intent(in) :: " A
+.IP "" 3
+.BI "logical, intent(in), optional :: " u
+.IP "" 3
+.BI "real(dp) :: " res
+.RE
+
+.IP C 10
+.BI "double ciaaw_ice(char *" s, "int " n, "int " A, "bool " u ");"
+
+.IP Python 10
+.BI "ice(" s: str, A: int, u: bool=False) -> float:
+\"}}}
+
+.SH DESCRIPTION
+Get the isotopic composition of the element \fIs\fP for the mass number \fIA\fP.
+The uncertainty can be retrieved by setting \fIu\fP=TRUE.
+
+Arguments:
+.IP \fIs\fP 10
+Element symbol.
+.IP \fIA\fP 10
+Mass number.
+.IP \fIu\fP 10
+Set to True if the uncertainty is desired. Default to FALSE.
+
+.SH RETURN VALUE
+.IP NaN 10 
+If the provided element or A are incorrect.
+.IP -1 10  
+If the element does not have an ICE.
+.SH SEE ALSO
+.BR ciaaw (3),
+.BR ciaaw_cli (1),
+.BR ciaaw_version (3),
+.BR ciaaw_types (3),
+.BR ciaaw_saw (3),
+.BR ciaaw_ice (3)

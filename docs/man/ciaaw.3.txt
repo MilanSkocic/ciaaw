@@ -203,6 +203,7 @@ EXAMPLES
            print("N NAW Tc  = ", pyciaaw.nnaw("Tc"))
 
 SEE ALSO
-       ciaaw(3), ciaaw_cli(1), ciaaw_version(3), ciaaw_types(3)
+       ciaaw(3),    ciaaw_cli(1),   ciaaw_version(3),   ciaaw_types(3),
+       ciaaw_saw(3), ciaaw_ice(3)
 
-1.3.2                         09 July 2026                     ciaaw(3)
+1.3.2                         10 July 2026                     ciaaw(3)

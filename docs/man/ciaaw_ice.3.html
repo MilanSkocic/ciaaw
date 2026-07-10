@@ -13,19 +13,18 @@
        table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
        h1      { text-align: center }
 </style>
-<title>ciaaw_saw</title>
+<title>ciaaw_ice</title>
 
 </head>
 <body>
 
-<h1 align="center">ciaaw_saw</h1>
+<h1 align="center">ciaaw_ice</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#LIBRARY">LIBRARY</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
 <a href="#DESCRIPTION">DESCRIPTION</a><br>
 <a href="#RETURN VALUE">RETURN VALUE</a><br>
-<a href="#EXAMPLE">EXAMPLE</a><br>
 <a href="#SEE ALSO">SEE ALSO</a><br>
 
 <hr>
@@ -36,7 +35,7 @@
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">saw -
+<p style="margin-left:9%; margin-top: 1em">ice -
 function</p>
 
 <h2>LIBRARY
@@ -61,56 +60,56 @@ function</p>
 
 <p style="margin-top: 1em">Fortran</p></td>
 <td width="4%"></td>
-<td width="77%">
+<td width="57%">
 
 
 <p style="margin-top: 1em"><b>function
-saw(</b><i>s</i><b>,</b><i>ab</i><b>,</b><i>u</i><b>)result(res)</b></p> </td>
-<td width="1%">
+ice(</b><i>s</i><b>,</b><i>A</i><b>,</b><i>u</i><b>)result(res)</b></p> </td>
+<td width="21%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="9%">
 </td>
 <td width="4%"></td>
-<td width="77%">
+<td width="57%">
 
 
 <p><b>character(len=*), intent(in) ::</b> <i>s</i></p></td>
-<td width="1%">
+<td width="21%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="9%">
 </td>
 <td width="4%"></td>
-<td width="77%">
+<td width="57%">
 
 
-<p><b>logical, intent(in), optional ::</b> <i>ab</i></p></td>
-<td width="1%">
+<p><b>integer(int32), intent(in) ::</b> <i>A</i></p></td>
+<td width="21%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="9%">
 </td>
 <td width="4%"></td>
-<td width="77%">
+<td width="57%">
 
 
 <p><b>logical, intent(in), optional ::</b> <i>u</i></p></td>
-<td width="1%">
+<td width="21%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="9%">
 </td>
 <td width="4%"></td>
-<td width="77%">
+<td width="57%">
 
 
 <p><b>real(dp) ::</b> <i>res</i></p></td>
-<td width="1%">
+<td width="21%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
@@ -119,13 +118,13 @@ saw(</b><i>s</i><b>,</b><i>ab</i><b>,</b><i>u</i><b>)result(res)</b></p> </td>
 
 <p>C</p></td>
 <td width="4%"></td>
-<td width="77%">
+<td width="57%">
 
 
-<p><b>double ciaaw_saw(char *</b><i>s,</i><b>int</b>
-<i>n,</i><b>bool</b> <i>ab,</i><b>bool</b>
+<p><b>double ciaaw_ice(char *</b><i>s,</i><b>int</b>
+<i>n,</i><b>int</b> <i>A,</i><b>bool</b>
 <i>u</i><b>);</b></p> </td>
-<td width="1%">
+<td width="21%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
@@ -134,12 +133,12 @@ saw(</b><i>s</i><b>,</b><i>ab</i><b>,</b><i>u</i><b>)result(res)</b></p> </td>
 
 <p>Python</p></td>
 <td width="4%"></td>
-<td width="77%">
+<td width="57%">
 
 
 
-<p><b>saw(</b><i>s:</i><b>str,</b><i>abridged:</i><b>bool=True,</b><i>uncertainty:</i><b>bool=False)-&gt;float:</b></p> </td>
-<td width="1%">
+<p><b>ice(</b><i>s:</i><b>str,</b><i>A:</i><b>int,</b><i>u:</i><b>bool=False)</b><i>-&gt;</i><b>float:</b></p> </td>
+<td width="21%">
 </td></tr>
 </table>
 
@@ -148,11 +147,10 @@ saw(</b><i>s</i><b>,</b><i>ab</i><b>,</b><i>u</i><b>)result(res)</b></p> </td>
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">Get the standard
-atomic weight for the element <i>s</i>. The default behavior
-is to provide the abridged value,<i>ab is TRUE</i>,
-recommended by the CIAAW. The uncertainty can be retrieved
-by setting <i>u</i>=TRUE.</p>
+<p style="margin-left:9%; margin-top: 1em">Get the isotopic
+composition of the element <i>s</i> for the mass number
+<i>A</i>. The uncertainty can be retrieved by setting
+<i>u</i>=TRUE.</p>
 
 <p style="margin-left:9%; margin-top: 1em">Arguments:</p>
 
@@ -160,39 +158,44 @@ by setting <i>u</i>=TRUE.</p>
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="9%"></td>
-<td width="3%">
+<td width="1%">
 
 
 <p style="margin-top: 1em"><i>s</i></p></td>
-<td width="10%"></td>
-<td width="78%">
+<td width="12%"></td>
+<td width="77%">
 
 
-<p style="margin-top: 1em">Element symbol.</p></td></tr>
+<p style="margin-top: 1em">Element symbol.</p></td>
+<td width="1%">
+</td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
-<td width="3%">
+<td width="1%">
 
 
-<p><i>ab</i></p></td>
-<td width="10%"></td>
-<td width="78%">
+<p><i>A</i></p></td>
+<td width="12%"></td>
+<td width="77%">
 
 
-<p>Set to False if the abridged value is not desired.
-Default to TRUE.</p></td></tr>
+<p>Mass number.</p></td>
+<td width="1%">
+</td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
-<td width="3%">
+<td width="1%">
 
 
 <p><i>u</i></p></td>
-<td width="10%"></td>
-<td width="78%">
+<td width="12%"></td>
+<td width="77%">
 
 
 <p>Set to True if the uncertainty is desired. Default to
-FALSE.</p> </td></tr>
+FALSE.</p> </td>
+<td width="1%">
+</td></tr>
 </table>
 
 <h2>RETURN VALUE
@@ -209,12 +212,12 @@ FALSE.</p> </td></tr>
 
 <p style="margin-top: 1em">NaN</p></td>
 <td width="9%"></td>
-<td width="47%">
+<td width="55%">
 
 
-<p style="margin-top: 1em">If the provided element is
+<p style="margin-top: 1em">If the provided element or A are
 incorrect.</p> </td>
-<td width="31%">
+<td width="23%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
@@ -223,31 +226,13 @@ incorrect.</p> </td>
 
 <p>-1</p></td>
 <td width="9%"></td>
-<td width="47%">
+<td width="55%">
 
 
-<p>If the element does not have a SAW.</p></td>
-<td width="31%">
+<p>If the element does not have an ICE.</p></td>
+<td width="23%">
 </td></tr>
 </table>
-
-<h2>EXAMPLE
-<a name="EXAMPLE"></a>
-</h2>
-
-
-<p style="margin-left:9%; margin-top: 1em">Fortran: <br>
-use ciaaw <br>
-saw(&quot;H&quot;, ab=.false., u=.true.)</p>
-
-<p style="margin-left:9%; margin-top: 1em">C: <br>
-include &lt;stdio.h&gt; <br>
-include &quot;ciaaw.h&quot; <br>
-ciaaw_saw(&quot;H&quot;, 1, false, true)</p>
-
-<p style="margin-left:9%; margin-top: 1em">Python: <br>
-import pyciaaw <br>
-pyciaaw.saw(&quot;H&quot;, ab=False, u=True)</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>

@@ -1,4 +1,4 @@
-.TH ciaaw_version 3 "09 July 2026" "1.3.2" "Library Functions Manual"
+.TH ciaaw_version 3 "10 July 2026" "1.3.2" "Library Functions Manual"
 
 .SH NAME
 \"{{{
@@ -16,11 +16,9 @@ ciaaw library
 .IP Fortran 10
 .BI "function version()result(" fptr ")"
 .RS
-.TP
+.IP "" 3
 .BI "character(len=:), pointer :: " fptr 
-Pointer to a string.
 .RE
-
 
 .IP C 10
 .B char* ciaaw_version()
@@ -32,6 +30,12 @@ Pointer to a string.
 .SH DESCRIPTION
 \"{{{
 Get the library version.
+\"}}}
+
+.SH RETURN VALUE
+\"{{{
+.IP pointer 10 
+Pointer to the version string.
 \"}}}
 
 .SH EXAMPLE
@@ -69,4 +73,6 @@ Python:
 .BR ciaaw (3),
 .BR ciaaw_cli (1),
 .BR ciaaw_version (3),
-.BR ciaaw_types (3)
+.BR ciaaw_types (3),
+.BR ciaaw_saw (3),
+.BR ciaaw_ice (3)

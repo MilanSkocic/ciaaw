@@ -16,11 +16,9 @@ ciaaw library
 .IP Fortran 10
 .BI "function version()result(" fptr ")"
 .RS
-.TP
+.IP "" 3
 .BI "character(len=:), pointer :: " fptr 
-Pointer to a string.
 .RE
-
 
 .IP C 10
 .B char* ciaaw_version()
@@ -32,6 +30,12 @@ Pointer to a string.
 .SH DESCRIPTION
 \"{{{
 Get the library version.
+\"}}}
+
+.SH RETURN VALUE
+\"{{{
+.IP pointer 10 
+Pointer to the version string.
 \"}}}
 
 .SH EXAMPLE

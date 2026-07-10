@@ -1,6 +1,10 @@
 include ../../make.in
 
-MANSRC=ciaaw.3.man ciaaw_cli.1.man ciaaw_version.3.man ciaaw_saw.3.man
+MANSRC=ciaaw.3.man \
+	   ciaaw_cli.1.man \
+	   ciaaw_version.3.man \
+	   ciaaw_saw.3.man \
+	   ciaaw_ice.3.man
 MAN=$(patsubst %.man, %, $(MANSRC))
 MANPDF=$(patsubst %, %.pdf, $(MAN))
 MANTXT=$(patsubst %, %.txt, $(MAN))
@@ -28,6 +32,11 @@ ciaaw_version.3: ciaaw_version.3.man
 	rm -rfv tmp
 
 ciaaw_saw.3: ciaaw_saw.3.man
+	cat $< seealso.man > tmp
+	sed -E "s/@VERSION@/$(FPM_VERSION)/g;s/@DATE@/$(shell date +'%d %B %Y')/g" tmp > $@
+	rm -rfv tmp
+
+ciaaw_ice.3: ciaaw_ice.3.man
 	cat $< seealso.man > tmp
 	sed -E "s/@VERSION@/$(FPM_VERSION)/g;s/@DATE@/$(shell date +'%d %B %Y')/g" tmp > $@
 	rm -rfv tmp
