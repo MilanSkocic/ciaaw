@@ -1,8 +1,8 @@
-.TH ciaaw_ice 3 "16 July 2026" "1.3.2" "Library Functions Manual"
+.TH ciaaw_naw 3 "16 July 2026" "1.3.2" "Library Functions Manual"
 
 .SH NAME
 \"{{{
-ice \- function
+naw \- function
 \"}}}
 
 .SH LIBRARY
@@ -14,7 +14,7 @@ ciaaw library
 .SH SYNOPSIS
 \"{{{
 .IP Fortran 10
-.BI "function ice(" s , A , u )result(res)
+.BI "function naw(" s , A , u )result(res)
 .RS
 .IP "" 3
 .BI "character(len=*), intent(in) :: " s
@@ -27,14 +27,14 @@ ciaaw library
 .RE
 
 .IP C 10
-.BI "double ciaaw_ice(char *" s, "int " n, "int " A, "bool " u ");"
+.BI "double ciaaw_naw(char *" s, "int " n, "int " A, "bool " u ");"
 
 .IP Python 10
-.BI "ice(" s: str, A: int, u: bool=False) -> float:
+.BI "naw(" s: str, A: int, u: bool=False) -> float:
 \"}}}
 
 .SH DESCRIPTION
-Get the isotopic composition of the element \fIs\fP for the mass number \fIA\fP.
+Get the atomic weight of the nuclide \fIs\fP for the mass number \fIA\fP.
 The uncertainty can be retrieved by setting \fIu\fP=TRUE.
 
 Arguments:
@@ -49,7 +49,7 @@ Set to True if the uncertainty is desired. Default to FALSE.
 .IP NaN 10 
 If the provided element or A are incorrect.
 .IP -1 10  
-If the element does not have an ICE.
+If the element does not have an NAW.
 .SH SEE ALSO
 .BR ciaaw (3),
 .BR ciaaw_cli (1),
