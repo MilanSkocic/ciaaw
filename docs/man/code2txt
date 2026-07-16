@@ -37,36 +37,49 @@ BEGIN{
     offset=0
     n=12
     
-    print "    Fortran API:"
+    #print "    Fortran API:"
+    print "Fortran API:"
 }
 {
     sub(/^ +/,"", $0) # Remove leading spaces
 }
 /^(function|subroutine).*\(.*\)/{
-    in_func=1
-    offset=length($0)+n
-    printf "%*s%s", 8, "", "o "$0
+    if(match($0, /capi_/)<=0){
+        in_func=1
+        offset=length($0)+n
+        #printf "%*s%s", 8, "", "o "$0
+        print ".BI "$0
+        print ".RS"
+    }
     next
 }
 /^end[[:space:]](function|subroutine).*/{
-    in_func=0
+    if (in_func == 1){
+        in_func=0
+        print ".RE"
+        print ""
+    }
     next
 }
 /^!![[:space:]].*/{
     sub(/!! /, "")
     if (in_func == 1){
-        print "  "$0
+        #print $0
     }
     if (in_func>1){
-        printf "%*s%s\n", offset, "", $0
+        #printf "%*s%s\n", offset, "", $0
     }
-    in_func = in_func+1
+    #in_func = in_func+1
     next
 }
 /.*::.*!!.*/{
     if (in_func > 0){
-        sub(/!!/,"  ", $0)
-        printf "%*s%s\n", 12, "", "o "$0
+        #sub(/!!/,"  ", $0)
+        #printf "%*s%s\n", 12, "", "o "$0
+        split($0, m, "!!")
+        print ".IP \"\" 3"
+        split(m[1], args, "::")
+        printf "%s%s%s%s\n", ".BI \"", args[1], " :: \"", args[2]
     }
 
 }
