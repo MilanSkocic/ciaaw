@@ -6,26 +6,26 @@ ext="${fpcode##*.}"
 
 function process_py (){
 awk '
-BEGIN{print "    Python API:"}
+BEGIN{print "Python API:"}
 /^[[:space:]]*def[[:space:]]_.*/{next}
 /^[[:space:]]*def[[:space:]]main.*/{next}
 /^[[:space:]]*def.*/{
     sub(/^ +/,"", $0) # Remove leading spaces
     sub(/def /,"")
-    print "        o "$0
+    print ".BI "$0
 }
 ' $1 > $2
 }
 
 function process_c (){
 awk '
-BEGIN{    print "    C API:"}
+BEGIN{    print "C API:"}
 /^extern.*/{
     sub(/^ +/,"", $0) # Remove leading spaces
     sub(/extern /,"")
     sub(/ADD_IMPORT /, "")
     sub(/;/, "")
-    print "        o "$0
+    print ".BI "$0
 }
 ' $1 > $2
 }
