@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.23.0 -->
-<!-- CreationDate: Fri Jul 17 08:45:24 2026 -->
+<!-- CreationDate: Fri Jul 17 08:45:25 2026 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,19 +13,18 @@
        table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
        h1      { text-align: center }
 </style>
-<title>ciaaw_version</title>
+<title>ciaaw_nnaw</title>
 
 </head>
 <body>
 
-<h1 align="center">ciaaw_version</h1>
+<h1 align="center">ciaaw_nnaw</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#LIBRARY">LIBRARY</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
 <a href="#DESCRIPTION">DESCRIPTION</a><br>
 <a href="#RETURN VALUE">RETURN VALUE</a><br>
-<a href="#EXAMPLE">EXAMPLE</a><br>
 <a href="#SEE ALSO">SEE ALSO</a><br>
 
 <hr>
@@ -36,7 +35,7 @@
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">version -
+<p style="margin-left:9%; margin-top: 1em">nnaw -
 function</p>
 
 <h2>LIBRARY
@@ -61,23 +60,34 @@ function</p>
 
 <p style="margin-top: 1em">Fortran</p></td>
 <td width="4%"></td>
-<td width="46%">
+<td width="47%">
 
 
 <p style="margin-top: 1em"><b>function
-version()result(</b><i>fptr</i><b>)</b></p> </td>
-<td width="32%">
+nnaw(</b><i>s</i><b>)result(</b><i>res</i><b>)</b></p> </td>
+<td width="31%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="9%">
 </td>
 <td width="4%"></td>
-<td width="46%">
+<td width="47%">
 
 
-<p><b>character(len=:), pointer ::</b> <i>fptr</i></p></td>
-<td width="32%">
+<p><b>character(len=*), intent(in) ::</b> <i>s</i></p></td>
+<td width="31%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+</td>
+<td width="4%"></td>
+<td width="47%">
+
+
+<p><b>integer(int32) ::</b> <i>res</i></p></td>
+<td width="31%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
@@ -86,11 +96,12 @@ version()result(</b><i>fptr</i><b>)</b></p> </td>
 
 <p>C</p></td>
 <td width="4%"></td>
-<td width="46%">
+<td width="47%">
 
 
-<p><b>char* ciaaw_version()</b></p></td>
-<td width="32%">
+<p><b>int ciaaw_nnaw(char *</b><i>s,</i><b>int</b>
+<i>n</i><b>);</b></p> </td>
+<td width="31%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
@@ -99,11 +110,11 @@ version()result(</b><i>fptr</i><b>)</b></p> </td>
 
 <p>Python</p></td>
 <td width="4%"></td>
-<td width="46%">
+<td width="47%">
 
 
-<p><b>str:</b><i>pyciaaw.__version__</i></p></td>
-<td width="32%">
+<p><b>nnaw(</b><i>s:</i><b>str)-&gt;int</b></p></td>
+<td width="31%">
 </td></tr>
 </table>
 
@@ -112,8 +123,40 @@ version()result(</b><i>fptr</i><b>)</b></p> </td>
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">Get the library
-version.</p>
+<p style="margin-left:9%; margin-top: 1em">Get the number
+of nuclides in NAW of the element <i>s</i>.</p>
+
+<p style="margin-left:9%; margin-top: 1em">Arguments:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em"><i>s</i></p></td>
+<td width="12%"></td>
+<td width="27%">
+
+
+<p style="margin-top: 1em">Element symbol.</p></td>
+<td width="51%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="1%">
+
+
+<p><i>n</i></p></td>
+<td width="12%"></td>
+<td width="27%">
+
+
+<p>Size of the string <i>s</i>.</p></td>
+<td width="51%">
+</td></tr>
+</table>
 
 <h2>RETURN VALUE
 <a name="RETURN VALUE"></a>
@@ -124,37 +167,32 @@ version.</p>
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="9%"></td>
-<td width="9%">
+<td width="3%">
 
 
-<p style="margin-top: 1em">pointer</p></td>
-<td width="4%"></td>
-<td width="38%">
+<p style="margin-top: 1em">-1</p></td>
+<td width="10%"></td>
+<td width="47%">
 
 
-<p style="margin-top: 1em">Pointer to the version
-string.</p> </td>
-<td width="40%">
+<p style="margin-top: 1em">If the provided element is
+incorrect.</p> </td>
+<td width="31%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="3%">
+
+
+<p>&gt;0</p></td>
+<td width="10%"></td>
+<td width="47%">
+
+
+<p>If the element has NAW.</p></td>
+<td width="31%">
 </td></tr>
 </table>
-
-<h2>EXAMPLE
-<a name="EXAMPLE"></a>
-</h2>
-
-
-<p style="margin-left:9%; margin-top: 1em">Fortran: <br>
-use ciaaw <br>
-print *, &quot;version = &quot;, version()</p>
-
-<p style="margin-left:9%; margin-top: 1em">C: <br>
-include &lt;stdio.h&gt; <br>
-include &quot;ciaaw.h&quot; <br>
-printf(&quot;version = %s\n&quot;, ciaaw_version());</p>
-
-<p style="margin-left:9%; margin-top: 1em">Python: <br>
-import pyciaaw <br>
-print(f&quot;version = {pyciaaw.__version__}&quot;)</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>

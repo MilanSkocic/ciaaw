@@ -1,0 +1,38 @@
+ciaaw_nice(3)           Library Functions Manual          ciaaw_nice(3)
+
+NAME
+       nice - function
+
+LIBRARY
+       ciaaw library (libciaaw, -lciaaw)
+
+SYNOPSIS
+       Fortran   function nice(s)result(res)
+
+                    character(len=*), intent(in)  :: s
+
+                    integer(int32)  :: res
+
+       C         int ciaaw_nice(char *s,int n);
+
+       Python    nice(s:str)->int
+
+DESCRIPTION
+       Get the number of isotopes in ICE of the element s.
+
+       Arguments:
+
+       s         Element symbol.
+
+       n         Size of the string s.
+
+RETURN VALUE
+       -1        If the provided element is incorrect.
+
+       >0        If the element has ICE.
+
+SEE ALSO
+       ciaaw(3),    ciaaw_cli(1),    ciaaw_version(3),    ciaaw_saw(3),
+       ciaaw_ice(3), ciaaw_nice(3), ciaaw_naw(3), ciaaw_nnaw(3)
+
+1.3.2                         17 July 2026                ciaaw_nice(3)

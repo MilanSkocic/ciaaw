@@ -47,6 +47,6 @@ Set to True if the uncertainty is desired. Default to FALSE.
 
 .SH RETURN VALUE
 .IP NaN 10 
-If the provided element or A are incorrect.
+If the provided element or the mass number are incorrect.
 .IP -1 10  
 If the element does not have an ICE.

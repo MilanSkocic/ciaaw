@@ -30,7 +30,7 @@ ciaaw library
 .BI "double ciaaw_saw(char *" s, "int " n, "bool " ab, "bool " u ");"
 
 .IP Python 10
-.BI "saw(" s: str, abridged: bool=True, uncertainty: bool=False)->float:
+.BI saw( s: str, abridged: bool=True, uncertainty: bool=False)->float:
 \"}}}
 
 .SH DESCRIPTION

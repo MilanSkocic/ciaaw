@@ -1,0 +1,45 @@
+.TH ciaaw_nice 3 "@DATE@" "@VERSION@" "Library Functions Manual"
+
+.SH NAME
+\"{{{
+nice \- function
+\"}}}
+
+.SH LIBRARY
+\"{{{
+ciaaw library 
+.RI ( libciaaw ", " \-lciaaw )
+\"}}}
+
+.SH SYNOPSIS
+\"{{{
+.IP Fortran 10
+.BI "function nice(" s ")result(" res ")"
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s     
+.IP "" 3
+.BI "integer(int32)  :: " res                 
+.RE
+
+.IP C 10
+.BI "int ciaaw_nice(char *" s, "int " n ");"
+
+.IP Python 10
+.BI nice( s: str)->int
+\"}}}
+
+.SH DESCRIPTION
+Get the number of isotopes in ICE of the element \fIs\fP.
+
+Arguments:
+.IP \fIs\fP 10
+Element symbol.
+.IP \fIn\fP 10
+Size of the string \fIs\fP.
+
+.SH RETURN VALUE
+.IP -1 10 
+If the provided element is incorrect.
+.IP >0 10  
+If the element has ICE.

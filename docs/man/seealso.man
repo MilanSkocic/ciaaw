@@ -4,4 +4,6 @@
 .BR ciaaw_version (3),
 .BR ciaaw_saw (3),
 .BR ciaaw_ice (3),
-.BR ciaaw_naw (3)
+.BR ciaaw_nice (3),
+.BR ciaaw_naw (3), 
+.BR ciaaw_nnaw (3)
