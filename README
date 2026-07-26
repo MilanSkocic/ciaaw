@@ -1,0 +1,43 @@
+DESCRIPTION
+  ciaaw is a  Fortran library providing the standard and abridged atomic weights, 
+  the isotopic abundance and the isotopes' standard atomic weights.
+
+FEATURES
+  It covers:
+  - SAW: Standard Atomic Weights.
+  - ICE: Isotopic Composition of the Element
+  - NAW: Nuclides Atomic Weight.
+
+DOCUMENTATION 
+  The API is written as POSIX-style man pages which distributed with 
+  the binaries. 
+  
+  PDF   https://milanskocic.github.io/ciaaw/man/ciaaw-bookman.pdf
+  HTML  https://milanskocic.github.io/ciaaw/index.html
+
+INSTALLATION 
+  See the install file.
+
+NOTES FOR FORTRAN USERS
+  To use ciaaw within your fpm(1) (https://github.com/fortran-lang/fpm)
+  project, add the following lines to your file:
+
+     [dependencies]
+     ciaaw = { git="https://github.com/MilanSkocic/ciaaw.git" }
+
+REFERENCES
+  [1]J. Meija et al., 
+     “Isotopic Compositions of the Elements 2013 (IUPAC Technical Report),” 
+     vol. 88, no. 3, pp. 293–306, 2016, doi: 10.1515/pac-2015-0503.
+  [2]W. J. Huang, M. Wang, F. G. Kondev, G. Audi, and S. Naimi, 
+     “The AME 2020 Atomic Mass Evaluation (I). Evaluation of Input Data, and Adjustment Procedures,” 
+     Chinese Physics C, vol. 45, no. 3, p. 30002, Mar. 2021, doi: 10.1088/1674-1137/abddb0.
+  [3]A. M. H. van der Veen, J. Meija, A. Possolo, and D. B. Hibbert, 
+     “Interpretation and Use of Standard Atomic Weights (IUPAC Technical Report),” 
+     Pure and Applied Chemistry, vol. 93, no. 5, pp. 629–646, 2021.
+  [4]T. Prohaska et al., 
+     “Standard Atomic Weights of the Elements 2021 (IUPAC Technical Report),” 
+     vol. 94, no. 5, pp. 573–600, 2022, doi: 10.1515/pac-2019-0603.
+
+LICENSE 
+  MIT

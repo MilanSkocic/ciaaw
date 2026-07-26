@@ -1,0 +1,592 @@
+<!-- Creator     : groff version 1.23.0 -->
+<!-- CreationDate: Sat Jul 18 05:52:15 2026 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>ciaaw</title>
+
+</head>
+<body>
+
+<h1 align="center">ciaaw</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#LIBRARY">LIBRARY</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">ciaaw - library
+for isotopic abundances and standard atomic weights</p>
+
+<h2>LIBRARY
+<a name="LIBRARY"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">ciaaw library
+(<i>libciaaw</i>, <i>-lciaaw</i>)</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+
+
+<p style="margin-top: 1em">Fortran</p></td>
+<td width="4%"></td>
+<td width="23%">
+
+
+<p style="margin-top: 1em"><b>use ciaaw</b></p></td>
+<td width="55%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+
+
+<p>C</p></td>
+<td width="4%"></td>
+<td width="23%">
+
+
+<p><b>#include &quot;ciaaw.h&quot;</b></p></td>
+<td width="55%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+
+
+<p>Python</p></td>
+<td width="4%"></td>
+<td width="23%">
+
+
+<p><b>import pyciaaw</b></p></td>
+<td width="55%">
+</td></tr>
+</table>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>ciaaw</b> is
+a Fortran library providing the standard and abridged atomic
+weights, the isotopic abundance and the isotopes&rsquo;
+standard atomic weights:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="5%"></td>
+<td width="52%">
+
+
+<p style="margin-top: 1em">SAW: Standard Atomic
+Weights.</p> </td>
+<td width="24%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="5%"></td>
+<td width="52%">
+
+
+<p>ICE: Isotopic Composition of the Element</p></td>
+<td width="24%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="5%"></td>
+<td width="52%">
+
+
+<p>NAW: Nuclides Atomic Weight.</p></td>
+<td width="24%">
+</td></tr>
+</table>
+
+<p style="margin-left:9%; margin-top: 1em">The data are
+taken from http://ciaaw.org. C API allows usage from C, or
+can be used as a basis for other wrappers. Python wrapper
+allows easy usage from Python.</p>
+
+<p style="margin-left:9%; margin-top: 1em">The latest
+standard atomic weights were released in 2021 by the
+<b>ciaaw</b> (https://www.ciaaw.org). All the values for the
+atomic weights are provided as double precision reals. The
+standard atomic weights (or realtive atomic mass), A_r(E),
+are extracted from table 1 from Prohaska et al. (IUPAC
+Technical Report 94(5):573&ndash;600). For the elements that
+feature an interval for the standard atomic weight, the mean
+value and the uncertainty are computed using formulas
+defined in IUPAC Technical Report 93(5):629&ndash;646. The
+standard atomic weights are a dimensionless quantity and
+thus they need to be multiplied by the molar mass constant
+Mu in order to get the value in g.mol-1. See codata for
+physical constants.</p>
+
+<p style="margin-left:9%; margin-top: 1em">The latest
+isotopic compositions were released in 2013 by the
+<b>ciaaw</b> (https://www.ciaaw.org). All the values for the
+compositions are provided as double precision reals. The
+isotopic compositions of the element, are extracted from
+table 1 from Meija et al. (IUPAC Technical Report.
+88(3):293&ndash;306).</p>
+
+<p style="margin-left:9%; margin-top: 1em">The latest
+atomic weights for nuclides were released in 2020 by
+<b>ciaaw</b> https://www.ciaaw.org from Huang et al. (AME
+2020 45(3):030002). All the values for the nuclide atomic
+weights are provided as double precision reals.</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">To use
+<b>ciaaw</b> within your fpm project, add the following to
+your fpm.toml file: <br>
+[dependencies] <br>
+iapws = {
+git=&quot;https://github.com/MilanSkocic/ciaaw.git&quot;
+}</p>
+
+<p style="margin-left:9%; margin-top: 1em">dp stands for
+double precision and it is an alias to real64 from the
+iso_fortran_env module. The definitions of the acronyms:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="5%">
+
+
+<p style="margin-top: 1em">ASAW</p></td>
+<td width="4%"></td>
+<td width="45%">
+
+
+<p style="margin-top: 1em">Abridged Standard Atomic
+Weight</p> </td>
+<td width="28%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="5%">
+
+
+<p>SAW</p></td>
+<td width="4%"></td>
+<td width="45%">
+
+
+<p>Standard Atomic Weight</p></td>
+<td width="28%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="5%">
+
+
+<p>ICE</p></td>
+<td width="4%"></td>
+<td width="45%">
+
+
+<p>Isotopic Composition of the Element</p></td>
+<td width="28%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="5%">
+
+
+<p>NAW</p></td>
+<td width="4%"></td>
+<td width="45%">
+
+
+<p>Nuclide Atomic Weight</p></td>
+<td width="28%">
+</td></tr>
+</table>
+
+<p style="margin-left:9%; margin-top: 1em">The definitions
+of the abbreviations:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="4%">
+
+
+<p style="margin-top: 1em">s</p></td>
+<td width="5%"></td>
+<td width="17%">
+
+
+<p style="margin-top: 1em">Element</p></td>
+<td width="56%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="4%">
+
+
+<p>Z</p></td>
+<td width="5%"></td>
+<td width="17%">
+
+
+<p>Atomic number</p></td>
+<td width="56%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="4%">
+
+
+<p>A</p></td>
+<td width="5%"></td>
+<td width="17%">
+
+
+<p>Mass number</p></td>
+<td width="56%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="4%">
+
+
+<p>u</p></td>
+<td width="5%"></td>
+<td width="17%">
+
+
+<p>Uncertainty</p></td>
+<td width="56%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="4%">
+
+
+<p>ab</p></td>
+<td width="5%"></td>
+<td width="17%">
+
+
+<p>Abridged</p></td>
+<td width="56%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="18%"></td>
+<td width="4%">
+
+
+<p>res</p></td>
+<td width="5%"></td>
+<td width="17%">
+
+
+<p>Result</p></td>
+<td width="56%">
+</td></tr>
+</table>
+
+<p style="margin-left:9%; margin-top: 1em">References</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="4%">
+
+
+<p style="margin-top: 1em">[1]</p></td>
+<td width="2%"></td>
+<td width="85%">
+
+
+<p style="margin-top: 1em">J. Meija et al., &quot;Isotopic
+Compositions of the Elements 2013 (IUPAC Technical
+Report),&quot; vol. 88, no. 3, pp. 293&ndash;306, 2016, doi:
+10.1515/pac-2015-0503.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="4%">
+
+
+<p>[2]</p></td>
+<td width="2%"></td>
+<td width="85%">
+
+
+<p>W. J. Huang, M. Wang, F. G. Kondev, G. Audi, and S.
+Naimi, &quot;The AME 2020 Atomic Mass Evaluation (I).
+Evaluation of Input Data, and Adjustment Procedures,&quot;
+Chinese Physics C, vol. 45, no. 3, p. 30002, Mar. 2021, doi:
+10.1088/1674-1137/abddb0.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="4%">
+
+
+<p>[3]</p></td>
+<td width="2%"></td>
+<td width="85%">
+
+
+<p>A. M. H. van der Veen, J. Meija, A. Possolo, and D. B.
+Hibbert, &quot;Interpretation and Use of Standard Atomic
+Weights (IUPAC Technical Report),&quot; Pure and Applied
+Chemistry, vol. 93, no. 5, pp. 629-646, 2021.</p></td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="4%">
+
+
+<p>[4]</p></td>
+<td width="2%"></td>
+<td width="85%">
+
+
+<p>T. Prohaska et al., &quot;Standard Atomic Weights of the
+Elements 2021 (IUPAC Technical Report),&quot; vol. 94, no.
+5, pp. 573-600, 2022, doi: 10.1515/pac-2019-0603.</p></td></tr>
+</table>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Example in
+Fortran: <br>
+! EXAMPLE IN FORTRAN <br>
+program example_in_f <br>
+use ciaaw, only: saw, ice, naw, nice, nnaw, version <br>
+implicit none(type,external) <br>
+print *, &quot;version &quot;, version()</p>
+
+<p style="margin-left:9%; margin-top: 1em">print
+&rsquo;(A)&rsquo;, &rsquo;########### CIAAW SAW
+##########&rsquo; <br>
+print &rsquo;(A10, F10.5)&rsquo;, &rsquo;ASAW H = &rsquo;,
+saw(&quot;H&quot;, ab=.true.) <br>
+print &rsquo;(A10, F10.5)&rsquo;, &rsquo;U ASAW H = &rsquo;,
+saw(&quot;H&quot;, u=.true.) <br>
+print &rsquo;(A10, F10.5)&rsquo;, &rsquo;SAW H = &rsquo;,
+saw(&quot;H&quot;, ab=.false.) <br>
+print &rsquo;(A10, F10.5)&rsquo;, &rsquo;U SAW H = &rsquo;,
+saw(&quot;H&quot;, ab=.false., u=.true.) <br>
+print &rsquo;(A10, F10.5)&rsquo;, &rsquo;ASAW T = &rsquo;,
+saw(&quot;Tc&quot;, ab=.true.)</p>
+
+<p style="margin-left:9%; margin-top: 1em">print
+&rsquo;(A)&rsquo;, &rsquo;########### CIAAW ICE
+##########&rsquo; <br>
+print &rsquo;(A, I3)&rsquo;, &rsquo;N ICE H = &rsquo;,
+nice(&quot;H&quot;) <br>
+print &rsquo;(A, F12.6)&rsquo;, &rsquo;ICE H 1 = &rsquo;,
+ice(&quot;H&quot;, A=1) <br>
+print &rsquo;(A, ES23.16)&rsquo;, &rsquo;U ICE H 1 =
+&rsquo;, ice(&quot;H&quot;, A=1, u=.true.) <br>
+print &rsquo;(A, F12.6)&rsquo;, &rsquo;ICE H 2 = &rsquo;,
+ice(&quot;H&quot;, A=2) <br>
+print &rsquo;(A, ES23.16)&rsquo;, &rsquo;U ICE H 2 =
+&rsquo;, ice(&quot;H&quot;, A=2, u=.true.) <br>
+print &rsquo;(A, I3)&rsquo;, &rsquo;N ICE Tc = &rsquo;,
+nice(&quot;Tc&quot;) <br>
+print &rsquo;(A, I3)&rsquo;, &rsquo;N ICE C = &rsquo;,
+nice(&quot;C&quot;)</p>
+
+<p style="margin-left:9%; margin-top: 1em">print
+&rsquo;(A)&rsquo;, &rsquo;########### CIAAW NAW
+##########&rsquo; <br>
+print &rsquo;(A, ES23.16)&rsquo;, &rsquo;NAW H 2 = &rsquo;,
+naw(&quot;H&quot;, A=2) <br>
+print &rsquo;(A, ES23.16)&rsquo;, &rsquo;U NAW H 2 =
+&rsquo;, naw(&quot;H&quot;, A=2, u=.true.) <br>
+print &rsquo;(A, I3)&rsquo;, &rsquo;N NAW Tc = &rsquo;,
+nnaw(&quot;Tc&quot;)</p>
+
+<p style="margin-left:9%; margin-top: 1em">end program
+example_in_f</p>
+
+<p style="margin-left:9%; margin-top: 1em">Example in C
+<br>
+/* EXAMPLE IN C */ <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;stdio.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;stdbool.h&gt; <br>
+#include &quot;ciaaw.h&quot;</p>
+
+<p style="margin-left:9%; margin-top: 1em">int main(void){
+<br>
+printf(&quot;%s0, &quot;########## CIAAW VERSION
+##########&quot;); <br>
+printf(&quot;version %s0, ciaaw_version());</p>
+
+
+<p style="margin-left:9%; margin-top: 1em">printf(&quot;%s0,
+&quot;########## CIAAW SAW ##########&quot;); <br>
+printf(&quot;%s %10.5f0, &quot;ASAW H = &quot;,
+ciaaw_saw(&quot;H&quot;, 1, true, false)); <br>
+printf(&quot;%s %10.5f0, &quot;U ASAW H = &quot;,
+ciaaw_saw(&quot;H&quot;, 1, true, true)); <br>
+printf(&quot;%s %10.5f0, &quot;SAW H = &quot;,
+ciaaw_saw(&quot;H&quot;, 1, false, false)); <br>
+printf(&quot;%s %10.5f0, &quot;U SAW H = &quot;,
+ciaaw_saw(&quot;H&quot;, 1, false, true)); <br>
+printf(&quot;%s %10.5f0, &quot;ASAW Tc = &quot;,
+ciaaw_saw(&quot;Tc&quot;, 2, true, false));</p>
+
+
+<p style="margin-left:9%; margin-top: 1em">printf(&quot;%s0,
+&quot;########## CIAAW ICE ##########&quot;); <br>
+printf(&quot;%s %d0, &quot;N ICE H = &quot;,
+ciaaw_nice(&quot;H&quot;, 1)); <br>
+printf(&quot;%s %12.6f0, &quot;ICE H 1 = &quot;,
+ciaaw_ice(&quot;H&quot;, 1, 1, false)); <br>
+printf(&quot;%s %23.16e0,&quot;U ICE H 1 = &quot;,
+ciaaw_ice(&quot;H&quot;, 1, 1, true)); <br>
+printf(&quot;%s %12.6f0, &quot;ICE H 2 = &quot;,
+ciaaw_ice(&quot;H&quot;, 1, 2, false)); <br>
+printf(&quot;%s %23.16e0,&quot;U ICE H 2 = &quot;,
+ciaaw_ice(&quot;H&quot;, 1, 2, true)); <br>
+printf(&quot;%s %d0, &quot;N ICE Tc = &quot;,
+ciaaw_nice(&quot;Tc&quot;, 2)); <br>
+printf(&quot;%s %d0, &quot;N ICE C = &quot;,
+ciaaw_nice(&quot;C&quot;, 1));</p>
+
+
+<p style="margin-left:9%; margin-top: 1em">printf(&quot;%s0,
+&quot;########## CIAAW NAW ##########&quot;); <br>
+printf(&quot;%s %23.16f0, &quot;NAW H 2 = &quot;,
+ciaaw_naw(&quot;H&quot;, 1, 2, false)); <br>
+printf(&quot;%s %23.16e0, &quot;U NAW H 2 = &quot;,
+ciaaw_naw(&quot;H&quot;, 1, 2, true)); <br>
+printf(&quot;%s %d0, &quot;N NAW Tc = &quot;,
+ciaaw_nnaw(&quot;Tc&quot;, 2)); <br>
+return EXIT_SUCCESS; <br>
+}</p>
+
+<p style="margin-left:9%; margin-top: 1em">Example in
+Python <br>
+#!/usr/bin/env python <br>
+r&quot;&quot;&quot;EXAMPLE IN PYTHON&quot;&quot;&quot; <br>
+import sys <br>
+sys.path.insert(0, &quot;../py/src/&quot;) <br>
+import pyciaaw</p>
+
+
+<p style="margin-left:9%; margin-top: 1em">print(&quot;##########
+CIAAW VERSION ##########&quot;) <br>
+print(&quot;version &quot;, pyciaaw.__version__)</p>
+
+
+<p style="margin-left:9%; margin-top: 1em">print(&quot;##########
+CIAAW SAW ##########&quot;) <br>
+print(&quot;ASAW H = &quot;, pyciaaw.saw(&quot;H&quot;))
+<br>
+print(&quot;U ASAW H = &quot;, pyciaaw.saw(&quot;H&quot;,
+u=True)) <br>
+print(&quot;SAW H = &quot;, pyciaaw.saw(&quot;H&quot;,
+ab=False, u=False)) <br>
+print(&quot;U SAW H = &quot;, pyciaaw.saw(&quot;H&quot;,
+ab=False, u=True)) <br>
+print(&quot;ASAW Tc = &quot;,
+pyciaaw.saw(&quot;Tc&quot;))</p>
+
+
+<p style="margin-left:9%; margin-top: 1em">print(&quot;##########
+CIAAW ICE ##########&quot;) <br>
+print(&quot;N ICE H = &quot;, pyciaaw.nice(&quot;H&quot;))
+<br>
+print(&rsquo;ICE H 1 = &rsquo;, pyciaaw.ice(&quot;H&quot;,
+A=1)) <br>
+print(&rsquo;U ICE H 1 = &rsquo;, pyciaaw.ice(&quot;H&quot;,
+A=1, u=True)) <br>
+print(&rsquo;ICE H 2 = &rsquo;, pyciaaw.ice(&quot;H&quot;,
+A=2)) <br>
+print(&rsquo;U ICE H 2 = &rsquo;, pyciaaw.ice(&quot;H&quot;,
+A=2, u=True)) <br>
+print(&quot;N ICE Tc = &quot;, pyciaaw.nice(&quot;Tc&quot;))
+<br>
+print(&quot;N ICE C = &quot;,
+pyciaaw.nice(&quot;C&quot;))</p>
+
+
+<p style="margin-left:9%; margin-top: 1em">print(&quot;##########
+CIAAW NAW ##########&quot;) <br>
+print(&rsquo;NAW H 2 = &rsquo;, pyciaaw.naw(&quot;H&quot;,
+A=2)) <br>
+print(&rsquo;U NAW H 2 = &rsquo;, pyciaaw.naw(&quot;H&quot;,
+A=2, u=True)) <br>
+print(&quot;N NAW Tc = &quot;,
+pyciaaw.nnaw(&quot;Tc&quot;))</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>ciaaw</b>(3),
+<b>ciaaw_cli</b>(1), <b>ciaaw_version</b>(3),
+<b>ciaaw_saw</b>(3), <b>ciaaw_ice</b>(3),
+<b>ciaaw_nice</b>(3), <b>ciaaw_naw</b>(3),
+<b>ciaaw_nnaw</b>(3)</p>
+<hr>
+</body>
+</html>

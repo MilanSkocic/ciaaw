@@ -1,0 +1,42 @@
+ciaaw_version(3)        Library Functions Manual       ciaaw_version(3)
+
+NAME
+       version - function
+
+LIBRARY
+       ciaaw library (libciaaw, -lciaaw)
+
+SYNOPSIS
+       Fortran   function version()result(fptr)
+
+                    character(len=:), pointer :: fptr
+
+       C         char* ciaaw_version()
+
+       Python    str:pyciaaw.__version__
+
+DESCRIPTION
+       Get the library version.
+
+RETURN VALUE
+       pointer   Pointer to the version string.
+
+EXAMPLE
+       Fortran:
+           use ciaaw
+           print *, "version = ", version()
+
+       C:
+           include <stdio.h>
+           include "ciaaw.h"
+           printf("version = %s\n", ciaaw_version());
+
+       Python:
+           import pyciaaw
+           print(f"version = {pyciaaw.__version__}")
+
+SEE ALSO
+       ciaaw(3),    ciaaw_cli(1),    ciaaw_version(3),    ciaaw_saw(3),
+       ciaaw_ice(3), ciaaw_nice(3), ciaaw_naw(3), ciaaw_nnaw(3)
+
+1.3.2                         18 July 2026             ciaaw_version(3)

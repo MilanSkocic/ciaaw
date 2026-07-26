@@ -1,0 +1,137 @@
+.TH ciaaw 3 "@DATE@" "@VERSION@" "Library Functions Manual"
+
+.SH NAME
+ciaaw \- library for isotopic abundances and standard atomic weights
+
+.SH LIBRARY
+ciaaw library 
+.RI ( libciaaw ", " \-lciaaw )
+
+.SH SYNOPSIS
+\"{{{
+.IP Fortran 10 
+.B use ciaaw\fP
+
+.IP C 10
+.B #include \(dqciaaw.h\(dq
+
+.IP Python 10
+.B import pyciaaw
+\"}}}
+
+.SH DESCRIPTION
+\"{{{
+.PP
+.B ciaaw
+is a Fortran library providing the standard and abridged atomic
+weights, the isotopic abundance and the isotopes’ standard atomic weights:
+.RS
+.IP \(bu 5
+SAW: Standard Atomic Weights.
+.IP \(bu 5
+ICE: Isotopic Composition of the Element
+.IP \(bu 5
+NAW: Nuclides Atomic Weight.
+.RE
+
+.PP
+The data are taken from http://ciaaw.org.
+C API allows usage from C, or can be used as a basis for other wrappers.
+Python wrapper allows easy usage from Python.
+.PP
+The latest standard atomic weights were released in 2021 by the \fBciaaw\fP
+(https://www.ciaaw.org).
+All the values for the atomic weights are provided as double precision reals.
+The standard atomic weights (or realtive atomic mass), A_r(E), are extracted
+from table 1 from Prohaska et al. (IUPAC Technical Report 94(5):573–600).
+For the elements that feature an interval for the standard atomic weight,
+the mean value and the uncertainty are computed using formulas defined in
+IUPAC Technical Report 93(5):629–646.
+The standard atomic weights are a dimensionless quantity and thus they need
+to be multiplied by the molar mass constant Mu in order to get the value in
+g.mol-1. See codata for physical constants.
+.PP
+The latest isotopic compositions were released in 2013 by the
+\fBciaaw\fP (https://www.ciaaw.org).
+All the values for the compositions are provided as double precision reals.
+The isotopic compositions of the element, are extracted from table 1
+from Meija et al. (IUPAC Technical Report. 88(3):293–306).
+.PP
+The latest atomic weights for nuclides were released in 2020 by
+\fBciaaw\fP https://www.ciaaw.org from Huang et al. (AME 2020 45(3):030002).
+All the values for the nuclide atomic weights are provided as double precision reals.
+\"}}}
+
+.SH NOTES
+\"{{{
+.PP
+To use \fBciaaw\fP within your fpm project, add the following to your fpm.toml file:
+.nf
+.ft CR
+        [dependencies]
+        iapws = { git="https://github.com/MilanSkocic/ciaaw.git" }
+.ft R
+.fi
+
+.PP
+dp stands for double precision and it is an alias to real64
+from the iso_fortran_env module.
+The definitions of the acronyms:
+.RS
+.TP
+ASAW
+Abridged Standard Atomic Weight
+.TP
+SAW
+Standard Atomic Weight
+.TP
+ICE
+Isotopic Composition of the Element
+.TP
+NAW
+Nuclide Atomic Weight
+.RE
+
+.PP
+The definitions of the abbreviations:
+.RS
+.TP
+s
+Element
+.TP
+Z
+Atomic number
+.TP
+A
+Mass number
+.TP
+u
+Uncertainty
+.TP
+ab
+Abridged
+.TP
+res
+Result
+.RE
+
+.PP
+References
+.IP [1] 5 
+J. Meija et al., 
+"Isotopic Compositions of the Elements 2013 (IUPAC Technical Report)," 
+vol. 88, no. 3, pp. 293–306, 2016, doi: 10.1515/pac-2015-0503.
+.IP [2] 5 
+W. J. Huang, M. Wang, F. G. Kondev, G. Audi, and S. Naimi, 
+"The AME 2020 Atomic Mass Evaluation (I). Evaluation of Input Data, and Adjustment Procedures," 
+Chinese Physics C, vol. 45, no. 3, p. 30002, Mar. 2021, doi: 10.1088/1674-1137/abddb0.
+.IP [3] 5 
+A. M. H. van der Veen, J. Meija, A. Possolo, and D. B. Hibbert, 
+"Interpretation and Use of Standard Atomic Weights (IUPAC Technical Report)," 
+Pure and Applied Chemistry, vol. 93, no. 5, pp. 629-646, 2021.
+.IP [4] 5 
+T. Prohaska et al., 
+"Standard Atomic Weights of the Elements 2021 (IUPAC Technical Report)," 
+vol. 94, no. 5, pp. 573-600, 2022, doi: 10.1515/pac-2019-0603.
+\"}}}
+

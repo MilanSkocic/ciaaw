@@ -1,0 +1,96 @@
+.TH ciaaw_cli 1 "18 July 2026" "1.3.2" "User Commands"
+
+.SH NAME
+ciaaw \- CLI for ciaaw
+
+
+.SH SYNOPSIS
+.B ciaaw
+[\fIOPTION\fP]\.\.\. [\fIELEMENT\fP]\.\.\.
+
+
+
+.SH DESCRIPTION
+.B ciaaw 
+is a command line interface which provides the atomic
+weights, the isotopic compositions and the nuclides atomic weights.
+If no element is provided the full periodic table is displayed.
+
+
+
+.SH OPTIONS
+.TP
+.B
+\fB-s\fP, \fB--saw\fP 
+Get the standard atomic weight.
+.TP
+.B
+\fB-i\fP, \fB--ice\fP 
+Get the isotopic composition.
+.TP
+.B
+\fB-n\fP, \fB--naw\fP 
+Get the nuclide atomic weight.
+.TP
+.B
+\fB-m\fP, \fB--mu\fP 
+Get the molar masses in g/mol by multiplying the
+atomic weights by the molar mass contant Mu.
+.TP
+.B
+\fB-c\fP, \fB--colnames\fP
+Show the headers in the outputs.
+.TP
+.B
+\fB\-u\fP, \fB\-\-usage\fP
+Show usage text and exit.
+.TP
+.B
+\fB\-v\fP,\fB\-\-version\fP
+Show version information and exit.
+.TP
+.B
+\fB\-h\fP, \fB\-\-help\fP
+Show help text and exit.
+
+
+
+
+.SH NOTES
+.PP
+You may replace the default options from a file if your first
+options begin with @file.
+Initial options will then be read from the "response file"
+"file.rsp" in the current directory.
+.PP
+If "file" does not exist or cannot be read, then an error occurs and
+the program stops. Each line of the file is prefixed with "options"
+and interpreted as a separate argument. The file itself may not
+contain @file arguments. That is, it is not processed recursively.
+.PP
+For more information on response files see
+https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html
+
+
+
+
+.SH EXAMPLE
+Minimal example
+.nf
+.ft CR
+      ciaaw
+      ciaaw H C B O Zr Nb --saw --ice --naw --colnames
+      ciaaw H C B O Zr Nb -sinc
+.ft R
+.fi
+
+
+.SH SEE ALSO
+.BR ciaaw (3),
+.BR ciaaw_cli (1),
+.BR ciaaw_version (3),
+.BR ciaaw_saw (3),
+.BR ciaaw_ice (3),
+.BR ciaaw_nice (3),
+.BR ciaaw_naw (3), 
+.BR ciaaw_nnaw (3)

@@ -1,0 +1,265 @@
+<!-- Creator     : groff version 1.23.0 -->
+<!-- CreationDate: Sat Jul 18 05:52:15 2026 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>ciaaw_saw</title>
+
+</head>
+<body>
+
+<h1 align="center">ciaaw_saw</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#LIBRARY">LIBRARY</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
+<a href="#EXAMPLE">EXAMPLE</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">saw -
+function</p>
+
+<h2>LIBRARY
+<a name="LIBRARY"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">ciaaw library
+(<i>libciaaw</i>, <i>-lciaaw</i>)</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+
+
+<p style="margin-top: 1em">Fortran</p></td>
+<td width="4%"></td>
+<td width="77%">
+
+
+<p style="margin-top: 1em"><b>function
+saw(</b><i>s</i><b>,</b><i>ab</i><b>,</b><i>u</i><b>)result(res)</b></p> </td>
+<td width="1%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+</td>
+<td width="4%"></td>
+<td width="77%">
+
+
+<p><b>character(len=*), intent(in) ::</b> <i>s</i></p></td>
+<td width="1%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+</td>
+<td width="4%"></td>
+<td width="77%">
+
+
+<p><b>logical, intent(in), optional ::</b> <i>ab</i></p></td>
+<td width="1%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+</td>
+<td width="4%"></td>
+<td width="77%">
+
+
+<p><b>logical, intent(in), optional ::</b> <i>u</i></p></td>
+<td width="1%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+</td>
+<td width="4%"></td>
+<td width="77%">
+
+
+<p><b>real(dp) ::</b> <i>res</i></p></td>
+<td width="1%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+
+
+<p>C</p></td>
+<td width="4%"></td>
+<td width="77%">
+
+
+<p><b>double ciaaw_saw(char *</b><i>s,</i><b>int</b>
+<i>n,</i><b>bool</b> <i>ab,</i><b>bool</b>
+<i>u</i><b>);</b></p> </td>
+<td width="1%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="9%">
+
+
+<p>Python</p></td>
+<td width="4%"></td>
+<td width="77%">
+
+
+
+<p><b>saw(</b><i>s:</i><b>str,</b><i>abridged:</i><b>bool=True,</b><i>uncertainty:</i><b>bool=False)-&gt;float:</b></p> </td>
+<td width="1%">
+</td></tr>
+</table>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Get the standard
+atomic weight for the element <i>s</i>. The default behavior
+is to provide the abridged value,<i>ab is TRUE</i>,
+recommended by the CIAAW. The uncertainty can be retrieved
+by setting <i>u</i>=TRUE.</p>
+
+<p style="margin-left:9%; margin-top: 1em">Arguments:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><i>s</i></p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Element symbol.</p></td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="3%">
+
+
+<p><i>ab</i></p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Set to False if the abridged value is not desired.
+Default to TRUE.</p></td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="3%">
+
+
+<p><i>u</i></p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Set to True if the uncertainty is desired. Default to
+FALSE.</p> </td></tr>
+</table>
+
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="4%">
+
+
+<p style="margin-top: 1em">NaN</p></td>
+<td width="9%"></td>
+<td width="47%">
+
+
+<p style="margin-top: 1em">If the provided element is
+incorrect.</p> </td>
+<td width="31%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="4%">
+
+
+<p>-1</p></td>
+<td width="9%"></td>
+<td width="47%">
+
+
+<p>If the element does not have a SAW.</p></td>
+<td width="31%">
+</td></tr>
+</table>
+
+<h2>EXAMPLE
+<a name="EXAMPLE"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Fortran: <br>
+use ciaaw <br>
+saw(&quot;H&quot;, ab=.false., u=.true.)</p>
+
+<p style="margin-left:9%; margin-top: 1em">C: <br>
+include &lt;stdio.h&gt; <br>
+include &quot;ciaaw.h&quot; <br>
+ciaaw_saw(&quot;H&quot;, 1, false, true)</p>
+
+<p style="margin-left:9%; margin-top: 1em">Python: <br>
+import pyciaaw <br>
+pyciaaw.saw(&quot;H&quot;, ab=False, u=True)</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>ciaaw</b>(3),
+<b>ciaaw_cli</b>(1), <b>ciaaw_version</b>(3),
+<b>ciaaw_saw</b>(3), <b>ciaaw_ice</b>(3),
+<b>ciaaw_nice</b>(3), <b>ciaaw_naw</b>(3),
+<b>ciaaw_nnaw</b>(3)</p>
+<hr>
+</body>
+</html>

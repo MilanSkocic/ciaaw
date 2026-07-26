@@ -43,8 +43,7 @@ py/src/pyciaaw/bin/
 py/src/pyciaaw/include/
 py/src/pyciaaw/lib/
 py/src/pyciaaw/ciaaw
+py/src/pyciaaw/linux
+py/src/pyciaaw/darwin
+py/src/pyciaaw/windows
 
-make.in
-
-srcprep/example*.txt
-srcprep/*api.txt
