@@ -54,11 +54,6 @@ DESCRIPTION
        are provided as double precision reals.
 
 NOTES
-       To use ciaaw within your fpm project, add the following to  your
-       fpm.toml file:
-               [dependencies]
-               iapws = { git="https://github.com/MilanSkocic/ciaaw.git" }
-
        dp stands for double precision and it is an alias to real64 from
        the iso_fortran_env module.  The definitions of the acronyms:
 
@@ -86,23 +81,23 @@ NOTES
 
        References
 
-       [1]  J.  Meija  et  al.,  "Isotopic Compositions of the Elements
+       [1]  J. Meija et al., "Isotopic  Compositions  of  the  Elements
             2013  (IUPAC  Technical  Report),"  vol.  88,  no.  3,  pp.
             293–306, 2016, doi: 10.1515/pac-2015-0503.
 
-       [2]  W.  J. Huang, M. Wang, F. G. Kondev, G. Audi, and S. Naimi,
+       [2]  W. J. Huang, M. Wang, F. G. Kondev, G. Audi, and S.  Naimi,
             "The AME 2020 Atomic Mass Evaluation (I). Evaluation of In‐
-            put Data, and Adjustment Procedures,"  Chinese  Physics  C,
-            vol.    45,    no.   3,   p.   30002,   Mar.   2021,   doi:
+            put  Data,  and  Adjustment Procedures," Chinese Physics C,
+            vol.   45,   no.   3,   p.   30002,   Mar.    2021,    doi:
             10.1088/1674-1137/abddb0.
 
        [3]  A. M. H. van der Veen, J. Meija, A. Possolo, and D. B. Hib‐
-            bert, "Interpretation and Use of  Standard  Atomic  Weights
+            bert,  "Interpretation  and  Use of Standard Atomic Weights
             (IUPAC Technical Report)," Pure and Applied Chemistry, vol.
             93, no. 5, pp. 629-646, 2021.
 
-       [4]  T.  Prohaska  et  al., "Standard Atomic Weights of the Ele‐
-            ments 2021 (IUPAC Technical Report)," vol. 94, no.  5,  pp.
+       [4]  T. Prohaska et al., "Standard Atomic Weights  of  the  Ele‐
+            ments  2021  (IUPAC Technical Report)," vol. 94, no. 5, pp.
             573-600, 2022, doi: 10.1515/pac-2019-0603.
 
 EXAMPLES
@@ -206,4 +201,4 @@ SEE ALSO
        ciaaw(3),    ciaaw_cli(1),    ciaaw_version(3),    ciaaw_saw(3),
        ciaaw_ice(3), ciaaw_nice(3), ciaaw_naw(3), ciaaw_nnaw(3)
 
-1.3.2                         18 July 2026                     ciaaw(3)
+1.3.2                        01 August 2026                    ciaaw(3)

@@ -65,15 +65,6 @@ All the values for the nuclide atomic weights are provided as double precision r
 .SH NOTES
 \"{{{
 .PP
-To use \fBciaaw\fP within your fpm project, add the following to your fpm.toml file:
-.nf
-.ft CR
-        [dependencies]
-        iapws = { git="https://github.com/MilanSkocic/ciaaw.git" }
-.ft R
-.fi
-
-.PP
 dp stands for double precision and it is an alias to real64
 from the iso_fortran_env module.
 The definitions of the acronyms:
