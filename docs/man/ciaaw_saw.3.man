@@ -54,7 +54,7 @@ If the provided element is incorrect.
 .IP -1 10  
 If the element does not have a SAW.
 
-.SH EXAMPLE
+.SH EXAMPLES
 \"{{{
 .PP
 Fortran:
