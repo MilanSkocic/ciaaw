@@ -16,27 +16,19 @@ character(len=:),allocatable, target  :: version_text(:)
 integer :: i
 character(len=3) :: s
 
-version_text=[character(len=80) :: &
-'PROGRAM:      '//name//'                                              ', &
-'DESCRIPTION:  Command line interface for ciaaw.                       ', &
-'VERSION:      '//version()//'                                         ', &
-'AUTHOR:       M. Skocic                                               ', &
-'LICENSE:      MIT                                                     ', &
-'' ]
+version_text=[character(len=72) :: &
+name//' '//version(), &
+'', &
+'Copyright (c)  2024 Milan Skocic', &
+'License MIT', &
+'', &
+'Written by Milan Skocic.' ]
 
-help_text=[character(len=80) :: &
-'NAME                                                                  ', &
-'  '//name//' - Command line for ciaaw                                 ', &
-'                                                                      ', &
-'SYNOPSIS                                                              ', &
-'  '//name//' [OPTION...] [ELEMENT...]                                 ', &
-'                                                                      ', &
-'DESCRIPTION                                                           ', &
-'  '//name//' is a command line interface which provides the atomic    ', &
-'  weights, the isotopic compositions and the nuclides atomic weights. ', &
-'  If no element is provided the full periodic table is displayed.    ', &
-'                                                                      ', &
-'OPTIONS                                                               ', &
+help_text=[character(len=72) :: &
+'Usage: '//name//' [OPTION]... [ELEMENT]...', &
+'ciaaw - compute the atomic weights, the isotopic compositions, and the', &
+'        nuclide atomic weights.', &
+'', &
 '  --saw, -s        Get the standard atomic weight.                  ', &
 '  --ice, -i        Get the isotopic composition.                    ', &
 '  --naw, -n        Get the nuclide atomic weight.                   ', &
@@ -47,32 +39,6 @@ help_text=[character(len=80) :: &
 '  --help, -h       Show help text and exit.                         ', &
 '  --verbose, -V    Display additional information when available.   ', &
 '  --version, -v    Show version information and exit.               ', &
-'                                                                      ', &
-'NOTES                                                                 ', &
-'                                                                      ', &
-'  You may replace the default options from a file if your first       ', &
-'  options begin with @file.                                           ', &
-'  Initial options will then be read from the "response file"          ', &
-'  "file.rsp" in the current directory.                                ', &
-'                                                                      ', &
-'  If "file" does not exist or cannot be read, then an error occurs and', &
-'  the program stops. Each line of the file is prefixed with "options"', &
-'  and interpreted as a separate argument. The file itself may not'  , &
-'  contain @file arguments. That is, it is not processed recursively.', &
-'                                                                      ', &
-'  For more information on response files see                          '  , &
-'                                                                      ', &
-'    https://urbanjost.github.io/M_CLI2/set_args.3m_cli2.html'  , &
-'                                                                      ', &
-'EXAMPLE                                                               ', &
-'  Minimal example                                                     ', &
-'                                                                      ', &
-'      ciaaw                                                           ', &
-'      ciaaw H C B O Zr Nb --saw --ice --naw --colnames                ', &
-'      ciaaw H C B O Zr Nb -sinc                                       ', &
-'                                                                      ', &
-'SEE ALSO                                                              ', &
-'  ciaaw(3), codata(3)                                                 ', &
 '' ]
 
 call set_mode('strict')
