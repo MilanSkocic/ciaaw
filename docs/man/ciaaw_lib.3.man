@@ -1,4 +1,4 @@
-.TH ciaaw 3 "@DATE@" "@VERSION@" "Library Functions Manual"
+.TH ciaaw 3 "@DATE@" "@VERSION@" "Library calls"
 
 .SH NAME
 ciaaw \- library for isotopic abundances and standard atomic weights

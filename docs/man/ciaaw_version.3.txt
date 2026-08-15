@@ -1,4 +1,4 @@
-ciaaw_version(3)        Library Functions Manual       ciaaw_version(3)
+ciaaw_version(3)             Library calls             ciaaw_version(3)
 
 NAME
        version - function
@@ -39,4 +39,4 @@ SEE ALSO
        ciaaw(3),    ciaaw_cli(1),    ciaaw_version(3),    ciaaw_saw(3),
        ciaaw_ice(3), ciaaw_nice(3), ciaaw_naw(3), ciaaw_nnaw(3)
 
-1.3.2                        05 August 2026            ciaaw_version(3)
+1.3.2                        15 August 2026            ciaaw_version(3)

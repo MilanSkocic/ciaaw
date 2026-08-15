@@ -1,7 +1,7 @@
 include ../../make.in
 
-MANSRC=ciaaw.3.man \
-	   ciaaw_cli.1.man \
+MANSRC=ciaaw.1.man \
+	   ciaaw_lib.3.man \
 	   ciaaw_version.3.man \
 	   ciaaw_saw.3.man \
 	   ciaaw_ice.3.man \
@@ -14,9 +14,7 @@ MANTXT=$(patsubst %, %.txt, $(MAN))
 MANGZ=$(patsubst %, %.gz, $(MAN))
 MANHTML=$(patsubst %, %.html, $(MAN))
 
-BOOKMAN=$(FPM_NAME)-bookman.pdf
-
-all: examples $(MAN) $(BOOKMAN) $(MANGZ) $(MANPDF) $(MANTXT) $(MANHTML)
+all: examples $(MAN) $(MANGZ) $(MANPDF) $(MANTXT) $(MANHTML)
 
 examples: 
 	./concatex
@@ -24,7 +22,7 @@ examples:
 $(BOOKMAN): $(MANBUILD)
 	bookman -p -a "$(FPM_AUTHOR)" -t $(FPM_NAME) -v "User Commands & Libary Functions Manual" -r $(FPM_VERSION) $(MAN) > $(BOOKMAN)
 
-ciaaw.3: ciaaw.3.man
+ciaaw_lib.3: ciaaw_lib.3.man
 	cat $< examples.man seealso.man > tmp
 	sed -E "s/@VERSION@/$(FPM_VERSION)/g;s/@DATE@/$(shell date +'%d %B %Y')/g" tmp > $@
 	rm -rfv tmp
@@ -34,7 +32,7 @@ ciaaw_%.3: ciaaw_%.3.man
 	sed -E "s/@VERSION@/$(FPM_VERSION)/g;s/@DATE@/$(shell date +'%d %B %Y')/g" tmp > $@
 	rm -rfv tmp
 
-ciaaw_%.1: ciaaw_%.1.man
+ciaaw.1: ciaaw.1.man
 	cat $< seealso.man > tmp
 	sed -E "s/@VERSION@/$(FPM_VERSION)/g;s/@DATE@/$(shell date +'%d %B %Y')/g" tmp > $@
 	rm -rfv tmp
@@ -53,5 +51,5 @@ ciaaw_%.1: ciaaw_%.1.man
 
 .PHONY: clean
 clean:
-	rm -fv $(MAN) $(BOOKMAN) $(MANGZ) $(MANPDF) $(MANTXT) $(MANHTML)
+	rm -fv $(MAN) $(MANGZ) $(MANPDF) $(MANTXT) $(MANHTML)
 
