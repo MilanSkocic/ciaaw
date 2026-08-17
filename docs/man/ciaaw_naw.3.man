@@ -2,7 +2,7 @@
 
 .SH NAME
 \"{{{
-naw \- function
+naw \- get the atomic weight of nuclides
 \"}}}
 
 .SH LIBRARY

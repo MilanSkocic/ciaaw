@@ -2,7 +2,7 @@
 
 .SH NAME
 \"{{{
-version \- function
+version \- get the library version
 \"}}}
 
 .SH LIBRARY
