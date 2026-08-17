@@ -1,4 +1,4 @@
-.TH ciaaw_naw 3 "@DATE@" "@VERSION@" "Library Functions Manual"
+.TH ciaaw_naw 3 "@DATE@" "@VERSION@" "Library calls"
 
 .SH NAME
 \"{{{

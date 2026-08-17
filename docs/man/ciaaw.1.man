@@ -1,4 +1,4 @@
-.TH ciaaw_cli 1 "@DATE@" "@VERSION@" "User Commands"
+.TH ciaaw 1 "@DATE@" "@VERSION@" "User Commands"
 
 .SH NAME
 ciaaw \- CLI for ciaaw

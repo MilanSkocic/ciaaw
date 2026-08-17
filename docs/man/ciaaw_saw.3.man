@@ -1,4 +1,4 @@
-.TH ciaaw_saw 3 "@DATE@" "@VERSION@" "Library Functions Manual"
+.TH ciaaw_saw 3 "@DATE@" "@VERSION@" "Library calls"
 
 .SH NAME
 \"{{{
@@ -54,7 +54,7 @@ If the provided element is incorrect.
 .IP -1 10  
 If the element does not have a SAW.
 
-.SH EXAMPLE
+.SH EXAMPLES
 \"{{{
 .PP
 Fortran:
