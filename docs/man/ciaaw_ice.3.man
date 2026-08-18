@@ -2,7 +2,7 @@
 
 .SH NAME
 \"{{{
-ice \- function
+ice \- get the isotopic composition
 \"}}}
 
 .SH LIBRARY

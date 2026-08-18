@@ -2,7 +2,7 @@
 
 .SH NAME
 \"{{{
-saw \- function
+saw \- get the standard atomic weight
 \"}}}
 
 .SH LIBRARY

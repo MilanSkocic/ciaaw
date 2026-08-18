@@ -2,7 +2,7 @@
 
 .SH NAME
 \"{{{
-nnaw \- function
+nnaw \- get the number of nuclides
 \"}}}
 
 .SH LIBRARY

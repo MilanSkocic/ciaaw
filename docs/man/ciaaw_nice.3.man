@@ -2,7 +2,7 @@
 
 .SH NAME
 \"{{{
-nice \- function
+nice \- get the number of isotopes
 \"}}}
 
 .SH LIBRARY
