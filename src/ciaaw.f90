@@ -9,7 +9,7 @@ use ciaaw__pte, only: pt
 implicit none(type,external)
 private
 
-character(len=*), parameter, private :: v = '1.3.3'
+character(len=*), parameter, private :: v = '1.3.2'
 character(len=:), allocatable, target :: vf
 character(len=:), allocatable, target :: vc
 
