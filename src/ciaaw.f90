@@ -15,9 +15,9 @@ character(len=:), allocatable, target :: vc
 
 real(dp), allocatable, target :: n_ice_out(:,:)
 
-!=======================================================================
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ! PUBLIC
-!=======================================================================
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 public :: get_version, capi_get_version
 public :: version, capi_version
 public :: get_saw, capi_get_saw
@@ -32,12 +32,12 @@ public :: get_nnaw, capi_get_nnaw
 public :: nnaw, capi_nnaw
 public :: print_periodic_table
 ! public :: get_ice_values
-!=======================================================================
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 contains
-!=======================================================================
-! GET_VERSION() - DEPRECATED
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: GET_VERSION() - DEPRECATED
+!-----------------------------------------------------------------------
 function get_version()result(fptr)
 !! Get the version.
 !! Deprecated. It will be removed in the next major release.
@@ -52,12 +52,12 @@ function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
 type(c_ptr) :: cptr    !! C pointer to a string indicating the version.
 cptr = capi_version()
 end function capi_get_version
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! VERSION()
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: VERSION()
+!-----------------------------------------------------------------------
 function version()result(fptr)
 !! Get the version.
 character(len=:), pointer :: fptr !! Pointer to a string (=>version).
@@ -81,12 +81,12 @@ allocate(character(len=len(fptr)+1) :: vc)
 vc = fptr // c_null_char
 cptr = c_loc(vc)
 end function capi_version
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! PRINT_PERIODIC_TABLE
-!=======================================================================
+!-----------------------------------------------------------------------
+! SUBROUTINE: PRINT_PERIODIC_TABLE
+!-----------------------------------------------------------------------
 subroutine print_periodic_table()
 !! Print periodic table.
 integer(int32) :: i,j
@@ -141,12 +141,12 @@ do i=1, size(pt)
     print *, ""
 end do
 end subroutine print_periodic_table
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! Base search functions
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: Base search functions
+!-----------------------------------------------------------------------
 function is_in_pt(z)result(res)
 !! Check if the atomic number z is in the periodic table
 integer(int32), intent(in) :: z  !! Atomic number
@@ -177,12 +177,12 @@ do i=1, size(pt)
     endif
 end do
 end function get_z_by_symbol
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! GET_SAW() - DEPRECATED
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: GET_SAW() - DEPRECATED
+!-----------------------------------------------------------------------
 function get_saw(s, abridged, uncertainty)result(res)
 !! Get the standard atomic weight for the element s.
 !! Deprecated. It will be removed in the next major release.
@@ -205,12 +205,12 @@ logical(c_bool), intent(in), value :: uncertainty   !! Flag for setting if the u
 real(c_double) :: res                     !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
 res = capi_saw(s, n, abridged, uncertainty)
 end function capi_get_saw
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! SAW()
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: SAW()
+!-----------------------------------------------------------------------
 function saw(s, ab, u)result(res)
 !! Get the standard atomic weight for the element s.
 character(len=*), intent(in) :: s    !! Element symbol.
@@ -290,12 +290,12 @@ f_u = logical(u)
 
 res = saw(fs, f_ab, f_u)
 end function capi_saw
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! GET_ICE() - DEPRECATED
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: GET_ICE() - DEPRECATED
+!-----------------------------------------------------------------------
 function get_ice(s, A, uncertainty)result(res)
 !! Get the isotopic composition of the element s for the mass number A.
 !! Deprecated. It will be removed in the next major release.
@@ -318,12 +318,12 @@ logical(c_bool), intent(in), value :: uncertainty  !! Flag for returning the unc
 real(c_double) :: res                    !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
 res = capi_ice(s, n, A, uncertainty)
 end function capi_get_ice
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! ICE()
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: ICE()
+!-----------------------------------------------------------------------
 function ice(s, A, u)result(res)
 !! Get the isotopic composition of the element s for the mass number A.
 character(len=*), intent(in) :: s   !! Element symbol.
@@ -384,12 +384,12 @@ f_u = logical(u)
 
 res = ice(fs, A, f_u)
 end function capi_ice
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! GET_NICE() - DEPRECATED
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: GET_NICE() - DEPRECATED
+!-----------------------------------------------------------------------
 function get_nice(s)result(res)
 !! Get the number of isotopes in ICE of the element s.
 !! Deprecated. It will be removed in the next major release.
@@ -408,12 +408,12 @@ integer(c_int), intent(in), value :: n     !! Size of the symbol string.
 integer(c_int) :: res                      !! >0 if found or -1 if not found.
 res = capi_nice(s,n)
 end function capi_get_nice
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! NICE()
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: NICE()
+!-----------------------------------------------------------------------
 function nice(s)result(res)
 !! Get the number of isotopes in ICE of the element s.
 character(len=*), intent(in) :: s     !! Element symbol.
@@ -448,12 +448,12 @@ enddo
 
 res = nice(fs)
 end function capi_nice
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! ICES()
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: ICES()
+!-----------------------------------------------------------------------
 ! function ices(s)result(res)
 ! !! Get the (n, 3) values array. See [[ciaaw__types(module):ice_type(type)]].
 ! !! Returns a null pointer if the provided symbol is incorrect.
@@ -512,13 +512,13 @@ end function capi_nice
 !     res = c_loc(fptr)
 
 ! end function capi_ices
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
 
-!=======================================================================
-! GET_NAW() - DEPRECATED
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: GET_NAW() - DEPRECATED
+!-----------------------------------------------------------------------
 function get_naw(s, A, uncertainty)result(res)
 !! Get the atomic weight of the nuclide s for the mass number A.
 !! Deprecated. It will be removed in the next major release.
@@ -541,12 +541,12 @@ logical(c_bool), intent(in), value :: uncertainty  !! Flag for returning the unc
 real(c_double) :: res                    !! NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
 res = capi_naw(s, n, A, uncertainty)
 end function capi_get_naw
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! NAW()
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: NAW()
+!-----------------------------------------------------------------------
 function naw(s, A, u)result(res)
 !! Get the atomic weight of the nuclide s for the mass number A.
 character(len=*), intent(in) :: s   !! Element symbol.
@@ -608,12 +608,12 @@ f_u = logical(u)
 
 res = naw(fs, A, f_u)
 end function capi_naw
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! GET_NNAW() - DEPRECATED
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: GET_NNAW() - DEPRECATED
+!-----------------------------------------------------------------------
 function get_nnaw(s)result(res)
 !! Get the number of nuclides in NAW of the element s.
 !! Deprecated. It will be removed in the next major release.
@@ -632,12 +632,12 @@ integer(c_int), intent(in), value :: n    !! Size of the symbol string.
 integer(c_int) :: res
 res = capi_nnaw(s,n)
 end function capi_get_nnaw
-!=======================================================================
+!-----------------------------------------------------------------------
 
 
-!=======================================================================
-! NNAW()
-!=======================================================================
+!-----------------------------------------------------------------------
+! FUNCTION: NNAW()
+!-----------------------------------------------------------------------
 function nnaw(s)result(res)
 !! Get the number of nuclides in NAW of the element s.
 character(len=*), intent(in) :: s   !! Element symbol.
@@ -672,5 +672,5 @@ enddo
 
 res = nnaw(fs)
 end function capi_nnaw
-!=======================================================================
+!-----------------------------------------------------------------------
 end module ciaaw
