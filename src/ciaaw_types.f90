@@ -1,3 +1,8 @@
+! SPDX-License-Identifier: MIT
+
+!=======================================================================
+! MODULE: ciaaw__types
+!=======================================================================
 module ciaaw__types
 !! Derived types for Standard Atomic Weights.
 use ciaaw__common, only: int32, dp

@@ -1,3 +1,8 @@
+! SPDX-License-Identifier: MIT
+
+!=======================================================================
+! MODULE: CIAAW
+!=======================================================================
 module ciaaw
 !! Main module for the CIAAW library: API and C API.
 use ciaaw__common, only: dp, int32, optval, &
