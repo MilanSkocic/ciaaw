@@ -19,5 +19,6 @@ extern double ciaaw_get_naw(char *s, int n, int A, bool uncertainty);
 extern double ciaaw_naw(char *s, int n, int A, bool u);
 extern int ciaaw_get_nnaw(char *s, int n);
 extern int ciaaw_nnaw(char *s, int n);
+extern void print_periodic_table(void);
 
 #endif

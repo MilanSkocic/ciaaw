@@ -147,6 +147,9 @@ do i=1, size(pt)
 end do
 end subroutine print_periodic_table
 !-----------------------------------------------------------------------
+subroutine capi_print_periodic_table()bind(C,name="print_periodic_table")
+call print_periodic_table()
+end subroutine
 
 
 !-----------------------------------------------------------------------
