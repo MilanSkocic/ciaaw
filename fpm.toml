@@ -23,6 +23,14 @@ module-naming = false
 [install]
 library = true
 
+[[executable]]
+name = "cli"
+main = "main.c"
+
+[[executable]]
+name = "ciaaw"
+main = "main.f90"
+
 [[example]]
 name = "example_in_f"
 main = "example.f90"
@@ -38,6 +46,7 @@ main = "tester.f90"
 [dependencies]
 stdlib="*"
 M_CLI2 = {git="https://github.com/urbanjost/M_CLI2.git"}
+codata = {git="https://github.com/MilanSkocic/codata.git"}
 
 [test.dependencies]
 test-drive = {git="https://github.com/fortran-lang/test-drive", tag="v0.5.0"}
