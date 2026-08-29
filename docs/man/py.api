@@ -1,0 +1,11 @@
+Python API:
+.BI get_saw(s: str, abridged: bool = True, uncertainty: bool = False) -> float:
+.BI saw(s: str, ab: bool = True, u: bool = False) -> float:
+.BI get_ice(s: str, A: int, uncertainty: bool = False) -> float:
+.BI ice(s: str, A: int, u: bool = False) -> float:
+.BI get_nice(s: str) -> int:
+.BI nice(s: str) -> int:
+.BI get_naw(s: str, A: int, uncertainty: bool = False) -> float:
+.BI naw(s: str, A: int, u: bool = False) -> float:
+.BI get_nnaw(s: str) -> int:
+.BI nnaw(s: str) -> int:

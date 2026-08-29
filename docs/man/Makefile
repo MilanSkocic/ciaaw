@@ -7,7 +7,8 @@ MANSRC=ciaaw.1.man \
 	   ciaaw_ice.3.man \
 	   ciaaw_naw.3.man \
 	   ciaaw_nice.3.man \
-	   ciaaw_nnaw.3.man
+	   ciaaw_nnaw.3.man \
+	   ciaaw_ices.3.man
 MAN=$(patsubst %.man, %, $(MANSRC))
 MANPDF=$(patsubst %, %.pdf, $(MAN))
 MANTXT=$(patsubst %, %.txt, $(MAN))
