@@ -9,7 +9,7 @@ use ciaaw__common, only: dp, int32, optval, &
                          ieee_is_nan, ieee_quiet_nan, ieee_value, &
                          c_ptr, c_int, c_bool, c_double, c_null_char, &
                          c_f_pointer, c_loc
-use ciaaw__types, only: element_type
+use ciaaw__types, only: element_type, ice_nan
 use ciaaw__pte, only: pt
 implicit none(type,external)
 private
@@ -462,64 +462,61 @@ end function capi_nice
 !-----------------------------------------------------------------------
 ! FUNCTION: ICES()
 !-----------------------------------------------------------------------
-! function ices(s)result(res)
-! !! Get the (n, 3) values array. See [[ciaaw__types(module):ice_type(type)]].
-! !! Returns a null pointer if the provided symbol is incorrect.
+function ices(s)result(res)
+!! Get the (n, 3) values array. 
+!! Returns a null pointer if the provided symbol is incorrect.
 !
-! ! Arguments
-! character(len=*), intent(in) :: s             !! Element symbol.
+character(len=*), intent(in) :: s             !! Element symbol.
+real(dp), pointer :: res(:,:)                 !! (n,3) array of ices.
 !
-! ! Returns
-! real(dp), pointer :: res(:,:)
+! Variables
+integer(int32) :: z
 !
-! ! Variables
-! integer(int32) :: z
+z = get_z_by_symbol(s)
+res => null()
 !
-! z = get_z_by_symbol(s)
-! res => null()
+if(allocated(n_ice_out))then
+    deallocate(n_ice_out)
+end if
 !
-! if(allocated(n_ice_out))then
-!     deallocate(n_ice_out)
-! end if
-!
-! if(z>0)then
-!     allocate(n_ice_out(pt(z)%ice%n, 3))
-!     n_ice_out(:,:) = pt(z)%ice%values(1:pt(z)%ice%n,:)
-!     res => n_ice_out
-! else
-!     allocate(n_ice_out(1,3))
-!     n_ice_out(1,:) = ice_nan%values(1,:)
-!     res => null()
-! endif
-! end function ices
+if(z>0)then
+    allocate(n_ice_out(pt(z)%ice%n, 3))
+    n_ice_out(:,:) = pt(z)%ice%values(1:pt(z)%ice%n,:)
+    res => n_ice_out
+else
+    allocate(n_ice_out(1,3))
+    n_ice_out(1,:) = ice_nan%values(1,:)
+    res => null()
+endif
+end function ices
 !-----------------------------------------------------------------------
-! function capi_ices(s, n)bind(C, name="ciaaw_get_ice_values")result(res)
-!     !! C API for [[ciaaw__api(module):get_ice_values(function)]]
+function capi_ices(s, n)bind(C, name="ciaaw_ices")result(res)
+!! C API. 
 
-!     ! Arguments
-!     type(c_ptr), intent(in), value :: s           !! Element symbol.
-!     integer(c_int), intent(in), value :: n        !! Size of the symbol string.
+! Arguments
+type(c_ptr), intent(in), value :: s           !! Element symbol.
+integer(c_int), intent(in), value :: n        !! Size of the symbol string.
 
-!     ! Returns
-!     type(c_ptr) :: res
+! Returns
+type(c_ptr) :: res
 
-!     ! Variables
-!     integer(c_int) :: i
-!     character, pointer, dimension(:) :: c2f_s
-!     character(len=n) :: fs
-!     real(dp), pointer, contiguous :: fptr(:,:)
+! Variables
+integer(c_int) :: i
+character, pointer, dimension(:) :: c2f_s
+character(len=n) :: fs
+real(dp), pointer, contiguous :: fptr(:,:)
 
-!     call c_f_pointer(s, c2f_s, shape=[n])
+call c_f_pointer(s, c2f_s, shape=[n])
 
-!     do i=1, n
-!         fs(i:i) = c2f_s(i)
-!     enddo
+do i=1, n
+    fs(i:i) = c2f_s(i)
+enddo
 
-!     fptr => get_ice_values(fs)
+fptr => ices(fs)
 
-!     res = c_loc(fptr)
+res = c_loc(fptr)
 
-! end function capi_ices
+end function capi_ices
 !-----------------------------------------------------------------------
 
 

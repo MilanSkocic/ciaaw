@@ -87,14 +87,21 @@ return option;
 
 int main(int argc, char **argv){
     
-    int i, iopt;
-    bool fsaw, fice, fnaw;
+    int i,j,k, iopt;
+
+    bool fsaw, fice, fnaw, fheader;
     double x, dx, cmu;
+    
+    int nice;
+    double *ice_values;
 
     fsaw = false;
     fice = false;
     fnaw = false;
+    fheader = false;
     cmu = 1.0;
+    nice = 0;
+    ice_values=NULL;
 
     char *elements[SAW_NARGS];
     for (i=0;i<SAW_NARGS;i++){
@@ -109,6 +116,7 @@ int main(int argc, char **argv){
     {"-i", "--ice",     NULL,        "Get the isotopic composition."},
     {"-n", "--naw",     NULL,        "Get the nuclide atomic weight."},
     {"-m", "--mu",      NULL,        "Get the molar mass in g/mol."},
+    {"-c", "--colnames",NULL,        "Show headers."},
     {"-u", "--usage",   NULL,        "Show usage text and exit."},
     {"-v", "--version", NULL,        "Show version information and exit."},
     {"-h", "--help ",   NULL,        "Show help text and exit."},
@@ -119,7 +127,7 @@ int main(int argc, char **argv){
         if(s!=NULL){argv[i]=s;}
     }
     
-    while ((iopt = getopt(argc, argv, "+:smuvh")) != -1) {
+    while ((iopt = getopt(argc, argv, "+:simcuvh")) != -1) {
         switch (iopt) {
             case 's':
                 fsaw = true;
@@ -132,6 +140,9 @@ int main(int argc, char **argv){
                 break;
             case 'm':
                 cmu = MOLAR_MASS_CONSTANT.value*1000.0;
+                break;
+            case 'c':
+                fheader = true;
                 break;
             case 'v':
                 version_text();
@@ -157,10 +168,33 @@ int main(int argc, char **argv){
     }
 
     if(fsaw == true){
+        if(fheader==true){printf("%-5s%-16s%-16s\n", "S", "M", "dM");}
         for(i=optind;i<argc;i++){
             x = ciaaw_saw(argv[i], strlen(argv[i]), true, false)*cmu; 
             dx = ciaaw_saw(argv[i], strlen(argv[i]), true, true)*cmu; 
             printf("%-5s%-16.6f%-16.6f\n", argv[i], x, dx);
+        }
+        return EXIT_SUCCESS;
+    }
+    if(fice == true){
+        if(fheader==true){printf("%-5s%-16s%-16s%-16s\n", "S", "A", "C", "dC");}
+        for(k=optind;k<argc;k++){
+            nice = ciaaw_nice(argv[k], strlen(argv[k]));
+            ice_values = ciaaw_ices(argv[k], strlen(argv[k]));
+            if(nice==-1){
+                printf("%s is not a valid element.\n", argv[k]);
+                return EXIT_SUCCESS;
+            }
+            for(i=0;i<nice;i++){
+                printf("%-5s", argv[k]);
+                for(j=0;j<3;j++){
+                    x = *(ice_values+i+j*nice);
+                    if(j==0){printf("%-16.0f", x);}
+                    if(j==1){printf("%-16.8f", x);}
+                    if(j==2){printf("%-16g", x);}
+                }
+                printf("\n");
+            }
         }
         return EXIT_SUCCESS;
     }
