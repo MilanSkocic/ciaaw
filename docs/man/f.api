@@ -23,7 +23,7 @@ Fortran API:
 .BI "logical  :: " res                   
 .RE
 
-.BI function get_z_by_symbol(s)result(res)
+.BI function s2z(s)result(res)
 .RS
 .IP "" 3
 .BI "character(len=*), intent(in)  :: " s    
@@ -141,5 +141,13 @@ Fortran API:
 .BI "character(len=*), intent(in)  :: " s   
 .IP "" 3
 .BI "integer(int32)  :: " res               
+.RE
+
+.BI function naws(s)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s             
+.IP "" 3
+.BI "real(dp), pointer  :: " res(:,:)                 
 .RE
 

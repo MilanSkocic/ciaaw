@@ -13,12 +13,12 @@
        table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
        h1      { text-align: center }
 </style>
-<title>ciaaw_ices</title>
+<title>ciaaw_s2z</title>
 
 </head>
 <body>
 
-<h1 align="center">ciaaw_ices</h1>
+<h1 align="center">ciaaw_s2z</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#LIBRARY">LIBRARY</a><br>
@@ -35,8 +35,8 @@
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">ices - get the
-isotopic compositions</p>
+<p style="margin-left:9%; margin-top: 1em">s2z - get the
+atomic number</p>
 
 <h2>LIBRARY
 <a name="LIBRARY"></a>
@@ -64,7 +64,7 @@ isotopic compositions</p>
 
 
 <p style="margin-top: 1em"><b>function
-ice(</b><i>s</i><b>)result(res)</b></p> </td>
+s2z(</b><i>s</i><b>)result(res)</b></p> </td>
 <td width="31%">
 </td></tr>
 <tr valign="top" align="left">
@@ -86,7 +86,7 @@ ice(</b><i>s</i><b>)result(res)</b></p> </td>
 <td width="47%">
 
 
-<p><b>real(dp), pointer ::</b> <i>res(:,:)</i></p></td>
+<p><b>integer(int32) ::</b> <i>res</i></p></td>
 <td width="31%">
 </td></tr>
 <tr valign="top" align="left">
@@ -99,8 +99,8 @@ ice(</b><i>s</i><b>)result(res)</b></p> </td>
 <td width="47%">
 
 
-<p><b>double *ciaaw_ices(char *</b><i>s,</i><b>int</b>
-<i>n</i><b>);</b></p> </td>
+<p><b>int ciaaw_s2z(char *</b><i>s,</i><b>int</b>
+<i>n,</i><b>);</b></p> </td>
 <td width="31%">
 </td></tr>
 </table>
@@ -110,8 +110,8 @@ ice(</b><i>s</i><b>)result(res)</b></p> </td>
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">Get all the
-isotopic compositions of the element <i>s</i>.</p>
+<p style="margin-left:9%; margin-top: 1em">Get the atomic
+number <b>Z</b> of the element <i>s</i>.</p>
 
 <p style="margin-left:9%; margin-top: 1em">Arguments:</p>
 
@@ -137,26 +137,21 @@ isotopic compositions of the element <i>s</i>.</p>
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">(n,3)array</p>
-
-<p style="margin-left:22%;">Fortran order array with the
-mass number, the composition and the uncertainty for the
-<i>n</i> isotopes.</p>
-
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="9%"></td>
-<td width="5%">
+<td width="3%">
 
 
-<p>NULL</p></td>
-<td width="8%"></td>
-<td width="47%">
+<p style="margin-top: 1em">-1</p></td>
+<td width="10%"></td>
+<td width="46%">
 
 
-<p>If the provided element is incorrect.</p></td>
-<td width="31%">
+<p style="margin-top: 1em">If the element does not have an
+ICE.</p> </td>
+<td width="32%">
 </td></tr>
 </table>
 
