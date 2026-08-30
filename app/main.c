@@ -88,12 +88,15 @@ return option;
 int main(int argc, char **argv){
     
     int i,j,k, iopt;
+    char *s;
 
     bool fsaw, fice, fnaw, fheader;
     double x, dx, cmu;
     
-    int nice;
+    int nice, nnaw;
     double *ice_values;
+    double *naw_values;
+    int z;
 
     fsaw = false;
     fice = false;
@@ -101,15 +104,12 @@ int main(int argc, char **argv){
     fheader = false;
     cmu = 1.0;
     nice = 0;
-    ice_values=NULL;
+    nnaw = 0;
+    z = 0;
+    ice_values = NULL;
+    naw_values = NULL;
 
-    char *elements[SAW_NARGS];
-    for (i=0;i<SAW_NARGS;i++){
-        elements[i] = (char *)malloc(sizeof(char)*4);
-        elements[i] = "\0";
-    }
-
-    char *s=NULL;
+    s = NULL;
     
     static struct option_t loptions[]={
     {"-s", "--saw",     NULL,        "Get the standard atomic weight."},
@@ -127,7 +127,7 @@ int main(int argc, char **argv){
         if(s!=NULL){argv[i]=s;}
     }
     
-    while ((iopt = getopt(argc, argv, "+:simcuvh")) != -1) {
+    while ((iopt = getopt(argc, argv, "+:sinmcuvh")) != -1) {
         switch (iopt) {
             case 's':
                 fsaw = true;
@@ -168,16 +168,16 @@ int main(int argc, char **argv){
     }
 
     if(fsaw == true){
-        if(fheader==true){printf("%-5s%-16s%-16s\n", "S", "M", "dM");}
+        if(fheader==true){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "M", "dM");}
         for(i=optind;i<argc;i++){
             x = ciaaw_saw(argv[i], strlen(argv[i]), true, false)*cmu; 
             dx = ciaaw_saw(argv[i], strlen(argv[i]), true, true)*cmu; 
-            printf("%-5s%-16.6f%-16.6f\n", argv[i], x, dx);
+            z = ciaaw_s2z(argv[i], strlen(argv[i]));
+            printf("%-5s%-5d%-5s%-16.6f%-16.6f\n", argv[i], z, "", x, dx);
         }
-        return EXIT_SUCCESS;
     }
     if(fice == true){
-        if(fheader==true){printf("%-5s%-16s%-16s%-16s\n", "S", "A", "C", "dC");}
+        if(fheader==true){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "C", "dC");}
         for(k=optind;k<argc;k++){
             nice = ciaaw_nice(argv[k], strlen(argv[k]));
             ice_values = ciaaw_ices(argv[k], strlen(argv[k]));
@@ -185,18 +185,42 @@ int main(int argc, char **argv){
                 printf("%s is not a valid element.\n", argv[k]);
                 return EXIT_SUCCESS;
             }
+            z = ciaaw_s2z(argv[k], strlen(argv[k]));
             for(i=0;i<nice;i++){
                 printf("%-5s", argv[k]);
+                printf("%-5d", z);
                 for(j=0;j<3;j++){
                     x = *(ice_values+i+j*nice);
-                    if(j==0){printf("%-16.0f", x);}
+                    if(j==0){printf("%-5.0f", x);}
                     if(j==1){printf("%-16.8f", x);}
                     if(j==2){printf("%-16g", x);}
                 }
                 printf("\n");
             }
         }
-        return EXIT_SUCCESS;
+    }
+    if(fnaw == true){
+        if(fheader==true){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "M", "dM");}
+        for(k=optind;k<argc;k++){
+            nnaw = ciaaw_nnaw(argv[k], strlen(argv[k]));
+            naw_values = ciaaw_naws(argv[k], strlen(argv[k]));
+            if(nnaw==-1){
+                printf("%s is not a valid element.\n", argv[k]);
+                return EXIT_SUCCESS;
+            }
+            z = ciaaw_s2z(argv[k], strlen(argv[k]));
+            for(i=0;i<nnaw;i++){
+                printf("%-5s", argv[k]);
+                printf("%-5d", z);
+                for(j=0;j<3;j++){
+                    x = *(naw_values+i+j*nnaw)*cmu;
+                    if(j==0){printf("%-5.0f", x);}
+                    if(j==1){printf("%-16.8f", x);}
+                    if(j==2){printf("%-16g", x);}
+                }
+                printf("\n");
+            }
+        }
     }
 
     return EXIT_SUCCESS;
