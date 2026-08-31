@@ -13,12 +13,12 @@
        table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
        h1      { text-align: center }
 </style>
-<title>ciaaw_naw</title>
+<title>ciaaw_s2z</title>
 
 </head>
 <body>
 
-<h1 align="center">ciaaw_naw</h1>
+<h1 align="center">ciaaw_s2z</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#LIBRARY">LIBRARY</a><br>
@@ -35,8 +35,8 @@
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">naw - get the
-atomic weight of nuclides</p>
+<p style="margin-left:9%; margin-top: 1em">s2z - get the
+atomic number</p>
 
 <h2>LIBRARY
 <a name="LIBRARY"></a>
@@ -60,56 +60,34 @@ atomic weight of nuclides</p>
 
 <p style="margin-top: 1em">Fortran</p></td>
 <td width="4%"></td>
-<td width="57%">
+<td width="47%">
 
 
 <p style="margin-top: 1em"><b>function
-naw(</b><i>s</i><b>,</b><i>A</i><b>,</b><i>u</i><b>)result(res)</b></p> </td>
-<td width="21%">
+s2z(</b><i>s</i><b>)result(res)</b></p> </td>
+<td width="31%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="9%">
 </td>
 <td width="4%"></td>
-<td width="57%">
+<td width="47%">
 
 
 <p><b>character(len=*), intent(in) ::</b> <i>s</i></p></td>
-<td width="21%">
+<td width="31%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="9%">
 </td>
 <td width="4%"></td>
-<td width="57%">
+<td width="47%">
 
 
-<p><b>integer(int32), intent(in) ::</b> <i>A</i></p></td>
-<td width="21%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="9%"></td>
-<td width="9%">
-</td>
-<td width="4%"></td>
-<td width="57%">
-
-
-<p><b>logical, intent(in), optional ::</b> <i>u</i></p></td>
-<td width="21%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="9%"></td>
-<td width="9%">
-</td>
-<td width="4%"></td>
-<td width="57%">
-
-
-<p><b>real(dp) ::</b> <i>res</i></p></td>
-<td width="21%">
+<p><b>integer(int32) ::</b> <i>res</i></p></td>
+<td width="31%">
 </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
@@ -118,27 +96,12 @@ naw(</b><i>s</i><b>,</b><i>A</i><b>,</b><i>u</i><b>)result(res)</b></p> </td>
 
 <p>C</p></td>
 <td width="4%"></td>
-<td width="57%">
+<td width="47%">
 
 
-<p><b>double ciaaw_naw(char *</b><i>s,</i><b>int</b>
-<i>n,</i><b>int</b> <i>A,</i><b>bool</b>
-<i>u</i><b>);</b></p> </td>
-<td width="21%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="9%"></td>
-<td width="9%">
-
-
-<p>Python</p></td>
-<td width="4%"></td>
-<td width="57%">
-
-
-
-<p><b>naw(</b><i>s:</i><b>str,</b><i>A:</i><b>int,</b><i>u:</i><b>bool=False)</b><i>-&gt;</i><b>float:</b></p> </td>
-<td width="21%">
+<p><b>int ciaaw_s2z(char *</b><i>s,</i><b>int</b>
+<i>n,</i><b>);</b></p> </td>
+<td width="31%">
 </td></tr>
 </table>
 
@@ -148,9 +111,7 @@ naw(</b><i>s</i><b>,</b><i>A</i><b>,</b><i>u</i><b>)result(res)</b></p> </td>
 
 
 <p style="margin-left:9%; margin-top: 1em">Get the atomic
-weight of the nuclide <i>s</i> for the mass number <i>A</i>.
-The uncertainty can be retrieved by setting
-<i>u</i>=TRUE.</p>
+number <b>Z</b> of the element <i>s</i>.</p>
 
 <p style="margin-left:9%; margin-top: 1em">Arguments:</p>
 
@@ -163,38 +124,11 @@ The uncertainty can be retrieved by setting
 
 <p style="margin-top: 1em"><i>s</i></p></td>
 <td width="12%"></td>
-<td width="77%">
+<td width="19%">
 
 
 <p style="margin-top: 1em">Element symbol.</p></td>
-<td width="1%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="9%"></td>
-<td width="1%">
-
-
-<p><i>A</i></p></td>
-<td width="12%"></td>
-<td width="77%">
-
-
-<p>Mass number.</p></td>
-<td width="1%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="9%"></td>
-<td width="1%">
-
-
-<p><i>u</i></p></td>
-<td width="12%"></td>
-<td width="77%">
-
-
-<p>Set to True if the uncertainty is desired. Default to
-FALSE.</p> </td>
-<td width="1%">
+<td width="59%">
 </td></tr>
 </table>
 
@@ -207,30 +141,17 @@ FALSE.</p> </td>
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="9%"></td>
-<td width="4%">
+<td width="3%">
 
 
-<p style="margin-top: 1em">NaN</p></td>
-<td width="9%"></td>
-<td width="73%">
+<p style="margin-top: 1em">-1</p></td>
+<td width="10%"></td>
+<td width="46%">
 
 
-<p style="margin-top: 1em">If the provided element or the
-mass number are incorrect.</p></td>
-<td width="5%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="9%"></td>
-<td width="4%">
-
-
-<p>-1</p></td>
-<td width="9%"></td>
-<td width="73%">
-
-
-<p>If the element does not have a NAW.</p></td>
-<td width="5%">
+<p style="margin-top: 1em">If the element does not have an
+ICE.</p> </td>
+<td width="32%">
 </td></tr>
 </table>
 

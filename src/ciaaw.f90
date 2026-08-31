@@ -9,7 +9,7 @@ use ciaaw__common, only: dp, int32, optval, &
                          ieee_is_nan, ieee_quiet_nan, ieee_value, &
                          c_ptr, c_int, c_bool, c_double, c_null_char, &
                          c_f_pointer, c_loc
-use ciaaw__types, only: element_type
+use ciaaw__types, only: element_type, ice_nan
 use ciaaw__pte, only: pt
 implicit none(type,external)
 private
@@ -18,7 +18,7 @@ character(len=*), parameter, private :: v = '1.3.2'
 character(len=:), allocatable, target :: vf
 character(len=:), allocatable, target :: vc
 
-real(dp), allocatable, target :: n_ice_out(:,:)
+real(dp), allocatable, target :: arr2d(:,:)
 
 !+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ! PUBLIC
@@ -36,13 +36,14 @@ public :: naw, capi_naw
 public :: get_nnaw, capi_get_nnaw
 public :: nnaw, capi_nnaw
 public :: print_periodic_table
-! public :: get_ice_values
+public :: ices, naws
 !+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 contains
 !-----------------------------------------------------------------------
 ! FUNCTION: GET_VERSION() - DEPRECATED
 !-----------------------------------------------------------------------
+!{{{
 function get_version()result(fptr)
 !! Get the version.
 !! Deprecated. It will be removed in the next major release.
@@ -57,12 +58,14 @@ function capi_get_version()bind(c, name='ciaaw_get_version')result(cptr)
 type(c_ptr) :: cptr    !! C pointer to a string indicating the version.
 cptr = capi_version()
 end function capi_get_version
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: VERSION()
 !-----------------------------------------------------------------------
+!{{{
 function version()result(fptr)
 !! Get the version.
 character(len=:), pointer :: fptr !! Pointer to a string (=>version).
@@ -86,12 +89,14 @@ allocate(character(len=len(fptr)+1) :: vc)
 vc = fptr // c_null_char
 cptr = c_loc(vc)
 end function capi_version
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! SUBROUTINE: PRINT_PERIODIC_TABLE
 !-----------------------------------------------------------------------
+!{{{
 subroutine print_periodic_table()
 !! Print periodic table.
 integer(int32) :: i,j
@@ -147,11 +152,17 @@ do i=1, size(pt)
 end do
 end subroutine print_periodic_table
 !-----------------------------------------------------------------------
+subroutine capi_print_periodic_table()bind(C,name="print_periodic_table")
+call print_periodic_table()
+end subroutine
+!}}}
+!-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: Base search functions
 !-----------------------------------------------------------------------
+!{{{
 function is_in_pt(z)result(res)
 !! Check if the atomic number z is in the periodic table
 integer(int32), intent(in) :: z  !! Atomic number
@@ -164,7 +175,7 @@ else
 end if
 end function is_in_pt
 !-----------------------------------------------------------------------
-function get_z_by_symbol(s)result(res)
+function s2z(s)result(res)
 !! Get the atomic number z of the element defined by the symbol s.
 character(len=*), intent(in) :: s    !! Element symbol
 integer(int32) :: res                !! >0 if found and -1 if not found.
@@ -181,13 +192,33 @@ do i=1, size(pt)
         exit
     endif
 end do
-end function get_z_by_symbol
+end function s2z
+!-----------------------------------------------------------------------
+function capi_s2z(s, n)result(res)bind(C,name="ciaaw_s2z")
+!! C API.
+type(c_ptr), intent(in), value :: s 
+integer(c_int), intent(in), value :: n 
+integer(c_int) :: res               
+
+integer(int32) :: i
+character, pointer, dimension(:) :: c2f_s
+character(len=n) :: fs
+
+call c_f_pointer(s, c2f_s, shape=[n])
+
+do i=1, n
+    fs(i:i) = c2f_s(i)
+enddo
+res = s2z(fs)
+end function capi_s2z
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: GET_SAW() - DEPRECATED
 !-----------------------------------------------------------------------
+!{{{
 function get_saw(s, abridged, uncertainty)result(res)
 !! Get the standard atomic weight for the element s.
 !! Deprecated. It will be removed in the next major release.
@@ -210,12 +241,14 @@ logical(c_bool), intent(in), value :: uncertainty   !! Flag for setting if the u
 real(c_double) :: res                     !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
 res = capi_saw(s, n, abridged, uncertainty)
 end function capi_get_saw
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: SAW()
 !-----------------------------------------------------------------------
+!{{{
 function saw(s, ab, u)result(res)
 !! Get the standard atomic weight for the element s.
 character(len=*), intent(in) :: s    !! Element symbol.
@@ -230,7 +263,7 @@ logical :: ab2, u2
 ab2 = optval(ab, .true.)
 u2 = optval(u, .false.)
 
-z = get_z_by_symbol(s)
+z = s2z(s)
 
 res = ieee_value(1.0_dp, ieee_quiet_nan)
 
@@ -279,7 +312,7 @@ logical(c_bool), intent(in), value :: ab  !! Flag for setting if abridged value 
 logical(c_bool), intent(in), value :: u   !! Flag for setting if the uncertainty is desired instead of the value.
 real(c_double) :: res                     !! NaN if the provided element is incorrect or -1 if the element does not have a SAW.
 
-integer(c_int) :: i
+integer(int32) :: i
 character, pointer, dimension(:) :: c2f_s
 character(len=n) :: fs
 logical :: f_ab, f_u
@@ -295,12 +328,14 @@ f_u = logical(u)
 
 res = saw(fs, f_ab, f_u)
 end function capi_saw
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: GET_ICE() - DEPRECATED
 !-----------------------------------------------------------------------
+!{{{
 function get_ice(s, A, uncertainty)result(res)
 !! Get the isotopic composition of the element s for the mass number A.
 !! Deprecated. It will be removed in the next major release.
@@ -323,12 +358,14 @@ logical(c_bool), intent(in), value :: uncertainty  !! Flag for returning the unc
 real(c_double) :: res                    !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
 res = capi_ice(s, n, A, uncertainty)
 end function capi_get_ice
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: ICE()
 !-----------------------------------------------------------------------
+!{{{
 function ice(s, A, u)result(res)
 !! Get the isotopic composition of the element s for the mass number A.
 character(len=*), intent(in) :: s   !! Element symbol.
@@ -341,7 +378,7 @@ integer(int32) :: i, z, col, row
 logical :: u2
 
 u2 = optval(u, .false.)
-z = get_z_by_symbol(s)
+z = s2z(s)
 A_double = real(A, dp)
 
 res = ieee_value(1.0_dp, ieee_quiet_nan)
@@ -374,7 +411,7 @@ integer(c_int), intent(in), value :: A   !! Mass number.
 logical(c_bool), intent(in), value :: u  !! Flag for returning the uncertainty instead of the value. Default to FALSE.
 real(c_double) :: res                    !! NaN if the provided element or the mass number A are incorrect or -1 if the element does not have an ICE.
 
-integer(c_int) :: i
+integer(int32) :: i
 character, pointer, dimension(:) :: c2f_s
 character(len=n) :: fs
 logical :: f_u
@@ -389,12 +426,14 @@ f_u = logical(u)
 
 res = ice(fs, A, f_u)
 end function capi_ice
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: GET_NICE() - DEPRECATED
 !-----------------------------------------------------------------------
+!{{{
 function get_nice(s)result(res)
 !! Get the number of isotopes in ICE of the element s.
 !! Deprecated. It will be removed in the next major release.
@@ -413,12 +452,14 @@ integer(c_int), intent(in), value :: n     !! Size of the symbol string.
 integer(c_int) :: res                      !! >0 if found or -1 if not found.
 res = capi_nice(s,n)
 end function capi_get_nice
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: NICE()
 !-----------------------------------------------------------------------
+!{{{
 function nice(s)result(res)
 !! Get the number of isotopes in ICE of the element s.
 character(len=*), intent(in) :: s     !! Element symbol.
@@ -426,7 +467,7 @@ integer(int32) :: res                 !! >0 if found or -1 if not found.
 
 integer(int32) :: z
 
-z = get_z_by_symbol(s)
+z = s2z(s)
 
 if(z>0)then
     res = pt(z)%ice%n
@@ -453,70 +494,70 @@ enddo
 
 res = nice(fs)
 end function capi_nice
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: ICES()
 !-----------------------------------------------------------------------
-! function ices(s)result(res)
-! !! Get the (n, 3) values array. See [[ciaaw__types(module):ice_type(type)]].
-! !! Returns a null pointer if the provided symbol is incorrect.
+!{{{
+function ices(s)result(res)
+!! Get the (n, 3) values array. 
+!! Returns a null pointer if the provided symbol is incorrect.
 !
-! ! Arguments
-! character(len=*), intent(in) :: s             !! Element symbol.
+character(len=*), intent(in) :: s             !! Element symbol.
+real(dp), pointer :: res(:,:)                 !! (n,3) array of ices.
 !
-! ! Returns
-! real(dp), pointer :: res(:,:)
+! Variables
+integer(int32) :: z
 !
-! ! Variables
-! integer(int32) :: z
+z = s2z(s)
+res => null()
 !
-! z = get_z_by_symbol(s)
-! res => null()
+if(allocated(arr2d))then
+    deallocate(arr2d)
+end if
 !
-! if(allocated(n_ice_out))then
-!     deallocate(n_ice_out)
-! end if
-!
-! if(z>0)then
-!     allocate(n_ice_out(pt(z)%ice%n, 3))
-!     n_ice_out(:,:) = pt(z)%ice%values(1:pt(z)%ice%n,:)
-!     res => n_ice_out
-! else
-!     allocate(n_ice_out(1,3))
-!     n_ice_out(1,:) = ice_nan%values(1,:)
-!     res => null()
-! endif
-! end function ices
+if(z>0)then
+    allocate(arr2d(pt(z)%ice%n, 3))
+    arr2d(:,:) = pt(z)%ice%values(1:pt(z)%ice%n,:)
+    res => arr2d
+else
+    allocate(arr2d(1,3))
+    arr2d(1,:) = ice_nan%values(1,:)
+    res => null()
+endif
+end function ices
 !-----------------------------------------------------------------------
-! function capi_ices(s, n)bind(C, name="ciaaw_get_ice_values")result(res)
-!     !! C API for [[ciaaw__api(module):get_ice_values(function)]]
+function capi_ices(s, n)bind(C, name="ciaaw_ices")result(res)
+!! C API. 
 
-!     ! Arguments
-!     type(c_ptr), intent(in), value :: s           !! Element symbol.
-!     integer(c_int), intent(in), value :: n        !! Size of the symbol string.
+! Arguments
+type(c_ptr), intent(in), value :: s           !! Element symbol.
+integer(c_int), intent(in), value :: n        !! Size of the symbol string.
 
-!     ! Returns
-!     type(c_ptr) :: res
+! Returns
+type(c_ptr) :: res
 
-!     ! Variables
-!     integer(c_int) :: i
-!     character, pointer, dimension(:) :: c2f_s
-!     character(len=n) :: fs
-!     real(dp), pointer, contiguous :: fptr(:,:)
+! Variables
+integer(c_int) :: i
+character, pointer, dimension(:) :: c2f_s
+character(len=n) :: fs
+real(dp), pointer, contiguous :: fptr(:,:)
 
-!     call c_f_pointer(s, c2f_s, shape=[n])
+call c_f_pointer(s, c2f_s, shape=[n])
 
-!     do i=1, n
-!         fs(i:i) = c2f_s(i)
-!     enddo
+do i=1, n
+    fs(i:i) = c2f_s(i)
+enddo
 
-!     fptr => get_ice_values(fs)
+fptr => ices(fs)
 
-!     res = c_loc(fptr)
+res = c_loc(fptr)
 
-! end function capi_ices
+end function capi_ices
+!}}}
 !-----------------------------------------------------------------------
 
 
@@ -524,6 +565,7 @@ end function capi_nice
 !-----------------------------------------------------------------------
 ! FUNCTION: GET_NAW() - DEPRECATED
 !-----------------------------------------------------------------------
+!{{{
 function get_naw(s, A, uncertainty)result(res)
 !! Get the atomic weight of the nuclide s for the mass number A.
 !! Deprecated. It will be removed in the next major release.
@@ -546,12 +588,14 @@ logical(c_bool), intent(in), value :: uncertainty  !! Flag for returning the unc
 real(c_double) :: res                    !! NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
 res = capi_naw(s, n, A, uncertainty)
 end function capi_get_naw
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: NAW()
 !-----------------------------------------------------------------------
+!{{{
 function naw(s, A, u)result(res)
 !! Get the atomic weight of the nuclide s for the mass number A.
 character(len=*), intent(in) :: s   !! Element symbol.
@@ -565,7 +609,7 @@ logical :: u2
 
 
 u2 = optval(u, .false.)
-z = get_z_by_symbol(s)
+z = s2z(s)
 A_double = real(A, dp)
 
 res = ieee_value(1.0_dp, ieee_quiet_nan)
@@ -598,7 +642,7 @@ integer(c_int), intent(in), value :: A   !! Mass number.
 logical(c_bool), intent(in), value :: u  !! Flag for returning the uncertainty instead of the value. Default to FALSE.
 real(c_double) :: res                    !! NaN if the provided element or A are incorrect or -1 if the element does not have an NAW.
 
-integer(c_int) :: i
+integer(int32) :: i
 character, pointer, dimension(:) :: c2f_s
 character(len=n) :: fs
 logical :: f_u
@@ -613,12 +657,14 @@ f_u = logical(u)
 
 res = naw(fs, A, f_u)
 end function capi_naw
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: GET_NNAW() - DEPRECATED
 !-----------------------------------------------------------------------
+!{{{
 function get_nnaw(s)result(res)
 !! Get the number of nuclides in NAW of the element s.
 !! Deprecated. It will be removed in the next major release.
@@ -637,12 +683,14 @@ integer(c_int), intent(in), value :: n    !! Size of the symbol string.
 integer(c_int) :: res
 res = capi_nnaw(s,n)
 end function capi_get_nnaw
+!}}}
 !-----------------------------------------------------------------------
 
 
 !-----------------------------------------------------------------------
 ! FUNCTION: NNAW()
 !-----------------------------------------------------------------------
+!{{{
 function nnaw(s)result(res)
 !! Get the number of nuclides in NAW of the element s.
 character(len=*), intent(in) :: s   !! Element symbol.
@@ -650,7 +698,7 @@ integer(int32) :: res               !! >0 if found or -1 if not found.
 
 integer(int32) :: z
 
-z = get_z_by_symbol(s)
+z = s2z(s)
 
 if(z>0)then
     res = pt(z)%naw%n
@@ -677,5 +725,71 @@ enddo
 
 res = nnaw(fs)
 end function capi_nnaw
+!}}}
+!-----------------------------------------------------------------------
+
+
+!-----------------------------------------------------------------------
+! FUNCTION: NAWS()
+!-----------------------------------------------------------------------
+!{{{
+function naws(s)result(res)
+!! Get the (n, 3) values array. 
+!! Returns a null pointer if the provided symbol is incorrect.
+!
+character(len=*), intent(in) :: s             !! Element symbol.
+real(dp), pointer :: res(:,:)                 !! (n,3) array of naws.
+!
+! Variables
+integer(int32) :: z
+!
+z = s2z(s)
+res => null()
+!
+if(allocated(arr2d))then
+    deallocate(arr2d)
+end if
+!
+if(z>0)then
+    allocate(arr2d(pt(z)%naw%n, 3))
+    arr2d(:,:) = pt(z)%naw%values(1:pt(z)%naw%n,:)
+    res => arr2d
+else
+    allocate(arr2d(1,3))
+    arr2d(1,:) = ice_nan%values(1,:)
+    res => null()
+endif
+end function naws
+!-----------------------------------------------------------------------
+function capi_naws(s, n)bind(C, name="ciaaw_naws")result(res)
+!! C API. 
+
+! Arguments
+type(c_ptr), intent(in), value :: s           !! Element symbol.
+integer(c_int), intent(in), value :: n        !! Size of the symbol string.
+
+! Returns
+type(c_ptr) :: res
+
+! Variables
+integer(c_int) :: i
+character, pointer, dimension(:) :: c2f_s
+character(len=n) :: fs
+real(dp), pointer, contiguous :: fptr(:,:)
+
+call c_f_pointer(s, c2f_s, shape=[n])
+
+do i=1, n
+    fs(i:i) = c2f_s(i)
+enddo
+
+fptr => naws(fs)
+
+res = c_loc(fptr)
+
+end function capi_naws
+!}}}
 !-----------------------------------------------------------------------
 end module ciaaw
+
+

@@ -1,0 +1,42 @@
+.TH ciaaw_ices 3 "@DATE@" "@VERSION@" "Library calls"
+
+.SH NAME
+\"{{{
+ices \- get the isotopic compositions
+\"}}}
+
+.SH LIBRARY
+\"{{{
+ciaaw library 
+.RI ( libciaaw ", " \-lciaaw )
+\"}}}
+
+.SH SYNOPSIS
+\"{{{
+.IP Fortran 10
+.BI "function ice(" s )result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s             
+.IP "" 3
+.BI "real(dp), pointer  :: " res(:,:)                 
+.RE
+
+.IP C 10
+.BI "double *ciaaw_ices(char *" s, "int " n );
+
+\"}}}
+
+.SH DESCRIPTION
+Get all the isotopic compositions of the element \fIs\fP.
+
+Arguments:
+.IP \fIs\fP 10
+Element symbol.
+
+.SH RETURN VALUE
+.IP (n,3)array 10
+Fortran order array with the mass number, the composition and the 
+uncertainty for the \fIn\fP isotopes.
+.IP NULL 10 
+If the provided element is incorrect.

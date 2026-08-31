@@ -1,0 +1,153 @@
+Fortran API:
+.BI function get_version()result(fptr)
+.RS
+.IP "" 3
+.BI "character(len=:), pointer  :: " fptr  
+.RE
+
+.BI function version()result(fptr)
+.RS
+.IP "" 3
+.BI "character(len=:), pointer  :: " fptr 
+.RE
+
+.BI subroutine print_periodic_table()
+.RS
+.RE
+
+.BI function is_in_pt(z)result(res)
+.RS
+.IP "" 3
+.BI "integer(int32), intent(in)  :: " z  
+.IP "" 3
+.BI "logical  :: " res                   
+.RE
+
+.BI function s2z(s)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s    
+.IP "" 3
+.BI "integer(int32)  :: " res                
+.RE
+
+.BI function get_saw(s, abridged, uncertainty)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s    
+.IP "" 3
+.BI "logical, intent(in), optional  :: " abridged  
+.IP "" 3
+.BI "logical, intent(in), optional  :: " uncertainty   
+.IP "" 3
+.BI "real(dp)  :: " res                      
+.RE
+
+.BI function saw(s, ab, u)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s    
+.IP "" 3
+.BI "logical, intent(in), optional  :: " ab  
+.IP "" 3
+.BI "logical, intent(in), optional  :: " u   
+.IP "" 3
+.BI "real(dp)  :: " res                      
+.RE
+
+.BI function get_ice(s, A, uncertainty)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s   
+.IP "" 3
+.BI "integer(int32), intent(in)  :: " A     
+.IP "" 3
+.BI "logical, intent(in), optional  :: " uncertainty  
+.IP "" 3
+.BI "real(dp)  :: " res                     
+.RE
+
+.BI function ice(s, A, u)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s   
+.IP "" 3
+.BI "integer(int32), intent(in)  :: " A     
+.IP "" 3
+.BI "logical, intent(in), optional  :: " u  
+.IP "" 3
+.BI "real(dp)  :: " res                     
+.RE
+
+.BI function get_nice(s)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s     
+.IP "" 3
+.BI "integer(int32)  :: " res                 
+.RE
+
+.BI function nice(s)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s     
+.IP "" 3
+.BI "integer(int32)  :: " res                 
+.RE
+
+.BI function ices(s)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s             
+.IP "" 3
+.BI "real(dp), pointer  :: " res(:,:)                 
+.RE
+
+.BI function get_naw(s, A, uncertainty)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s   
+.IP "" 3
+.BI "integer(int32), intent(in)  :: " A     
+.IP "" 3
+.BI "logical, intent(in), optional  :: " uncertainty  
+.IP "" 3
+.BI "real(dp)  :: " res                     
+.RE
+
+.BI function naw(s, A, u)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s   
+.IP "" 3
+.BI "integer(int32), intent(in)  :: " A     
+.IP "" 3
+.BI "logical, intent(in), optional  :: " u  
+.IP "" 3
+.BI "real(dp)  :: " res                     
+.RE
+
+.BI function get_nnaw(s)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s   
+.IP "" 3
+.BI "integer(int32)  :: " res               
+.RE
+
+.BI function nnaw(s)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s   
+.IP "" 3
+.BI "integer(int32)  :: " res               
+.RE
+
+.BI function naws(s)result(res)
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s             
+.IP "" 3
+.BI "real(dp), pointer  :: " res(:,:)                 
+.RE
+

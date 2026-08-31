@@ -6,4 +6,7 @@
 .BR ciaaw_ice (3),
 .BR ciaaw_nice (3),
 .BR ciaaw_naw (3), 
-.BR ciaaw_nnaw (3)
+.BR ciaaw_nnaw (3),
+.BR ciaaw_ices (3),
+.BR ciaaw_naws (3),
+.BR ciaaw_s2z (3)

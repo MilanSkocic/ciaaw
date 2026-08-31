@@ -1,0 +1,39 @@
+.TH ciaaw_s2z 3 "@DATE@" "@VERSION@" "Library calls"
+
+.SH NAME
+\"{{{
+s2z \- get the atomic number
+\"}}}
+
+.SH LIBRARY
+\"{{{
+ciaaw library 
+.RI ( libciaaw ", " \-lciaaw )
+\"}}}
+
+.SH SYNOPSIS
+\"{{{
+.IP Fortran 10
+.BI "function s2z(" s ")result(res)"
+.RS
+.IP "" 3
+.BI "character(len=*), intent(in)  :: " s    
+.IP "" 3
+.BI "integer(int32)  :: " res                
+.RE
+
+.IP C 10
+.BI "int ciaaw_s2z(char *" s, "int " n,  ");"
+
+\"}}}
+
+.SH DESCRIPTION
+Get the atomic number \fBZ\fP of the element \fIs\fP.
+
+Arguments:
+.IP \fIs\fP 10
+Element symbol.
+
+.SH RETURN VALUE
+.IP -1 10  
+If the element does not have an ICE.
