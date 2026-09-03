@@ -24,12 +24,8 @@ module-naming = false
 library = true
 
 [[executable]]
-name = "cli"
-main = "main.c"
-
-[[executable]]
 name = "ciaaw"
-main = "main.f90"
+main = "main.c"
 
 [[example]]
 name = "example_in_f"

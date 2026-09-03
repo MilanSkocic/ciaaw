@@ -3,16 +3,19 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <ctype.h>
 #include "ciaaw.h"
 #include "codata.h"
 
 #define VERSION_SIZE 256
 #define ARGS_SIZE 256
-#define SAW_NARGS 5
-
 
 struct option_t {char *s; char *l; char *arg; char *help;};
 
+//----------------------------------------------------------------------
+// FUNCTION: VERSION_TEXT()
+//----------------------------------------------------------------------
+//{{{
 static void version_text(){
     char v[VERSION_SIZE];
     strcpy(v, "ciaaw ");
@@ -24,6 +27,7 @@ static void version_text(){
     strcat(v, "Wrtten by Milan Skocic\n");
     printf("%s", v);
 }
+//}}}
 
 //----------------------------------------------------------------------
 // FUNCTION: USAGE_TEXT()
@@ -84,6 +88,77 @@ return option;
 //}}}
 //----------------------------------------------------------------------
 
+double mm(char *name){
+    
+    char *s;
+    int n;
+    double m, C, M;
+    char *eptr;
+    char *cptr;
+    char *etok;
+    char *ctok;
+
+    char *e = (char *)malloc(sizeof(char)*256);
+    e[0] = '\0';
+    char *c = (char *)malloc(sizeof(char)*256);
+    c[0] = '\0';
+
+    s = name;
+    m = 0.0;
+
+    while((*s) != '\0'){
+        if(isupper(*s)){
+            n = strlen(e);
+            e[n] = *s;
+            e[n+1] = '\0';
+            s++;
+            while(islower(*s)){
+                n = strlen(e);
+                e[n] = *s;
+                e[n+1] = '\0';
+                s++;
+            }
+            n = strlen(e);
+            e[n] = ' ';
+            e[n+1] = '\0';
+            continue;
+        }
+
+        if(isdigit(*s)){
+            n = strlen(c);
+            c[n] = *s;
+            c[n+1] = '\0';
+            s++;
+            while(isdigit(*s)){
+                n = strlen(c);
+                c[n] = *s;
+                c[n+1] = '\0';
+                s++;
+            }
+            n = strlen(c);
+            c[n] = ' ';
+            c[n+1] = '\0';
+            continue;
+        }
+
+        s++;
+    }
+
+    etok = strtok_r(e, " ", &eptr);
+    ctok = strtok_r(c, " ", &cptr);
+    while((etok!=NULL) && (ctok!=NULL)){
+        M = ciaaw_saw(etok, strlen(etok), false, false);
+        C = atof(ctok);
+        m += C*M;
+        etok = strtok_r(NULL, " ", &eptr);
+        ctok = strtok_r(NULL, " ", &cptr);
+    }
+
+    free(e);
+    free(c);
+
+    return m;
+}
 
 int main(int argc, char **argv){
     
@@ -92,6 +167,7 @@ int main(int argc, char **argv){
 
     bool fsaw, fice, fnaw, fheader;
     double x, dx, cmu;
+    char *species;
     
     int nice, nnaw;
     double *ice_values;
@@ -102,6 +178,7 @@ int main(int argc, char **argv){
     fice = false;
     fnaw = false;
     fheader = false;
+    species = NULL;
     cmu = 1.0;
     nice = 0;
     nnaw = 0;
@@ -117,6 +194,7 @@ int main(int argc, char **argv){
     {"-n", "--naw",     NULL,        "Get the nuclide atomic weight."},
     {"-m", "--mu",      NULL,        "Get the molar mass in g/mol."},
     {"-c", "--colnames",NULL,        "Show headers."},
+    {"-M", "--molarmass","SPECIES",       "Compute the molar mass."},
     {"-u", "--usage",   NULL,        "Show usage text and exit."},
     {"-v", "--version", NULL,        "Show version information and exit."},
     {"-h", "--help ",   NULL,        "Show help text and exit."},
@@ -127,7 +205,7 @@ int main(int argc, char **argv){
         if(s!=NULL){argv[i]=s;}
     }
     
-    while ((iopt = getopt(argc, argv, "+:sinmcuvh")) != -1) {
+    while ((iopt = getopt(argc, argv, "+:sinmcM:uvh")) != -1) {
         switch (iopt) {
             case 's':
                 fsaw = true;
@@ -143,6 +221,9 @@ int main(int argc, char **argv){
                 break;
             case 'c':
                 fheader = true;
+                break;
+            case 'M':
+                species = optarg;
                 break;
             case 'v':
                 version_text();
@@ -161,8 +242,8 @@ int main(int argc, char **argv){
                 return EXIT_SUCCESS;
         }
     }
-
-    if(optind == argc){
+    
+    if(!fsaw && !fice && !fnaw && (species==NULL)){
         print_periodic_table();
         return EXIT_SUCCESS;
     }
@@ -221,6 +302,11 @@ int main(int argc, char **argv){
                 printf("\n");
             }
         }
+    }
+    
+    if(species!=NULL){
+        printf("%s = %f g/mol\n", 
+                species, mm(species)*MOLAR_MASS_CONSTANT.value*1000);
     }
 
     return EXIT_SUCCESS;

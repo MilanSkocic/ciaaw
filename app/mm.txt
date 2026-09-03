@@ -1,0 +1,65 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+
+int main(int argc, char **argv){
+    
+    char *s;
+
+    int n;
+
+    char *e = (char *)malloc(sizeof(char)*256);
+    e[0] = '\0';
+    char *c = (char *)malloc(sizeof(char)*256);
+    c[0] = '\0';
+
+    s = argv[1];
+
+    while((*s) != '\0'){
+        if(isupper(*s)){
+            n = strlen(e);
+            e[n] = *s;
+            e[n+1] = '\0';
+            s++;
+            while(islower(*s)){
+                n = strlen(e);
+                e[n] = *s;
+                e[n+1] = '\0';
+                s++;
+            }
+            n = strlen(e);
+            e[n] = ' ';
+            e[n+1] = '\0';
+            continue;
+        }
+
+        if(isdigit(*s)){
+            n = strlen(c);
+            c[n] = *s;
+            c[n+1] = '\0';
+            s++;
+            while(isdigit(*s)){
+                n = strlen(c);
+                c[n] = *s;
+                c[n+1] = '\0';
+                s++;
+            }
+            n = strlen(c);
+            c[n] = ' ';
+            c[n+1] = '\0';
+            continue;
+        }
+
+        s++;
+
+
+    }
+
+    printf("%s\n", e);
+    printf("%s\n", c);
+
+    free(e);
+    free(c);
+}
