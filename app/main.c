@@ -34,7 +34,8 @@ static void version_text(){
 //----------------------------------------------------------------------
 //{{{
 static void usage_text(){
-    printf("%s\n", "ciaaw [-s|--saw] [-i|--ice] [-n|--naw] [-m|-mu] [-c|colnames] [-u|--usage] [-v|--version] [-h|--help] ELEMENT...");
+    printf("%s\n", "ciaaw [-s|--saw] [-i|--ice] [-n|--naw] [-m|-mu] [-c|--colnames] [-M|--molarmass SPECIES]");
+    printf("%s\n", "      [-u|--usage] [-v|--version] [-h|--help] ELEMENT...");
 }
 //}}}
 //----------------------------------------------------------------------
@@ -254,11 +255,11 @@ int main(int argc, char **argv){
 
     if(fsaw == true){
         if(fheader==true){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "M", "dM");}
-        for(i=optind;i<argc;i++){
-            x = ciaaw_saw(argv[i], strlen(argv[i]), true, false)*cmu; 
-            dx = ciaaw_saw(argv[i], strlen(argv[i]), true, true)*cmu; 
-            z = ciaaw_s2z(argv[i], strlen(argv[i]));
-            printf("%-5s%-5d%-5s%-16.6f%-16.6f\n", argv[i], z, "", x, dx);
+        for(k=optind;k<argc;k++){
+            x = ciaaw_saw(argv[k], strlen(argv[k]), true, false)*cmu; 
+            dx = ciaaw_saw(argv[k], strlen(argv[k]), true, true)*cmu; 
+            z = ciaaw_s2z(argv[k], strlen(argv[k]));
+            printf("%-5s%-5d%-5s%-16.6f%-16.6f\n", argv[k], z, "", x, dx);
         }
     }
     if(fice == true){
@@ -307,6 +308,7 @@ int main(int argc, char **argv){
             }
         }
     }
+
     
     if(species!=NULL){
         printf("%s = %f g/mol\n", 
