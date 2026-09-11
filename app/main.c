@@ -34,7 +34,8 @@ static void version_text(){
 //----------------------------------------------------------------------
 //{{{
 static void usage_text(){
-    printf("%s\n", "ciaaw [-s|--saw] [-i|--ice] [-n|--naw] [-m|-mu] [-c|colnames] [-u|--usage] [-v|--version] [-h|--help] ELEMENT...");
+    printf("%s\n", "ciaaw [-s|--saw] [-i|--ice] [-n|--naw] [-m|-mu] [-c|--colnames] [-M|--molarmass SPECIES]");
+    printf("%s\n", "      [-u|--usage] [-v|--version] [-h|--help] ELEMENT...");
 }
 //}}}
 //----------------------------------------------------------------------
@@ -88,6 +89,10 @@ return option;
 //}}}
 //----------------------------------------------------------------------
 
+//----------------------------------------------------------------------
+// FUNCTION: MM()
+//----------------------------------------------------------------------
+//{{{
 double mm(char *name){
     
     char *s;
@@ -159,15 +164,17 @@ double mm(char *name){
 
     return m;
 }
+//}}}
+//----------------------------------------------------------------------
+
 
 int main(int argc, char **argv){
     
     int i,j,k, iopt;
     char *s;
 
-    bool fsaw, fice, fnaw, fheader;
+    bool fsaw, fice, fnaw, fheader, fspecies;
     double x, dx, cmu;
-    char *species;
     
     int nice, nnaw;
     double *ice_values;
@@ -178,7 +185,7 @@ int main(int argc, char **argv){
     fice = false;
     fnaw = false;
     fheader = false;
-    species = NULL;
+    fspecies = false;
     cmu = 1.0;
     nice = 0;
     nnaw = 0;
@@ -194,7 +201,7 @@ int main(int argc, char **argv){
     {"-n", "--naw",     NULL,        "Get the nuclide atomic weight."},
     {"-m", "--mu",      NULL,        "Get the molar mass in g/mol."},
     {"-c", "--colnames",NULL,        "Show headers."},
-    {"-M", "--molarmass","SPECIES",       "Compute the molar mass."},
+    {"-M", "--molarmass", NULL,       "Compute the molar mass."},
     {"-u", "--usage",   NULL,        "Show usage text and exit."},
     {"-v", "--version", NULL,        "Show version information and exit."},
     {"-h", "--help ",   NULL,        "Show help text and exit."},
@@ -205,7 +212,7 @@ int main(int argc, char **argv){
         if(s!=NULL){argv[i]=s;}
     }
     
-    while ((iopt = getopt(argc, argv, "+:sinmcM:uvh")) != -1) {
+    while ((iopt = getopt(argc, argv, "+:sinmcMuvh")) != -1) {
         switch (iopt) {
             case 's':
                 fsaw = true;
@@ -223,7 +230,7 @@ int main(int argc, char **argv){
                 fheader = true;
                 break;
             case 'M':
-                species = optarg;
+                fspecies = true;
                 break;
             case 'v':
                 version_text();
@@ -242,23 +249,32 @@ int main(int argc, char **argv){
                 return EXIT_SUCCESS;
         }
     }
+
     
-    if(!fsaw && !fice && !fnaw && (species==NULL)){
+    if(!fsaw && !fice && !fnaw && !fspecies){
         print_periodic_table();
         return EXIT_SUCCESS;
     }
+    
+    if(fspecies){
+        if(fheader){printf("%-16s%-16s\n", "Species", "M-g.mol-1");}
+        for(k=optind;k<argc;k++){
+            printf("%-16s%-+16.6f\n", argv[k], mm(argv[k])*MOLAR_MASS_CONSTANT.value*1000);
+        }
+        return EXIT_SUCCESS;
+    }
 
-    if(fsaw == true){
-        if(fheader==true){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "M", "dM");}
-        for(i=optind;i<argc;i++){
-            x = ciaaw_saw(argv[i], strlen(argv[i]), true, false)*cmu; 
-            dx = ciaaw_saw(argv[i], strlen(argv[i]), true, true)*cmu; 
-            z = ciaaw_s2z(argv[i], strlen(argv[i]));
-            printf("%-5s%-5d%-5s%-16.6f%-16.6f\n", argv[i], z, "", x, dx);
+    if(fsaw){
+        if(fheader){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "M", "dM");}
+        for(k=optind;k<argc;k++){
+            x = ciaaw_saw(argv[k], strlen(argv[k]), true, false)*cmu; 
+            dx = ciaaw_saw(argv[k], strlen(argv[k]), true, true)*cmu; 
+            z = ciaaw_s2z(argv[k], strlen(argv[k]));
+            printf("%-5s%-5d%-5s%-16.6f%-16.6f\n", argv[k], z, "", x, dx);
         }
     }
-    if(fice == true){
-        if(fheader==true){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "C", "dC");}
+    if(fice){
+        if(fheader){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "C", "dC");}
         for(k=optind;k<argc;k++){
             nice = ciaaw_nice(argv[k], strlen(argv[k]));
             ice_values = ciaaw_ices(argv[k], strlen(argv[k]));
@@ -280,8 +296,8 @@ int main(int argc, char **argv){
             }
         }
     }
-    if(fnaw == true){
-        if(fheader==true){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "M", "dM");}
+    if(fnaw){
+        if(fheader){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "M", "dM");}
         for(k=optind;k<argc;k++){
             nnaw = ciaaw_nnaw(argv[k], strlen(argv[k]));
             naw_values = ciaaw_naws(argv[k], strlen(argv[k]));
@@ -303,11 +319,5 @@ int main(int argc, char **argv){
             }
         }
     }
-    
-    if(species!=NULL){
-        printf("%s = %f g/mol\n", 
-                species, mm(species)*MOLAR_MASS_CONSTANT.value*1000);
-    }
-
     return EXIT_SUCCESS;
 }
