@@ -13,12 +13,12 @@
        table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
        h1      { text-align: center }
 </style>
-<title>ciaaw_nice</title>
+<title>ciaaw_naws</title>
 
 </head>
 <body>
 
-<h1 align="center">ciaaw_nice</h1>
+<h1 align="center">ciaaw_naws</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#LIBRARY">LIBRARY</a><br>
@@ -35,8 +35,8 @@
 </h2>
 
 
-<p style="margin-left:6%; margin-top: 1em">nice - get the
-number of isotopes</p>
+<p style="margin-left:6%; margin-top: 1em">ices - get all
+the nuclides&rsquo; atomic weights</p>
 
 <h2>LIBRARY
 <a name="LIBRARY"></a>
@@ -64,7 +64,7 @@ number of isotopes</p>
 
 
 <p style="margin-top: 1em"><b>function
-nice(</b><i>s</i><b>)result(</b><i>res</i><b>)</b></p> </td>
+naws(</b><i>s</i><b>)result(res)</b></p> </td>
 <td width="35%">
 </td></tr>
 <tr valign="top" align="left">
@@ -87,8 +87,8 @@ nice(</b><i>s</i><b>)result(</b><i>res</i><b>)</b></p> </td>
 <td width="46%">
 
 
-<p style="margin-top: 1em"><b>integer(int32) ::</b>
-<i>res</i></p> </td>
+<p style="margin-top: 1em"><b>real(dp), pointer ::</b>
+<i>res(:,:)</i></p> </td>
 <td width="35%">
 </td></tr>
 <tr valign="top" align="left">
@@ -101,22 +101,8 @@ nice(</b><i>s</i><b>)result(</b><i>res</i><b>)</b></p> </td>
 <td width="46%">
 
 
-<p style="margin-top: 1em"><b>int ciaaw_nice(char
+<p style="margin-top: 1em"><b>double *ciaaw_naws(char
 *</b><i>s,</i><b>int</b> <i>n</i><b>);</b></p></td>
-<td width="35%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="6%"></td>
-<td width="9%">
-
-
-<p style="margin-top: 1em">Python</p></td>
-<td width="4%"></td>
-<td width="46%">
-
-
-
-<p style="margin-top: 1em"><b>nice(</b><i>s:</i><b>str)-&gt;int</b></p> </td>
 <td width="35%">
 </td></tr>
 </table>
@@ -126,8 +112,8 @@ nice(</b><i>s</i><b>)result(</b><i>res</i><b>)</b></p> </td>
 </h2>
 
 
-<p style="margin-left:6%; margin-top: 1em">Get the number
-of isotopes in ICE of the element <i>s</i>.</p>
+<p style="margin-left:6%; margin-top: 1em">Get all
+nuclides&rsquo; atomic weights of the element <i>s</i>.</p>
 
 <p style="margin-left:6%; margin-top: 1em">Arguments:</p>
 
@@ -140,24 +126,11 @@ of isotopes in ICE of the element <i>s</i>.</p>
 
 <p style="margin-top: 1em"><i>s</i></p></td>
 <td width="11%"></td>
-<td width="26%">
+<td width="19%">
 
 
 <p style="margin-top: 1em">Element symbol.</p></td>
-<td width="55%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="6%"></td>
-<td width="2%">
-
-
-<p style="margin-top: 1em"><i>n</i></p></td>
-<td width="11%"></td>
-<td width="26%">
-
-
-<p style="margin-top: 1em">Size of the string <i>s</i>.</p></td>
-<td width="55%">
+<td width="62%">
 </td></tr>
 </table>
 
@@ -170,31 +143,27 @@ of isotopes in ICE of the element <i>s</i>.</p>
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="6%"></td>
-<td width="3%">
+<td width="13%">
 
 
-<p style="margin-top: 1em">-1</p></td>
-<td width="10%"></td>
-<td width="46%">
+<p style="margin-top: 1em">(n,3)array</p></td>
+<td width="81%">
+
+
+<p style="margin-top: 1em">Fortran order array with the
+mass number, the atomic weight and the uncertainty for the
+<i>n</i> nuclides given by <b>ciaaw_nnaw(3)</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="13%">
+
+
+<p style="margin-top: 1em">NULL</p></td>
+<td width="81%">
 
 
 <p style="margin-top: 1em">If the provided element is
-incorrect.</p> </td>
-<td width="35%">
-</td></tr>
-<tr valign="top" align="left">
-<td width="6%"></td>
-<td width="3%">
-
-
-<p style="margin-top: 1em">&gt;0</p></td>
-<td width="10%"></td>
-<td width="46%">
-
-
-<p style="margin-top: 1em">If the element has ICE.</p></td>
-<td width="35%">
-</td></tr>
+incorrect.</p> </td></tr>
 </table>
 
 <h2>SEE ALSO
