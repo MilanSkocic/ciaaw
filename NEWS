@@ -1,4 +1,4 @@
-VERSION 1.3.3 [dev]
+VERSION 1.3.3
   - Maintenance release.
   - No API break.
   - Add option -M for CLI in order to compute molar masses for chemical
@@ -8,6 +8,7 @@ VERSION 1.3.3 [dev]
 VERSION 1.3.2
   - Maintenance release.
   - NO API break.
+  - CLI was rewritten in C.
   - Man pages have been renamed:
     - ciaaw(1),
     - ciaaw_lib(3),
