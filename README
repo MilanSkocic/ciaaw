@@ -9,7 +9,7 @@ FEATURES
   - NAW: Nuclides Atomic Weight.
 
 DOCUMENTATION 
-  The API is written as POSIX-style man pages which distributed with 
+  The API is written as POSIX-style man pages which are distributed with 
   the binaries. 
   
   PDF   https://milanskocic.github.io/ciaaw/man/ciaaw-bookman.pdf

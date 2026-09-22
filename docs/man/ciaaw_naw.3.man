@@ -30,7 +30,7 @@ ciaaw library
 .BI "double ciaaw_naw(char *" s, "int " n, "int " A, "bool " u ");"
 
 .IP Python 10
-.BI "naw(" s: str, A: int, u: bool=False) -> float:
+.BI "naw(" s: str, A: int, u: bool=False)->float:
 \"}}}
 
 .SH DESCRIPTION
