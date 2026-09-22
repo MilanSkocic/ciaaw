@@ -5,7 +5,9 @@ Python API:
 .BI ice(s: str, A: int, u: bool = False) -> float:
 .BI get_nice(s: str) -> int:
 .BI nice(s: str) -> int:
+.BI ices(s: str) -> np.array:
 .BI get_naw(s: str, A: int, uncertainty: bool = False) -> float:
 .BI naw(s: str, A: int, u: bool = False) -> float:
 .BI get_nnaw(s: str) -> int:
 .BI nnaw(s: str) -> int:
+.BI naws(s: str) -> np.array:

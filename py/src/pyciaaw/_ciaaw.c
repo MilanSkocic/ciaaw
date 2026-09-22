@@ -13,15 +13,58 @@ PyDoc_STRVAR(saw_doc,
 PyDoc_STRVAR(ice_doc, 
 "ice(s: str, A: int, u: bool) -> float \n\n");
 
+PyDoc_STRVAR(ices_doc, 
+"ices(s: str) -> array \n\n");
+
 PyDoc_STRVAR(nice_doc,
 "nice(s: str) -> int \n\n");
 
 PyDoc_STRVAR(naw_doc, 
 "naw(s: str, A: int, u: bool) -> float \n\n");
- 
+
+PyDoc_STRVAR(naws_doc, 
+"naws(s: str) -> array \n\n");
+
 PyDoc_STRVAR(nnaw_doc,
 "nnaw(s: str) -> int \n\n");
 //----------------------------------------------------------------------
+
+
+Py_buffer create_new_buffer(char *format, Py_ssize_t itemsize, Py_ssize_t ndim, Py_ssize_t *shape){
+    Py_buffer buffer;
+    Py_ssize_t i, j, size, subsize;
+    Py_ssize_t *strides = (Py_ssize_t *)PyMem_Calloc(ndim, sizeof(Py_ssize_t));
+
+    buffer.obj = NULL;
+    buffer.suboffsets = NULL;
+    buffer.format = format;
+    buffer.readonly = 0;
+    buffer.itemsize = itemsize;
+    buffer.ndim = ndim;
+    buffer.shape = shape;
+
+    size = 1;
+    for(i=0; i<ndim; i++){
+        size *= shape[i];
+    }
+
+    strides[ndim-1] = itemsize;
+    if(ndim > 1){
+        for(i=0; i<(ndim-1); i++){
+            subsize = 1;
+            for(j=i+1; j<ndim; j++){
+                subsize *= shape[j];
+            }
+            strides[i] = subsize * itemsize;
+        }
+    }
+
+    buffer.len = size * itemsize;
+    buffer.strides = strides;
+    buffer.buf = PyMem_Calloc(size, itemsize);
+
+    return buffer;
+}
 
 
 //----------------------------------------------------------------------
@@ -70,6 +113,30 @@ static PyObject *_nice(PyObject *self, PyObject *args){
     return Py_BuildValue("i", res);
 }
 
+static PyObject *ices(PyObject *self, PyObject *args){
+    char *s;
+    Py_buffer res_buf;
+    PyObject *res_mview;
+    
+    Py_ssize_t ndim = 2;
+    Py_ssize_t shape[2] = {0,0};
+
+
+    if (!PyArg_ParseTuple(args, "s", &s)){
+        return NULL;
+    }
+    shape[1] = ciaaw_nice(s, strlen(s));
+    shape[0] = 3;
+    res_buf = create_new_buffer("d", sizeof(double), ndim, shape);
+    res_buf.buf = (void *)ciaaw_ices(s, strlen(s));
+    
+    if(res_buf.buf == NULL){Py_RETURN_NONE;}
+
+    res_mview = PyMemoryView_FromBuffer(&res_buf);
+    
+    return res_mview;
+}
+
 static PyObject *naw(PyObject *self, PyObject *args){
     char *s;
     int A;
@@ -97,6 +164,30 @@ static PyObject *nnaw(PyObject *self, PyObject *args){
 
     return Py_BuildValue("i", res);
 }
+
+static PyObject *naws(PyObject *self, PyObject *args){
+    char *s;
+    Py_buffer res_buf;
+    PyObject *res_mview;
+    
+    Py_ssize_t ndim = 2;
+    Py_ssize_t shape[2] = {0,0};
+
+
+    if (!PyArg_ParseTuple(args, "s", &s)){
+        return NULL;
+    }
+    shape[1] = ciaaw_nnaw(s, strlen(s));
+    shape[0] = 3;
+    res_buf = create_new_buffer("d", sizeof(double), ndim, shape);
+    res_buf.buf = (void *)ciaaw_naws(s, strlen(s));
+    
+    if(res_buf.buf == NULL){Py_RETURN_NONE;}
+
+    res_mview = PyMemoryView_FromBuffer(&res_buf);
+    
+    return res_mview;
+}
 //----------------------------------------------------------------------
 
 
@@ -107,8 +198,10 @@ static PyMethodDef myMethods[] = {
 {"saw",  (PyCFunction) saw,  METH_VARARGS, saw_doc},
 {"ice",  (PyCFunction) ice,  METH_VARARGS, ice_doc},
 {"nice", (PyCFunction) _nice, METH_VARARGS, nice_doc}, // Concflict name nice from Python.h
+{"ices",  (PyCFunction) ices,  METH_VARARGS, ices_doc},
 {"naw",  (PyCFunction) naw,  METH_VARARGS, naw_doc},
 {"nnaw", (PyCFunction) nnaw, METH_VARARGS, nnaw_doc},
+{"naws",  (PyCFunction) naws,  METH_VARARGS, naws_doc},
 { NULL, NULL, 0, NULL }};
 
 static struct PyModuleDef _ciaaw = 

@@ -25,6 +25,9 @@ ciaaw library
 .IP C 10
 .BI "double *ciaaw_naws(char *" s, "int " n );
 
+.IP Python 10
+.BI naws( s: str)->np.array:
+
 \"}}}
 
 .SH DESCRIPTION

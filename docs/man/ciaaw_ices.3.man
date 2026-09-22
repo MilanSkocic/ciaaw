@@ -25,6 +25,9 @@ ciaaw library
 .IP C 10
 .BI "double *ciaaw_ices(char *" s, "int " n );
 
+.IP Python 10
+.BI ices( s: str)->np.array:
+
 \"}}}
 
 .SH DESCRIPTION
