@@ -12,6 +12,7 @@ import platform
 import subprocess
 import sys
 from pathlib import Path
+import numpy as np
 
 from ._ciaaw import __version__
 from . import _ciaaw
@@ -158,6 +159,28 @@ def nice(s: str) -> int:
     """
     return _ciaaw.nice(str(s))
 
+def ices(s: str) -> np.array:
+    """
+    Get all the isotopic composition of the element s.
+
+    Parameters
+    ----------
+    s: str
+        Element symbol.
+
+    Returns
+    -------
+    ices: (n, 3) array-like
+        Fortran order array with the mass number, the composition and the 
+        uncertainty for the n isotopes given by nice().
+        Return None if the provided symbol is incorrect.
+    """
+    res = _ciaaw.ices(str(s))
+    if res is None:
+        return res
+    else:
+        return np.asarray(res, order="C").T
+
 
 def get_naw(s: str, A: int, uncertainty: bool = False) -> float:
     r"""
@@ -244,3 +267,26 @@ def nnaw(s: str) -> int:
         Returns -1 if the provided element is incorrect.
     """
     return _ciaaw.nnaw(str(s))
+
+
+def naws(s: str) -> np.array:
+    """
+    Get all the atomic weight of the nuclide s.
+
+    Parameters
+    ----------
+    s: str
+        Element symbol.
+
+    Returns
+    -------
+    ices: (n, 3) array-like
+        Fortran order array with the mass number, the atomic weight and the 
+        uncertainty for the n nuclides given by nnaw().
+        Return None if the provided symbol is incorrect.
+    """
+    res = _ciaaw.naws(str(s))
+    if res is None:
+        return res
+    else:
+        return np.asarray(res, order="C").T

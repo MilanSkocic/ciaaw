@@ -1,65 +1,64 @@
 ciaaw_saw(3)                 Library calls                 ciaaw_saw(3)
 
 NAME
-       saw - get the standard atomic weight
+     saw - get the standard atomic weight
 
 LIBRARY
-       ciaaw library (libciaaw, -lciaaw)
+     ciaaw library (libciaaw, -lciaaw)
 
 SYNOPSIS
-       Fortran   function saw(s,ab,u)result(res)
+     Fortran   function saw(s,ab,u)result(res)
 
-                    character(len=*), intent(in) :: s
+                  character(len=*), intent(in) :: s
 
-                    logical, intent(in), optional :: ab
+                  logical, intent(in), optional :: ab
 
-                    logical, intent(in), optional :: u
+                  logical, intent(in), optional :: u
 
-                    real(dp) :: res
+                  real(dp) :: res
 
-       C         double ciaaw_saw(char *s,int n,bool ab,bool u);
+     C         double ciaaw_saw(char *s,int n,bool ab,bool u);
 
-       Python    saw(s:str,abridged:bool=True,uncer‐
-                 tainty:bool=False)->float:
+     Python    saw(s:str,abridged:bool=True,uncer‐
+               tainty:bool=False)->float:
 
 DESCRIPTION
-       Get  the  standard atomic weight for the element s.  The default
-       behavior is to provide the abridged  value,ab  is  TRUE,  recom‐
-       mended  by  the CIAAW.  The uncertainty can be retrieved by set‐
-       ting u=TRUE.
+     Get the standard atomic weight for the element s.  The default be‐
+     havior is to provide the abridged value,ab is TRUE, recommended by
+     the CIAAW.  The uncertainty can be retrieved by setting u=TRUE.
 
-       Arguments:
+     Arguments:
 
-       s         Element symbol.
+     s         Element symbol.
 
-       ab        Set to False if the abridged value is not desired. De‐
-                 fault to TRUE.
+     ab        Set  to  False if the abridged value is not desired. De‐
+               fault to TRUE.
 
-       u         Set to True if the uncertainty is desired. Default  to
-                 FALSE.
+     u         Set to True if the uncertainty is  desired.  Default  to
+               FALSE.
 
 RETURN VALUE
-       NaN       If the provided element is incorrect.
+     NaN       If the provided element is incorrect.
 
-       -1        If the element does not have a SAW.
+     -1        If the element does not have a SAW.
 
 EXAMPLES
-       Fortran:
-           use ciaaw
-           saw("H", ab=.false., u=.true.)
+     Fortran:
+         use ciaaw
+         saw("H", ab=.false., u=.true.)
 
-       C:
-           include <stdio.h>
-           include "ciaaw.h"
-           ciaaw_saw("H", 1, false, true)
+     C:
+         include <stdio.h>
+         include "ciaaw.h"
+         ciaaw_saw("H", 1, false, true)
 
-       Python:
-           import pyciaaw
-           pyciaaw.saw("H", ab=False, u=True)
+     Python:
+         import pyciaaw
+         pyciaaw.saw("H", ab=False, u=True)
 
 SEE ALSO
-       ciaaw(3),    ciaaw_cli(1),    ciaaw_version(3),    ciaaw_saw(3),
-       ciaaw_ice(3),   ciaaw_nice(3),   ciaaw_naw(3),    ciaaw_nnaw(3),
-       ciaaw_ices(3), ciaaw_naws(3), ciaaw_s2z(3)
+     ciaaw(3),     ciaaw_cli(1),     ciaaw_version(3),    ciaaw_saw(3),
+     ciaaw_ice(3),    ciaaw_nice(3),    ciaaw_naw(3),    ciaaw_nnaw(3),
+     ciaaw_ices(3), ciaaw_naws(3), ciaaw_s2z(3)
 
-1.3.2                      06 September 2026               ciaaw_saw(3)
+1.3.3                      22 September 2026               ciaaw_saw(3)

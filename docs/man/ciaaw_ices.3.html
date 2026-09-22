@@ -1,11 +1,11 @@
-<!-- Creator     : groff version 1.23.0 -->
-<!-- CreationDate: Sun Sep  6 08:54:10 2026 -->
+<!-- Creator     : groff version 1.24.1 -->
+<!-- CreationDate: Tue Sep 22 06:06:05 2026 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta name="generator" content="groff -Thtml, see www.gnu.org">
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="Content-Style" content="text/css">
 <style type="text/css">
        p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
@@ -35,15 +35,15 @@
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">ices - get the
-isotopic compositions</p>
+<p style="margin-left:6%; margin-top: 1em">ices - get all
+the isotopic compositions</p>
 
 <h2>LIBRARY
 <a name="LIBRARY"></a>
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">ciaaw library
+<p style="margin-left:6%; margin-top: 1em">ciaaw library
 (<i>libciaaw</i>, <i>-lciaaw</i>)</p>
 
 <h2>SYNOPSIS
@@ -54,54 +54,70 @@ isotopic compositions</p>
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
-<td width="9%"></td>
+<td width="6%"></td>
 <td width="9%">
 
 
 <p style="margin-top: 1em">Fortran</p></td>
 <td width="4%"></td>
-<td width="47%">
+<td width="46%">
 
 
 <p style="margin-top: 1em"><b>function
-ice(</b><i>s</i><b>)result(res)</b></p> </td>
-<td width="31%">
+ices(</b><i>s</i><b>)result(res)</b></p> </td>
+<td width="35%">
 </td></tr>
 <tr valign="top" align="left">
-<td width="9%"></td>
+<td width="6%"></td>
 <td width="9%">
 </td>
 <td width="4%"></td>
-<td width="47%">
+<td width="46%">
 
 
-<p><b>character(len=*), intent(in) ::</b> <i>s</i></p></td>
-<td width="31%">
+<p style="margin-top: 1em"><b>character(len=*), intent(in)
+::</b> <i>s</i></p></td>
+<td width="35%">
 </td></tr>
 <tr valign="top" align="left">
-<td width="9%"></td>
+<td width="6%"></td>
 <td width="9%">
 </td>
 <td width="4%"></td>
-<td width="47%">
+<td width="46%">
 
 
-<p><b>real(dp), pointer ::</b> <i>res(:,:)</i></p></td>
-<td width="31%">
+<p style="margin-top: 1em"><b>real(dp), pointer ::</b>
+<i>res(:,:)</i></p> </td>
+<td width="35%">
 </td></tr>
 <tr valign="top" align="left">
-<td width="9%"></td>
+<td width="6%"></td>
 <td width="9%">
 
 
-<p>C</p></td>
+<p style="margin-top: 1em">C</p></td>
 <td width="4%"></td>
-<td width="47%">
+<td width="46%">
 
 
-<p><b>double *ciaaw_ices(char *</b><i>s,</i><b>int</b>
-<i>n</i><b>);</b></p> </td>
-<td width="31%">
+<p style="margin-top: 1em"><b>double *ciaaw_ices(char
+*</b><i>s,</i><b>int</b> <i>n</i><b>);</b></p></td>
+<td width="35%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="9%">
+
+
+<p style="margin-top: 1em">Python</p></td>
+<td width="4%"></td>
+<td width="46%">
+
+
+
+<p style="margin-top: 1em"><b>ices(</b><i>s:</i><b>str)-&gt;np.array:</b></p> </td>
+<td width="35%">
 </td></tr>
 </table>
 
@@ -110,25 +126,25 @@ ice(</b><i>s</i><b>)result(res)</b></p> </td>
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">Get all the
+<p style="margin-left:6%; margin-top: 1em">Get all the
 isotopic compositions of the element <i>s</i>.</p>
 
-<p style="margin-left:9%; margin-top: 1em">Arguments:</p>
+<p style="margin-left:6%; margin-top: 1em">Arguments:</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
-<td width="9%"></td>
-<td width="1%">
+<td width="6%"></td>
+<td width="2%">
 
 
 <p style="margin-top: 1em"><i>s</i></p></td>
-<td width="12%"></td>
+<td width="11%"></td>
 <td width="19%">
 
 
 <p style="margin-top: 1em">Element symbol.</p></td>
-<td width="59%">
+<td width="62%">
 </td></tr>
 </table>
 
@@ -137,27 +153,31 @@ isotopic compositions of the element <i>s</i>.</p>
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">(n,3)array</p>
-
-<p style="margin-left:22%;">Fortran order array with the
-mass number, the composition and the uncertainty for the
-<i>n</i> isotopes.</p>
-
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
-<td width="9%"></td>
-<td width="5%">
+<td width="6%"></td>
+<td width="13%">
 
 
-<p>NULL</p></td>
-<td width="8%"></td>
-<td width="47%">
+<p style="margin-top: 1em">(n,3)array</p></td>
+<td width="81%">
 
 
-<p>If the provided element is incorrect.</p></td>
-<td width="31%">
-</td></tr>
+<p style="margin-top: 1em">Fortran order array with the
+mass number, the composition and the uncertainty for the
+<i>n</i> isotopes given by <b>ciaaw_nice(3)</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="13%">
+
+
+<p style="margin-top: 1em">NULL</p></td>
+<td width="81%">
+
+
+<p style="margin-top: 1em">If the provided element is
+incorrect.</p> </td></tr>
 </table>
 
 <h2>SEE ALSO
@@ -166,7 +186,7 @@ mass number, the composition and the uncertainty for the
 
 
 
-<p style="margin-left:9%; margin-top: 1em"><b>ciaaw</b>(3),
+<p style="margin-left:6%; margin-top: 1em"><b>ciaaw</b>(3),
 <b>ciaaw_cli</b>(1), <b>ciaaw_version</b>(3),
 <b>ciaaw_saw</b>(3), <b>ciaaw_ice</b>(3),
 <b>ciaaw_nice</b>(3), <b>ciaaw_naw</b>(3),

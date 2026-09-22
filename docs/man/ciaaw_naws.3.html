@@ -13,12 +13,12 @@
        table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
        h1      { text-align: center }
 </style>
-<title>ciaaw_s2z</title>
+<title>ciaaw_naws</title>
 
 </head>
 <body>
 
-<h1 align="center">ciaaw_s2z</h1>
+<h1 align="center">ciaaw_naws</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#LIBRARY">LIBRARY</a><br>
@@ -35,8 +35,8 @@
 </h2>
 
 
-<p style="margin-left:6%; margin-top: 1em">s2z - get the
-atomic number</p>
+<p style="margin-left:6%; margin-top: 1em">ices - get all
+the nuclides&rsquo; atomic weights</p>
 
 <h2>LIBRARY
 <a name="LIBRARY"></a>
@@ -64,7 +64,7 @@ atomic number</p>
 
 
 <p style="margin-top: 1em"><b>function
-s2z(</b><i>s</i><b>)result(res)</b></p> </td>
+naws(</b><i>s</i><b>)result(res)</b></p> </td>
 <td width="35%">
 </td></tr>
 <tr valign="top" align="left">
@@ -87,8 +87,8 @@ s2z(</b><i>s</i><b>)result(res)</b></p> </td>
 <td width="46%">
 
 
-<p style="margin-top: 1em"><b>integer(int32) ::</b>
-<i>res</i></p> </td>
+<p style="margin-top: 1em"><b>real(dp), pointer ::</b>
+<i>res(:,:)</i></p> </td>
 <td width="35%">
 </td></tr>
 <tr valign="top" align="left">
@@ -101,8 +101,22 @@ s2z(</b><i>s</i><b>)result(res)</b></p> </td>
 <td width="46%">
 
 
-<p style="margin-top: 1em"><b>int ciaaw_s2z(char
-*</b><i>s,</i><b>int</b> <i>n,</i><b>);</b></p></td>
+<p style="margin-top: 1em"><b>double *ciaaw_naws(char
+*</b><i>s,</i><b>int</b> <i>n</i><b>);</b></p></td>
+<td width="35%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="9%">
+
+
+<p style="margin-top: 1em">Python</p></td>
+<td width="4%"></td>
+<td width="46%">
+
+
+
+<p style="margin-top: 1em"><b>naws(</b><i>s:</i><b>str)-&gt;np.array:</b></p> </td>
 <td width="35%">
 </td></tr>
 </table>
@@ -112,8 +126,8 @@ s2z(</b><i>s</i><b>)result(res)</b></p> </td>
 </h2>
 
 
-<p style="margin-left:6%; margin-top: 1em">Get the atomic
-number <b>Z</b> of the element <i>s</i>.</p>
+<p style="margin-left:6%; margin-top: 1em">Get all
+nuclides&rsquo; atomic weights of the element <i>s</i>.</p>
 
 <p style="margin-left:6%; margin-top: 1em">Arguments:</p>
 
@@ -143,18 +157,27 @@ number <b>Z</b> of the element <i>s</i>.</p>
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="6%"></td>
-<td width="3%">
+<td width="13%">
 
 
-<p style="margin-top: 1em">-1</p></td>
-<td width="10%"></td>
-<td width="45%">
+<p style="margin-top: 1em">(n,3)array</p></td>
+<td width="81%">
 
 
-<p style="margin-top: 1em">If the element does not have an
-ICE.</p> </td>
-<td width="36%">
-</td></tr>
+<p style="margin-top: 1em">Fortran order array with the
+mass number, the atomic weight and the uncertainty for the
+<i>n</i> nuclides given by <b>ciaaw_nnaw(3)</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="13%">
+
+
+<p style="margin-top: 1em">NULL</p></td>
+<td width="81%">
+
+
+<p style="margin-top: 1em">If the provided element is
+incorrect.</p> </td></tr>
 </table>
 
 <h2>SEE ALSO
