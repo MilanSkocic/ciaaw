@@ -35,6 +35,7 @@ tmp.txt
 *.egg-info
 __pycache__
 *.so
+*.api
 
 .DS_Store
 
