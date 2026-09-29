@@ -93,7 +93,7 @@ echo "done."
 #{{{
 usage () {
 cat << EOT 
-Usage: configure [--sources|-s].
+Usage: configure [--version|-v].
 EOT
 }
 
@@ -103,7 +103,7 @@ cat << EOT
 Usage: configure [OPTION...] 
 configure - configure before compilation.
 
-  --sources, -s          Generate the sources.
+  --version, -v          Update version in sources.
 EOT
 #}}}
 }
@@ -116,7 +116,7 @@ EOT
 # LONG OPTIONS
 #-----------------------------------------------------------------------
 date=${date:-$(date +'%d %B %Y')}
-fsrc=0
+fversion=0
 #{{{
 args=()
 while [[ $# -gt 0 ]]; do
@@ -129,8 +129,8 @@ while [[ $# -gt 0 ]]; do
       args+=("-h")
       shift
       ;;
-    --sources)
-        args+=("-s")
+    --version)
+        args+=("-v")
         shift
         ;;
     --) # end of options
@@ -159,8 +159,7 @@ set -- "${args[@]}"
 while getopts :svuh opt
 do
 	case $opt in
-    (s) fsrc=1;;
-	(v) version; exit;;
+    (s) fversion=1;;
     (u) usage; exit;;
 	(h) help; exit;;
     :) echo "Option -$OPTARG requires an argument"; exit 1;;
@@ -177,19 +176,8 @@ shift $(($OPTIND - 1))
 # GENERATE SOURCES
 #-----------------------------------------------------------------------
 #{{{
-if [[ $fsrc == 1 ]]; then
-    make -C data clean
-    make -C data
-#    for i in ./src/*.fypp; do
-#        fypp -I./include $i "${i%.fypp}.f90"
-#        echo "fypp $i ${i%.fypp}.f90"
-#    done
+if [[ $fversion == 1 ]]; then
+    sed -E -i "s/v = '(0|[1-9]\d*)\.(0|[1-9]\d*)\.?(0|[1-9]\d*)?'/v = '$FPM_VERSION'/g" "src/ciaaw.f90"
 fi
 #}}}
 #-----------------------------------------------------------------------
-
-
-#-----------------------------------------------------------------------
-# PREPROCESS SOURCES
-#-----------------------------------------------------------------------
-sed -i -E "s/@VERSION@/$FPM_VERSION/g" src/ciaaw.f90 
