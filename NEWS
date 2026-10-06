@@ -1,4 +1,4 @@
-VERSION 1.3.3
+VERSION 1.3.3 [dev]
   - Maintenance release.
   - No API break.
   - Add option -M for CLI in order to compute molar masses for chemical
