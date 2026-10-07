@@ -28,12 +28,16 @@ ciaaw library
 \"}}}
 
 .SH DESCRIPTION
+\"{{{
 Get the atomic number \fBZ\fP of the element \fIs\fP.
 
 Arguments:
 .IP \fIs\fP 10
 Element symbol.
+\"}}}
 
 .SH RETURN VALUE
+\" {{{
 .IP -1 10  
 If the element does not have an ICE.
+\"}}}

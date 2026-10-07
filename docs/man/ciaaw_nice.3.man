@@ -30,6 +30,7 @@ ciaaw library
 \"}}}
 
 .SH DESCRIPTION
+\"{{{
 Get the number of isotopes in ICE of the element \fIs\fP.
 
 Arguments:
@@ -37,9 +38,12 @@ Arguments:
 Element symbol.
 .IP \fIn\fP 10
 Size of the string \fIs\fP.
+\"}}}
 
 .SH RETURN VALUE
+\"{{{
 .IP -1 10 
 If the provided element is incorrect.
 .IP >0 10  
 If the element has ICE.
+\"}}}

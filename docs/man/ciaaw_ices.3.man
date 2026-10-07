@@ -31,15 +31,19 @@ ciaaw library
 \"}}}
 
 .SH DESCRIPTION
+\"{{{
 Get all the isotopic compositions of the element \fIs\fP.
 
 Arguments:
 .IP \fIs\fP 10
 Element symbol.
+\"}}}
 
 .SH RETURN VALUE
+\"{{{
 .IP (n,3)array 10
 Fortran order array with the mass number, the composition and the 
 uncertainty for the \fIn\fP isotopes given by \fBciaaw_nice(3)\fP.
 .IP NULL 10 
 If the provided element is incorrect.
+\"}}}
