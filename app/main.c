@@ -48,7 +48,7 @@ static void help_text(struct option_t *options){
 int i=0;
 char buf[64];
 printf("%s\n", "Usage: ciaaw [OPTION]... ELEMENT...");
-printf("%s\n", "ciaaw - atomic weights, isotopic compositions and nuclide atomic weights.");
+printf("%s\n", "ciaaw - atomic weights, isotopic compositions and nuclides' atomic weights.");
 printf("%s\n", "");
 while(options[i].s != NULL){
     buf[0] = '\0';
