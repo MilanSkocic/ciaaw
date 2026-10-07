@@ -1,8 +1,5 @@
 r"""Setup."""
 import platform
-import shutil
-import pathlib
-import subprocess
 from setuptools import setup, Extension
 
 name = "ciaaw"
