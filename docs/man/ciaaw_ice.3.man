@@ -34,6 +34,7 @@ ciaaw library
 \"}}}
 
 .SH DESCRIPTION
+\"{{{
 Get the isotopic composition of the element \fIs\fP for the mass number \fIA\fP.
 The uncertainty can be retrieved by setting \fIu\fP=TRUE.
 
@@ -44,9 +45,12 @@ Element symbol.
 Mass number.
 .IP \fIu\fP 10
 Set to True if the uncertainty is desired. Default to FALSE.
+\"}}}
 
 .SH RETURN VALUE
+\"{{{
 .IP NaN 10 
 If the provided element or the mass number are incorrect.
 .IP -1 10  
 If the element does not have an ICE.
+\"}}}

@@ -1,11 +1,15 @@
 .TH ciaaw 3 "@DATE@" "@VERSION@" "Library calls"
 
 .SH NAME
+\" {{{
 ciaaw \- library for isotopic abundances and standard atomic weights
+\"}}}
 
 .SH LIBRARY
+\" {{{
 ciaaw library 
 .RI ( libciaaw ", " \-lciaaw )
+\"}}}
 
 .SH SYNOPSIS
 \"{{{
