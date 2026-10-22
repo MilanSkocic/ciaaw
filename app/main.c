@@ -24,7 +24,7 @@ static void version_text(){
     strcat(v, "Copyright (c) 2022 Milan Skocic\n");
     strcat(v, "License MIT\n");
     strcat(v, "\n");
-    strcat(v, "Wrtten by Milan Skocic\n");
+    strcat(v, "Written by Milan Skocic\n");
     printf("%s", v);
 }
 //}}}
@@ -34,7 +34,7 @@ static void version_text(){
 //----------------------------------------------------------------------
 //{{{
 static void usage_text(){
-    printf("%s\n", "ciaaw [-s|--saw] [-i|--ice] [-n|--naw] [-m|-mu] [-c|--colnames] [-M|--molarmass SPECIES]");
+    printf("%s\n", "ciaaw [-s|--saw] [-i|--ice] [-n|--naw] [-m|--mu] [-c|--colnames] [-M|--molarmass SPECIES]");
     printf("%s\n", "      [-u|--usage] [-v|--version] [-h|--help] ELEMENT...");
 }
 //}}}
