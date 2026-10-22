@@ -204,10 +204,11 @@ int main(int argc, char **argv){
     {"-M", "--molarmass", NULL,       "Compute the molar mass."},
     {"-u", "--usage",   NULL,        "Show usage text and exit."},
     {"-v", "--version", NULL,        "Show version information and exit."},
-    {"-h", "--help ",   NULL,        "Show help text and exit."},
+    {"-h", "--help",   NULL,        "Show help text and exit."},
     {NULL, NULL,        NULL,        NULL} };
 
     for(i=1;i<argc;i++){
+        if (strcmp(argv[i], "--") == 0) {break;} // Stop translating options after the POSIX delimiter
         s = long2short(argv[i], loptions);
         if(s!=NULL){argv[i]=s;}
     }
