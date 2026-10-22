@@ -12,7 +12,6 @@ DOCUMENTATION
   The API is written as POSIX-style man pages which are distributed with 
   the binaries. 
   
-  PDF   https://milanskocic.github.io/ciaaw/man/ciaaw-bookman.pdf
   HTML  https://milanskocic.github.io/ciaaw/index.html
 
 INSTALLATION 
