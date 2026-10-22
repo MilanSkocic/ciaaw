@@ -17,25 +17,25 @@ MANTXT=$(patsubst %, %.txt, $(MAN))
 MANGZ=$(patsubst %, %.gz, $(MAN))
 MANHTML=$(patsubst %, %.html, $(MAN))
 
-all: examples $(MAN) $(MANGZ) $(MANPDF) $(MANTXT) $(MANHTML)
+all: examples.man $(MAN) $(MANGZ) $(MANPDF) $(MANTXT) $(MANHTML)
 
-examples: 
+examples.man: concatex ../../example/example.f90 ../../example/example.c ../../example/example.py
 	./concatex
 
 $(BOOKMAN): $(MANBUILD)
 	bookman -p -a "$(FPM_AUTHOR)" -t $(FPM_NAME) -v "User Commands & Libary Functions Manual" -r $(FPM_VERSION) $(MAN) > $(BOOKMAN)
 
-ciaaw_lib.3: ciaaw_lib.3.man seealso.man examples.man
+ciaaw_lib.3: ciaaw_lib.3.man examples.man seealso.man
 	cat $< examples.man seealso.man > tmp
 	sed -E "s/@VERSION@/$(FPM_VERSION)/g;s/@DATE@/$(shell date +'%d %B %Y')/g" tmp > $@
 	rm -rfv tmp
 
-ciaaw_%.3: ciaaw_%.3.man seealso.man examples.man
+ciaaw_%.3: ciaaw_%.3.man seealso.man
 	cat $< seealso.man > tmp
 	sed -E "s/@VERSION@/$(FPM_VERSION)/g;s/@DATE@/$(shell date +'%d %B %Y')/g" tmp > $@
 	rm -rfv tmp
 
-ciaaw.1: ciaaw.1.man seealso.man examples.man
+ciaaw.1: ciaaw.1.man seealso.man
 	cat $< seealso.man > tmp
 	sed -E "s/@VERSION@/$(FPM_VERSION)/g;s/@DATE@/$(shell date +'%d %B %Y')/g" tmp > $@
 	rm -rfv tmp
