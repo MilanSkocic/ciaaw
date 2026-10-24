@@ -4,11 +4,17 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <ctype.h>
+#include <math.h>
 #include "ciaaw.h"
 #include "codata.h"
 
 #define VERSION_SIZE 256
-#define ARGS_SIZE 256
+
+#define ERR_MSG_SIZE          256
+#define ERR_INCORRECT_ELEMENT -1
+#define ERR_NO_SAW            -2
+#define ERR_BRACKETS_MISMATCH -3
+#define ERR_NOT_ALPHANUM      -4
 
 struct option_t {char *s; char *l; char *arg; char *help;};
 
@@ -90,69 +96,115 @@ return option;
 //----------------------------------------------------------------------
 
 //----------------------------------------------------------------------
-// FUNCTION: MM()
+// FUNCTION: _MM()
 //----------------------------------------------------------------------
 //{{{
-double mm(char *name){
+double _mm(char **s, char *end, int *ierr, char *errmsg){
     
-    char *s;
-    int n;
-    double m, C, M;
+    char terminator;
+    int n, i;
+    double m, m2, C, M;
     char *eptr;
     char *cptr;
     char *etok;
     char *ctok;
-
-    char *e = (char *)malloc(sizeof(char)*256);
+    bool felmt, fcoef;
+    
+    char *buf = (char *)malloc(256);
+    char *e = (char *)malloc(sizeof(char)*strlen(*s)*3);
+    char *c = (char *)malloc(sizeof(char)*strlen(*s)*3);
+    if (e == NULL || c == NULL || buf == NULL) {
+        free(e); free(c); free(buf);
+        return -1.0;
+    }
+    buf[0] = '\0';
     e[0] = '\0';
-    char *c = (char *)malloc(sizeof(char)*256);
     c[0] = '\0';
 
-    s = name;
     m = 0.0;
-
-    while((*s) != '\0'){
-        if(isupper(*s)){
+    felmt = false;
+    fcoef = false;
+    
+    terminator = '\0';
+    if(end != NULL){ terminator = *end;}
+    
+    while((**s) != terminator && (**s)!='\0'){
+        felmt = false;
+        fcoef = false;
+        if(**s==' '){(*s)++;continue;}
+        if(isupper(**s)){
+            felmt = true;
             n = strlen(e);
-            e[n] = *s;
+            e[n] = **s;
             e[n+1] = '\0';
-            s++;
-            while(islower(*s)){
+            (*s)++;
+            while(islower(**s)){
                 n = strlen(e);
-                e[n] = *s;
+                e[n] = **s;
                 e[n+1] = '\0';
-                s++;
+                (*s)++;
             }
             n = strlen(e);
             e[n] = ' ';
             e[n+1] = '\0';
-            continue;
         }
 
-        if(isdigit(*s)){
+        if(isdigit(**s)){
+            fcoef = true;
             n = strlen(c);
-            c[n] = *s;
+            c[n] = **s;
             c[n+1] = '\0';
-            s++;
-            while(isdigit(*s)){
+            (*s)++;
+            while(isdigit(**s)){
                 n = strlen(c);
-                c[n] = *s;
+                c[n] = **s;
                 c[n+1] = '\0';
-                s++;
+                (*s)++;
             }
             n = strlen(c);
             c[n] = ' ';
             c[n+1] = '\0';
+        }
+        // check for implicit coefficients e.g. KCl, H2O
+        if((felmt==true) && (fcoef==false)){
+            n = strlen(c);
+            c[n] = '1';
+            c[n+1] = ' ';
+            c[n+2] = '\0';
+        }
+        if(**s=='('){
+            (*s)++;
+            m2=_mm(s,")", ierr, errmsg);
+            i = 0;
+            while(isdigit(**s) && i<255){
+                buf[i] = **s;
+                i++;
+                (*s)++;
+            }
+            buf[i]='\0';
+            if(strlen(buf)>0){
+                m2*=atof(buf);
+            }
+            m += m2;
             continue;
         }
-
-        s++;
+        if(felmt==false && fcoef==false){ (*s)++; }
     }
-
+    if (**s == terminator && terminator != '\0') {
+        (*s)++;
+    }
     etok = strtok_r(e, " ", &eptr);
     ctok = strtok_r(c, " ", &cptr);
     while((etok!=NULL) && (ctok!=NULL)){
         M = ciaaw_saw(etok, strlen(etok), false, false);
+        if(M==-1.0){
+            *ierr = -2;
+            snprintf(errmsg, ERR_MSG_SIZE, "%s does not have a SAW.", etok);
+        }
+        if(isnan(M)){
+            *ierr = -1;
+            snprintf(errmsg, ERR_MSG_SIZE, "%s is not a valid element.", etok);
+        }
         C = atof(ctok);
         m += C*M;
         etok = strtok_r(NULL, " ", &eptr);
@@ -161,6 +213,52 @@ double mm(char *name){
 
     free(e);
     free(c);
+    free(buf);
+
+    return m;
+}
+//}}}
+//----------------------------------------------------------------------
+
+//----------------------------------------------------------------------
+// FUNCTION: MM()
+//----------------------------------------------------------------------
+//{{{
+double mm(char *s, int *ierr, char *errmsg){
+    
+    int lb, rb;
+    double m;
+    char *s2,*_s2;
+
+    *ierr = 0;
+    lb = rb = 0;
+    m = NAN;
+    s2 = (char *)malloc(sizeof(char)*strlen(s)+1);
+    strcpy(s2,s);
+
+    while(*s!='\0'){
+        if(*s=='('){lb++;s++;continue;}
+        if(*s==')'){rb++;s++;continue;}
+        if(!isalnum(*s)){
+            *ierr = ERR_NOT_ALPHANUM;
+            snprintf(errmsg, ERR_MSG_SIZE, "%c is not alphanumeric character.", *s);
+            free(s2);
+            return m;
+        }
+        s++;
+    }
+
+    if(lb!=rb){
+        *ierr = ERR_BRACKETS_MISMATCH;
+        snprintf(errmsg, ERR_MSG_SIZE, "Incorrect number of brackets: %d/%d", lb, rb);
+        free(s2);
+        return m;
+    }
+
+    _s2 = s2;
+    m = _mm(&s2, NULL, ierr, errmsg);
+    
+    free(_s2);
 
     return m;
 }
@@ -179,8 +277,13 @@ int main(int argc, char **argv){
     int nice, nnaw;
     double *ice_values;
     double *naw_values;
+    double mm_value;
     int z;
 
+    int ierr;
+    char errmsg[ERR_MSG_SIZE];
+    
+    ierr = 0;
     fsaw = false;
     fice = false;
     fnaw = false;
@@ -260,7 +363,12 @@ int main(int argc, char **argv){
     if(fspecies){
         if(fheader){printf("%-16s%-16s\n", "Species", "M-g.mol-1");}
         for(k=optind;k<argc;k++){
-            printf("%-16s%-+16.6f\n", argv[k], mm(argv[k])*MOLAR_MASS_CONSTANT.value*1000);
+            mm_value = mm(argv[k], &ierr, errmsg)*MOLAR_MASS_CONSTANT.value*1000;
+            if(ierr<0){
+                printf("[Error %d] - %s\n", ierr, errmsg);
+            }else{
+                printf("%-16s%-+16.6f\n", argv[k],mm_value);
+            }
         }
         return EXIT_SUCCESS;
     }
@@ -268,10 +376,18 @@ int main(int argc, char **argv){
     if(fsaw){
         if(fheader){printf("%-5s%-5s%-5s%-16s%-16s\n", "S", "Z", "A", "M", "dM");}
         for(k=optind;k<argc;k++){
-            x = ciaaw_saw(argv[k], strlen(argv[k]), true, false)*cmu; 
-            dx = ciaaw_saw(argv[k], strlen(argv[k]), true, true)*cmu; 
+            x = ciaaw_saw(argv[k], strlen(argv[k]), true, false); 
+            dx = ciaaw_saw(argv[k], strlen(argv[k]), true, true); 
             z = ciaaw_s2z(argv[k], strlen(argv[k]));
-            printf("%-5s%-5d%-5s%-16.6f%-16.6f\n", argv[k], z, "", x, dx);
+            if(isnan(x)){
+                printf("[Error %d] - %s is not a valid element.\n", ERR_INCORRECT_ELEMENT, argv[k]);
+                return EXIT_SUCCESS;
+            }
+            if(x<0.0){
+                printf("[Error %d] - %s does not have a SAW.\n", ERR_INCORRECT_ELEMENT, argv[k]);
+                return EXIT_SUCCESS;
+            }
+            printf("%-5s%-5d%-5s%-16.6f%-16.6f\n", argv[k], z, "", x*cmu, dx*cmu);
         }
     }
     if(fice){
@@ -281,6 +397,10 @@ int main(int argc, char **argv){
             ice_values = ciaaw_ices(argv[k], strlen(argv[k]));
             if(nice==-1){
                 printf("%s is not a valid element.\n", argv[k]);
+                return EXIT_SUCCESS;
+            }
+            if(nice==0){
+                printf("%s does not have ICEs.\n", argv[k]);
                 return EXIT_SUCCESS;
             }
             z = ciaaw_s2z(argv[k], strlen(argv[k]));
@@ -304,6 +424,10 @@ int main(int argc, char **argv){
             naw_values = ciaaw_naws(argv[k], strlen(argv[k]));
             if(nnaw==-1){
                 printf("%s is not a valid element.\n", argv[k]);
+                return EXIT_SUCCESS;
+            }
+            if(nnaw==0){
+                printf("%s does not have NAWs.\n", argv[k]);
                 return EXIT_SUCCESS;
             }
             z = ciaaw_s2z(argv[k], strlen(argv[k]));
