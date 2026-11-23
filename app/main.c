@@ -15,6 +15,8 @@
 #define ERR_NO_SAW            -2
 #define ERR_BRACKETS_MISMATCH -3
 #define ERR_NOT_ALPHANUM      -4
+#define ERR_NO_ICE            -5
+#define ERR_NO_NAW            -6
 
 struct option_t {char *s; char *l; char *arg; char *help;};
 
@@ -384,7 +386,7 @@ int main(int argc, char **argv){
                 return EXIT_SUCCESS;
             }
             if(x<0.0){
-                printf("[Error %d] - %s does not have a SAW.\n", ERR_INCORRECT_ELEMENT, argv[k]);
+                printf("[Error %d] - %s does not have a SAW.\n", ERR_NO_SAW, argv[k]);
                 return EXIT_SUCCESS;
             }
             printf("%-5s%-5d%-5s%-16.6f%-16.6f\n", argv[k], z, "", x*cmu, dx*cmu);
@@ -396,11 +398,11 @@ int main(int argc, char **argv){
             nice = ciaaw_nice(argv[k], strlen(argv[k]));
             ice_values = ciaaw_ices(argv[k], strlen(argv[k]));
             if(nice==-1){
-                printf("%s is not a valid element.\n", argv[k]);
+                printf("[Error %d] - %s is not a valid element.\n", ERR_INCORRECT_ELEMENT, argv[k]);
                 return EXIT_SUCCESS;
             }
             if(nice==0){
-                printf("%s does not have ICEs.\n", argv[k]);
+                printf("[Error %d] - %s does not have ICEs.\n", ERR_NO_ICE, argv[k]);
                 return EXIT_SUCCESS;
             }
             z = ciaaw_s2z(argv[k], strlen(argv[k]));
@@ -423,11 +425,11 @@ int main(int argc, char **argv){
             nnaw = ciaaw_nnaw(argv[k], strlen(argv[k]));
             naw_values = ciaaw_naws(argv[k], strlen(argv[k]));
             if(nnaw==-1){
-                printf("%s is not a valid element.\n", argv[k]);
+                printf("[Error %d] - %s is not a valid element.\n", ERR_INCORRECT_ELEMENT, argv[k]);
                 return EXIT_SUCCESS;
             }
             if(nnaw==0){
-                printf("%s does not have NAWs.\n", argv[k]);
+                printf("[Error %d] - %s does not have NAWs.\n", ERR_NO_NAW, argv[k]);
                 return EXIT_SUCCESS;
             }
             z = ciaaw_s2z(argv[k], strlen(argv[k]));

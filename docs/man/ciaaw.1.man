@@ -43,8 +43,7 @@ atomic weights by the molar mass constant Mu.
 \-c, \-\-colnames
 Show the headers in the outputs.
 .TP 
-.B
-\-M, \-\-molarmass SPECIES
+.BI "\-M, \-\-molarmass " SPECIES
 Compute the molar mass of the given species.
 .TP
 .B
