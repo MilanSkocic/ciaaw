@@ -168,7 +168,7 @@ function is_in_pt(z)result(res)
 integer(int32), intent(in) :: z  !! Atomic number
 logical :: res                   !! True or False
 
-if((z<1) .or. (z>size(pt))) then
+if((z<1) .or. (z>pt(size(pt))%z)) then
     res = .false.
 else
     res = .true.
