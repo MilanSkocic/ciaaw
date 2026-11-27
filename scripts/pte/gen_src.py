@@ -20,7 +20,7 @@ def write_module_start(f, n):
     f.write("implicit none(type,external)"+newline)
     f.write("private"+newline)
     f.write(newline)
-    f.write(f"type(element_type), parameter, public :: pt({n:d}) = [&"+newline)
+    f.write(f"type(element_t), parameter, public :: pt({n:d}) = [&"+newline)
 
 def write_constant(f, element, symbol, z, last, has_ice):
     
@@ -36,9 +36,9 @@ def write_constant(f, element, symbol, z, last, has_ice):
         ice = f"ice_nan" + ","
     
     if last:
-        f.write(f" element_type({e:20s} {s:10s} {z_:10s} {saw:10s} {ice:10s} {naw:10})&" + newline)
+        f.write(f" element_t({e:20s} {s:10s} {z_:10s} {saw:10s} {ice:10s} {naw:10})&" + newline)
     else:
-        f.write(f" element_type({e:20s} {s:10s} {z_:10s} {saw:10s} {ice:10s} {naw:10s}),&" + newline)
+        f.write(f" element_t({e:20s} {s:10s} {z_:10s} {saw:10s} {ice:10s} {naw:10s}),&" + newline)
     
 
 def write_module_end(f):

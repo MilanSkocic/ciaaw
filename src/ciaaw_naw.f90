@@ -10,8 +10,8 @@ use ciaaw__types
 implicit none(type,external)
 private
 
-type(naw_type), parameter, public :: H_naw = &
-naw_type(7,transpose(reshape([&
+type(naw_t), parameter, public :: H_naw = &
+naw_t(7,transpose(reshape([&
 1.0_dp,1.007825031898_dp,0.000000000014_dp,&
 2.0_dp,2.014101777844_dp,0.000000000015_dp,&
 3.0_dp,3.01604928132_dp,0.00000000008_dp,&
@@ -64,8 +64,8 @@ naw_type(7,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: He_naw = &
-naw_type(8,transpose(reshape([&
+type(naw_t), parameter, public :: He_naw = &
+naw_t(8,transpose(reshape([&
 3.0_dp,3.01602932197_dp,0.00000000006_dp,&
 4.0_dp,4.00260325413_dp,0.00000000016_dp,&
 5.0_dp,5.012057224_dp,0.000021470_dp,&
@@ -118,8 +118,8 @@ naw_type(8,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Li_naw = &
-naw_type(11,transpose(reshape([&
+type(naw_t), parameter, public :: Li_naw = &
+naw_t(11,transpose(reshape([&
 3.0_dp,3.030775_dp,0.002147_dp,&
 4.0_dp,4.027185561_dp,0.000227733_dp,&
 5.0_dp,5.012537800_dp,0.000053677_dp,&
@@ -172,8 +172,8 @@ naw_type(11,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Be_naw = &
-naw_type(12,transpose(reshape([&
+type(naw_t), parameter, public :: Be_naw = &
+naw_t(12,transpose(reshape([&
 5.0_dp,5.039870_dp,0.002150_dp,&
 6.0_dp,6.019726409_dp,0.000005848_dp,&
 7.0_dp,7.016928714_dp,0.000000076_dp,&
@@ -226,8 +226,8 @@ naw_type(12,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: B_naw = &
-naw_type(16,transpose(reshape([&
+type(naw_t), parameter, public :: B_naw = &
+naw_t(16,transpose(reshape([&
 6.0_dp,6.050800_dp,0.002150_dp,&
 7.0_dp,7.029712000_dp,0.000027000_dp,&
 8.0_dp,8.024607315_dp,0.000001073_dp,&
@@ -280,8 +280,8 @@ naw_type(16,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: C_naw = &
-naw_type(16,transpose(reshape([&
+type(naw_t), parameter, public :: C_naw = &
+naw_t(16,transpose(reshape([&
 8.0_dp,8.037643039_dp,0.000019584_dp,&
 9.0_dp,9.031037202_dp,0.000002293_dp,&
 10.0_dp,10.016853217_dp,0.000000075_dp,&
@@ -334,8 +334,8 @@ naw_type(16,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: N_naw = &
-naw_type(16,transpose(reshape([&
+type(naw_t), parameter, public :: N_naw = &
+naw_t(16,transpose(reshape([&
 10.0_dp,10.041653540_dp,0.000429417_dp,&
 11.0_dp,11.026157593_dp,0.000005368_dp,&
 12.0_dp,12.018613180_dp,0.000001073_dp,&
@@ -388,8 +388,8 @@ naw_type(16,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: O_naw = &
-naw_type(18,transpose(reshape([&
+type(naw_t), parameter, public :: O_naw = &
+naw_t(18,transpose(reshape([&
 11.0_dp,11.051249828_dp,0.000064453_dp,&
 12.0_dp,12.034367726_dp,0.000012882_dp,&
 13.0_dp,13.024815435_dp,0.000010226_dp,&
@@ -442,8 +442,8 @@ naw_type(18,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: F_naw = &
-naw_type(19,transpose(reshape([&
+type(naw_t), parameter, public :: F_naw = &
+naw_t(19,transpose(reshape([&
 13.0_dp,13.045121_dp,0.000537_dp,&
 14.0_dp,14.034315196_dp,0.000044142_dp,&
 15.0_dp,15.017785139_dp,0.000015029_dp,&
@@ -496,8 +496,8 @@ naw_type(19,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ne_naw = &
-naw_type(20,transpose(reshape([&
+type(naw_t), parameter, public :: Ne_naw = &
+naw_t(20,transpose(reshape([&
 15.0_dp,15.043172977_dp,0.000071588_dp,&
 16.0_dp,16.025750860_dp,0.000021986_dp,&
 17.0_dp,17.017713962_dp,0.000000380_dp,&
@@ -550,8 +550,8 @@ naw_type(20,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Na_naw = &
-naw_type(23,transpose(reshape([&
+type(naw_t), parameter, public :: Na_naw = &
+naw_t(23,transpose(reshape([&
 17.0_dp,17.037273000_dp,0.000064000_dp,&
 18.0_dp,18.026879388_dp,0.000100785_dp,&
 19.0_dp,19.013880264_dp,0.000011309_dp,&
@@ -604,8 +604,8 @@ naw_type(23,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Mg_naw = &
-naw_type(23,transpose(reshape([&
+type(naw_t), parameter, public :: Mg_naw = &
+naw_t(23,transpose(reshape([&
 19.0_dp,19.034179920_dp,0.000064413_dp,&
 20.0_dp,20.018763075_dp,0.000002000_dp,&
 21.0_dp,21.011705764_dp,0.000000810_dp,&
@@ -658,8 +658,8 @@ naw_type(23,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Al_naw = &
-naw_type(23,transpose(reshape([&
+type(naw_t), parameter, public :: Al_naw = &
+naw_t(23,transpose(reshape([&
 21.0_dp,21.029082_dp,0.000644_dp,&
 22.0_dp,22.019540_dp,0.000430_dp,&
 23.0_dp,23.007244351_dp,0.000000370_dp,&
@@ -712,8 +712,8 @@ naw_type(23,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Si_naw = &
-naw_type(24,transpose(reshape([&
+type(naw_t), parameter, public :: Si_naw = &
+naw_t(24,transpose(reshape([&
 22.0_dp,22.036114_dp,0.000537_dp,&
 23.0_dp,23.025711_dp,0.000537_dp,&
 24.0_dp,24.011535430_dp,0.000020904_dp,&
@@ -766,8 +766,8 @@ naw_type(24,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: P_naw = &
-naw_type(24,transpose(reshape([&
+type(naw_t), parameter, public :: P_naw = &
+naw_t(24,transpose(reshape([&
 24.0_dp,24.036522_dp,0.000537_dp,&
 25.0_dp,25.021675_dp,0.000429_dp,&
 26.0_dp,26.011780_dp,0.000210_dp,&
@@ -820,8 +820,8 @@ naw_type(24,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: S_naw = &
-naw_type(24,transpose(reshape([&
+type(naw_t), parameter, public :: S_naw = &
+naw_t(24,transpose(reshape([&
 26.0_dp,26.029716_dp,0.000644_dp,&
 27.0_dp,27.018777_dp,0.000430_dp,&
 28.0_dp,28.004372762_dp,0.000171767_dp,&
@@ -874,8 +874,8 @@ naw_type(24,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Cl_naw = &
-naw_type(25,transpose(reshape([&
+type(naw_t), parameter, public :: Cl_naw = &
+naw_t(25,transpose(reshape([&
 28.0_dp,28.030349_dp,0.000537_dp,&
 29.0_dp,29.015053_dp,0.000203_dp,&
 30.0_dp,30.005018333_dp,0.000025631_dp,&
@@ -928,8 +928,8 @@ naw_type(25,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ar_naw = &
-naw_type(26,transpose(reshape([&
+type(naw_t), parameter, public :: Ar_naw = &
+naw_t(26,transpose(reshape([&
 29.0_dp,29.040761_dp,0.000471_dp,&
 30.0_dp,30.023694_dp,0.000192_dp,&
 31.0_dp,31.012158_dp,0.000215_dp,&
@@ -982,8 +982,8 @@ naw_type(26,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: K_naw = &
-naw_type(29,transpose(reshape([&
+type(naw_t), parameter, public :: K_naw = &
+naw_t(29,transpose(reshape([&
 31.0_dp,31.036780_dp,0.000322_dp,&
 32.0_dp,32.023607_dp,0.000429_dp,&
 33.0_dp,33.008095_dp,0.000215_dp,&
@@ -1036,8 +1036,8 @@ naw_type(29,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ca_naw = &
-naw_type(29,transpose(reshape([&
+type(naw_t), parameter, public :: Ca_naw = &
+naw_t(29,transpose(reshape([&
 33.0_dp,33.033312_dp,0.000429_dp,&
 34.0_dp,34.015985_dp,0.000322_dp,&
 35.0_dp,35.005572_dp,0.000215_dp,&
@@ -1090,8 +1090,8 @@ naw_type(29,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Sc_naw = &
-naw_type(29,transpose(reshape([&
+type(naw_t), parameter, public :: Sc_naw = &
+naw_t(29,transpose(reshape([&
 35.0_dp,35.029093_dp,0.000429_dp,&
 36.0_dp,36.017338_dp,0.000322_dp,&
 37.0_dp,37.004058_dp,0.000322_dp,&
@@ -1144,8 +1144,8 @@ naw_type(29,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ti_naw = &
-naw_type(29,transpose(reshape([&
+type(naw_t), parameter, public :: Ti_naw = &
+naw_t(29,transpose(reshape([&
 37.0_dp,37.027021_dp,0.000429_dp,&
 38.0_dp,38.012206_dp,0.000322_dp,&
 39.0_dp,39.002684_dp,0.000215_dp,&
@@ -1198,8 +1198,8 @@ naw_type(29,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: V_naw = &
-naw_type(29,transpose(reshape([&
+type(naw_t), parameter, public :: V_naw = &
+naw_t(29,transpose(reshape([&
 39.0_dp,39.024230_dp,0.000429_dp,&
 40.0_dp,40.013387_dp,0.000322_dp,&
 41.0_dp,41.000333_dp,0.000215_dp,&
@@ -1252,8 +1252,8 @@ naw_type(29,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Cr_naw = &
-naw_type(30,transpose(reshape([&
+type(naw_t), parameter, public :: Cr_naw = &
+naw_t(30,transpose(reshape([&
 41.0_dp,41.021911_dp,0.000429_dp,&
 42.0_dp,42.007579_dp,0.000322_dp,&
 43.0_dp,42.997885_dp,0.000215_dp,&
@@ -1306,8 +1306,8 @@ naw_type(30,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Mn_naw = &
-naw_type(31,transpose(reshape([&
+type(naw_t), parameter, public :: Mn_naw = &
+naw_t(31,transpose(reshape([&
 43.0_dp,43.018647_dp,0.000429_dp,&
 44.0_dp,44.008009_dp,0.000322_dp,&
 45.0_dp,44.994654_dp,0.000322_dp,&
@@ -1360,8 +1360,8 @@ naw_type(31,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Fe_naw = &
-naw_type(32,transpose(reshape([&
+type(naw_t), parameter, public :: Fe_naw = &
+naw_t(32,transpose(reshape([&
 45.0_dp,45.015467_dp,0.000304_dp,&
 46.0_dp,46.001299_dp,0.000322_dp,&
 47.0_dp,46.992346_dp,0.000537_dp,&
@@ -1414,8 +1414,8 @@ naw_type(32,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Co_naw = &
-naw_type(32,transpose(reshape([&
+type(naw_t), parameter, public :: Co_naw = &
+naw_t(32,transpose(reshape([&
 47.0_dp,47.011401_dp,0.000644_dp,&
 48.0_dp,48.001857_dp,0.000537_dp,&
 49.0_dp,48.989501_dp,0.000537_dp,&
@@ -1468,8 +1468,8 @@ naw_type(32,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ni_naw = &
-naw_type(35,transpose(reshape([&
+type(naw_t), parameter, public :: Ni_naw = &
+naw_t(35,transpose(reshape([&
 48.0_dp,48.019515_dp,0.000455_dp,&
 49.0_dp,49.009157_dp,0.000644_dp,&
 50.0_dp,49.996286_dp,0.000537_dp,&
@@ -1522,8 +1522,8 @@ naw_type(35,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Cu_naw = &
-naw_type(33,transpose(reshape([&
+type(naw_t), parameter, public :: Cu_naw = &
+naw_t(33,transpose(reshape([&
 52.0_dp,51.997982_dp,0.000644_dp,&
 53.0_dp,52.985894_dp,0.000537_dp,&
 54.0_dp,53.977198_dp,0.000429_dp,&
@@ -1576,8 +1576,8 @@ naw_type(33,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Zn_naw = &
-naw_type(33,transpose(reshape([&
+type(naw_t), parameter, public :: Zn_naw = &
+naw_t(33,transpose(reshape([&
 54.0_dp,53.993879_dp,0.000232_dp,&
 55.0_dp,54.984681_dp,0.000429_dp,&
 56.0_dp,55.972743_dp,0.000429_dp,&
@@ -1630,8 +1630,8 @@ naw_type(33,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ga_naw = &
-naw_type(33,transpose(reshape([&
+type(naw_t), parameter, public :: Ga_naw = &
+naw_t(33,transpose(reshape([&
 56.0_dp,55.995878_dp,0.000537_dp,&
 57.0_dp,56.983457_dp,0.000429_dp,&
 58.0_dp,57.974729_dp,0.000322_dp,&
@@ -1684,8 +1684,8 @@ naw_type(33,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ge_naw = &
-naw_type(33,transpose(reshape([&
+type(naw_t), parameter, public :: Ge_naw = &
+naw_t(33,transpose(reshape([&
 58.0_dp,57.991863_dp,0.000537_dp,&
 59.0_dp,58.982426_dp,0.000429_dp,&
 60.0_dp,59.970445_dp,0.000322_dp,&
@@ -1738,8 +1738,8 @@ naw_type(33,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: As_naw = &
-naw_type(33,transpose(reshape([&
+type(naw_t), parameter, public :: As_naw = &
+naw_t(33,transpose(reshape([&
 60.0_dp,59.993945_dp,0.000429_dp,&
 61.0_dp,60.981535_dp,0.000322_dp,&
 62.0_dp,61.973784_dp,0.000322_dp,&
@@ -1792,8 +1792,8 @@ naw_type(33,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Se_naw = &
-naw_type(33,transpose(reshape([&
+type(naw_t), parameter, public :: Se_naw = &
+naw_t(33,transpose(reshape([&
 63.0_dp,62.981911_dp,0.000537_dp,&
 64.0_dp,63.971165_dp,0.000537_dp,&
 65.0_dp,64.964552_dp,0.000322_dp,&
@@ -1846,8 +1846,8 @@ naw_type(33,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Br_naw = &
-naw_type(34,transpose(reshape([&
+type(naw_t), parameter, public :: Br_naw = &
+naw_t(34,transpose(reshape([&
 65.0_dp,64.982297_dp,0.000537_dp,&
 66.0_dp,65.974697_dp,0.000429_dp,&
 67.0_dp,66.965078_dp,0.000322_dp,&
@@ -1900,8 +1900,8 @@ naw_type(34,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Kr_naw = &
-naw_type(35,transpose(reshape([&
+type(naw_t), parameter, public :: Kr_naw = &
+naw_t(35,transpose(reshape([&
 67.0_dp,66.983305_dp,0.000455_dp,&
 68.0_dp,67.972489_dp,0.000537_dp,&
 69.0_dp,68.965496_dp,0.000322_dp,&
@@ -1954,8 +1954,8 @@ naw_type(35,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Rb_naw = &
-naw_type(34,transpose(reshape([&
+type(naw_t), parameter, public :: Rb_naw = &
+naw_t(34,transpose(reshape([&
 71.0_dp,70.965335_dp,0.000429_dp,&
 72.0_dp,71.958851_dp,0.000537_dp,&
 73.0_dp,72.950604506_dp,0.000043794_dp,&
@@ -2008,8 +2008,8 @@ naw_type(34,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Sr_naw = &
-naw_type(35,transpose(reshape([&
+type(naw_t), parameter, public :: Sr_naw = &
+naw_t(35,transpose(reshape([&
 73.0_dp,72.965700_dp,0.000430_dp,&
 74.0_dp,73.956170_dp,0.000107_dp,&
 75.0_dp,74.949952767_dp,0.000236183_dp,&
@@ -2062,8 +2062,8 @@ naw_type(35,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Y_naw = &
-naw_type(35,transpose(reshape([&
+type(naw_t), parameter, public :: Y_naw = &
+naw_t(35,transpose(reshape([&
 75.0_dp,74.965840_dp,0.000322_dp,&
 76.0_dp,75.958937_dp,0.000322_dp,&
 77.0_dp,76.950146_dp,0.000218_dp,&
@@ -2116,8 +2116,8 @@ naw_type(35,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Zr_naw = &
-naw_type(37,transpose(reshape([&
+type(naw_t), parameter, public :: Zr_naw = &
+naw_t(37,transpose(reshape([&
 77.0_dp,76.966076_dp,0.000429_dp,&
 78.0_dp,77.956146_dp,0.000429_dp,&
 79.0_dp,78.949790_dp,0.000322_dp,&
@@ -2170,8 +2170,8 @@ naw_type(37,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Nb_naw = &
-naw_type(38,transpose(reshape([&
+type(naw_t), parameter, public :: Nb_naw = &
+naw_t(38,transpose(reshape([&
 79.0_dp,78.966022_dp,0.000537_dp,&
 80.0_dp,79.958754_dp,0.000429_dp,&
 81.0_dp,80.950230_dp,0.000429_dp,&
@@ -2224,8 +2224,8 @@ naw_type(38,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Mo_naw = &
-naw_type(39,transpose(reshape([&
+type(naw_t), parameter, public :: Mo_naw = &
+naw_t(39,transpose(reshape([&
 81.0_dp,80.966226_dp,0.000537_dp,&
 82.0_dp,81.956661_dp,0.000429_dp,&
 83.0_dp,82.950252_dp,0.000430_dp,&
@@ -2278,8 +2278,8 @@ naw_type(39,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Tc_naw = &
-naw_type(40,transpose(reshape([&
+type(naw_t), parameter, public :: Tc_naw = &
+naw_t(40,transpose(reshape([&
 83.0_dp,82.966377_dp,0.000537_dp,&
 84.0_dp,83.959527_dp,0.000429_dp,&
 85.0_dp,84.950778_dp,0.000429_dp,&
@@ -2332,8 +2332,8 @@ naw_type(40,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ru_naw = &
-naw_type(41,transpose(reshape([&
+type(naw_t), parameter, public :: Ru_naw = &
+naw_t(41,transpose(reshape([&
 85.0_dp,84.967117_dp,0.000537_dp,&
 86.0_dp,85.957305_dp,0.000429_dp,&
 87.0_dp,86.950907_dp,0.000429_dp,&
@@ -2386,8 +2386,8 @@ naw_type(41,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Rh_naw = &
-naw_type(41,transpose(reshape([&
+type(naw_t), parameter, public :: Rh_naw = &
+naw_t(41,transpose(reshape([&
 88.0_dp,87.960429_dp,0.000429_dp,&
 89.0_dp,88.950992_dp,0.000387_dp,&
 90.0_dp,89.944569_dp,0.000215_dp,&
@@ -2440,8 +2440,8 @@ naw_type(41,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Pd_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: Pd_naw = &
+naw_t(42,transpose(reshape([&
 90.0_dp,89.957370_dp,0.000429_dp,&
 91.0_dp,90.950435_dp,0.000454_dp,&
 92.0_dp,91.941192225_dp,0.000370402_dp,&
@@ -2494,8 +2494,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ag_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: Ag_naw = &
+naw_t(42,transpose(reshape([&
 92.0_dp,91.959710_dp,0.000429_dp,&
 93.0_dp,92.950188_dp,0.000430_dp,&
 94.0_dp,93.943744_dp,0.000429_dp,&
@@ -2548,8 +2548,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Cd_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: Cd_naw = &
+naw_t(42,transpose(reshape([&
 94.0_dp,93.956586_dp,0.000537_dp,&
 95.0_dp,94.949483_dp,0.000607_dp,&
 96.0_dp,95.940341_dp,0.000440_dp,&
@@ -2602,8 +2602,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: In_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: In_naw = &
+naw_t(42,transpose(reshape([&
 96.0_dp,95.959109_dp,0.000537_dp,&
 97.0_dp,96.949125_dp,0.000430_dp,&
 98.0_dp,97.942129_dp,0.000327_dp,&
@@ -2656,8 +2656,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Sn_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: Sn_naw = &
+naw_t(42,transpose(reshape([&
 99.0_dp,98.948495_dp,0.000625_dp,&
 100.0_dp,99.938648944_dp,0.000257661_dp,&
 101.0_dp,100.935259252_dp,0.000322068_dp,&
@@ -2710,8 +2710,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Sb_naw = &
-naw_type(41,transpose(reshape([&
+type(naw_t), parameter, public :: Sb_naw = &
+naw_t(41,transpose(reshape([&
 102.0_dp,101.945142_dp,0.000429_dp,&
 103.0_dp,102.939162_dp,0.000322_dp,&
 104.0_dp,103.936344_dp,0.000109_dp,&
@@ -2764,8 +2764,8 @@ naw_type(41,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Te_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: Te_naw = &
+naw_t(42,transpose(reshape([&
 104.0_dp,103.946723408_dp,0.000340967_dp,&
 105.0_dp,104.943304516_dp,0.000322084_dp,&
 106.0_dp,105.937498521_dp,0.000107934_dp,&
@@ -2818,8 +2818,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: I_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: I_naw = &
+naw_t(42,transpose(reshape([&
 106.0_dp,105.953516_dp,0.000429_dp,&
 107.0_dp,106.946935_dp,0.000322_dp,&
 108.0_dp,107.943348_dp,0.000109_dp,&
@@ -2872,8 +2872,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Xe_naw = &
-naw_type(43,transpose(reshape([&
+type(naw_t), parameter, public :: Xe_naw = &
+naw_t(43,transpose(reshape([&
 108.0_dp,107.954232285_dp,0.000407406_dp,&
 109.0_dp,108.950434955_dp,0.000322178_dp,&
 110.0_dp,109.944258759_dp,0.000108415_dp,&
@@ -2926,8 +2926,8 @@ naw_type(43,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Cs_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: Cs_naw = &
+naw_t(42,transpose(reshape([&
 111.0_dp,110.953945_dp,0.000215_dp,&
 112.0_dp,111.950172_dp,0.000124_dp,&
 113.0_dp,112.944428484_dp,0.000009207_dp,&
@@ -2980,8 +2980,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ba_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: Ba_naw = &
+naw_t(42,transpose(reshape([&
 113.0_dp,112.957370_dp,0.000322_dp,&
 114.0_dp,113.950718489_dp,0.000110227_dp,&
 115.0_dp,114.947482_dp,0.000215_dp,&
@@ -3034,8 +3034,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: La_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: La_naw = &
+naw_t(42,transpose(reshape([&
 116.0_dp,115.957005_dp,0.000345_dp,&
 117.0_dp,116.950326_dp,0.000215_dp,&
 118.0_dp,117.946731_dp,0.000322_dp,&
@@ -3088,8 +3088,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ce_naw = &
-naw_type(41,transpose(reshape([&
+type(naw_t), parameter, public :: Ce_naw = &
+naw_t(41,transpose(reshape([&
 119.0_dp,118.952957_dp,0.000537_dp,&
 120.0_dp,119.946613_dp,0.000537_dp,&
 121.0_dp,120.943435_dp,0.000430_dp,&
@@ -3142,8 +3142,8 @@ naw_type(41,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Pr_naw = &
-naw_type(41,transpose(reshape([&
+type(naw_t), parameter, public :: Pr_naw = &
+naw_t(41,transpose(reshape([&
 121.0_dp,120.955393_dp,0.000537_dp,&
 122.0_dp,121.951927_dp,0.000537_dp,&
 123.0_dp,122.946076_dp,0.000429_dp,&
@@ -3196,8 +3196,8 @@ naw_type(41,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Nd_naw = &
-naw_type(40,transpose(reshape([&
+type(naw_t), parameter, public :: Nd_naw = &
+naw_t(40,transpose(reshape([&
 124.0_dp,123.951873_dp,0.000537_dp,&
 125.0_dp,124.948395_dp,0.000429_dp,&
 126.0_dp,125.942694_dp,0.000322_dp,&
@@ -3250,8 +3250,8 @@ naw_type(40,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Pm_naw = &
-naw_type(40,transpose(reshape([&
+type(naw_t), parameter, public :: Pm_naw = &
+naw_t(40,transpose(reshape([&
 126.0_dp,125.957327_dp,0.000537_dp,&
 127.0_dp,126.951358_dp,0.000429_dp,&
 128.0_dp,127.948234_dp,0.000322_dp,&
@@ -3304,8 +3304,8 @@ naw_type(40,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Sm_naw = &
-naw_type(41,transpose(reshape([&
+type(naw_t), parameter, public :: Sm_naw = &
+naw_t(41,transpose(reshape([&
 128.0_dp,127.957971_dp,0.000537_dp,&
 129.0_dp,128.954557_dp,0.000537_dp,&
 130.0_dp,129.948792_dp,0.000429_dp,&
@@ -3358,8 +3358,8 @@ naw_type(41,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Eu_naw = &
-naw_type(41,transpose(reshape([&
+type(naw_t), parameter, public :: Eu_naw = &
+naw_t(41,transpose(reshape([&
 130.0_dp,129.964022_dp,0.000578_dp,&
 131.0_dp,130.957634_dp,0.000429_dp,&
 132.0_dp,131.954696_dp,0.000429_dp,&
@@ -3412,8 +3412,8 @@ naw_type(41,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Gd_naw = &
-naw_type(40,transpose(reshape([&
+type(naw_t), parameter, public :: Gd_naw = &
+naw_t(40,transpose(reshape([&
 133.0_dp,132.961288_dp,0.000537_dp,&
 134.0_dp,133.955416_dp,0.000429_dp,&
 135.0_dp,134.952496_dp,0.000429_dp,&
@@ -3466,8 +3466,8 @@ naw_type(40,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Tb_naw = &
-naw_type(40,transpose(reshape([&
+type(naw_t), parameter, public :: Tb_naw = &
+naw_t(40,transpose(reshape([&
 135.0_dp,134.964516_dp,0.000429_dp,&
 136.0_dp,135.961460_dp,0.000537_dp,&
 137.0_dp,136.956020_dp,0.000430_dp,&
@@ -3520,8 +3520,8 @@ naw_type(40,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Dy_naw = &
-naw_type(39,transpose(reshape([&
+type(naw_t), parameter, public :: Dy_naw = &
+naw_t(39,transpose(reshape([&
 138.0_dp,137.962500_dp,0.000540_dp,&
 139.0_dp,138.959527_dp,0.000537_dp,&
 140.0_dp,139.954020_dp,0.000430_dp,&
@@ -3574,8 +3574,8 @@ naw_type(39,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ho_naw = &
-naw_type(39,transpose(reshape([&
+type(naw_t), parameter, public :: Ho_naw = &
+naw_t(39,transpose(reshape([&
 140.0_dp,139.968526_dp,0.000537_dp,&
 141.0_dp,140.963108_dp,0.000430_dp,&
 142.0_dp,141.960010_dp,0.000430_dp,&
@@ -3628,8 +3628,8 @@ naw_type(39,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Er_naw = &
-naw_type(39,transpose(reshape([&
+type(naw_t), parameter, public :: Er_naw = &
+naw_t(39,transpose(reshape([&
 142.0_dp,141.970016_dp,0.000537_dp,&
 143.0_dp,142.966548_dp,0.000429_dp,&
 144.0_dp,143.960700_dp,0.000210_dp,&
@@ -3682,8 +3682,8 @@ naw_type(39,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Tm_naw = &
-naw_type(39,transpose(reshape([&
+type(naw_t), parameter, public :: Tm_naw = &
+naw_t(39,transpose(reshape([&
 144.0_dp,143.976211_dp,0.000429_dp,&
 145.0_dp,144.970389_dp,0.000210_dp,&
 146.0_dp,145.966661_dp,0.000215_dp,&
@@ -3736,8 +3736,8 @@ naw_type(39,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Yb_naw = &
-naw_type(38,transpose(reshape([&
+type(naw_t), parameter, public :: Yb_naw = &
+naw_t(38,transpose(reshape([&
 148.0_dp,147.967547_dp,0.000429_dp,&
 149.0_dp,148.964219_dp,0.000322_dp,&
 150.0_dp,149.958314_dp,0.000322_dp,&
@@ -3790,8 +3790,8 @@ naw_type(38,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Lu_naw = &
-naw_type(39,transpose(reshape([&
+type(naw_t), parameter, public :: Lu_naw = &
+naw_t(39,transpose(reshape([&
 150.0_dp,149.973407_dp,0.000322_dp,&
 151.0_dp,150.967471_dp,0.000322_dp,&
 152.0_dp,151.964120_dp,0.000210_dp,&
@@ -3844,8 +3844,8 @@ naw_type(39,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Hf_naw = &
-naw_type(38,transpose(reshape([&
+type(naw_t), parameter, public :: Hf_naw = &
+naw_t(38,transpose(reshape([&
 153.0_dp,152.970692_dp,0.000322_dp,&
 154.0_dp,153.964863_dp,0.000322_dp,&
 155.0_dp,154.963167_dp,0.000322_dp,&
@@ -3898,8 +3898,8 @@ naw_type(38,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ta_naw = &
-naw_type(40,transpose(reshape([&
+type(naw_t), parameter, public :: Ta_naw = &
+naw_t(40,transpose(reshape([&
 155.0_dp,154.974248_dp,0.000322_dp,&
 156.0_dp,155.972087_dp,0.000322_dp,&
 157.0_dp,156.968227445_dp,0.000161087_dp,&
@@ -3952,8 +3952,8 @@ naw_type(40,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: W_naw = &
-naw_type(41,transpose(reshape([&
+type(naw_t), parameter, public :: W_naw = &
+naw_t(41,transpose(reshape([&
 157.0_dp,156.978862_dp,0.000429_dp,&
 158.0_dp,157.974565_dp,0.000322_dp,&
 159.0_dp,158.972696_dp,0.000322_dp,&
@@ -4006,8 +4006,8 @@ naw_type(41,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Re_naw = &
-naw_type(41,transpose(reshape([&
+type(naw_t), parameter, public :: Re_naw = &
+naw_t(41,transpose(reshape([&
 159.0_dp,158.984106_dp,0.000327_dp,&
 160.0_dp,159.981880_dp,0.000322_dp,&
 161.0_dp,160.977624313_dp,0.000160930_dp,&
@@ -4060,8 +4060,8 @@ naw_type(41,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Os_naw = &
-naw_type(43,transpose(reshape([&
+type(naw_t), parameter, public :: Os_naw = &
+naw_t(43,transpose(reshape([&
 161.0_dp,160.989054_dp,0.000429_dp,&
 162.0_dp,161.984434_dp,0.000322_dp,&
 163.0_dp,162.982462_dp,0.000322_dp,&
@@ -4114,8 +4114,8 @@ naw_type(43,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ir_naw = &
-naw_type(43,transpose(reshape([&
+type(naw_t), parameter, public :: Ir_naw = &
+naw_t(43,transpose(reshape([&
 163.0_dp,162.994299_dp,0.000429_dp,&
 164.0_dp,163.991966_dp,0.000339_dp,&
 165.0_dp,164.987552_dp,0.000170_dp,&
@@ -4168,8 +4168,8 @@ naw_type(43,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Pt_naw = &
-naw_type(44,transpose(reshape([&
+type(naw_t), parameter, public :: Pt_naw = &
+naw_t(44,transpose(reshape([&
 165.0_dp,164.999658_dp,0.000429_dp,&
 166.0_dp,165.994866_dp,0.000322_dp,&
 167.0_dp,166.992750_dp,0.000329_dp,&
@@ -4222,8 +4222,8 @@ naw_type(44,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Au_naw = &
-naw_type(43,transpose(reshape([&
+type(naw_t), parameter, public :: Au_naw = &
+naw_t(43,transpose(reshape([&
 168.0_dp,168.002716_dp,0.000429_dp,&
 169.0_dp,168.998080_dp,0.000320_dp,&
 170.0_dp,169.996024_dp,0.000216_dp,&
@@ -4276,8 +4276,8 @@ naw_type(43,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Hg_naw = &
-naw_type(47,transpose(reshape([&
+type(naw_t), parameter, public :: Hg_naw = &
+naw_t(47,transpose(reshape([&
 170.0_dp,170.005814_dp,0.000324_dp,&
 171.0_dp,171.003585_dp,0.000329_dp,&
 172.0_dp,171.998860581_dp,0.000161098_dp,&
@@ -4330,8 +4330,8 @@ naw_type(47,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Tl_naw = &
-naw_type(43,transpose(reshape([&
+type(naw_t), parameter, public :: Tl_naw = &
+naw_t(43,transpose(reshape([&
 176.0_dp,176.000627731_dp,0.000089166_dp,&
 177.0_dp,176.996414252_dp,0.000023218_dp,&
 178.0_dp,177.995047_dp,0.000110_dp,&
@@ -4384,8 +4384,8 @@ naw_type(43,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Pb_naw = &
-naw_type(43,transpose(reshape([&
+type(naw_t), parameter, public :: Pb_naw = &
+naw_t(43,transpose(reshape([&
 178.0_dp,178.003836171_dp,0.000024889_dp,&
 179.0_dp,179.002202492_dp,0.000087203_dp,&
 180.0_dp,179.997916177_dp,0.000013306_dp,&
@@ -4438,8 +4438,8 @@ naw_type(43,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Bi_naw = &
-naw_type(41,transpose(reshape([&
+type(naw_t), parameter, public :: Bi_naw = &
+naw_t(41,transpose(reshape([&
 184.0_dp,184.001347_dp,0.000131_dp,&
 185.0_dp,184.997600_dp,0.000087_dp,&
 186.0_dp,185.996623169_dp,0.000018200_dp,&
@@ -4492,8 +4492,8 @@ naw_type(41,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Po_naw = &
-naw_type(42,transpose(reshape([&
+type(naw_t), parameter, public :: Po_naw = &
+naw_t(42,transpose(reshape([&
 186.0_dp,186.004403174_dp,0.000019622_dp,&
 187.0_dp,187.003031482_dp,0.000035030_dp,&
 188.0_dp,187.999415586_dp,0.000021438_dp,&
@@ -4546,8 +4546,8 @@ naw_type(42,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: At_naw = &
-naw_type(39,transpose(reshape([&
+type(naw_t), parameter, public :: At_naw = &
+naw_t(39,transpose(reshape([&
 191.0_dp,191.004148081_dp,0.000017287_dp,&
 192.0_dp,192.003140912_dp,0.000029922_dp,&
 193.0_dp,192.999927725_dp,0.000023222_dp,&
@@ -4600,8 +4600,8 @@ naw_type(39,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Rn_naw = &
-naw_type(39,transpose(reshape([&
+type(naw_t), parameter, public :: Rn_naw = &
+naw_t(39,transpose(reshape([&
 193.0_dp,193.009707973_dp,0.000026958_dp,&
 194.0_dp,194.006145636_dp,0.000017884_dp,&
 195.0_dp,195.005421703_dp,0.000055487_dp,&
@@ -4654,8 +4654,8 @@ naw_type(39,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Fr_naw = &
-naw_type(37,transpose(reshape([&
+type(naw_t), parameter, public :: Fr_naw = &
+naw_t(37,transpose(reshape([&
 197.0_dp,197.011008086_dp,0.000060584_dp,&
 198.0_dp,198.010282081_dp,0.000033419_dp,&
 199.0_dp,199.007269384_dp,0.000014734_dp,&
@@ -4708,8 +4708,8 @@ naw_type(37,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ra_naw = &
-naw_type(35,transpose(reshape([&
+type(naw_t), parameter, public :: Ra_naw = &
+naw_t(35,transpose(reshape([&
 201.0_dp,201.012814699_dp,0.000021794_dp,&
 202.0_dp,202.009742305_dp,0.000016122_dp,&
 203.0_dp,203.009233907_dp,0.000010400_dp,&
@@ -4762,8 +4762,8 @@ naw_type(35,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ac_naw = &
-naw_type(33,transpose(reshape([&
+type(naw_t), parameter, public :: Ac_naw = &
+naw_t(33,transpose(reshape([&
 205.0_dp,205.015144152_dp,0.000063682_dp,&
 206.0_dp,206.014476477_dp,0.000069874_dp,&
 207.0_dp,207.011965967_dp,0.000060384_dp,&
@@ -4816,8 +4816,8 @@ naw_type(33,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Th_naw = &
-naw_type(32,transpose(reshape([&
+type(naw_t), parameter, public :: Th_naw = &
+naw_t(32,transpose(reshape([&
 208.0_dp,208.017915348_dp,0.000034208_dp,&
 209.0_dp,209.017601_dp,0.000111_dp,&
 210.0_dp,210.015093515_dp,0.000020299_dp,&
@@ -4870,8 +4870,8 @@ naw_type(32,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Pa_naw = &
-naw_type(31,transpose(reshape([&
+type(naw_t), parameter, public :: Pa_naw = &
+naw_t(31,transpose(reshape([&
 211.0_dp,211.023674036_dp,0.000074581_dp,&
 212.0_dp,212.023184819_dp,0.000094047_dp,&
 213.0_dp,213.021099644_dp,0.000061374_dp,&
@@ -4924,8 +4924,8 @@ naw_type(31,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: U_naw = &
-naw_type(29,transpose(reshape([&
+type(naw_t), parameter, public :: U_naw = &
+naw_t(29,transpose(reshape([&
 215.0_dp,215.026719774_dp,0.000111794_dp,&
 216.0_dp,216.024762829_dp,0.000030158_dp,&
 217.0_dp,217.024660_dp,0.000086_dp,&
@@ -4978,8 +4978,8 @@ naw_type(29,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Np_naw = &
-naw_type(27,transpose(reshape([&
+type(naw_t), parameter, public :: Np_naw = &
+naw_t(27,transpose(reshape([&
 219.0_dp,219.031601865_dp,0.000098732_dp,&
 220.0_dp,220.032716280_dp,0.000032977_dp,&
 221.0_dp,221.032110_dp,0.000215_dp,&
@@ -5032,8 +5032,8 @@ naw_type(27,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Pu_naw = &
-naw_type(27,transpose(reshape([&
+type(naw_t), parameter, public :: Pu_naw = &
+naw_t(27,transpose(reshape([&
 221.0_dp,221.038572_dp,0.000322_dp,&
 222.0_dp,222.037638_dp,0.000322_dp,&
 223.0_dp,223.038777_dp,0.000322_dp,&
@@ -5086,8 +5086,8 @@ naw_type(27,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Am_naw = &
-naw_type(27,transpose(reshape([&
+type(naw_t), parameter, public :: Am_naw = &
+naw_t(27,transpose(reshape([&
 223.0_dp,223.045840_dp,0.000322_dp,&
 224.0_dp,224.046442_dp,0.000429_dp,&
 225.0_dp,225.045508_dp,0.000429_dp,&
@@ -5140,8 +5140,8 @@ naw_type(27,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Cm_naw = &
-naw_type(22,transpose(reshape([&
+type(naw_t), parameter, public :: Cm_naw = &
+naw_t(22,transpose(reshape([&
 231.0_dp,231.050746_dp,0.000322_dp,&
 232.0_dp,232.049740_dp,0.000216_dp,&
 233.0_dp,233.050771485_dp,0.000087059_dp,&
@@ -5194,8 +5194,8 @@ naw_type(22,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Bk_naw = &
-naw_type(22,transpose(reshape([&
+type(naw_t), parameter, public :: Bk_naw = &
+naw_t(22,transpose(reshape([&
 233.0_dp,233.056652_dp,0.000250_dp,&
 234.0_dp,234.057322_dp,0.000164_dp,&
 235.0_dp,235.056651_dp,0.000430_dp,&
@@ -5248,8 +5248,8 @@ naw_type(22,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Cf_naw = &
-naw_type(20,transpose(reshape([&
+type(naw_t), parameter, public :: Cf_naw = &
+naw_t(20,transpose(reshape([&
 237.0_dp,237.062199272_dp,0.000104506_dp,&
 238.0_dp,238.061490_dp,0.000320_dp,&
 239.0_dp,239.062482_dp,0.000129_dp,&
@@ -5302,8 +5302,8 @@ naw_type(20,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Es_naw = &
-naw_type(20,transpose(reshape([&
+type(naw_t), parameter, public :: Es_naw = &
+naw_t(20,transpose(reshape([&
 239.0_dp,239.068310_dp,0.000322_dp,&
 240.0_dp,240.068949_dp,0.000393_dp,&
 241.0_dp,241.068592_dp,0.000248_dp,&
@@ -5356,8 +5356,8 @@ naw_type(20,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Fm_naw = &
-naw_type(20,transpose(reshape([&
+type(naw_t), parameter, public :: Fm_naw = &
+naw_t(20,transpose(reshape([&
 241.0_dp,241.074311_dp,0.000322_dp,&
 242.0_dp,242.073430_dp,0.000430_dp,&
 243.0_dp,243.074414_dp,0.000140_dp,&
@@ -5410,8 +5410,8 @@ naw_type(20,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Md_naw = &
-naw_type(19,transpose(reshape([&
+type(naw_t), parameter, public :: Md_naw = &
+naw_t(19,transpose(reshape([&
 244.0_dp,244.081157_dp,0.000402_dp,&
 245.0_dp,245.080864_dp,0.000279_dp,&
 246.0_dp,246.081713_dp,0.000279_dp,&
@@ -5464,8 +5464,8 @@ naw_type(19,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: No_naw = &
-naw_type(17,transpose(reshape([&
+type(naw_t), parameter, public :: No_naw = &
+naw_t(17,transpose(reshape([&
 248.0_dp,248.086623_dp,0.000241_dp,&
 249.0_dp,249.087802_dp,0.000300_dp,&
 250.0_dp,250.087565_dp,0.000215_dp,&
@@ -5518,8 +5518,8 @@ naw_type(17,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Lr_naw = &
-naw_type(16,transpose(reshape([&
+type(naw_t), parameter, public :: Lr_naw = &
+naw_t(16,transpose(reshape([&
 251.0_dp,251.094289_dp,0.000215_dp,&
 252.0_dp,252.095048_dp,0.000198_dp,&
 253.0_dp,253.095033850_dp,0.000176634_dp,&
@@ -5572,8 +5572,8 @@ naw_type(16,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Rf_naw = &
-naw_type(16,transpose(reshape([&
+type(naw_t), parameter, public :: Rf_naw = &
+naw_t(16,transpose(reshape([&
 253.0_dp,253.100528_dp,0.000440_dp,&
 254.0_dp,254.100055_dp,0.000304_dp,&
 255.0_dp,255.101267_dp,0.000194_dp,&
@@ -5626,8 +5626,8 @@ naw_type(16,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Db_naw = &
-naw_type(16,transpose(reshape([&
+type(naw_t), parameter, public :: Db_naw = &
+naw_t(16,transpose(reshape([&
 255.0_dp,255.106919_dp,0.000304_dp,&
 256.0_dp,256.107674_dp,0.000201_dp,&
 257.0_dp,257.107520042_dp,0.000176741_dp,&
@@ -5680,8 +5680,8 @@ naw_type(16,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Sg_naw = &
-naw_type(16,transpose(reshape([&
+type(naw_t), parameter, public :: Sg_naw = &
+naw_t(16,transpose(reshape([&
 258.0_dp,258.113040_dp,0.000443_dp,&
 259.0_dp,259.114353_dp,0.000194_dp,&
 260.0_dp,260.114383435_dp,0.000022045_dp,&
@@ -5734,8 +5734,8 @@ naw_type(16,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Bh_naw = &
-naw_type(19,transpose(reshape([&
+type(naw_t), parameter, public :: Bh_naw = &
+naw_t(19,transpose(reshape([&
 260.0_dp,260.121443_dp,0.000211_dp,&
 261.0_dp,261.121395733_dp,0.000193026_dp,&
 262.0_dp,262.122654688_dp,0.000099919_dp,&
@@ -5788,8 +5788,8 @@ naw_type(19,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Hs_naw = &
-naw_type(18,transpose(reshape([&
+type(naw_t), parameter, public :: Hs_naw = &
+naw_t(18,transpose(reshape([&
 263.0_dp,263.128479_dp,0.000212_dp,&
 264.0_dp,264.128356330_dp,0.000031005_dp,&
 265.0_dp,265.129791744_dp,0.000025719_dp,&
@@ -5842,8 +5842,8 @@ naw_type(18,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Mt_naw = &
-naw_type(18,transpose(reshape([&
+type(naw_t), parameter, public :: Mt_naw = &
+naw_t(18,transpose(reshape([&
 265.0_dp,265.135937_dp,0.000471_dp,&
 266.0_dp,266.137062253_dp,0.000103568_dp,&
 267.0_dp,267.137189_dp,0.000540_dp,&
@@ -5896,8 +5896,8 @@ naw_type(18,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ds_naw = &
-naw_type(18,transpose(reshape([&
+type(naw_t), parameter, public :: Ds_naw = &
+naw_t(18,transpose(reshape([&
 267.0_dp,267.143726_dp,0.000219_dp,&
 268.0_dp,268.143477_dp,0.000324_dp,&
 269.0_dp,269.144750965_dp,0.000033712_dp,&
@@ -5950,8 +5950,8 @@ naw_type(18,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Rg_naw = &
-naw_type(15,transpose(reshape([&
+type(naw_t), parameter, public :: Rg_naw = &
+naw_t(15,transpose(reshape([&
 272.0_dp,272.153273_dp,0.000251_dp,&
 273.0_dp,273.153393_dp,0.000429_dp,&
 274.0_dp,274.155247_dp,0.000225_dp,&
@@ -6004,8 +6004,8 @@ naw_type(15,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Cn_naw = &
-naw_type(13,transpose(reshape([&
+type(naw_t), parameter, public :: Cn_naw = &
+naw_t(13,transpose(reshape([&
 276.0_dp,276.161418_dp,0.000537_dp,&
 277.0_dp,277.163535_dp,0.000165_dp,&
 278.0_dp,278.164083_dp,0.000470_dp,&
@@ -6058,8 +6058,8 @@ naw_type(13,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Nh_naw = &
-naw_type(13,transpose(reshape([&
+type(naw_t), parameter, public :: Nh_naw = &
+naw_t(13,transpose(reshape([&
 278.0_dp,278.170725_dp,0.000240_dp,&
 279.0_dp,279.171187_dp,0.000644_dp,&
 280.0_dp,280.173098_dp,0.000429_dp,&
@@ -6112,8 +6112,8 @@ naw_type(13,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Fl_naw = &
-naw_type(8,transpose(reshape([&
+type(naw_t), parameter, public :: Fl_naw = &
+naw_t(8,transpose(reshape([&
 284.0_dp,284.181192_dp,0.000704_dp,&
 285.0_dp,285.183503_dp,0.000433_dp,&
 286.0_dp,286.184226_dp,0.000590_dp,&
@@ -6166,8 +6166,8 @@ naw_type(8,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Mc_naw = &
-naw_type(6,transpose(reshape([&
+type(naw_t), parameter, public :: Mc_naw = &
+naw_t(6,transpose(reshape([&
 287.0_dp,287.190820_dp,0.000475_dp,&
 288.0_dp,288.192879_dp,0.000575_dp,&
 289.0_dp,289.193971_dp,0.000834_dp,&
@@ -6220,8 +6220,8 @@ naw_type(6,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Lv_naw = &
-naw_type(5,transpose(reshape([&
+type(naw_t), parameter, public :: Lv_naw = &
+naw_t(5,transpose(reshape([&
 289.0_dp,289.198023_dp,0.000540_dp,&
 290.0_dp,290.198635_dp,0.000593_dp,&
 291.0_dp,291.201014_dp,0.000669_dp,&
@@ -6274,8 +6274,8 @@ naw_type(5,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Ts_naw = &
-naw_type(4,transpose(reshape([&
+type(naw_t), parameter, public :: Ts_naw = &
+naw_t(4,transpose(reshape([&
 291.0_dp,291.205748_dp,0.000640_dp,&
 292.0_dp,292.207861_dp,0.000718_dp,&
 293.0_dp,293.208727_dp,0.000835_dp,&
@@ -6328,8 +6328,8 @@ naw_type(4,transpose(reshape([&
 -1.0_dp, -1.0_dp, -1.0_dp &
 ], shape=[3, 50])))
 
-type(naw_type), parameter, public :: Og_naw = &
-naw_type(3,transpose(reshape([&
+type(naw_t), parameter, public :: Og_naw = &
+naw_t(3,transpose(reshape([&
 293.0_dp,293.213423_dp,0.000761_dp,&
 294.0_dp,294.213979_dp,0.000594_dp,&
 295.0_dp,295.216178_dp,0.000703_dp,&

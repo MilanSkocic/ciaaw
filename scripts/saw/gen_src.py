@@ -24,9 +24,9 @@ def write_module_start(f, year):
 
 def write_constant(f, symbol, z, saw_min, saw_max, saw, saw_u, asaw, asaw_u):
     
-    f.write(f"type(saw_type), parameter, public :: "+\
+    f.write(f"type(saw_t), parameter, public :: "+\
                 f"{symbol}_saw = " +\
-                f"saw_type({saw_min:s}_dp, {saw_max:s}_dp, {saw:s}_dp, {saw_u:s}_dp, {asaw:s}_dp, {asaw_u}_dp) !! {symbol:s}" + newline)
+                f"saw_t({saw_min:s}_dp, {saw_max:s}_dp, {saw:s}_dp, {saw_u:s}_dp, {asaw:s}_dp, {asaw_u}_dp) !! {symbol:s}" + newline)
     
     #f.write(newline)
 
