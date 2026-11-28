@@ -41,7 +41,7 @@ main = "tester.f90"
 
 [dependencies]
 stdlib="*"
-codata = {git="https://github.com/MilanSkocic/codata.git", tag="2.6.1"}
+codata = {git="https://github.com/MilanSkocic/codata.git", tag="2.7.0"}
 
 [test.dependencies]
 test-drive = {git="https://github.com/fortran-lang/test-drive", tag="v0.5.0"}
