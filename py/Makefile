@@ -15,13 +15,19 @@ all: package
 
 # ---------------------------------------------------------------------
 # COMPILATION
-package: python3.10 python3.11 python3.12 python3.13 python3.14 sdist
+package: python3.11 python3.12 python3.13 python3.14 sdist
 
 auditwheel: $(SETUP)
 	$(FPM_AW)
 
 sdist: $(SETUP)
-	$(FPM_PY)3.14 -m build --no-isolation --sdist
+	$(FPM_PY)3.15 -m build --no-isolation --sdist
+
+python3.15: $(SETUP)
+	@echo "########### PYTHON 3.15 ##########"
+	$(FPM_PY)3.15 setup.py build_ext --inplace
+	$(FPM_PY)3.15 -m build --no-isolation --wheel
+	@echo "#################################"
 
 python3.14: $(SETUP)
 	@echo "########### PYTHON 3.14 ##########"
@@ -47,13 +53,10 @@ python3.11: $(SETUP)
 	$(FPM_PY)3.11 -m build --no-isolation --wheel
 	@echo "#################################"
 
-python3.10: $(SETUP)
-	@echo "########### PYTHON 3.10 ##########"
-	$(FPM_PY)3.10 setup.py build_ext --inplace
-	$(FPM_PY)3.10 -m build --no-isolation --wheel
-	@echo "#################################"
+test: test3.11 test3.12 test3.13 test3.14 test3.15
 
-test: test3.10 test3.11 test3.12 test3.13 test3.14
+test3.15: python3.15
+	$(FPM_PY)3.15 -m pytest -v
 
 test3.14: python3.14
 	$(FPM_PY)3.14 -m pytest -v
@@ -67,11 +70,8 @@ test3.12: python3.12
 test3.11: python3.11
 	$(FPM_PY)3.11 -m pytest -v
 
-test3.10: python3.10
-	$(FPM_PY)3.10 -m pytest -v
-
-example: python3.14
-	$(FPM_PY)3.14 ../example/example.py
+example: python3.15
+	$(FPM_PY)3.15 ../example/example.py
 # ---------------------------------------------------------------------
 
 
