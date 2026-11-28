@@ -17,9 +17,9 @@ jobs:
         compiler: gcc
         version: 14
     - name: Set fpm
-      uses: fortran-lang/setup-fpm@v8
+      uses: fortran-lang/setup-fpm@v12
       with: 
-        fpm-version: "v0.12"
+        fpm-version: "v0.14"
     - name: Versions
       run : |
         gfortran --version
