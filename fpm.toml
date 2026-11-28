@@ -3,7 +3,7 @@ version = "VERSION"
 license = "MIT"
 author = "Milan Skocic"
 maintainer = "milan.skocic@gmail.com"
-copyright = "Copyright 2023-2025, Milan Skocic"
+copyright = "Copyright 2023-2026, Milan Skocic"
 description = "Standard atomic weights according to CIAAW."
 categories = ["Science", "Chemistry"]
 keywords = ["atomic weights", "molar masses", "ciaaw", "isotopes"]
@@ -41,8 +41,7 @@ main = "tester.f90"
 
 [dependencies]
 stdlib="*"
-M_CLI2 = {git="https://github.com/urbanjost/M_CLI2.git"}
-codata = {git="https://github.com/MilanSkocic/codata.git"}
+codata = {git="https://github.com/MilanSkocic/codata.git", tag="2.7.0"}
 
 [test.dependencies]
 test-drive = {git="https://github.com/fortran-lang/test-drive", tag="v0.5.0"}

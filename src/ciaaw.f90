@@ -9,12 +9,12 @@ use ciaaw__common, only: dp, int32, optval, &
                          ieee_is_nan, ieee_quiet_nan, ieee_value, &
                          c_ptr, c_int, c_bool, c_double, c_null_char, &
                          c_f_pointer, c_loc
-use ciaaw__types, only: element_type, ice_nan
+use ciaaw__types, only: element_t, ice_nan
 use ciaaw__pte, only: pt
 implicit none(type,external)
 private
 
-character(len=*), parameter, private :: v = '1.3.3'
+character(len=*), parameter, private :: v = '1.4.0'
 character(len=:), allocatable, target :: vf
 character(len=:), allocatable, target :: vc
 
@@ -168,7 +168,7 @@ function is_in_pt(z)result(res)
 integer(int32), intent(in) :: z  !! Atomic number
 logical :: res                   !! True or False
 
-if((z<1) .or. (z>size(pt))) then
+if((z<1) .or. (z>pt(size(pt))%z)) then
     res = .false.
 else
     res = .true.
@@ -181,7 +181,7 @@ character(len=*), intent(in) :: s    !! Element symbol
 integer(int32) :: res                !! >0 if found and -1 if not found.
 
 integer(int32) :: i
-type(element_type) :: elmt
+type(element_t) :: elmt
 
 res = -1
 

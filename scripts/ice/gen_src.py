@@ -29,8 +29,8 @@ def write_constant(f, symbol, A, value, uncertainty):
     else:
         n = len(A)
 
-    f.write(f"type(ice_type), parameter, public :: {symbol}_ice = &"+newline)
-    f.write(f"ice_type({n:d},transpose(reshape([&" + newline)
+    f.write(f"type(ice_t), parameter, public :: {symbol}_ice = &"+newline)
+    f.write(f"ice_t({n:d},transpose(reshape([&" + newline)
     
     k = 1
     if n > 0:
