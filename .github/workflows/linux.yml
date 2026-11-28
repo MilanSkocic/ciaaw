@@ -37,8 +37,8 @@ jobs:
        python3.11 -m pip install -U --user pip setuptools wheel build auditwheel
        python3.12 -m pip install -U --user pip setuptools wheel build auditwheel
        python3.13 -m pip install -U --user pip setuptools wheel build auditwheel
-       python3.14 -m pip install -U --user pip setuptools wheel build auditwheel
-       python3.15 -m pip install -U --user pip setuptools wheel build auditwheel
+       python3.14 -m pip install -U --user pip setuptools wheel build "auditwheel<=6.7"
+       python3.15 -m pip install -U --user pip setuptools wheel build "auditwheel<=6.7"
     - name: Checkout
       uses: actions/checkout@v4
     - name: Configure
